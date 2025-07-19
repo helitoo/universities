@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Holland codes</title>
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="shortcut icon"
+      href="../assets/logo/favicon.png"
+      type="image/x-icon"
+    />
+    <!-- Select picker -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+    <!-- Other style -->
+    <link rel="stylesheet" href="../styles/additional_style.css" />
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <!-- Script -->
+    <script type="module" src="../script/holland.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary mb-5 sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/index.html"
+          ><img src="../assets/logo/logo.png" alt="logo" style="height: 8vh"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./filter.html">Bộ lọc tìm kiếm</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./holland.html"
+                >Trắc nghiệm hướng nghiệp</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./query_result.html"
+                >Kết quả tìm kiếm</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./compare.html">So sánh</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Tra cứu thông tin
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="./introduce_industry_school.html"
+                    target="_blank"
+                    >Giới thiệu ngành - trường Đại học</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="./regulation_uni_admission.html"
+                    target="_blank"
+                    >Sổ tay Tuyển sinh Đại học</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="./regulation_uni_training.html"
+                    target="_blank"
+                    >Sổ tay sinh viên</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row fs-1 fw-bold mt-3 text-center" style="color: #042b92">
+        TRẮC NGHIỆM HƯỚNG NGHIỆP
+      </div>
+      <hr class="row" />
+      Bài kiểm tra này gồm có 2 phần:
+      <ul>
+        <li>
+          <strong>Phần 1: Khảo sát tính cách:</strong> Hoàn thành tại trang web
+          này.
+        </li>
+        <li>
+          <strong>Phần 2: Khảo sát năng lực:</strong> Điền dữ liệu vào trang
+          <i>Bộ lọc tìm kiếm</i>.
+        </li>
+      </ul>
+      <p style="text-align: justify">
+        Riêng đối với <i>Phần 1</i>, trang web đưa ra bài test dựa trên lý
+        thuyết "Holland codes". Theo tiến sĩ Tâm lý học
+        <i>John L.Holland</i> (1919 - 2008), con người được chia ra thành 6 loại
+        cá tính (<i> RIASEC - Holland codes </i>). Mỗi loại cá tính sẽ phù hợp
+        với một số lĩnh vực nghề nghiệp. Cụ thể như sau:
+      </p>
+      <img
+        src="../assets/holland.png"
+        alt="Holland's code"
+        width="90%"
+        class="d-block mx-auto"
+      />
+      <p style="text-align: justify">
+        Cho đến hiện đại, Holland codes vẫn là bộ công cụ phổ biến được dùng để
+        khảo sát tính cách và hướng nghiệp trên thế giới và được tin dùng bởi
+        nhiều trường Đại học.
+      </p>
+      <p style="text-align: justify">
+        Trang web Cổng Đại học kết hợp sử dụng Holland codes (để khảo sát tính
+        cách) và dữ liệu về điểm, ngành, trường để góp ý một số ngành - trường
+        phù hợp nhất cho các bạn. Các bạn có thể làm bài Holland codes trực tiếp
+        ở trang này:
+      </p>
+      <div class="form-check">
+        <label class="form-check-label fw-bold" for="apply-holland">
+          Áp dụng kết quả tính cách ở trang này để tìm ngành.
+        </label>
+        <input
+          class="form-check-input"
+          data-subject="type"
+          type="checkbox"
+          checked
+          id="apply-holland"
+        />
+      </div>
+      <div class="row mt-4 mb-2">
+        <div
+          class="col col-2 text-white d-flex justify-content-center align-items-center fw-bold"
+          style="background-color: #042b92"
+        >
+          Câu 1 - 42
+        </div>
+        <div class="col bg-body-secondary fst-italic fw-bold">
+          Mỗi câu hỏi dưới đây là 1 công việc. Hãy đánh giá
+          <span style="color: #042b92"> mức độ yêu thích HOẶC tần suất </span>
+          bạn hay làm những việc đó.
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="holland-0" class="form-label fw-bold"
+            >Câu 1: Làm việc với máy móc, linh kiện.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-0"
+            data-index="0"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-1" class="form-label fw-bold"
+            >Câu 2: Giải những câu đố / trò chơi (Rupik, Sudocu...)</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-1"
+            data-index="1"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-2" class="form-label fw-bold"
+            >Câu 3: Xây dựng một công trình gì đó.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-2"
+            data-index="2"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-3" class="form-label fw-bold"
+            >Câu 4: Làm thí nghiệm để minh chứng một điều gì đó</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-3"
+            data-index="3"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-4" class="form-label fw-bold"
+            >Câu 5: Chăm sóc / Quan tâm tới động vật.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-4"
+            data-index="4"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-5" class="form-label fw-bold"
+            >Câu 6: Khám phá khoa học.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-5"
+            data-index="5"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-6" class="form-label fw-bold"
+            >Câu 7: Láp ráp các thành phần lại với nhau.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-6"
+            data-index="6"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-7" class="form-label fw-bold"
+            >Câu 8: Vẽ biểu đồ, sơ đồ,…</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-7"
+            data-index="7"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-8" class="form-label fw-bold"
+            >Câu 9: Nấu ăn.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-8"
+            data-index="8"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-9" class="form-label fw-bold"
+            >Câu 10: Phân tích nguồn gốc vấn đề.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-9"
+            data-index="9"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-10" class="form-label fw-bold"
+            >Câu 11: Làm những việc có ý nghĩa rõ ràng, thực tế.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-10"
+            data-index="10"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-11" class="form-label fw-bold"
+            >Câu 12: Làm việc với những con số.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-11"
+            data-index="11"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-12" class="form-label fw-bold"
+            >Câu 13: Làm việc ngoài trời.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-12"
+            data-index="12"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-13" class="form-label fw-bold"
+            >Câu 14: Khảo sát, thu thập dữ liệu.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-13"
+            data-index="13"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-14" class="form-label fw-bold"
+            >Câu 15: Làm việc độc lập.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-14"
+            data-index="14"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-15" class="form-label fw-bold"
+            >Câu 16: Làm việc nhóm.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-15"
+            data-index="15"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-16" class="form-label fw-bold"
+            >Câu 17: Xem tranh, nghe nhạc.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-16"
+            data-index="16"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-17" class="form-label fw-bold"
+            >Câu 18: Chỉ dẫn người khác.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-17"
+            data-index="17"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-18" class="form-label fw-bold"
+            >Câu 19: Viết lách.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-18"
+            data-index="18"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-19" class="form-label fw-bold"
+            >Câu 20: Giúp người khác giải quyết vấn đề của họ.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-19"
+            data-index="19"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-20" class="form-label fw-bold"
+            >Câu 21: Sáng tạo, phá cách.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-20"
+            data-index="20"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-21" class="form-label fw-bold"
+            >Câu 22: Giúp người khác khi họ gặp sự cố khẩn cấp.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-21"
+            data-index="21"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-22" class="form-label fw-bold"
+            >Câu 23: Hát.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-22"
+            data-index="22"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-23" class="form-label fw-bold"
+            >Câu 24: Tìm hiểu văn hóa.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-23"
+            data-index="23"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-24" class="form-label fw-bold"
+            >Câu 25: Biểu diễn.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-24"
+            data-index="24"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-25" class="form-label fw-bold"
+            >Câu 26: Cùng nhau trao đổi về một vấn đề nào đó.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-25"
+            data-index="25"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-26" class="form-label fw-bold">Câu 27: Vẽ.</label>
+          <select
+            class="form-select holland-p"
+            id="holland-26"
+            data-index="26"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-27" class="form-label fw-bold"
+            >Câu 28: Lắng nghe người khác chia sẻ.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-27"
+            data-index="27"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-28" class="form-label fw-bold"
+            >Câu 29: Có nhiều tham vọng, hoài bão.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-28"
+            data-index="28"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-29" class="form-label fw-bold"
+            >Câu 30: Sắp xếp mọi thứ ngăn nắp, có thứ tự.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-29"
+            data-index="29"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-30" class="form-label fw-bold"
+            >Câu 31: Gây ảnh hưởng / thuyết phục người khác.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-30"
+            data-index="30"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-31" class="form-label fw-bold"
+            >Câu 32: Vạch ra lộ trình và làm theo lộ trình.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-31"
+            data-index="31"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-32" class="form-label fw-bold"
+            >Câu 33: Kiếm tiền.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-32"
+            data-index="32"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-33" class="form-label fw-bold"
+            >Câu 34: Làm việc với sự tập trung cao độ và lâu dài.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-33"
+            data-index="33"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-34" class="form-label fw-bold"
+            >Câu 35: Đảm nhận nhiều nhiệm vụ liên tiếp.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-34"
+            data-index="34"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-35" class="form-label fw-bold"
+            >Câu 36: Chú ý vào sự tỷ mỷ, tinh tế, khéo léo.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-35"
+            data-index="35"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-36" class="form-label fw-bold"
+            >Câu 37: Khởi nghiệp, tự tạo sự nghiệp riêng.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-36"
+            data-index="36"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-37" class="form-label fw-bold"
+            >Câu 38: Làm việc văn phòng.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-37"
+            data-index="37"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-38" class="form-label fw-bold"
+            >Câu 39: Làm lãnh đạo, người dẫn đầu.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-38"
+            data-index="38"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-39" class="form-label fw-bold"
+            >Câu 40: Phân chia công việc theo trình tự, quy củ.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-39"
+            data-index="39"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="holland-40" class="form-label fw-bold"
+            >Câu 41: Phát biểu trước đám đông.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-40"
+            data-index="40"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="holland-41" class="form-label fw-bold"
+            >Câu 42: Quản lý tài liệu.</label
+          >
+          <select
+            class="form-select holland-p"
+            id="holland-41"
+            data-index="41"
+            aria-label="Default select example"
+          >
+            <option value="-3">Ghét / Không bao giờ làm</option>
+            <option value="0">Bình thường / Thi thoảng / Chưa từng làm</option>
+            <option value="1">Thích / Muốn làm</option>
+            <option value="3">Yêu thích / Thường xuyên làm</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="text-end fst-italic">(hawaiipublicschools.org)</p>
+      <div class="row mt-4 mb-2">
+        <div
+          class="col col-2 text-white d-flex justify-content-center align-items-center fw-bold"
+          style="background-color: #042b92"
+        >
+          Câu 43 - 49
+        </div>
+        <div class="col bg-body-secondary">
+          <div class="fst-italic fw-bold mt-2">
+            Mỗi câu hỏi dưới đây là 1 câu chuyện. Hãy đánh giá
+            <span style="color: #042b92">mức độ tán thành</span>
+            của bạn đối với những câu chuyện đó.
+          </div>
+          <div class="fst-italic">
+            Chú ý: Những mẫu chuyện này không có chức năng tuyên truyền mà chỉ
+            có mục đích như đã nêu trên.
+          </div>
+        </div>
+      </div>
+      <!-- Holland question -->
+      <div class="row">
+        <div class="col col-2 fw-bold">Câu 43</div>
+        <div class="col">
+          <p>
+            Bạn đạt điểm thấp trong bài thi và có dấu hiệu học tập xuống dốc.
+            Bạn thường làm gì tiếp theo?
+          </p>
+          <label for="holland-r43" class="form-label fw-bold"
+            >Cần phải tăng cường ôn luyện khẩn cấp.</label
+          >
+          <select
+            name="holland-r43"
+            id="holland-r43"
+            class="form-select mb-3 multi-holland-p"
+            data-index="0"
+            data-subject="r"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-i43" class="form-label fw-bold"
+            >Tìm hiểu kỹ lý do sa sút trước khi đưa ra quyết định.</label
+          >
+          <select
+            name="holland-i43"
+            id="holland-i43"
+            data-index="0"
+            data-subject="i"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-a43" class="form-label fw-bold"
+            >Tìm cảm hứng học tập hoặc thư giãn trước khi học tập.</label
+          >
+          <select
+            name="holland-a43"
+            id="holland-a43"
+            data-index="0"
+            data-subject="a"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-s43" class="form-label fw-bold"
+            >Tìm một ai đó để giúp đỡ.</label
+          >
+          <select
+            name="holland-s43"
+            id="holland-s43"
+            data-index="0"
+            data-subject="s"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-e43" class="form-label fw-bold"
+            >Đặt lại mục tiêu cho phù hợp với bản thân và hành động.</label
+          >
+          <select
+            name="holland-e43"
+            id="holland-e43"
+            data-index="0"
+            data-subject="e"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-c43" class="form-label fw-bold"
+            >Phác thảo kế hoạch ôn luyện và hành động.</label
+          >
+          <select
+            name="holland-c43"
+            id="holland-c43"
+            data-index="0"
+            data-subject="c"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+        </div>
+      </div>
+      <hr class="row" />
+      <div class="row">
+        <div class="col col-2 fw-bold">Câu 44</div>
+        <div class="col">
+          <p>
+            Tòa nhà Capital Gate ở Abu Dhabi (Các tiểu vương quốc Ả Rập thống
+            nhất, UAE) là tòa nhà <i>nghiêng nhất thế giới</i> với
+            <i>
+              chiều cao 160 m, nghiêng 18 độ, xây trên nền cát và thường xuyên
+              chịu những cơn bão cát khổng lồ </i
+            >.
+          </p>
+          <p>Tại sao người Ả Rập có thể làm được điều đó?</p>
+          <label for="holland-r44" class="form-label fw-bold"
+            >Vì công nghệ kỹ thuật xây dựng của họ (và các nước tham gia xây
+            dựng) rất tiên tiến.</label
+          >
+          <select
+            name="holland-r44"
+            id="holland-r44"
+            data-index="1"
+            data-subject="r"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-i44" class="form-label fw-bold"
+            >Tuy bán đảo Ả Rập có điều kiện môi trường rất khắc nghiệt nhưng nếu
+            nghiên cứu kỹ điều kiện ở đây thì họ vẫn có thể xây được.</label
+          >
+          <select
+            name="holland-i44"
+            id="holland-i44"
+            data-index="1"
+            data-subject="i"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-a44" class="form-label fw-bold"
+            >Vì họ quyết tâm tạo một biểu tượng kiến trúc ở vùng sa mạc khô cằn,
+            giúp thúc đẩy kinh tế và đời sống của mình.</label
+          >
+          <select
+            name="holland-a44"
+            id="holland-a44"
+            data-index="1"
+            data-subject="a"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-s44" class="form-label fw-bold"
+            >Vì có sự phối hợp nhịp nhàng giữa Chính phủ và người dân, giữa UAE
+            và quốc tế. Khi đoàn kết thì không gì là không thể.</label
+          >
+          <select
+            name="holland-s44"
+            id="holland-s44"
+            data-index="1"
+            data-subject="s"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-e44" class="form-label fw-bold"
+            >Họ đã phải đầu tư rất nhiều, từ tiền bạc đến công sức, thì mới làm
+            được điều đó.</label
+          >
+          <select
+            name="holland-e44"
+            id="holland-e44"
+            data-index="1"
+            data-subject="e"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-c44" class="form-label fw-bold"
+            >Vì họ đã có kế hoạch chi tiết, ngân sách rõ ràng, tuân thủ đúng các
+            quy định thi công và phối hợp nhịp nhàng giữa các bên.</label
+          >
+          <select
+            name="holland-c44"
+            id="holland-c44"
+            data-index="1"
+            data-subject="c"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+        </div>
+      </div>
+      <hr class="row" />
+      <div class="row">
+        <div class="col col-2 fw-bold">Câu 45</div>
+        <div class="col">
+          <p>Như ta đã biết:</p>
+          <p>$$ 0,3333\ldots \times 3 = 0,9999\ldots $$</p>
+          <p>Và ta cũng có:</p>
+          <p>$$ \frac{1}{3} \times 3 = 1 $$</p>
+          <p>
+            Cho nên 0,9999… = 1. Tuy nhiên, một số người lại cho rằng 0,9999… ≈
+            1 chứ không thể = được.
+          </p>
+          <label for="holland-r45" class="form-label fw-bold"
+            >Do sai số giữa 0,9999… và 1 quá nhỏ nên có thể coi là bằng
+            nhau.</label
+          >
+          <select
+            name="holland-r45"
+            id="holland-r45"
+            data-index="2"
+            data-subject="r"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-i45" class="form-label fw-bold"
+            >0,9999…=1 vì chứng minh trên hoàn toàn phù hợp với các lý thuyết
+            Toán học.</label
+          >
+          <select
+            name="holland-i45"
+            id="holland-i45"
+            data-index="2"
+            data-subject="i"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-a45" class="form-label fw-bold"
+            >Tùy vào góc nhìn mà có thể đúng hoặc sai, không ai đúng hay sai
+            hoàn toàn.</label
+          >
+          <select
+            name="holland-a45"
+            id="holland-a45"
+            data-index="2"
+            data-subject="a"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-s45" class="form-label fw-bold"
+            >Cần lắng nghe các bên chia sẻ thêm trước khi kết luận.</label
+          >
+          <select
+            name="holland-s45"
+            id="holland-s45"
+            data-index="2"
+            data-subject="s"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-e45" class="form-label fw-bold"
+            >Đúng hay sai không quan trọng, quan trọng là so sánh 0,9999… và 1
+            nhằm mục đích gì.</label
+          >
+          <select
+            name="holland-e45"
+            id="holland-e45"
+            data-index="2"
+            data-subject="e"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-c45" class="form-label fw-bold"
+            >Cần kiểm tra lại cách chứng minh trên. Liệu các thao tác nhân, chia
+            thông thường có còn đúng với các số thập phân vô hạn không?</label
+          >
+          <select
+            name="holland-c45"
+            id="holland-c45"
+            data-index="2"
+            data-subject="c"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+        </div>
+      </div>
+      <hr class="row" />
+      <div class="row">
+        <div class="col col-2 fw-bold">Câu 46</div>
+        <div class="col">
+          <p>Ma có thật không?</p>
+          <label for="holland-r46" class="form-label fw-bold"
+            >Ma không thể được nhìn, được sờ,… nên không có thật.</label
+          >
+          <select
+            name="holland-r46"
+            id="holland-r46"
+            data-index="3"
+            data-subject="r"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-i46" class="form-label fw-bold"
+            >Tùy vào quan điểm về thần học, tâm lý, sinh học,… trước khi khẳng
+            định.</label
+          >
+          <select
+            name="holland-i46"
+            id="holland-i46"
+            data-index="3"
+            data-subject="i"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-a46" class="form-label fw-bold"
+            >Dù thật hay không, quan niệm về ma là một phần của cảm xúc, văn hóa
+            và trí tưởng tượng con người.</label
+          >
+          <select
+            name="holland-a46"
+            id="holland-a46"
+            data-index="3"
+            data-subject="a"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-s46" class="form-label fw-bold"
+            >Ma có thật hay không không quan trọng, quan trọng là cần tôn trọng
+            tín ngưỡng của mỗi người.</label
+          >
+          <select
+            name="holland-s46"
+            id="holland-s46"
+            data-index="3"
+            data-subject="s"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-e46" class="form-label fw-bold"
+            >Ma có thật hay không không quan trọng, quan trọng là có thể khai
+            thác câu hỏi này vào việc gì.</label
+          >
+          <select
+            name="holland-e46"
+            id="holland-e46"
+            data-index="3"
+            data-subject="e"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-c46" class="form-label fw-bold"
+            >Có rất nhiều tài liệu cổ như Kinh Thánh, Kinh Qur'an,… cho rằng có
+            ma. Còn các nghiên cứu khoa học hiện đại thì vẫn còn mơ hồ về hiện
+            tượng này. Nên nhiều khả năng là ma có thật.</label
+          >
+          <select
+            name="holland-c46"
+            id="holland-c46"
+            data-index="3"
+            data-subject="c"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+        </div>
+      </div>
+      <hr class="row" />
+      <div class="row">
+        <div class="col col-2 fw-bold">Câu 47</div>
+        <div class="col">
+          <p style="text-align: justify">
+            Năm 1985, Coca-Cola ra mắt New Coke, thay thế cho sản phẩm cũ
+            Classic Coke.
+          </p>
+          <p style="text-align: justify">
+            Công ty Coca-Cola đã tiến hành thí nghiệm với 200000 người và kết
+            luận rằng New Coke ngon hơn Pepsi - đối thủ truyền kiếp của
+            Coca-Cola. Dựa vào kết quả này, công ty đã loại bỏ hoàn toàn Classic
+            Coke và thay bằng New Coke. Coca-Cola cho rằng đây là một giải pháp
+            tốt để đẩy Pepsi ra khỏi thị trường.
+          </p>
+          <p style="text-align: justify">
+            Tuy nhiên, New Coke đã thất bại, người dùng không quen với loại thức
+            uống mới này, họ thích Classic Coke hơn. Vậy là, Coca-Cola phải quay
+            về Classic Coke cũ.
+          </p>
+          <label for="holland-r47" class="form-label fw-bold"
+            >New Coke có thể đã ngon hơn. Nhưng cách tiếp thị sai lầm (bỏ qua
+            yếu tố truyền thống) đã làm sản phẩm này thất bại.</label
+          >
+          <select
+            name="holland-r47"
+            id="holland-r47"
+            data-index="4"
+            data-subject="r"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-i47" class="form-label fw-bold"
+            >Việc không thu thập phản hồi về yếu tố tinh thần, tức lý do người
+            dùng chọn Classic Coke (kỷ niệm, thói quen, giá trị thương hiệu) –
+            dẫn đến sai lầm trong phân tích khi cho rằng ngon hơn về hương vị là
+            yếu tố quyết định duy nhất.</label
+          >
+          <select
+            name="holland-i47"
+            id="holland-i47"
+            data-index="4"
+            data-subject="i"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-a47" class="form-label fw-bold"
+            >Nhận diện thương hiệu của Classic Coke đã được khắc sâu trong văn
+            hóa qua logo cong, màu đỏ trắng và cảm giác hoài cổ. New Coke đã phá
+            vỡ hình ảnh đó, khiến người tiêu dùng cảm thấy mất mát tính nghệ
+            thuật và giá trị cảm xúc gắn liền với thương hiệu cũ.</label
+          >
+          <select
+            name="holland-a47"
+            id="holland-a47"
+            data-index="4"
+            data-subject="a"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-s47" class="form-label fw-bold"
+            >Phản ứng của cộng đồng người hâm mộ Classic Coke cho thấy sự gắn bó
+            về mặt xã hội với thương hiệu: họ không chỉ uống Coke vì vị ngon mà
+            còn vì cảm giác thân thuộc – điều New Coke chưa đáp ứng được.</label
+          >
+          <select
+            name="holland-s47"
+            id="holland-s47"
+            data-index="4"
+            data-subject="s"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-e47" class="form-label fw-bold"
+            >Sau khi thất bại, việc Coca-Cola phải hồi sinh Classic Coke, tiêu
+            tốn thêm chi phí marketing và làm giảm uy tín thương hiệu; đây là
+            bài học về chi phí cơ hội khi không tính toán kỹ phương án phòng
+            ngừa trước khi ra quyết định.</label
+          >
+          <select
+            name="holland-e47"
+            id="holland-e47"
+            data-index="4"
+            data-subject="e"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-c47" class="form-label fw-bold"
+            >Quy trình ra quyết định của ban lãnh đạo là chỉ dựa vào kết quả thử
+            nếm vị cho thấy lỗ hổng trong quy trình quản trị dự án và phê duyệt
+            sản phẩm mới.</label
+          >
+          <select
+            name="holland-c47"
+            id="holland-c47"
+            data-index="4"
+            data-subject="c"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+        </div>
+      </div>
+      <hr class="row" />
+      <div class="row">
+        <div class="col col-2 fw-bold">Câu 48</div>
+        <div class="col">
+          <p>Vào ngày 16/5/2025, một hội thảo do 3 người tổ chức bao gồm:</p>
+          <ul>
+            <li>
+              Corrado Malanga, Tiến sĩ chuyên ngành Hóa học ứng dụng và Vật Lý
+              cơ bản.
+            </li>
+            <li>Armando Mei, Tiến sĩ Lịch sử và nhà Ai Cập học.</li>
+            <li>Filippo Biondi, chuyên gia công nghệ SAR (nói rõ sau).</li>
+          </ul>
+          <p style="text-align: justify">
+            Tại buổi hội thảo, nhóm đã phát hiện tám giếng thẳng đứng sâu 648 m
+            và 2 không gian khổng lồ nằm sâu 700 m dưới nền 3 kim tự tháp, mở ra
+            nhiều nghi vấn về nguồn gốc và mục đích của các cấu trúc này, có thể
+            liên quan đến nền văn minh cổ đại vượt bậc. Nhóm do tiến sĩ Corrado
+            dẫn đầu còn phát hiện hệ thống không gian phức tạp trong kim tự tháp
+            Khafre, với năm cấu trúc tương tự phòng mộ, làm dấy lên thắc mắc mới
+            về chức năng thực sự của kim tự tháp Ai Cập.
+          </p>
+          <p style="text-align: justify">
+            Để thực hiện nghiên cứu này, nhóm các nhà khoa học đã phải sử dụng
+            một phương pháp mới để “nhìn” xuống bên dưới các kim tự tháp được
+            gọi là SAR. Họ bắn các xung radar từ hai vệ tinh trên quỹ đạo xuống
+            kim tự tháp và phân tích cách các tín hiệu phản xạ lại. Những tín
+            hiệu này được chuyển thành sóng âm để tạo ra hình ảnh 3D về các cấu
+            trúc ẩn dưới lòng đất.
+          </p>
+          <p style="text-align: justify">
+            Tuy nhiên, phát hiện trên vấp phải sự phản đối mạnh mẽ của các
+            chuyên gia khảo cổ, đặc biệt là tiến sĩ Zahi Hawass, cựu Bộ trưởng
+            Bộ Cổ vật Ai Cập, người cho rằng các kết quả này thiếu cơ sở khoa
+            học và có nhiều lỗi kỹ thuật. Cụ thể, trong hội thảo, nhóm nghiên
+            cứu đã nói rằng các kim tự tháp xây bằng đá granit thay vì đá vôi,
+            và các hình ảnh radar không tương thích với cấu trúc thực tế cho
+            thấy độ chính xác của công nghệ này không cao. Trên thực tế, Filippo
+            Biondi được cho là chỉ từng sử dụng SAR để quét các công trình nhỏ
+            lẻ thay vì một cấu trúc đồ sộ và vĩ đại như các kim tự tháp ở Giza.
+            Khi được chất vấn, nhóm lại nói bâng quơ để né tránh; buổi hội thảo
+            được tổ chức bằng tiếng Ý thay vì tiếng Anh; cùng với một số lỗi
+            khác cho thấy sự thiếu chuyên nghiệp của những “nhà khoa học” này.
+            Thậm chí, có người dùng Internet đã đưa ra một số bằng chứng để bác
+            bỏ học vị của những nhân vật trên.
+          </p>
+          <p style="text-align: justify">
+            Sau đó, nhóm đã đề nghị Chính phủ Ai Cập cho phép thực hiện các cuộc
+            khảo sát quy mô hơn. Tuy nhiên, cho đến nay, đề nghị này vẫn chưa
+            được hồi đáp.
+          </p>
+          <p class="text-end fst-italic">(Thế giới cổ đại)</p>
+          <label for="holland-r48" class="form-label fw-bold"
+            >Cần có một nghiên cứu chuyên sâu hơn về công nghệ SAR để kiểm định
+            độ chính xác của nó.</label
+          >
+          <select
+            name="holland-r48"
+            id="holland-r48"
+            data-index="5"
+            data-subject="r"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-i48" class="form-label fw-bold"
+            >Các kim tự tháp quá đồ sộ để được khảo sát chỉ bằng SAR, cần khảo
+            sát bằng các phương pháp khác để làm phong phú dữ liệu mẫu.</label
+          >
+          <select
+            name="holland-i48"
+            id="holland-i48"
+            data-index="5"
+            data-subject="i"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-a48" class="form-label fw-bold"
+            >Các phát hiện mới này có thể đưa đến một hướng sáng tác nghệ thuật
+            mới, đó là những thế giới ngầm bên dưới các kim tự tháp, thay vì chỉ
+            đơn giản dừng lại ở các hầm mộ.</label
+          >
+          <select
+            name="holland-a48"
+            id="holland-a48"
+            data-index="5"
+            data-subject="a"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-s48" class="form-label fw-bold"
+            >Các nghiên cứu này có thể đã làm ảnh hưởng xấu đến tín ngưỡng đối
+            với các kim tự tháp của người dân Ai Cập.</label
+          >
+          <select
+            name="holland-s48"
+            id="holland-s48"
+            data-index="5"
+            data-subject="s"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-e48" class="form-label fw-bold"
+            >Nhóm nghiên cứu cần tái xây dựng một kế hoạch khác thuyết phục hơn
+            để nhận được sự ủng hộ của công chúng và Chính phủ, thay vì những bê
+            bối như hiện nay.</label
+          >
+          <select
+            name="holland-e48"
+            id="holland-e48"
+            data-index="5"
+            data-subject="e"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-c48" class="form-label fw-bold"
+            >Những nghiên cứu của các nhà khoa học tư nhân không có kiểm soát đã
+            gây ra nhiều tranh cãi trong xã hội, Chính phủ cần can thiệp đến các
+            tổ chức này.</label
+          >
+          <select
+            name="holland-c48"
+            id="holland-c48"
+            data-index="5"
+            data-subject="c"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+        </div>
+      </div>
+      <hr class="row" />
+      <div class="row">
+        <div class="col col-2 fw-bold">Câu 49</div>
+        <div class="col">
+          <p style="text-align: justify">
+            Vào ngày 11/3/2011, một trận động đất mạnh đến 9 độ richter đã xảy
+            ra ở ngoài khơi nhà máy điện hạt nhân Fukushima Daiichi. Khi đó, các
+            lò phản ứng số 1, 2 và 3 tại nhà máy vẫn đang hoạt động. Mặc dù hệ
+            thống cảnh báo sớm đã tự động dừng các lò phản ứng, nhưng các thanh
+            nhiên liệu vẫn tiếp tục sinh nhiệt. Các kỹ sư đã cố gắng kích hoạt
+            hệ thống làm mát khẩn cấp và vận hành bằng các máy phát điện diesel
+            tạm thời. Nhưng chỉ 45 phút sau, một cơn sóng thần cao hơn 14 m ập
+            vào, làm ngập nhà máy và phá hủy hệ thống điện.
+          </p>
+          <p style="text-align: justify">
+            Từ đó, những ngày đen tối bắt đầu. Hệ thống làm mát ngừng hoạt động,
+            nhiệt độ tăng cao khiến các thanh nhiên liệu nóng chảy, tạo ra khí
+            hydro tích tụ và gây ra hàng loạt vụ nổ tại các lò phản ứng số 1, 2
+            và 3. Trong cơn hỗn loạn ấy, 800 nhân viên được lệnh sơ tán, nhưng
+            khoảng 50 người – gồm kỹ sư, công nhân và quản lý – đã tình nguyện ở
+            lại chiến đấu với thảm họa. Họ được cả thế giới biết đến với cái tên
+            “Fukushima 50” – những người hùng thầm lặng, chấp nhận nguy hiểm
+            tính mạng để ngăn chặn thảm họa phóng xạ lan rộng.
+          </p>
+          <p style="text-align: justify">
+            Giám đốc nhà máy Masao Yoshida đã kiên quyết phớt lờ lệnh tạm dừng
+            bơm nước biển từ công ty quản lý TEPCO và tiếp tục chỉ đạo cấp nước
+            làm mát cho các lò phản ứng. Chính quyết định quả cảm ấy đã giúp
+            giảm nguy cơ tan chảy hoàn toàn các lõi hạt nhân. Mặc dù ba trong số
+            sáu lò phản ứng đã bị hư hỏng nặng, và lượng lớn phóng xạ bị rò rỉ
+            ra môi trường, nhưng điều tồi tệ nhất đã không xảy ra.
+          </p>
+          <p style="text-align: justify">
+            Sau thảm họa, nhiều người đã chỉ trích Chính phủ. Nhiều chuyên gia,
+            cả trong và ngoài nước, đã từng cảnh báo rằng nhà máy Fukushima
+            Daiichi không đủ khả năng chống chịu động đất hoặc sóng thần. Tuy
+            nhiên, Chính phủ lại bỏ qua những cảnh báo này. Họ để mặc TEPCO –
+            công ty điều hành nhà máy – tự đánh giá rủi ro. Nhà máy thiếu nguồn
+            cấp điện dự phòng có khả năng chống chịu sóng thần, và các thiết bị,
+            xe cứu hộ hay robot không thể tiếp cận kịp thời do địa hình và mức
+            độ nhiễm xạ cao.
+          </p>
+          <p class="text-end fst-italic">(Trạm cuối)</p>
+          <label for="holland-r49" class="form-label fw-bold"
+            >Nhà máy này chưa thật sự được trang bị đầy đủ các thiết bị và
+            phương án dự phòng cho trường hợp khẩn cấp, khiến cho hệ thống gần
+            như chết đứng khi sự cố xảy ra.</label
+          >
+          <select
+            name="holland-r49"
+            id="holland-r49"
+            data-index="6"
+            data-subject="r"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-i49" class="form-label fw-bold"
+            >Dù đã nhận được dữ liệu về sóng thần, nhà máy vẫn gặp sự cố. Cho
+            nên cần phải tập trung nghiên cứu các điều kiện khách quan và chủ
+            quan để đảm bảo sự an toàn của nhà máy.</label
+          >
+          <select
+            name="holland-i49"
+            id="holland-i49"
+            data-index="6"
+            data-subject="i"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-a49" class="form-label fw-bold"
+            >Thảm họa đã trôi qua, điều cần nhất lúc này là đẩy mạnh tuyên
+            truyền về sự nguy hiểm của thiên tai, giúp nâng cao ý thức của mọi
+            người, qua đó làm giảm các sự cố trong tương lai.</label
+          >
+          <select
+            name="holland-a49"
+            id="holland-a49"
+            data-index="6"
+            data-subject="a"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-s49" class="form-label fw-bold"
+            >Phản ứng chỉ trích từ công chúng đã tạo ra làn sóng tranh luận về
+            trách nhiệm xã hội của các bên quản lý năng lượng hạt nhân, đòi hỏi
+            gia tăng tính minh bạch và đối thoại mở giữa Chính phủ, doanh nghiệp
+            và người dân.</label
+          >
+          <select
+            name="holland-s49"
+            id="holland-s49"
+            data-index="6"
+            data-subject="s"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-e49" class="form-label fw-bold"
+            >Cần thành lập các bên chuyên đảm bảo an ninh hạt nhân và xử lý
+            khủng hoảng. Quy trình vận hành các nhà máy này nghiêm ngặt hơn
+            nữa.</label
+          >
+          <select
+            name="holland-e49"
+            id="holland-e49"
+            data-index="6"
+            data-subject="e"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+          <label for="holland-c49" class="form-label fw-bold"
+            >Tồn tại một lỗ hổng trong quy trình thẩm định và giám sát an toàn
+            hạt nhân, cho thấy cần siết chặt quy định, tiêu chuẩn và kiểm định
+            định kỳ.</label
+          >
+          <select
+            name="holland-c49"
+            id="holland-c49"
+            data-index="6"
+            data-subject="c"
+            class="form-select mb-3 multi-holland-p"
+            aria-label="Default select example"
+          >
+            <option value="-3">Hoàn toàn sai</option>
+            <option value="-1">Sai nhiều hơn đúng</option>
+            <option value="0">Chưa rõ đúng sai, chưa hiểu</option>
+            <option value="1">Đúng nhiều hơn sai</option>
+            <option value="3">Hoàn toàn đúng</option>
+          </select>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col">
+          Để thuận tiện lưu trữ dữ liệu, trang web còn cung cấp tính năng
+          <i>"Tạo code"</i>. Code là một dãy ký tự là mã hóa dữ liệu mà bạn nhập
+          vào web. Bạn có thể lưu code này cho các lần dùng sau hoặc chia sẻ cho
+          bạn bè để khỏi nhập lại thông tin. Mặc định, code này sẽ được tự động
+          lưu tại trình duyệt web của bạn (LocalStorage).
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col col-8">
+          <textarea
+            id="code-replacement"
+            class="form-control"
+            style="width: 100%; height: 100%; resize: none"
+          ></textarea>
+        </div>
+        <div class="col d-flex flex-column mx-auto">
+          <button
+            type="button"
+            class="btn mb-2 w-100"
+            id="export-code"
+            style="background-color: #042b92; color: white; border: none"
+          >
+            Sao chép code vào clipboard
+          </button>
+          <button
+            type="button"
+            class="btn mb-2 w-100"
+            id="import-code"
+            style="background-color: #042b92; color: white; border: none"
+          >
+            Nạp code từ clipboard
+          </button>
+          <button
+            type="button"
+            class="btn mb-2 w-100"
+            id="import-code-raw"
+            style="background-color: #042b92; color: white; border: none"
+          >
+            Nạp code thô
+          </button>
+          <button
+            type="button"
+            class="btn w-100"
+            id="remove-code"
+            style="background-color: #042b92; color: white; border: none"
+          >
+            Xóa code khỏi trình duyệt
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer class="mt-5" style="background-color: #042b92; color: white">
+    <div class="container">
+      <div class="row row-cols-2">
+        <div class="col mt-2">
+          <strong>THÔNG TIN LIÊN HỆ</strong>
+          <ul>
+            <li>
+              <img
+                src="../assets/icons/envelope-solid.svg"
+                alt="icon"
+                style="height: 1.1em; margin-right: 0.3em"
+              />
+              <a
+                href="mailto:bao162006@gmail.com"
+                target="_blank"
+                style="text-decoration: none; color: white"
+                >bao162006@gmail.com</a
+              >
+            </li>
+            <li>
+              <img
+                src="../assets/icons/facebook-brands.svg"
+                alt="icon"
+                style="height: 1.1em; margin-right: 0.3em"
+              />
+              <a
+                href="https://www.facebook.com/thbao2k6/"
+                target="_blank"
+                style="text-decoration: none; color: white"
+                >Cao Thái bảo</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col mt-2">
+          <strong>NGUỒN DỮ LIỆU</strong>
+          <ul>
+            <li>
+              <a
+                href="https://tuyensinh247.com/"
+                target="_blank"
+                style="text-decoration: none; color: white"
+                >Tuyển sinh 247.</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://xaydungchinhsach.chinhphu.vn/"
+                target="_blank"
+                style="text-decoration: none; color: white"
+                >Báo Điện tử Chính phủ - Xây dựng chính sách, pháp luật.</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://vnexpress.net/"
+                target="_blank"
+                style="text-decoration: none; color: white"
+                >Báo VNExpress.</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://thuvienphapluat.vn/"
+                target="_blank"
+                style="text-decoration: none; color: white"
+                >Thư viện pháp luật.</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://vnur.vn/"
+                target="_blank"
+                style="text-decoration: none; color: white"
+                >VNUR.</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>
