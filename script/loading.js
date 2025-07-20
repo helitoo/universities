@@ -1,6 +1,5 @@
 const LOADING_ID = "loading-overlay";
-const STICKER_URL =
-  "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExanR6YndmbWxpbXB2OTA1NTI4M2V2YXo1bm0zYm5haWw0cWZldGgwaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cNHmTvUKJTJpfjiDLA/giphy.gif";
+const STICKER_URL = "../assets/loading-icon.gif";
 
 export function showLoading() {
   if (document.getElementById(LOADING_ID)) return;
