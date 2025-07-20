@@ -76,6 +76,7 @@ textarea:hover {
 
 button:focus,
 button:active {
+  border: none;
   transform: scale(0.96, 0.96);
   transition: 0.3s;
 }

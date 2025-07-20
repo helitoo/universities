@@ -194,7 +194,7 @@ export function getScore(index, min, max, distSize) {
 }
 
 export function getIndex(score, min, max, distSize) {
-  return Math.ceil((score - min) / getBinSize(min, max, distSize));
+  return Math.floor((score - min) / getBinSize(min, max, distSize));
 }
 
 export function getCumlative(arr) {
