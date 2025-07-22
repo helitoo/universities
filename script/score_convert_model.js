@@ -186,7 +186,7 @@ export function getInterpolate(x1, y1, x2, y2, x) {
 }
 
 export function getBinSize(min, max, distSize) {
-  return (max - min) / distSize;
+  return (max - min) / (distSize - 1);
 }
 
 export function getScore(index, min, max, distSize) {

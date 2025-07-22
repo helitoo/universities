@@ -52,7 +52,7 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary mb-5 sticky-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"
+        <a class="navbar-brand" href="/index.html"
           ><img src="../assets/logo/logo.png" alt="logo" style="height: 8vh"
         /></a>
         <button
@@ -69,7 +69,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" href="">Trang chủ</a>
+              <a class="nav-link" href="">Trang chủ</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/pages/filter.html">Bộ lọc tìm kiếm</a>
@@ -84,9 +84,6 @@
                 >Kết quả tìm kiếm</a
               >
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/pages/compare.html">So sánh</a>
-            </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -99,18 +96,21 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a
-                    class="dropdown-item"
-                    href="/pages/introduce_industry_school.html"
-                    target="_blank"
-                    >Giới thiệu ngành - trường Đại học</a
+                  <a class="dropdown-item" href="/pages/compare.html"
+                    >So sánh phổ</a
                   >
                 </li>
                 <li>
                   <a
                     class="dropdown-item"
-                    href="/pages/regulation_uni_admission.html"
-                    target="_blank"
+                    href="/pages/introduce_industry_school.html"
+                    >Xem Tổ hợp & Phương thức theo ngành</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="./pages/regulation_uni_admission.html"
                     >Sổ tay Tuyển sinh Đại học</a
                   >
                 </li>
@@ -118,7 +118,6 @@
                   <a
                     class="dropdown-item"
                     href="/pages/regulation_uni_training.html"
-                    target="_blank"
                     >Sổ tay sinh viên</a
                   >
                 </li>
@@ -177,43 +176,53 @@
         cho các thí sinh tìm ngành, tìm trường (Đại học, Học viện) dựa trên năng
         lực và sở thích của mỗi người.
       </p>
-      <img
-        src="../assets/icons/triangle-warning.png"
-        alt="references"
-        style="height: 1.3rem; margin-right: 0.2rem"
-        draggable="false"
-      />
-      <strong>Chú ý:</strong>
-      <ul>
-        <li>
-          Trang web này không phải hệ thống chính thức của Nhà nước hoặc các cơ
-          sở đào tạo nên các thông tin được đăng tải trên trang web này
-          <span class="fst-italic" style="color: #042b92">
-            không chính thống và chỉ có ý nghĩa tham khảo </span
-          >.
-        </li>
-        <li class="mt-3">
-          Sau khi sử dụng trang web và nhận được một số đề xuất về ngành và
-          trường, các bạn nên tự tra cứu thông tin tại
-          <span class="fst-italic" style="color: #042b92">
-            trang web chính thức, trang web tuyển sinh hay fanpage,... chính
-            thức của trường Đại học, fanpage chính thức của Bộ, các văn bản mà
-            Bộ công bố, </span
-          >... để đảm bảo những thông tin mà bạn nhận được đều là những thông
-          tin chính xác.
-        </li>
-        <li class="mt-3">
-          Trang web không yêu cầu đăng nhập để sử dụng các chức năng của trang
-          web. Trang web sẽ lưu các thông tin cá nhân của bạn (điểm số, thành
-          tích, tính cách) chỉ để phục vụ cho mục đích thống kê và cải thiện
-          chất lượng trang web.
-        </li>
-        <li class="mt-3">
-          Nếu phát hiện có sai phạm / có nhu cầu đóng góp, hãy điền vào
-          <a href="#bmbcdg">Biểu mẫu báo cáo / đóng góp</a>
-          hoặc liên hệ trực tiếp với tác giả qua email / Facebook bên dưới.
-        </li>
-      </ul>
+      <div class="container my-4 rounded">
+        <div class="row justify-content-center">
+          <div class="col-md-10 rounded-3 p-3 border border-danger border-2">
+            <p class="mb-2">
+              <img
+                src="../assets/icons/triangle-warning.png"
+                alt="references"
+                style="height: 1.3rem; margin-right: 0.2rem"
+                draggable="false"
+              />
+              <strong class="text-danger">Chú ý:</strong>
+            </p>
+            <ul class="mb-0">
+              <li>
+                Trang web này không phải hệ thống chính thức của Nhà nước hoặc
+                các cơ sở đào tạo nên các thông tin được đăng tải trên trang web
+                này
+                <span class="fst-italic" style="color: #042b92">
+                  không chính thống và chỉ có ý nghĩa tham khảo </span
+                >.
+              </li>
+              <li class="mt-2">
+                Sau khi sử dụng trang web và nhận được một số đề xuất về ngành
+                và trường, các bạn nên tự tra cứu thông tin tại
+                <span class="fst-italic" style="color: #042b92">
+                  trang web chính thức, trang web tuyển sinh hay fanpage,...
+                  chính thức của trường Đại học, fanpage chính thức của Bộ, các
+                  văn bản mà Bộ công bố, </span
+                >... để đảm bảo những thông tin mà bạn nhận được đều là những
+                thông tin chính xác.
+              </li>
+              <li class="mt-2">
+                Trang web không yêu cầu đăng nhập để sử dụng các chức năng của
+                trang web. Trang web sẽ lưu các thông tin cá nhân của bạn (điểm
+                số, thành tích, tính cách) chỉ để phục vụ cho mục đích thống kê
+                và cải thiện chất lượng trang web.
+              </li>
+              <li class="mt-2">
+                Nếu phát hiện có sai phạm / có nhu cầu đóng góp, hãy điền vào
+                <a href="#bmbcdg">Biểu mẫu báo cáo / đóng góp</a>
+                hoặc liên hệ trực tiếp với tác giả qua email / Facebook bên
+                dưới.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <div
         class="row fw-bold fs-4 mt-5 mb-3"
         style="background-color: #042b92; color: white"
@@ -221,36 +230,55 @@
       >
         <div class="col m-1">HƯỚNG DẪN SỬ DỤNG</div>
       </div>
-      <ul>
-        <li class="fw-bold" style="color: #042b92">Tìm ngành, tìm trường:</li>
-        <ol>
-          <li>
-            Vào trang
-            <a class="fw-bold mt-2" href="./filter.html">Bộ lọc tìm kiếm</a> và
-            nhập các thông tin điểm số và thành tích cá nhân (có thể bỏ qua).
-          </li>
-          <li>
-            Vào trang
-            <a class="fw-bold mt-2" href="./holland.html"
-              >Trắc nghiệm hướng nghiệp</a
-            >
-            và hoàn thành bài kiểm tra tính cách (có thể bỏ qua).
-          </li>
-          <li>
-            Vào trang
-            <a class="fw-bold mt-2" href="./query_result.html"
-              >Kết quả tìm kiếm</a
-            >
-            để xem danh sách điểm xét tuyển các phương thức, danh sách các ngành
-            và trường dựa trên những gì bạn đã cung cấp cho trang web.
-          </li>
-        </ol>
-        <li class="fw-bold mt-3" style="color: #042b92">
-          Tra cứu thông tin các ngành, các trường, thông tin tuyển sinh Đại học
-          và đào tạo Đại học.
-        </li>
-        <li class="fw-bold mt-3" style="color: #042b92">Báo cáo / Đóng góp.</li>
-      </ul>
+      <div class="container my-4 rounded">
+        <div class="row justify-content-center">
+          <div class="col-md-10 rounded-3 p-3 border border-success border-2">
+            <p class="mb-0">
+              <img
+                src="../assets/icons/comment-question.png"
+                alt="references"
+                style="height: 1.3rem; margin-right: 0.2rem"
+                draggable="false"
+              />
+              <strong class="text-success">Hướng dẫn sử dụng:</strong>
+            </p>
+            <ul class="mb-0">
+              <li class="fw-bold text-success">Tìm ngành, tìm trường:</li>
+              <ol>
+                <li>
+                  Vào trang
+                  <a class="fw-bold mt-1" href="./filter.html"
+                    >Bộ lọc tìm kiếm</a
+                  >
+                  và nhập các thông tin điểm số và thành tích cá nhân (có thể bỏ
+                  qua).
+                </li>
+                <li>
+                  Vào trang
+                  <a class="fw-bold mt-1" href="./holland.html"
+                    >Trắc nghiệm hướng nghiệp</a
+                  >
+                  và hoàn thành bài kiểm tra tính cách (có thể bỏ qua).
+                </li>
+                <li>
+                  Vào trang
+                  <a class="fw-bold mt-1" href="./query_result.html"
+                    >Kết quả tìm kiếm</a
+                  >
+                  để xem danh sách điểm xét tuyển các phương thức, danh sách các
+                  ngành và trường dựa trên những gì bạn đã cung cấp cho trang
+                  web.
+                </li>
+              </ol>
+              <li class="fw-bold mt-2 text-success">
+                Tra cứu thông tin các ngành, các trường, thông tin tuyển sinh
+                Đại học và đào tạo Đại học.
+              </li>
+              <li class="fw-bold mt-2 text-success">Báo cáo / Đóng góp.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <div
         class="row fw-bold fs-4 mt-5 mb-3"
         style="background-color: #042b92; color: white"
@@ -262,15 +290,23 @@
         Quy trình tính điểm để tìm ngành
       </div>
       <hr class="row" />
-      <img
-        src="../assets/icons/triangle-warning.png"
-        alt="references"
-        style="height: 1.3rem; margin-right: 0.2rem"
-        draggable="false"
-      />
-      <strong>Chú ý:</strong> Trang web sẽ liệt kê điểm ở toàn bộ phương thức
-      cho thí sinh xem xét, điểm sau đây chỉ để tìm các ngành trong cơ sở dữ
-      liệu.
+      <div class="container my-4 rounded">
+        <div class="row justify-content-center">
+          <div class="col-md-10 rounded-3 p-3 border border-danger border-2">
+            <p class="mb-0">
+              <img
+                src="../assets/icons/triangle-warning.png"
+                alt="references"
+                style="height: 1.3rem; margin-right: 0.2rem"
+                draggable="false"
+              />
+              <strong class="text-danger">Chú ý:</strong> Trang web sẽ liệt kê
+              điểm ở toàn bộ phương thức cho thí sinh xem xét, điểm sau đây chỉ
+              để tìm các ngành trong cơ sở dữ liệu.
+            </p>
+          </div>
+        </div>
+      </div>
       <ol>
         <li class="fw-bold mt-3" style="color: #042b92">
           Đối với phương thức dùng Học bạ THPT:

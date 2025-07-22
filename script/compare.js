@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       datasets: [],
     },
     options: {
-      animation: {},
       responsive: true,
       scales: {
         x: {

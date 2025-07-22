@@ -867,7 +867,7 @@ const major3Id_selectpicker = `<select class="selectpicker major-3-id" data-live
     <option value="7310620">Đông Nam Á học</option>
     <option value="7310630">Việt Nam học</option>
     <option value="7310690">Hoa kỳ học</option>
-    <option value="73106a1">Kinh doanh thương mại Hàn Quốc</option>
+    <option value="7310699">Kinh doanh thương mại Hàn Quốc</option>
     <option value="7320101">Báo chí</option>
     <option value="7320104">Truyền thông đa phương tiện</option>
     <option value="7320105">Truyền thông đại chúng</option>
@@ -1011,7 +1011,7 @@ const major3Id_selectpicker = `<select class="selectpicker major-3-id" data-live
     <option value="7520138">Kỹ thuật hàng hải</option>
     <option value="7520139">Kỹ thuật hệ thống công nghiệp và Logicstics</option>
     <option value="7520141">Công nghệ ô tô điện</option>
-    <option value="75201a1">Kỹ thuật robot</option>
+    <option value="7520199">Kỹ thuật robot</option>
     <option value="7520201">Kỹ thuật điện</option>
     <option value="7520204">Kỹ thuật rađa - dẫn đường</option>
     <option value="7520205">Kỹ thuật thủy âm</option>
