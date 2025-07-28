@@ -190,11 +190,11 @@ export function getBinSize(min, max, distSize) {
 }
 
 export function getScore(index, min, max, distSize) {
-  return round2(min + index * getBinSize(min, max, distSize), 2);
+  return min + index * getBinSize(min, max, distSize);
 }
 
-export function getIndex(score, min, max, distSize) {
-  return Math.floor((score - min) / getBinSize(min, max, distSize));
+export function getIndex(score, min, max, binCount) {
+  return Math.round(((score - min) / (max - min)) * (binCount - 1));
 }
 
 export function getCumlative(arr) {
@@ -212,17 +212,17 @@ export function getCumlative(arr) {
 export function getPercentile(value, distData) {
   let cumdist = getCumlative(distData.dist);
 
-  for (let i = 0; i < distData.dist.length - 1; i++) {
-    let score1 = getScore(i, distData.min, distData.max, distData.dist.length);
-    let score2 = getScore(
-      i + 1,
+  for (let i = 1; i < distData.dist.length; i++) {
+    let score1 = getScore(
+      i - 1,
       distData.min,
       distData.max,
       distData.dist.length
     );
+    let score2 = getScore(i, distData.min, distData.max, distData.dist.length);
 
     if (score1 <= value && value <= score2) {
-      let quan1 = i == 0 ? 0 : cumdist[i - 1];
+      let quan1 = cumdist[i - 1];
       let quan2 = cumdist[i];
 
       return (
@@ -237,24 +237,24 @@ export function getPercentile(value, distData) {
 }
 
 export function getScoreAtPercentile(per, distData) {
-  if (per < 0) return distData.min;
-  else if (per > 1) return distData.max;
+  if (per <= 0) return distData.min;
+  else if (per >= 1) return distData.max;
 
   let cumdist = getCumlative(distData.dist);
 
-  for (let i = 0; i < distData.dist.length; i++) {
-    let per1 = i == 0 ? 0 : cumdist[i - 1] / cumdist[cumdist.length - 1];
+  for (let i = 1; i < distData.dist.length; i++) {
+    let per1 = cumdist[i - 1] / cumdist[cumdist.length - 1];
     let per2 = cumdist[i] / cumdist[cumdist.length - 1];
 
     if (per1 <= per && per <= per2) {
       let score1 = getScore(
-        i,
+        i - 1,
         distData.min,
         distData.max,
         distData.dist.length
       );
       let score2 = getScore(
-        i + 1,
+        i,
         distData.min,
         distData.max,
         distData.dist.length
@@ -288,7 +288,7 @@ export function getCompleteScore(score, addScoreLevel, base) {
 export async function getDist(supabase, exam, subject, year, base) {
   let ans = { dist: [0, 1, 6, 0], min: 0, max: base };
 
-  if (subject == "nn") subject = "ans";
+  if (subject == "nn") subject = "an";
 
   let { data, error } = await supabase
     .from("exam_distribution")
@@ -314,53 +314,83 @@ export async function getGroupDist(
   eachBase,
   coefs
 ) {
+  // Get score array from raw dist
   function getScoreArr(distData) {
-    let ans = [];
-
-    for (let i = 0; i < distData.dist.length; i++)
-      ans.push(getScore(i, distData.min, distData.max, distData.dist.length));
-
-    return ans;
+    const arr = [];
+    for (let i = 0; i < distData.dist.length; i++) {
+      arr.push(getScore(i, distData.min, distData.max, distData.dist.length));
+    }
+    return arr;
   }
 
-  let dists = await Promise.all(
-    subjectGroups
-      .get(subjectGroup)
-      .map((subject) => getDist(supabase, exam, subject, year, eachBase))
+  // Get subject list and their distributions
+  const subjects = subjectGroups.get(subjectGroup);
+  const dists = await Promise.all(
+    subjects.map((subj) => getDist(supabase, exam, subj, year, eachBase))
   );
 
-  // for (let subject of subjectGroups.get(subjectGroup))
-  //   dists.push(await getDist(supabase, exam, subject, year, eachBase));
+  // Normalize each distribution to PMF (probability mass function)
+  const counts = dists.map((d) => d.dist.reduce((a, b) => a + b, 0));
+  const N = Math.min(...counts);
+  const pmfs = dists.map((d, idx) => d.dist.map((c) => c / counts[idx]));
+  const scoresArr = dists.map((d) => getScoreArr(d));
 
-  let scoress = [];
+  // Get subject coefficients
+  const coef1 = coefs[subjects[0]] ?? 1;
+  const coef2 = coefs[subjects[1]] ?? 1;
+  const coef3 = coefs[subjects[2]] ?? 1;
+  const sumCoef = coef1 + coef2 + coef3;
 
-  for (let dist of dists) scoress.push(getScoreArr(dist));
-
-  let sumCoef = 0;
-  for (let subject of subjectGroups.get(subjectGroup))
-    sumCoef += coefs.hasOwnProperty(subject) ? coefs[subject] : 1;
-
-  let ans = {
-    dist: new Array(20).fill(0),
+  // Determine bin resolution
+  const step = 0.1;
+  const bins = Math.ceil((eachBase * sumCoef) / step);
+  const ans = {
+    dist: new Array(bins).fill(0),
     min: 0,
     max: eachBase * sumCoef,
   };
 
-  for (let i = 0; i < Math.min(...scoress.map((arr) => arr.length)); i++) {
-    let score = 0;
-
-    // let coef = coefs.hasOwnProperty(subject) ? coefs[subject] : 1;
-
-    for (let j = 0; j < 3; j++) {
-      let coef = coefs.hasOwnProperty(subjectGroups.get(subjectGroup)[j])
-        ? coefs[subjectGroups.get(subjectGroup)[j]]
-        : 1;
-
-      score += scoress[j][i] * coef;
+  // Convolve first two subjects
+  const pairDist = new Array(bins).fill(0);
+  for (let i = 0; i < scoresArr[0].length; i++) {
+    for (let j = 0; j < scoresArr[1].length; j++) {
+      const score12 = scoresArr[0][i] * coef1 + scoresArr[1][j] * coef2;
+      const idx12 = getInRangeVal(
+        getIndex(score12, 0, eachBase * (coef1 + coef2), bins),
+        0,
+        bins - 1
+      );
+      pairDist[idx12] += pmfs[0][i] * pmfs[1][j];
     }
+  }
 
-    let index = getInRangeVal(getIndex(score, ans.min, ans.max, 20), 0, 19);
-    ans.dist[index]++;
+  // Convolve with third subject
+  const scorePairBins = [];
+  for (let m = 0; m < bins; m++) {
+    scorePairBins.push(getScore(m, 0, eachBase * (coef1 + coef2), bins));
+  }
+
+  for (let m = 0; m < bins; m++) {
+    const prob12 = pairDist[m];
+    for (let k = 0; k < scoresArr[2].length; k++) {
+      const totalScore = scorePairBins[m] + scoresArr[2][k] * coef3;
+      const idx = getInRangeVal(
+        getIndex(totalScore, ans.min, ans.max, bins),
+        0,
+        bins - 1
+      );
+      ans.dist[idx] += prob12 * pmfs[2][k];
+    }
+  }
+
+  // Scale back to estimated student count
+  const scale = N / ans.dist.reduce((a, b) => a + b, 0);
+  ans.dist = ans.dist.map((x) => Math.round(x * scale));
+
+  // Normalize
+  const total = ans.dist.reduce((a, b) => a + b, 0);
+  if (total > 0) {
+    ans.dist = ans.dist.map((x) => (x * N) / total); // Hoặc đơn giản là normalize thành phân phối xác suất nếu cần
   }
 
   return ans;

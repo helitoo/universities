@@ -8,6 +8,8 @@ import {
   cerf_selectpicker,
 } from "./html_code_consts.js";
 
+import { getValidScore, getValidValue } from "./score_validator_model.js";
+
 import {
   exportCode,
   importCode,
@@ -143,67 +145,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // DATA VALIDATIONS
 
-  function getValidData(value, isInt, min, max, appreciate) {
-    let temp = value.replace(",", ".").replace(/[^0-9\.]/g, "");
-
-    if (isInt) temp = parseInt(temp);
-    else temp = parseFloat(temp);
-
-    if (Number.isNaN(temp)) return null;
-
-    value = temp;
-
-    value = Math.max(value, min);
-
-    if (max != 10) value = Math.min(value, max);
-    else if (!isInt) while (value > 10) value /= 10;
-
-    let base = Math.pow(10, appreciate);
-    value = Math.round(value * base) / base;
-
-    return value;
+  function scoreValidate(elmSlt, exam) {
+    document
+      .querySelectorAll(elmSlt)
+      .forEach((elm) =>
+        elm.addEventListener(
+          "blur",
+          (event) =>
+            (event.target.value = getValidScore(event.target.value, exam, 2))
+        )
+      );
   }
 
-  function validator(elmSlt, eventType, isInt, min, max, appreciate) {
-    document.querySelectorAll(elmSlt).forEach((elm) => {
-      elm.addEventListener(eventType, (event) => {
-        event.target.value = getValidData(
-          event.target.value,
-          isInt,
-          min,
-          max,
-          appreciate
-        );
-      });
-    });
-  }
+  scoreValidate(".thhb-p", "thhb");
+  scoreValidate(".thpt-p", "thpt");
+  scoreValidate("#dgtd-p", "dgtd");
+  scoreValidate("#dghn-p", "dghn");
+  scoreValidate(".dgsg-p", "dgsg");
+  scoreValidate(".dgcb-p", "dgcb");
+  scoreValidate(".vsat-p", "vsat");
+  scoreValidate(".dgca-p", "dgca");
+  scoreValidate(".thnk-p", "thnk");
 
-  validator(".thhb-p", "blur", false, 0, 10, 2);
-  validator(".thpt-p", "blur", false, 0, 10, 2);
-  validator("#dgtd-p", "blur", false, 0, 100, 2);
-  validator("#dghn-p", "blur", true, 0, 150, 0);
-  validator(".dgsp-p", "blur", false, 0, 10, 2);
-  validator(".dgcb-p", "blur", false, 0, 10, 2);
-  validator(".vsat-p", "blur", false, 0, 150, 2);
-  validator(".dgca-p", "blur", false, 0, 100, 2);
-  validator(".thnk-p", "blur", false, 0, 10, 2);
-
-  document.querySelectorAll(".dgsg-p").forEach((input) => {
+  document.querySelectorAll(".dgsg-p").forEach((input) =>
     input.addEventListener("blur", (event) => {
       const subject = event.target.dataset.subject;
-      let value = parseInt(event.target.value.replace(/[^0-9\.]/g, ""));
+      let score = event.target.value;
 
-      if (isNaN(value)) return;
-
-      value = Math.max(value, 0);
-
-      if (subject == "nn" && value > 600) value = 600;
-      if (subject == "to" && value > 300) value = 300;
-      if (subject == "kh" && value > 300) value = 300;
-
-      event.target.value = value;
-    });
-  });
+      switch (subject) {
+        case "nn":
+          event.target.value = getValidValue(score, true, 0, 600, 2);
+          break;
+        case "to":
+        case "kh":
+          event.target.value = getValidValue(score, true, 0, 300, 2);
+          break;
+      }
+    })
+  );
 
   document.querySelectorAll(".point-range-p").forEach((input) => {
     input.addEventListener("blur", (event) => {

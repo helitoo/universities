@@ -1,4 +1,4 @@
-const schoolId_selectpicker = `<select class="selectpicker school-id" data-live-search="true">
+const schoolId_selectpicker = `<select class="selectpicker school-id" data-live-search="true" data-size="5">
     <option data-tokens="QHL UL" value="QHL">
     Trường Đại học Luật, Đại học Quốc gia Hà Nội
     </option>
@@ -689,7 +689,7 @@ const schoolId_selectpicker = `<select class="selectpicker school-id" data-live-
     />
     </button>`;
 
-const major1Id_selectpicker = `<select class="selectpicker major-1-id" data-live-search="true">
+const major1Id_selectpicker = `<select class="selectpicker major-1-id" data-live-search="true" data-size="5">
     <option value="714">Khoa học giáo dục và đào tạo giáo viên</option>
     <option value="721">Nghệ thuật</option>
     <option value="722">Nhân văn</option>
@@ -725,7 +725,7 @@ const major1Id_selectpicker = `<select class="selectpicker major-1-id" data-live
     />
     </button>`;
 
-const major3Id_selectpicker = `<select class="selectpicker major-3-id" data-live-search="true" style="width=80%">
+const major3Id_selectpicker = `<select class="selectpicker major-3-id" data-live-search="true" data-size="5" style="width=80%">
     <option value="7140101">Giáo dục học</option>
     <option value="7140103">Công nghệ giáo dục</option>
     <option value="7140114">Quản lý giáo dục</option>

@@ -4,7 +4,6 @@ import { getData } from "./code_model.js";
 
 import {
   round2,
-  getInRangeVal,
   getConvertedScore,
   getAddScore,
   getCompleteScore,

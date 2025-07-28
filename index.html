@@ -101,6 +101,11 @@
                   >
                 </li>
                 <li>
+                  <a class="dropdown-item" href="/pages/convert.html"
+                    >Quy đổi điểm</a
+                  >
+                </li>
+                <li>
                   <a
                     class="dropdown-item"
                     href="/pages/introduce_industry_school.html"
@@ -309,35 +314,153 @@
       </div>
       <ol>
         <li class="fw-bold mt-3" style="color: #042b92">
-          Đối với phương thức dùng Học bạ THPT:
+          Đối với phương thức dùng Học bạ THPT và TN THPT:
         </li>
         <ul>
           <li>
-            Sử dụng điểm <i>Trung bình 3 năm của 3 môn cao nhất</i> để xét.
+            Đối với HB, sử dụng điểm
+            <i>Trung bình 3 năm của 3 môn cao nhất</i> đối với từng tổ hợp để
+            xét.
           </li>
-          <li>Nếu thí sinh không có đầy đủ điểm HB thì suy luận như sau:</li>
+          <li>
+            Nếu thí sinh không có đầy đủ điểm HB hay TN thì suy luận như sau:
+          </li>
           <ul>
-            <li>
-              <i>Điểm HK1 lớp 10</i>: 7 điểm đối với môn Văn; 8.5 điểm đối với
-              các môn Toán, Lý, Hóa, Sinh, Anh; và 9.5 điểm đối với các môn
-              khác.
+            <li class="mt-2">
+              <i>Điểm HK1 lớp 10</i>: Dựa vào
+              <a
+                href="#thhb-thpt-convertion"
+                style="text-decoration: underline; font-style: italic"
+                >Bảng quy đổi HB và TN</a
+              >.
             </li>
-            <li><i>Điểm HK2 lớp 10</i> = 90% điểm HK1 lớp 10.</li>
-            <li>
-              <i>Điểm các HK sau</i> = trung bình cộng 2 học kỳ liền trước.
+            <li class="mt-2">
+              <i>Điểm giữa 2 năm học</i>: Quy đổi theo công thức: Điểm của năm
+              học $i$: $$s_i = a \times s_{i - 1} + b $$ Với $a$ và $b$ tham
+              khảo
+              <a
+                href="#thhb-thpt-convertion"
+                style="text-decoration: underline; font-style: italic"
+                >Bảng quy đổi HB và TN</a
+              >.
             </li>
+            <li class="mt-2">
+              <i>Điểm giữa 2 học kỳ</i>: Quy đổi theo công thức: Điểm của học kỳ
+              $i$: $$s_i = 90 \% \times s_{i - 1} $$.
+            </li>
+            <li class="mt-2">
+              <i>Điểm TN</i>: Quy đổi theo công thức: Điểm TN $s_{tn}$: $$s_{tn}
+              = a \times \frac{(s_{10} + s_{11} + s_{12})}{3} + b $$ Với $a$ và
+              $b$ tham khảo
+              <a
+                href="#thhb-thpt-convertion"
+                style="text-decoration: underline; font-style: italic"
+                >Bảng quy đổi HB và TN</a
+              >.
+            </li>
+            <li class="mt-2">
+              <i>Bảng quy đổi HB và TN</i>: Dựa trên công bố của Bộ về tương
+              quan giữa điểm các môn thi TN THPT với điểm trung bình các môn học
+              bậc THPT năm 2025.
+            </li>
+            <table class="table table-bordered" id="thhb-thpt-convertion">
+              <thead>
+                <tr>
+                  <th>Môn</th>
+                  <th>Lớp 10</th>
+                  <th>Lớp 11<br />[a, b]</th>
+                  <th>Lớp 12<br />[a, b]</th>
+                  <th>TN<br />[a, b]</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center">Toán</td>
+                  <td class="text-center">6.7</td>
+                  <td class="text-center">[1.028, -0.99]</td>
+                  <td class="text-center">[1.090, -1.00]</td>
+                  <td class="text-center">[4.20, -24.78]</td>
+                </tr>
+                <tr>
+                  <td class="text-center">Văn</td>
+                  <td class="text-center">6.93</td>
+                  <td class="text-center">[1.017, -0.83]</td>
+                  <td class="text-center">[1.018, -0.74]</td>
+                  <td class="text-center">[2.50, -10.50]</td>
+                </tr>
+                <tr>
+                  <td class="text-center">Lý</td>
+                  <td class="text-center">7.05</td>
+                  <td class="text-center">[1.026, -0.64]</td>
+                  <td class="text-center">[1.106, -0.67]</td>
+                  <td class="text-center">[5.24, -30.87]</td>
+                </tr>
+                <tr>
+                  <td class="text-center">Hóa</td>
+                  <td class="text-center">7.08</td>
+                  <td class="text-center">[1.025, -0.56]</td>
+                  <td class="text-center">[1.070, -0.99]</td>
+                  <td class="text-center">[5.48, -27.45]</td>
+                </tr>
+                <tr>
+                  <td class="text-center">Sinh</td>
+                  <td class="text-center">7.28</td>
+                  <td class="text-center">[1.064, -0.39]</td>
+                  <td class="text-center">[1.053, -0.37]</td>
+                  <td class="text-center">[4.69, -24.23]</td>
+                </tr>
+                <tr>
+                  <td class="text-center">Sử</td>
+                  <td class="text-center">7.37</td>
+                  <td class="text-center">[1.038, -0.41]</td>
+                  <td class="text-center">[1.039, -0.45]</td>
+                  <td class="text-center">[4.41, -26.04]</td>
+                </tr>
+                <tr>
+                  <td class="text-center">Địa</td>
+                  <td class="text-center">7.12</td>
+                  <td class="text-center">[1.036, -0.39]</td>
+                  <td class="text-center">[1.050, -0.57]</td>
+                  <td class="text-center">[4.47, -25.96]</td>
+                </tr>
+                <tr>
+                  <td class="text-center">GDKT-PL</td>
+                  <td class="text-center">7.45</td>
+                  <td class="text-center">[1.078, -1.29]</td>
+                  <td class="text-center">[1.026, -0.01]</td>
+                  <td class="text-center">[2.97, -15.20]</td>
+                </tr>
+                <tr>
+                  <td class="text-center">Tin</td>
+                  <td class="text-center">7.62</td>
+                  <td class="text-center">[1.038, -1.09]</td>
+                  <td class="text-center" d>[1.063, -0.92]</td>
+                  <td class="text-center">[3.89, -19.66]</td>
+                </tr>
+                <tr>
+                  <td class="text-center">Công nghệ CN</td>
+                  <td class="text-center">7.8</td>
+                  <td class="text-center">[1.026, -0.42]</td>
+                  <td class="text-center">[1.045, -1.06]</td>
+                  <td class="text-center">[3.61, -18.58]</td>
+                </tr>
+                <tr>
+                  <td class="text-center">Công nghệ NN</td>
+                  <td class="text-center">7.74</td>
+                  <td class="text-center">[1.033, -0.55]</td>
+                  <td class="text-center">[1.026, -0.56]</td>
+                  <td class="text-center">[2.97, -13.17]</td>
+                </tr>
+                <tr>
+                  <td class="text-center">Anh</td>
+                  <td class="text-center">6.55</td>
+                  <td class="text-center">[1.058, -1.26]</td>
+                  <td class="text-center">[1.065, -1.23]</td>
+                  <td class="text-center">[3.63, -18.15]</td>
+                </tr>
+              </tbody>
+            </table>
           </ul>
-        </ul>
-        <li class="fw-bold mt-3" style="color: #042b92">
-          Đối với phương thức dùng kết quả kỳ thi TN THPT:
-        </li>
-        <ul>
-          <li>Sử dụng <i>Tổng điểm 3 môn thi cao nhất</i> để xét.</li>
-          <li>
-            Nếu thí sinh không có đầy đủ điểm thi TN THPT thì suy luận bằng cách
-            quy đổi điểm trung bình 3 năm sang điểm TN THPT, phổ điểm học bạ 3
-            năm là [1, 1.5, 4, 4, 1] (phạm vi từ 6 đến 10 điểm).
-          </li>
         </ul>
         <li class="fw-bold mt-3" style="color: #042b92">
           Đối với phương thức dùng kết quả các kỳ thi khác:
