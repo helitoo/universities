@@ -364,7 +364,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     let firstDist = await fetchDistFor(firstInfo);
-    let secDist = await fetchDistFor(secInfo);
+    let secDist =
+      secInfo.method == firstInfo.method &&
+      secInfo.year == firstInfo.year &&
+      secInfo.group == firstInfo.group
+        ? firstDist
+        : await fetchDistFor(secInfo);
 
     let percentile = getPercentile(firstScore, firstDist);
     document.getElementById("percentile").textContent = `${round2(
