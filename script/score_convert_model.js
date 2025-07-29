@@ -2,168 +2,223 @@ export const subjectGroups = new Map([
   ["G001", ["to", "vl", "hh"]],
   ["G002", ["to", "vl", "sh"]],
   ["G003", ["to", "vl", "nv"]],
-  ["G004", ["to", "vl", "nn"]],
-  ["G005", ["to", "vl", "ls"]],
-  ["G006", ["to", "vl", "dl"]],
-  ["G007", ["to", "vl", "gd"]],
-  ["G008", ["to", "vl", "th"]],
-  ["G009", ["to", "vl", "cn"]],
-  ["G010", ["to", "hh", "sh"]],
-  ["G011", ["to", "hh", "nv"]],
-  ["G012", ["to", "hh", "nn"]],
+  ["G004", ["to", "vl", "ls"]],
+  ["G005", ["to", "vl", "dl"]],
+  ["G006", ["to", "vl", "gd"]],
+  ["G007", ["to", "vl", "th"]],
+  ["G008", ["to", "vl", "c1"]],
+  ["G009", ["to", "vl", "c2"]],
+  ["G010", ["to", "vl", "nn"]],
+  ["G011", ["to", "hh", "sh"]],
+  ["G012", ["to", "hh", "nv"]],
   ["G013", ["to", "hh", "ls"]],
   ["G014", ["to", "hh", "dl"]],
   ["G015", ["to", "hh", "gd"]],
   ["G016", ["to", "hh", "th"]],
-  ["G017", ["to", "hh", "cn"]],
-  ["G018", ["to", "sh", "nv"]],
-  ["G019", ["to", "sh", "nn"]],
-  ["G020", ["to", "sh", "ls"]],
-  ["G021", ["to", "sh", "dl"]],
-  ["G022", ["to", "sh", "gd"]],
-  ["G023", ["to", "sh", "th"]],
-  ["G024", ["to", "sh", "cn"]],
-  ["G025", ["to", "nv", "nn"]],
-  ["G026", ["to", "nv", "ls"]],
-  ["G027", ["to", "nv", "dl"]],
-  ["G028", ["to", "nv", "gd"]],
-  ["G029", ["to", "nv", "th"]],
-  ["G030", ["to", "nv", "cn"]],
-  ["G031", ["to", "nn", "ls"]],
-  ["G032", ["to", "nn", "dl"]],
-  ["G033", ["to", "nn", "gd"]],
-  ["G034", ["to", "nn", "th"]],
-  ["G035", ["to", "nn", "cn"]],
-  ["G036", ["to", "ls", "dl"]],
-  ["G037", ["to", "ls", "gd"]],
-  ["G038", ["to", "ls", "th"]],
-  ["G039", ["to", "ls", "cn"]],
-  ["G040", ["to", "dl", "gd"]],
-  ["G041", ["to", "dl", "th"]],
-  ["G042", ["to", "dl", "cn"]],
-  ["G043", ["to", "gd", "th"]],
-  ["G044", ["to", "gd", "cn"]],
-  ["G045", ["to", "th", "cn"]],
-  ["G046", ["vl", "hh", "sh"]],
-  ["G047", ["vl", "hh", "nv"]],
-  ["G048", ["vl", "hh", "nn"]],
-  ["G049", ["vl", "hh", "ls"]],
-  ["G050", ["vl", "hh", "dl"]],
-  ["G051", ["vl", "hh", "gd"]],
-  ["G052", ["vl", "hh", "th"]],
-  ["G053", ["vl", "hh", "cn"]],
-  ["G054", ["vl", "sh", "nv"]],
-  ["G055", ["vl", "sh", "nn"]],
-  ["G056", ["vl", "sh", "ls"]],
-  ["G057", ["vl", "sh", "dl"]],
-  ["G058", ["vl", "sh", "gd"]],
-  ["G059", ["vl", "sh", "th"]],
-  ["G060", ["vl", "sh", "cn"]],
-  ["G061", ["vl", "nv", "nn"]],
-  ["G062", ["vl", "nv", "ls"]],
-  ["G063", ["vl", "nv", "dl"]],
-  ["G064", ["vl", "nv", "gd"]],
-  ["G065", ["vl", "nv", "th"]],
-  ["G066", ["vl", "nv", "cn"]],
-  ["G067", ["vl", "nn", "ls"]],
-  ["G068", ["vl", "nn", "dl"]],
-  ["G069", ["vl", "nn", "gd"]],
-  ["G070", ["vl", "nn", "th"]],
-  ["G071", ["vl", "nn", "cn"]],
-  ["G072", ["vl", "ls", "dl"]],
-  ["G073", ["vl", "ls", "gd"]],
-  ["G074", ["vl", "ls", "th"]],
-  ["G075", ["vl", "ls", "cn"]],
-  ["G076", ["vl", "dl", "gd"]],
-  ["G077", ["vl", "dl", "th"]],
-  ["G078", ["vl", "dl", "cn"]],
-  ["G079", ["vl", "gd", "th"]],
-  ["G080", ["vl", "gd", "cn"]],
-  ["G081", ["vl", "th", "cn"]],
-  ["G082", ["hh", "sh", "nv"]],
-  ["G083", ["hh", "sh", "nn"]],
-  ["G084", ["hh", "sh", "ls"]],
-  ["G085", ["hh", "sh", "dl"]],
-  ["G086", ["hh", "sh", "gd"]],
-  ["G087", ["hh", "sh", "th"]],
-  ["G088", ["hh", "sh", "cn"]],
-  ["G089", ["hh", "nv", "nn"]],
-  ["G090", ["hh", "nv", "ls"]],
-  ["G091", ["hh", "nv", "dl"]],
-  ["G092", ["hh", "nv", "gd"]],
-  ["G093", ["hh", "nv", "th"]],
-  ["G094", ["hh", "nv", "cn"]],
-  ["G095", ["hh", "nn", "ls"]],
-  ["G096", ["hh", "nn", "dl"]],
-  ["G097", ["hh", "nn", "gd"]],
-  ["G098", ["hh", "nn", "th"]],
-  ["G099", ["hh", "nn", "cn"]],
-  ["G100", ["hh", "ls", "dl"]],
-  ["G101", ["hh", "ls", "gd"]],
-  ["G102", ["hh", "ls", "th"]],
-  ["G103", ["hh", "ls", "cn"]],
-  ["G104", ["hh", "dl", "gd"]],
-  ["G105", ["hh", "dl", "th"]],
-  ["G106", ["hh", "dl", "cn"]],
-  ["G107", ["hh", "gd", "th"]],
-  ["G108", ["hh", "gd", "cn"]],
-  ["G109", ["hh", "th", "cn"]],
-  ["G110", ["sh", "nv", "nn"]],
-  ["G111", ["sh", "nv", "ls"]],
-  ["G112", ["sh", "nv", "dl"]],
-  ["G113", ["sh", "nv", "gd"]],
-  ["G114", ["sh", "nv", "th"]],
-  ["G115", ["sh", "nv", "cn"]],
-  ["G116", ["sh", "nn", "ls"]],
-  ["G117", ["sh", "nn", "dl"]],
-  ["G118", ["sh", "nn", "gd"]],
-  ["G119", ["sh", "nn", "th"]],
-  ["G120", ["sh", "nn", "cn"]],
-  ["G121", ["sh", "ls", "dl"]],
-  ["G122", ["sh", "ls", "gd"]],
-  ["G123", ["sh", "ls", "th"]],
-  ["G124", ["sh", "ls", "cn"]],
-  ["G125", ["sh", "dl", "gd"]],
-  ["G126", ["sh", "dl", "th"]],
-  ["G127", ["sh", "dl", "cn"]],
-  ["G128", ["sh", "gd", "th"]],
-  ["G129", ["sh", "gd", "cn"]],
-  ["G130", ["sh", "th", "cn"]],
-  ["G131", ["nv", "nn", "ls"]],
-  ["G132", ["nv", "nn", "dl"]],
-  ["G133", ["nv", "nn", "gd"]],
-  ["G134", ["nv", "nn", "th"]],
-  ["G135", ["nv", "nn", "cn"]],
-  ["G136", ["nv", "ls", "dl"]],
-  ["G137", ["nv", "ls", "gd"]],
-  ["G138", ["nv", "ls", "th"]],
-  ["G139", ["nv", "ls", "cn"]],
-  ["G140", ["nv", "dl", "gd"]],
-  ["G141", ["nv", "dl", "th"]],
-  ["G142", ["nv", "dl", "cn"]],
-  ["G143", ["nv", "gd", "th"]],
-  ["G144", ["nv", "gd", "cn"]],
-  ["G145", ["nv", "th", "cn"]],
-  ["G146", ["nn", "ls", "dl"]],
-  ["G147", ["nn", "ls", "gd"]],
-  ["G148", ["nn", "ls", "th"]],
-  ["G149", ["nn", "ls", "cn"]],
-  ["G150", ["nn", "dl", "gd"]],
-  ["G151", ["nn", "dl", "th"]],
-  ["G152", ["nn", "dl", "cn"]],
-  ["G153", ["nn", "gd", "th"]],
-  ["G154", ["nn", "gd", "cn"]],
-  ["G155", ["nn", "th", "cn"]],
-  ["G156", ["ls", "dl", "gd"]],
-  ["G157", ["ls", "dl", "th"]],
-  ["G158", ["ls", "dl", "cn"]],
-  ["G159", ["ls", "gd", "th"]],
-  ["G160", ["ls", "gd", "cn"]],
-  ["G161", ["ls", "th", "cn"]],
-  ["G162", ["dl", "gd", "th"]],
-  ["G163", ["dl", "gd", "cn"]],
-  ["G164", ["dl", "th", "cn"]],
-  ["G165", ["gd", "th", "cn"]],
+  ["G017", ["to", "hh", "c1"]],
+  ["G018", ["to", "hh", "c2"]],
+  ["G019", ["to", "hh", "nn"]],
+  ["G020", ["to", "sh", "nv"]],
+  ["G021", ["to", "sh", "ls"]],
+  ["G022", ["to", "sh", "dl"]],
+  ["G023", ["to", "sh", "gd"]],
+  ["G024", ["to", "sh", "th"]],
+  ["G025", ["to", "sh", "c1"]],
+  ["G026", ["to", "sh", "c2"]],
+  ["G027", ["to", "sh", "nn"]],
+  ["G028", ["to", "nv", "ls"]],
+  ["G029", ["to", "nv", "dl"]],
+  ["G030", ["to", "nv", "gd"]],
+  ["G031", ["to", "nv", "th"]],
+  ["G032", ["to", "nv", "c1"]],
+  ["G033", ["to", "nv", "c2"]],
+  ["G034", ["to", "nv", "nn"]],
+  ["G035", ["to", "ls", "dl"]],
+  ["G036", ["to", "ls", "gd"]],
+  ["G037", ["to", "ls", "th"]],
+  ["G038", ["to", "ls", "c1"]],
+  ["G039", ["to", "ls", "c2"]],
+  ["G040", ["to", "ls", "nn"]],
+  ["G041", ["to", "dl", "gd"]],
+  ["G042", ["to", "dl", "th"]],
+  ["G043", ["to", "dl", "c1"]],
+  ["G044", ["to", "dl", "c2"]],
+  ["G045", ["to", "dl", "nn"]],
+  ["G046", ["to", "gd", "th"]],
+  ["G047", ["to", "gd", "c1"]],
+  ["G048", ["to", "gd", "c2"]],
+  ["G049", ["to", "gd", "nn"]],
+  ["G050", ["to", "th", "c1"]],
+  ["G051", ["to", "th", "c2"]],
+  ["G052", ["to", "th", "nn"]],
+  ["G053", ["to", "c1", "c2"]],
+  ["G054", ["to", "c1", "nn"]],
+  ["G055", ["to", "c2", "nn"]],
+  ["G056", ["vl", "hh", "sh"]],
+  ["G057", ["vl", "hh", "nv"]],
+  ["G058", ["vl", "hh", "ls"]],
+  ["G059", ["vl", "hh", "dl"]],
+  ["G060", ["vl", "hh", "gd"]],
+  ["G061", ["vl", "hh", "th"]],
+  ["G062", ["vl", "hh", "c1"]],
+  ["G063", ["vl", "hh", "c2"]],
+  ["G064", ["vl", "hh", "nn"]],
+  ["G065", ["vl", "sh", "nv"]],
+  ["G066", ["vl", "sh", "ls"]],
+  ["G067", ["vl", "sh", "dl"]],
+  ["G068", ["vl", "sh", "gd"]],
+  ["G069", ["vl", "sh", "th"]],
+  ["G070", ["vl", "sh", "c1"]],
+  ["G071", ["vl", "sh", "c2"]],
+  ["G072", ["vl", "sh", "nn"]],
+  ["G073", ["vl", "nv", "ls"]],
+  ["G074", ["vl", "nv", "dl"]],
+  ["G075", ["vl", "nv", "gd"]],
+  ["G076", ["vl", "nv", "th"]],
+  ["G077", ["vl", "nv", "c1"]],
+  ["G078", ["vl", "nv", "c2"]],
+  ["G079", ["vl", "nv", "nn"]],
+  ["G080", ["vl", "ls", "dl"]],
+  ["G081", ["vl", "ls", "gd"]],
+  ["G082", ["vl", "ls", "th"]],
+  ["G083", ["vl", "ls", "c1"]],
+  ["G084", ["vl", "ls", "c2"]],
+  ["G085", ["vl", "ls", "nn"]],
+  ["G086", ["vl", "dl", "gd"]],
+  ["G087", ["vl", "dl", "th"]],
+  ["G088", ["vl", "dl", "c1"]],
+  ["G089", ["vl", "dl", "c2"]],
+  ["G090", ["vl", "dl", "nn"]],
+  ["G091", ["vl", "gd", "th"]],
+  ["G092", ["vl", "gd", "c1"]],
+  ["G093", ["vl", "gd", "c2"]],
+  ["G094", ["vl", "gd", "nn"]],
+  ["G095", ["vl", "th", "c1"]],
+  ["G096", ["vl", "th", "c2"]],
+  ["G097", ["vl", "th", "nn"]],
+  ["G098", ["vl", "c1", "c2"]],
+  ["G099", ["vl", "c1", "nn"]],
+  ["G100", ["vl", "c2", "nn"]],
+  ["G101", ["hh", "sh", "nv"]],
+  ["G102", ["hh", "sh", "ls"]],
+  ["G103", ["hh", "sh", "dl"]],
+  ["G104", ["hh", "sh", "gd"]],
+  ["G105", ["hh", "sh", "th"]],
+  ["G106", ["hh", "sh", "c1"]],
+  ["G107", ["hh", "sh", "c2"]],
+  ["G108", ["hh", "sh", "nn"]],
+  ["G109", ["hh", "nv", "ls"]],
+  ["G110", ["hh", "nv", "dl"]],
+  ["G111", ["hh", "nv", "gd"]],
+  ["G112", ["hh", "nv", "th"]],
+  ["G113", ["hh", "nv", "c1"]],
+  ["G114", ["hh", "nv", "c2"]],
+  ["G115", ["hh", "nv", "nn"]],
+  ["G116", ["hh", "ls", "dl"]],
+  ["G117", ["hh", "ls", "gd"]],
+  ["G118", ["hh", "ls", "th"]],
+  ["G119", ["hh", "ls", "c1"]],
+  ["G120", ["hh", "ls", "c2"]],
+  ["G121", ["hh", "ls", "nn"]],
+  ["G122", ["hh", "dl", "gd"]],
+  ["G123", ["hh", "dl", "th"]],
+  ["G124", ["hh", "dl", "c1"]],
+  ["G125", ["hh", "dl", "c2"]],
+  ["G126", ["hh", "dl", "nn"]],
+  ["G127", ["hh", "gd", "th"]],
+  ["G128", ["hh", "gd", "c1"]],
+  ["G129", ["hh", "gd", "c2"]],
+  ["G130", ["hh", "gd", "nn"]],
+  ["G131", ["hh", "th", "c1"]],
+  ["G132", ["hh", "th", "c2"]],
+  ["G133", ["hh", "th", "nn"]],
+  ["G134", ["hh", "c1", "c2"]],
+  ["G135", ["hh", "c1", "nn"]],
+  ["G136", ["hh", "c2", "nn"]],
+  ["G137", ["sh", "nv", "ls"]],
+  ["G138", ["sh", "nv", "dl"]],
+  ["G139", ["sh", "nv", "gd"]],
+  ["G140", ["sh", "nv", "th"]],
+  ["G141", ["sh", "nv", "c1"]],
+  ["G142", ["sh", "nv", "c2"]],
+  ["G143", ["sh", "nv", "nn"]],
+  ["G144", ["sh", "ls", "dl"]],
+  ["G145", ["sh", "ls", "gd"]],
+  ["G146", ["sh", "ls", "th"]],
+  ["G147", ["sh", "ls", "c1"]],
+  ["G148", ["sh", "ls", "c2"]],
+  ["G149", ["sh", "ls", "nn"]],
+  ["G150", ["sh", "dl", "gd"]],
+  ["G151", ["sh", "dl", "th"]],
+  ["G152", ["sh", "dl", "c1"]],
+  ["G153", ["sh", "dl", "c2"]],
+  ["G154", ["sh", "dl", "nn"]],
+  ["G155", ["sh", "gd", "th"]],
+  ["G156", ["sh", "gd", "c1"]],
+  ["G157", ["sh", "gd", "c2"]],
+  ["G158", ["sh", "gd", "nn"]],
+  ["G159", ["sh", "th", "c1"]],
+  ["G160", ["sh", "th", "c2"]],
+  ["G161", ["sh", "th", "nn"]],
+  ["G162", ["sh", "c1", "c2"]],
+  ["G163", ["sh", "c1", "nn"]],
+  ["G164", ["sh", "c2", "nn"]],
+  ["G165", ["nv", "ls", "dl"]],
+  ["G166", ["nv", "ls", "gd"]],
+  ["G167", ["nv", "ls", "th"]],
+  ["G168", ["nv", "ls", "c1"]],
+  ["G169", ["nv", "ls", "c2"]],
+  ["G170", ["nv", "ls", "nn"]],
+  ["G171", ["nv", "dl", "gd"]],
+  ["G172", ["nv", "dl", "th"]],
+  ["G173", ["nv", "dl", "c1"]],
+  ["G174", ["nv", "dl", "c2"]],
+  ["G175", ["nv", "dl", "nn"]],
+  ["G176", ["nv", "gd", "th"]],
+  ["G177", ["nv", "gd", "c1"]],
+  ["G178", ["nv", "gd", "c2"]],
+  ["G179", ["nv", "gd", "nn"]],
+  ["G180", ["nv", "th", "c1"]],
+  ["G181", ["nv", "th", "c2"]],
+  ["G182", ["nv", "th", "nn"]],
+  ["G183", ["nv", "c1", "c2"]],
+  ["G184", ["nv", "c1", "nn"]],
+  ["G185", ["nv", "c2", "nn"]],
+  ["G186", ["ls", "dl", "gd"]],
+  ["G187", ["ls", "dl", "th"]],
+  ["G188", ["ls", "dl", "c1"]],
+  ["G189", ["ls", "dl", "c2"]],
+  ["G190", ["ls", "dl", "nn"]],
+  ["G191", ["ls", "gd", "th"]],
+  ["G192", ["ls", "gd", "c1"]],
+  ["G193", ["ls", "gd", "c2"]],
+  ["G194", ["ls", "gd", "nn"]],
+  ["G195", ["ls", "th", "c1"]],
+  ["G196", ["ls", "th", "c2"]],
+  ["G197", ["ls", "th", "nn"]],
+  ["G198", ["ls", "c1", "c2"]],
+  ["G199", ["ls", "c1", "nn"]],
+  ["G200", ["ls", "c2", "nn"]],
+  ["G201", ["dl", "gd", "th"]],
+  ["G202", ["dl", "gd", "c1"]],
+  ["G203", ["dl", "gd", "c2"]],
+  ["G204", ["dl", "gd", "nn"]],
+  ["G205", ["dl", "th", "c1"]],
+  ["G206", ["dl", "th", "c2"]],
+  ["G207", ["dl", "th", "nn"]],
+  ["G208", ["dl", "c1", "c2"]],
+  ["G209", ["dl", "c1", "nn"]],
+  ["G210", ["dl", "c2", "nn"]],
+  ["G211", ["gd", "th", "c1"]],
+  ["G212", ["gd", "th", "c2"]],
+  ["G213", ["gd", "th", "nn"]],
+  ["G214", ["gd", "c1", "c2"]],
+  ["G215", ["gd", "c1", "nn"]],
+  ["G216", ["gd", "c2", "nn"]],
+  ["G217", ["th", "c1", "c2"]],
+  ["G218", ["th", "c1", "nn"]],
+  ["G219", ["th", "c2", "nn"]],
+  ["G220", ["c1", "c2", "nn"]],
 ]);
 
 export function round2(value, appreciate) {
@@ -314,7 +369,6 @@ export async function getGroupDist(
   eachBase,
   coefs
 ) {
-  // Get score array from raw dist
   function getScoreArr(distData) {
     const arr = [];
     for (let i = 0; i < distData.dist.length; i++) {
@@ -323,26 +377,23 @@ export async function getGroupDist(
     return arr;
   }
 
-  // Get subject list and their distributions
   const subjects = subjectGroups.get(subjectGroup);
   const dists = await Promise.all(
     subjects.map((subj) => getDist(supabase, exam, subj, year, eachBase))
   );
 
-  // Normalize each distribution to PMF (probability mass function)
   const counts = dists.map((d) => d.dist.reduce((a, b) => a + b, 0));
   const N = Math.min(...counts);
+
   const pmfs = dists.map((d, idx) => d.dist.map((c) => c / counts[idx]));
   const scoresArr = dists.map((d) => getScoreArr(d));
 
-  // Get subject coefficients
   const coef1 = coefs[subjects[0]] ?? 1;
   const coef2 = coefs[subjects[1]] ?? 1;
   const coef3 = coefs[subjects[2]] ?? 1;
   const sumCoef = coef1 + coef2 + coef3;
 
-  // Determine bin resolution
-  const step = 0.1;
+  const step = 0.05;
   const bins = Math.ceil((eachBase * sumCoef) / step);
   const ans = {
     dist: new Array(bins).fill(0),
@@ -350,48 +401,30 @@ export async function getGroupDist(
     max: eachBase * sumCoef,
   };
 
-  // Convolve first two subjects
-  const pairDist = new Array(bins).fill(0);
+  // Tích chập 3 môn cùng lúc
   for (let i = 0; i < scoresArr[0].length; i++) {
+    const score1 = scoresArr[0][i] * coef1;
+    const prob1 = pmfs[0][i];
     for (let j = 0; j < scoresArr[1].length; j++) {
-      const score12 = scoresArr[0][i] * coef1 + scoresArr[1][j] * coef2;
-      const idx12 = getInRangeVal(
-        getIndex(score12, 0, eachBase * (coef1 + coef2), bins),
-        0,
-        bins - 1
-      );
-      pairDist[idx12] += pmfs[0][i] * pmfs[1][j];
+      const score2 = scoresArr[1][j] * coef2;
+      const prob2 = pmfs[1][j];
+      for (let k = 0; k < scoresArr[2].length; k++) {
+        const score3 = scoresArr[2][k] * coef3;
+        const prob3 = pmfs[2][k];
+        const totalScore = score1 + score2 + score3;
+        const idx = getInRangeVal(
+          getIndex(totalScore, ans.min, ans.max, bins),
+          0,
+          bins - 1
+        );
+        ans.dist[idx] += prob1 * prob2 * prob3;
+      }
     }
   }
 
-  // Convolve with third subject
-  const scorePairBins = [];
-  for (let m = 0; m < bins; m++) {
-    scorePairBins.push(getScore(m, 0, eachBase * (coef1 + coef2), bins));
-  }
-
-  for (let m = 0; m < bins; m++) {
-    const prob12 = pairDist[m];
-    for (let k = 0; k < scoresArr[2].length; k++) {
-      const totalScore = scorePairBins[m] + scoresArr[2][k] * coef3;
-      const idx = getInRangeVal(
-        getIndex(totalScore, ans.min, ans.max, bins),
-        0,
-        bins - 1
-      );
-      ans.dist[idx] += prob12 * pmfs[2][k];
-    }
-  }
-
-  // Scale back to estimated student count
+  // Scale lại về số thí sinh
   const scale = N / ans.dist.reduce((a, b) => a + b, 0);
   ans.dist = ans.dist.map((x) => Math.round(x * scale));
-
-  // Normalize
-  const total = ans.dist.reduce((a, b) => a + b, 0);
-  if (total > 0) {
-    ans.dist = ans.dist.map((x) => (x * N) / total); // Hoặc đơn giản là normalize thành phân phối xác suất nếu cần
-  }
 
   return ans;
 }
