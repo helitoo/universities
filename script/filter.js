@@ -112,23 +112,17 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       updateInputDisplayStatus(
-        `.dgsp-input-${
-          elm.dataset.subject == "nn" ? "an" : elm.dataset.subject
-        }`,
+        `.dgsp-input-${elm.dataset.subject}`,
         elm.checked
       );
 
       updateInputDisplayStatus(
-        `.dgcb-input-${
-          elm.dataset.subject == "nn" ? "an" : elm.dataset.subject
-        }`,
+        `.dgcb-input-${elm.dataset.subject}`,
         elm.checked
       );
 
       updateInputDisplayStatus(
-        `.vsat-input-${
-          elm.dataset.subject == "nn" ? "an" : elm.dataset.subject
-        }`,
+        `.vsat-input-${elm.dataset.subject}`,
         elm.checked
       );
 

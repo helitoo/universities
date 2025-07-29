@@ -19,8 +19,9 @@ export default class filterModel {
     ["nv", true],
     ["ls", true],
     ["dl", false],
-    ["nn", true],
-    ["cn", false],
+    ["an", true],
+    ["c1", false],
+    ["c2", false],
     ["gd", false],
   ]);
 
@@ -33,8 +34,9 @@ export default class filterModel {
     ["nv", new Array(6)],
     ["ls", new Array(6)],
     ["dl", new Array(6)],
-    ["nn", new Array(6)],
-    ["cn", new Array(6)],
+    ["an", new Array(6)],
+    ["c1", new Array(6)],
+    ["c2", new Array(6)],
     ["gd", new Array(6)],
   ]);
 
@@ -47,7 +49,7 @@ export default class filterModel {
     ["nv", null],
     ["ls", null],
     ["dl", null],
-    ["nn", null],
+    ["an", null],
     ["gd", null],
     ["c1", null],
     ["c2", null],
@@ -159,8 +161,9 @@ export default class filterModel {
       ["nv", true],
       ["ls", true],
       ["dl", false],
-      ["nn", true],
-      ["cn", false],
+      ["an", true],
+      ["c1", false],
+      ["c2", false],
       ["gd", false],
     ]);
 
@@ -173,8 +176,9 @@ export default class filterModel {
       ["nv", new Array(6)],
       ["ls", new Array(6)],
       ["dl", new Array(6)],
-      ["nn", new Array(6)],
-      ["cn", new Array(6)],
+      ["an", new Array(6)],
+      ["c1", new Array(6)],
+      ["c2", new Array(6)],
       ["gd", new Array(6)],
     ]);
 
@@ -187,7 +191,7 @@ export default class filterModel {
       ["nv", null],
       ["ls", null],
       ["dl", null],
-      ["nn", null],
+      ["an", null],
       ["gd", null],
       ["c1", null],
       ["c2", null],
