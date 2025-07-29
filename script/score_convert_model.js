@@ -378,6 +378,9 @@ export async function getGroupDist(
   }
 
   const subjects = subjectGroups.get(subjectGroup);
+  if (!subjects || subjects.length !== 3)
+    throw new Error("Invalid subject group");
+
   const dists = await Promise.all(
     subjects.map((subj) => getDist(supabase, exam, subj, year, eachBase))
   );
@@ -393,15 +396,16 @@ export async function getGroupDist(
   const coef3 = coefs[subjects[2]] ?? 1;
   const sumCoef = coef1 + coef2 + coef3;
 
-  const step = 0.05;
-  const bins = Math.ceil((eachBase * sumCoef) / step);
-  const ans = {
-    dist: new Array(bins).fill(0),
-    min: 0,
-    max: eachBase * sumCoef,
-  };
+  const maxTheoretical =
+    dists[0].max * coef1 + dists[1].max * coef2 + dists[2].max * coef3;
 
-  // Tích chập 3 môn cùng lúc
+  const step = 0.1;
+  const bins = Math.ceil((eachBase * sumCoef) / step);
+  const tempDist = new Array(bins).fill(0);
+  const min = 0;
+  const max = eachBase * sumCoef;
+
+  // Tích chập 3 phổ
   for (let i = 0; i < scoresArr[0].length; i++) {
     const score1 = scoresArr[0][i] * coef1;
     const prob1 = pmfs[0][i];
@@ -411,22 +415,69 @@ export async function getGroupDist(
       for (let k = 0; k < scoresArr[2].length; k++) {
         const score3 = scoresArr[2][k] * coef3;
         const prob3 = pmfs[2][k];
+
         const totalScore = score1 + score2 + score3;
+
         const idx = getInRangeVal(
-          getIndex(totalScore, ans.min, ans.max, bins),
+          Math.round(((totalScore - min) / (max - min)) * (bins - 1)),
           0,
           bins - 1
         );
-        ans.dist[idx] += prob1 * prob2 * prob3;
+
+        tempDist[idx] += prob1 * prob2 * prob3;
       }
     }
   }
 
-  // Scale lại về số thí sinh
-  const scale = N / ans.dist.reduce((a, b) => a + b, 0);
-  ans.dist = ans.dist.map((x) => Math.round(x * scale));
+  // Tìm điểm cao nhất sau khi chập (có thí sinh thực tế)
+  let lastNonZero = bins - 1;
+  while (lastNonZero > 0 && tempDist[lastNonZero] < 1e-6) {
+    lastNonZero--;
+  }
+  const scoreMaxActual = min + (lastNonZero / (bins - 1)) * (max - min);
 
-  return ans;
+  // Tính deltaShift = chênh lệch giữa max lý thuyết và thực tế
+  const deltaShift = maxTheoretical - scoreMaxActual;
+
+  // Tạo lại dist mới, có thêm dịch chuyển
+  const finalDist = new Array(bins).fill(0);
+  for (let i = 0; i < scoresArr[0].length; i++) {
+    const score1 = scoresArr[0][i] * coef1;
+    const prob1 = pmfs[0][i];
+    for (let j = 0; j < scoresArr[1].length; j++) {
+      const score2 = scoresArr[1][j] * coef2;
+      const prob2 = pmfs[1][j];
+      for (let k = 0; k < scoresArr[2].length; k++) {
+        const score3 = scoresArr[2][k] * coef3;
+        const prob3 = pmfs[2][k];
+
+        let totalScore = score1 + score2 + score3 + deltaShift;
+
+        let idx;
+        if (Math.abs(totalScore - max) < step / 2) {
+          idx = bins - 1;
+        } else {
+          idx = getInRangeVal(
+            Math.round(((totalScore - min) / (max - min)) * (bins - 1)),
+            0,
+            bins - 1
+          );
+        }
+
+        finalDist[idx] += prob1 * prob2 * prob3;
+      }
+    }
+  }
+
+  const total = finalDist.reduce((a, b) => a + b, 0);
+  const scale = N / total;
+  const scaledDist = finalDist.map((x) => Math.round(x * scale));
+
+  return {
+    min,
+    max,
+    dist: scaledDist,
+  };
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
