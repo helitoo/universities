@@ -140,7 +140,7 @@
       <div class="row mt-5">
         <div class="col-md-3 col-12">
           <label for="exam" class="form-label fw-bold">Kỳ thi</label>
-          <select id="exam" class="selectpicker">
+          <select id="exam" class="form-select form-control">
             <option value="thpt">TN THPT</option>
             <option value="dgtd">ĐGTD - TSA</option>
             <option value="dghn">ĐGNL-HN - HSA</option>
@@ -148,26 +148,10 @@
             <option value="dgcb">ĐGNLCB - H-SCA</option>
           </select>
         </div>
-        <div class="col-md-3 col-12">
-          <label for="subject" class="form-label fw-bold">Môn thi</label>
-          <select id="subject" class="selectpicker">
-            <option value="al">Tổng hợp</option>
-            <option value="to">Toán</option>
-            <option value="vl">Lý</option>
-            <option value="hh">Hóa</option>
-            <option value="sh">Sinh</option>
-            <option value="an">Tiếng Anh</option>
-            <option value="nv">Văn</option>
-            <option value="ls">Sử</option>
-            <option value="dl">Địa</option>
-            <option value="c1">Công nghệ công nghiệp</option>
-            <option value="c2">Công nghệ nông nghiệp</option>
-            <option value="th">Tin</option>
-          </select>
-        </div>
+        <div id="slpk-replacement"></div>
         <div class="col-md-3 col-12">
           <label for="year" class="form-label fw-bold">Năm</label>
-          <select id="year" class="selectpicker">
+          <select id="year" class="form-select form-control">
             <option value="2025">2025</option>
             <option value="2024">2024</option>
             <option value="2023">2023</option>
@@ -201,12 +185,7 @@
                 Các phổ điểm được thêm sau sẽ có thang điểm được quy đổi tuyến
                 tính về thang điểm của phổ điểm được thêm đầu tiên.
               </li>
-              <li class="mt-2">Dữ liệu ở trang này sẽ không được lưu.</li>
-              <li class="mt-2">
-                Đối với các kỳ thi không có môn thi rõ ràng
-                <i>(TSA, HSA,...)</i> thì chọn <i>Môn thi</i> là
-                <strong>Tổng hợp</strong>.
-              </li>
+              <li class="mt-2">Dữ liệu chỉ có tính tham khảo.</li>
               <li class="mt-2">
                 Nhấn vào chú thích <i>(label)</i> của phổ điểm để tạm ẩn phổ
                 điểm đó.
@@ -214,28 +193,6 @@
               <li class="mt-2">
                 Nếu có lỗi hiển thị phổ điểm, chỉ cần <i>tải lại trang</i> là
                 được.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="container my-4 rounded">
-        <div class="row justify-content-center">
-          <div class="col-md-10 rounded-3 p-3 border border-success border-2">
-            <p class="mb-2">
-              <img
-                src="../assets/icons/comment-question.png"
-                alt="references"
-                style="height: 1.3rem; margin-right: 0.2rem"
-                draggable="false"
-              />
-              <strong class="text-success">Trang web này để làm gì?</strong>
-            </p>
-            <ul class="mb-0">
-              <li>Phỏng đoán điểm chuẩn có xu hướng tăng hay giảm.</li>
-              <li class="mt-2">
-                Biết được quy mô, độ khó của kỳ thi 👉 Thấy được vị trí của mình
-                👉 Có kế hoạch học tập, thi cử phù hợp.
               </li>
             </ul>
           </div>

@@ -336,11 +336,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     );
 
     if (firstInfo.method != "thpt") firstInfo.group = "al";
-    else if (firstInfo.group == "al") firstInfo.group = "G001";
-
     if (secInfo.method != "thpt" && secInfo.method != "dgcb")
       secInfo.group = "al";
-    else if (secInfo.group == "al") secInfo.group = "G001";
 
     // Fetch data from base
 

@@ -4,6 +4,23 @@ import queryModel from "./query_model.js";
 
 import { showLoading, hideLoading } from "./loading.js";
 
+const slpkContent = `
+<label for="subject" class="form-label fw-bold">Môn thi</label>
+<select id="subject" class="form-select form-control">
+  <option value="to">Toán</option>
+  <option value="vl">Lý</option>
+  <option value="hh">Hóa</option>
+  <option value="sh">Sinh</option>
+  <option value="an">Tiếng Anh</option>
+  <option value="nv">Văn</option>
+  <option value="ls">Sử</option>
+  <option value="dl">Địa</option>
+  <option value="c1">CN công nghiệp</option>
+  <option value="c2">CN nông nghiệp</option>
+  <option value="th">Tin</option>
+</select>
+`;
+
 function getRandColor() {
   const h = Math.floor(Math.random() * 23) * 15;
   const s = Math.floor(Math.random() * 40) + 40;
@@ -12,6 +29,30 @@ function getRandColor() {
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
+  // Add selecpicker
+
+  let examSlpk = document.getElementById("exam");
+
+  examSlpk.addEventListener("change", (event) => {
+    let replacement = document.getElementById("slpk-replacement");
+
+    if (event.target.value == "thpt" || event.target.value == "dgcb") {
+      replacement.classList.remove("d-none");
+      replacement.classList.add("col-md-3", "col-12");
+
+      replacement.innerHTML = slpkContent;
+    } else {
+      replacement.innerHTML = "";
+
+      replacement.classList.remove("col-md-3", "col-12");
+      replacement.classList.add("d-none");
+    }
+  });
+
+  examSlpk.dispatchEvent(new Event("change"));
+
+  // Plotting
+
   let chart = new Chart("myChart", {
     type: "scatter",
     data: {
@@ -51,9 +92,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
     .addEventListener("click", async (event) => {
       // Get querry info
 
+      let examValue = document.getElementById("exam").value;
+
       let info = {
-        exam: document.getElementById("exam").value,
-        subject: document.getElementById("subject").value,
+        exam: examValue,
+        subject:
+          examValue == "thpt" || examValue == "dgcb"
+            ? document.getElementById("subject").value
+            : "al",
         year: document.getElementById("year").value,
         base: null,
       };
