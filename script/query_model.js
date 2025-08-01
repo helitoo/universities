@@ -820,15 +820,31 @@ export default class queryModel {
     // Get scores
 
     for (let [method, groups] of this.main.entries())
-      for (let [group, scores] of groups.entries())
-        if (
-          scores.length > 0 &&
-          this.applyGroups.includes(group) &&
-          typeof scores[0] == "number"
-        ) {
-          methodScores.get(method).push(scores[0]);
-          groupScores.get(group).push(scores[0]);
-        }
+      if (groups.size > 0)
+        for (let [group, scores] of groups.entries())
+          if (this.applyGroups.includes(group)) {
+            if (Array.isArray(scores[0])) {
+              for (let score of scores)
+                if (typeof score[0] == "number") {
+                  methodScores.get(method).push(score[0]);
+                  groupScores.get(group).push(score[0]);
+                }
+            } else if (typeof scores[0] == "number") {
+              methodScores.get(method).push(scores[0]);
+              groupScores.get(group).push(scores[0]);
+            }
+          }
+
+    // for (let [method, groups] of this.main.entries())
+    //   for (let [group, scores] of groups.entries())
+    //     if (
+    //       scores.length > 0 &&
+    //       this.applyGroups.includes(group) &&
+    //       typeof scores[0] == "number"
+    //     ) {
+    //       methodScores.get(method).push(scores[0]);
+    //       groupScores.get(group).push(scores[0]);
+    //     }
 
     for (let i = 0; i < methodScores.get("hcmut").length; i++)
       methodScores.get("hcmut")[i] = round2(
