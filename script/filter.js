@@ -156,6 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
   scoreValidate("#dgtd-p", "dgtd");
   scoreValidate("#dghn-p", "dghn");
   scoreValidate(".dgsg-p", "dgsg");
+  scoreValidate(".dgsp-p", "dgsp");
   scoreValidate(".dgcb-p", "dgcb");
   scoreValidate(".vsat-p", "vsat");
   scoreValidate(".dgca-p", "dgca");

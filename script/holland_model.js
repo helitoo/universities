@@ -31,12 +31,13 @@ export default class hollandModel {
     this.apply = document.getElementById("apply-holland").checked;
 
     document.querySelectorAll(".holland-p").forEach((input) => {
-      this.single_p[input.dataset.index] = input.value;
+      this.single_p[input.dataset.index] = Number(input.value);
     });
 
     document.querySelectorAll(".multi-holland-p").forEach((input) => {
-      this.multi_p.get(input.dataset.subject)[input.dataset.index] =
-        input.value;
+      this.multi_p.get(input.dataset.subject)[input.dataset.index] = Number(
+        input.value
+      );
     });
   }
 
@@ -44,7 +45,7 @@ export default class hollandModel {
     const validate = (value, selectElm) => {
       if (
         Array.from(selectElm.options)
-          .map((opt) => opt.value)
+          .map((opt) => Number(opt.value))
           .includes(value)
       )
         return value;

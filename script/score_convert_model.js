@@ -467,14 +467,27 @@ export async function getGroupDist(
     }
   }
 
+  // Power-scaling để nhấn mạnh vùng điểm cao
+  function emphasizeUpperTail(dist, gamma = 0.3) {
+    const scaled = dist.map((val) => Math.pow(val, gamma));
+    const totalBefore = dist.reduce((a, b) => a + b, 0);
+    const totalAfter = scaled.reduce((a, b) => a + b, 0);
+    const rescaled = scaled.map((val) => val * (totalBefore / totalAfter));
+    return rescaled;
+  }
+
   const total = finalDist.reduce((a, b) => a + b, 0);
   const scale = N / total;
-  const scaledDist = finalDist.map((x) => Math.round(x * scale));
+  const scaledDist = finalDist.map((x) => x * scale);
+
+  // Hiệu chỉnh độ phân giải vùng trên bằng power-scaling
+  const emphasizedDist = emphasizeUpperTail(scaledDist, 0.3); // gamma ∈ (0.1, 0.5)
+  const finalRoundedDist = emphasizedDist.map((x) => Math.round(x));
 
   return {
     min,
     max,
-    dist: scaledDist,
+    dist: finalRoundedDist,
   };
 }
 
@@ -507,6 +520,7 @@ export function hasScoreGroup(subjectGroup, scores) {
 // subjectGroup : string
 // index : int
 // coefs : {subject : coef, subject : coef, subject : coef ...}
+// scores : Map {subject : [...] / number}
 
 // constraint: scores cant null
 
@@ -528,30 +542,149 @@ export function getGroupScore(subjectGroup, scores, index, coefs) {
   return ans;
 }
 
-// applySubjects : map [key : bool]
-// scores : map [key : array] / [key : number]
-// indexes : array
-// coefss : map [key : {subject : coef, subject : coef, subject : coef ...}]
+export function getSubjectName(subjectId) {
+  switch (subjectId) {
+    case "to":
+      return "Toán";
+    case "vl":
+      return "Lý";
+    case "hh":
+      return "Hóa";
+    case "sh":
+      return "Sinh";
+    case "ls":
+      return "Sử";
+    case "dl":
+      return "Địa";
+    case "nv":
+      return "Văn";
+    case "gd":
+      return "GDKTPL";
+    case "c1":
+      return "CNCN";
+    case "c2":
+      return "CNNN";
+    case "th":
+      return "Tin";
+    case "an":
+      return "Anh";
+    default:
+      return "Tổng hợp";
+  }
+}
 
-// export function getGroupScores(applySubjects, scores, indexes, coefss) {
-//   let ans = new Map([]);
+export function getGroupName(groupId) {
+  switch (groupId) {
+    case "root":
+      return "Gốc";
+    case "k00":
+      return "K00";
+    case "k01":
+      return "K01";
+    default:
+      let subjects = subjectGroups.get(groupId);
+      return `${getSubjectName(subjects[0])}-${getSubjectName(
+        subjects[1]
+      )}-${getSubjectName(subjects[2])}`;
+  }
+}
 
-//   for (let subjectGroup of subjectGroups.keys())
-//     if (isApplyGroup(applySubjects, subjectGroup)) {
-//       let ansScores = [];
+export function getMethodeName(methodId) {
+  switch (methodId) {
+    case "thpt":
+      return "TN";
+    case "thhb":
+      return "HB";
+    case "dghn":
+      return "HSA";
+    case "dgsg":
+      return "V-ACT";
+    case "vsat":
+      return "V-SAT";
+    case "dgca":
+      return "CAND";
+    case "dgsp":
+      return "SPT";
+    case "dgcb":
+      return "H-SCA";
+    case "dgtd":
+      return "TSA";
+    case "hcmut":
+      return "HCMUT";
+    default:
+      return getGroupName(methodId);
+  }
+}
 
-//       for (let index of indexes)
-//         ansScores.push(
-//           getGroupScore(
-//             subjectGroup,
-//             scores,
-//             index,
-//             coefss.has(subjectGroup) ? coefss.get(subjectGroup) : {}
-//           )
-//         );
+export function getIndustry1Name(id) {
+  switch (id) {
+    case 714:
+      return "KH giáo dục & đào tạo giáo viên";
+    case 721:
+      return "Nghệ thuật";
+    case 722:
+      return "Nhân văn";
+    case 731:
+      return "KH XH & hành vi";
+    case 732:
+      return "Báo chí & thông tin";
+    case 734:
+      return "Kinh doanh & quản lý";
+    case 738:
+      return "Pháp luật";
+    case 742:
+      return "KH sự sống";
+    case 744:
+      return "KH tự nhiên";
+    case 746:
+      return "Toán & thống kê";
+    case 748:
+      return "Máy tính & công nghệ thông tin";
+    case 751:
+      return "Công nghệ kỹ thuật";
+    case 752:
+      return "Kỹ thuật";
+    case 754:
+      return "Sản xuất & chế biến";
+    case 758:
+      return "Kiến trúc & xây dựng";
+    case 762:
+      return "Nông lâm nghiệp & thủy sản";
+    case 764:
+      return "Thú y";
+    case 772:
+      return "Sức khỏe";
+    case 776:
+      return "Dịch vụ xã hội";
+    case 781:
+      return "Du lịch khách sạn, thể thao & dịch vụ cá nhân";
+    case 784:
+      return "Dịch vụ vận tải";
+    case 785:
+      return "Môi trường & bảo vệ môi trường";
+    case 786:
+      return "An ninh Quốc phòng";
+    default:
+      return "Khác";
+  }
+}
 
-//       ans.set(subjectGroup, ansScores);
-//     }
+export function getAvg(arr) {
+  arr = arr.flat(Infinity);
 
-//   return ans;
-// }
+  if (!arr || arr.length === 0) return 0;
+  return arr.reduce((a, b) => a + b, 0) / arr.length;
+}
+
+export function getSort(map, index, isAsc) {
+  return new Map(
+    [...map.entries()].sort((a, b) => {
+      const valA = index != null && Array.isArray(a[1]) ? a[1][index] : a[1];
+      const valB = index != null && Array.isArray(b[1]) ? b[1][index] : b[1];
+
+      if (valA < valB) return isAsc ? -1 : 1;
+      if (valA > valB) return isAsc ? 1 : -1;
+      return 0;
+    })
+  );
+}

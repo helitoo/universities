@@ -1,4 +1,4 @@
-import { getScore, round2 } from "./score_convert_model.js";
+import { getScore, round2, getSubjectName } from "./score_convert_model.js";
 
 import queryModel from "./query_model.js";
 
@@ -169,7 +169,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
           label = "H-SCA";
           break;
       }
-      label += `-${info.subject}-${info.year.slice(2, 4)}`;
+      label += `-${
+        info.subject != "al" ? `${getSubjectName(info.subject)}-` : ""
+      }${info.year.slice(2, 4)}`;
 
       let rsl = getRandColor();
       let backgroundColor = `hsla(${rsl.h}, ${rsl.s}%, ${rsl.l}%, 0.3)`;
