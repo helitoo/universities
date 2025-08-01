@@ -544,9 +544,9 @@ export default class queryModel {
 
       if (
         [
-          thhb_P.get(subjects[0]),
-          thhb_P.get(subjects[1]),
-          thhb_P.get(subjects[2]),
+          dgcb_P.get(subjects[0]),
+          dgcb_P.get(subjects[1]),
+          dgcb_P.get(subjects[2]),
         ].every((score) => score != null)
       ) {
         let scores = [];
