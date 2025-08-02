@@ -143,26 +143,34 @@ export default class queryModel {
   /////////////////////////////////////////////////////////////////////
 
   async calcMain(filterData, year) {
-    let { usedConvertNNthhb, usedConvertNNthpt } = this.completeThhbThpt(
-      filterData.thhb_P,
-      filterData.thpt_P
-    );
+    this.completeThhbThpt(filterData.thhb_P, filterData.thpt_P);
 
+    // Các pt có bảng quy đổi ngoại ngữ riêng
+
+    await Promise.all([
+      this.calcDgca(filterData.dgca_P, filterData.thpt_P, filterData.ielts_P),
+      this.calcHcmut(
+        filterData.dgsg_P,
+        filterData.thpt_P,
+        filterData.thhb_P,
+        filterData.ielts_P
+      ),
+    ]);
+
+    this.thhbThptAnConvert(filterData.thhb_P, filterData.thpt_P);
+
+    // Các pt có bản quy đổi ngoại ngữ chung
     await Promise.all([
       this.calcThhb(filterData.thhb_P),
       this.calcThpt(filterData.thpt_P),
       this.calcDghn(filterData.dghn_P, year),
       this.calcDgsg(filterData.dgsg_P, year),
       this.calcVsat(filterData.vsat_P, year),
-      this.calcDgca(filterData.dgca_P, filterData.thpt_P),
       this.calcDgsp(filterData.dgsp_P),
       this.calcDgcb(filterData.dgcb_P, filterData.thhb_P),
       this.calcK00(filterData.dgtd_P, filterData.ielts_P, year),
       this.calcK01(filterData.thpt_P),
-      this.calcHcmut(filterData.dgsg_P, filterData.thpt_P, filterData.thhb_P),
     ]);
-
-    return { usedConvertNNthhb, usedConvertNNthpt };
   }
 
   completeThhbThpt(thhb_P, thpt_P) {
@@ -232,25 +240,18 @@ export default class queryModel {
           )
         );
     }
+  }
 
-    // Quy đổi tiếng Anh
-
-    let usedConvertNNthhb = " KHÔNG quy đổi.";
-    let usedConvertNNthpt = " KHÔNG quy đổi.";
-
+  thhbThptAnConvert(thhb_P, thpt_P) {
     for (let i = 0; i < thhb_P.get("an").length; i++)
-      if (this.extra.get("an") > thhb_P.get("an")[i]) {
-        usedConvertNNthhb = " CÓ quy đổi.";
+      if (this.extra.get("an") > thhb_P.get("an")[i])
         thhb_P.get("an")[i] = this.extra.get("an");
-      }
 
-    if (this.extra.get("an") > thpt_P.get("an")) {
-      usedConvertNNthpt = " CÓ quy đổi.";
+    if (this.extra.get("an") > thpt_P.get("an"))
       thpt_P.set("an", this.extra.get("an"));
-    }
+  }
 
-    // Tính điểm bổ sung thhb
-
+  async calcThhb(thhb_P) {
     for (let scores of thhb_P.values()) {
       // index 6 : 6 HK
       scores.push(
@@ -291,13 +292,6 @@ export default class queryModel {
       scores.push(round2((scores[4] + 2 * scores[5]) / 3, 2));
     }
 
-    return {
-      usedConvertNNthhb,
-      usedConvertNNthpt,
-    };
-  }
-
-  async calcThhb(thhb_P) {
     for (let group of this.applyGroups) {
       let scores = [];
 
@@ -444,7 +438,7 @@ export default class queryModel {
       this.main.set("vsat", getSort(this.main.get("vsat"), 0, false));
   }
 
-  async calcDgca(dgca_P, thpt_P) {
+  async calcDgca(dgca_P, thpt_P, ielts_P) {
     if ([...dgca_P.values()].every((score) => score != null)) {
       let groups = [
         "G001",
@@ -459,11 +453,21 @@ export default class queryModel {
         "G045",
         "G052",
         "G054",
-        "G052",
         "G031",
         "G032",
         "G033",
       ];
+
+      let nn_p = 0;
+
+      if (ielts_P >= 4 && ielts_P <= 4.5) nn_p = 7.5;
+      else if (ielts_P >= 5 && ielts_P <= 5.5) nn_p = 8;
+      else if (ielts_P >= 6 && ielts_P <= 6.5) nn_p = 9;
+      else if (ielts_P >= 7 && ielts_P <= 7.5) nn_p = 9.5;
+      else if (ielts_P >= 8) nn_p = 10;
+
+      thpt_P = new Map(thpt_P);
+      thpt_P.set("an", Math.max(thpt_P.get("an"), nn_p));
 
       for (let group of groups)
         if (this.applyGroups.includes(group)) {
@@ -644,24 +648,57 @@ export default class queryModel {
       this.main.set("k01", getSort(this.main.get("k01"), 0, false));
   }
 
-  async calcHcmut(dgsg_P, thpt_P, thhb_P) {
+  async calcHcmut(dgsg_P, thpt_P, thhb_P, ielts_P) {
+    thpt_P = new Map(thpt_P);
+    thhb_P = new Map(thhb_P);
+
+    // Quy đổi ngoại ngữ
+
+    let nn_p = 0;
+    if (ielts_P == 5) nn_p = 8;
+    else if (ielts_P == 5.5) nn_p = 9;
+    else if (ielts_P >= 6) nn_p = 10;
+
+    thpt_P.set("an", Math.max(thpt_P.get("an"), nn_p));
+
+    thhb_P.set(
+      "an",
+      thhb_P.get("an").map((elm) => Math.max(elm, nn_p))
+    );
+
+    for (let scores of thhb_P.values())
+      scores.push(
+        (round2((scores[0] + 2 * scores[1]) / 3, 2) +
+          round2((scores[2] + 2 * scores[3]) / 3, 2) +
+          round2((scores[4] + 2 * scores[5]) / 3, 2)) /
+          3
+      );
+
+    // Tính điểm năng lực
+
     let nlScore = 0;
 
     if ([...dgsg_P.values()].every((score) => score != null))
       nlScore = [...dgsg_P.values()].reduce((acc, val) => acc + val, 0) / 15;
 
     for (let group of this.applyGroups) {
+      // Điểm thi tốt nghiệp
       let tnScore = (getGroupScore(group, thpt_P, null, {}) / 3) * 10;
 
-      nlScore = nlScore ? nlScore : tnScore * 0.75;
+      // TH ko thi đgnl
+      nlScore = nlScore > 0 ? nlScore : tnScore * 0.75;
 
-      let hbScore = getGroupScore(group, thhb_P, 9, {});
+      // Điểm học bạ
+      let hbScore = getGroupScore(group, thhb_P, 6, {});
 
+      // Điểm thô
       let rawScore = nlScore * 0.7 + tnScore * 0.2 + hbScore * 0.1;
 
+      // Điểm thành tích
       let ttScore = (this.extra.get("kk") / 3) * 10;
       if (rawScore + ttScore >= 100) ttScore = 100 - rawScore;
 
+      // Điểm ưu tiên
       let utScore = round2((this.extra.get("ut") / 2.75) * 9.17, 2);
       if (rawScore + ttScore + utScore >= 75)
         utScore = ((100 - rawScore - ttScore - utScore) / 25) * utScore;

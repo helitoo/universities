@@ -31,7 +31,6 @@ const htmlBoxTemplate = new Map([
                 </svg>
                 <strong class="text-primary">Học bạ:</strong>
               </p>
-              <p>Quy đổi tiếng Anh:<span id="thhb-an-cvt"></span></p>
               <table class="table table-bordered">
                 <thead>
                   <th>Tổ hợp</th>
@@ -73,7 +72,6 @@ const htmlBoxTemplate = new Map([
                 </svg>
                 <strong class="text-primary">Kỳ thi TN THPT:</strong>
               </p>
-              <p>Quy đổi tiếng Anh:<span id="thpt-an-cvt"></span></p>
               <table class="table table-bordered">
                 <thead>
                   <th>Tổ hợp \\ Môn chính</th>
@@ -395,11 +393,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     hideLoading();
   }
 
+  showLoading();
+
   localStorage.setItem("query-res-lastRun", Date.now().toString());
 
   // Calc data
-
-  showLoading();
 
   let filterData = getData(new filterModel(), "Filter");
   let hollandData = getData(new hollandModel(), "Holland");
@@ -408,10 +406,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   await querier.calcExtra(filterData, new Date().getFullYear() - 1);
 
-  let { usedConvertNNthhb, usedConvertNNthpt } = await querier.calcMain(
-    filterData,
-    new Date().getFullYear() - 1
-  );
+  await querier.calcMain(filterData, new Date().getFullYear() - 1);
 
   console.log(querier);
 
@@ -494,14 +489,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("kk-p-res").innerHTML = `<strong>
     ${querier.extra.get("kk")}
   </strong> (thang 30)`;
-
-  document.getElementById(
-    "thhb-an-cvt"
-  ).innerHTML = `<strong>${usedConvertNNthhb}</strong>`;
-
-  document.getElementById(
-    "thpt-an-cvt"
-  ).innerHTML = `<strong>${usedConvertNNthpt}</strong>`;
 
   // Render chart
 
