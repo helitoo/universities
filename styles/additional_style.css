@@ -1,3 +1,63 @@
+/* Dropdown menu */
+
+.dropdown-menu li {
+  opacity: 0;
+  transform: translateY(-5px);
+  animation: dropdownItem 0.3s ease forwards;
+}
+
+@keyframes dropdownItem {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Thêm hiệu ứng mượt cho accordion-body */
+.accordion-body {
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+/* Collapse khi ẩn */
+.accordion-collapse:not(.show) .accordion-body {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Khi hiện ra */
+.accordion-collapse.show .accordion-body {
+  max-height: 99999999px;
+  opacity: 1;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Tắt nền xanh khi mở accordion */
+.accordion-button:not(.collapsed) {
+  background-color: transparent;
+  color: inherit;
+  box-shadow: none;
+}
+
+/* Hidden */
+
 .hidden {
   display: none;
 }
@@ -74,8 +134,8 @@ textarea:hover {
   transition: 0.3s;
 }
 
-button:focus,
-button:active {
+button:focus:not(.accordion-button),
+button:active:not(.accordion-button) {
   border: none;
   transform: scale(0.97, 0.97);
   transition: 0.3s;

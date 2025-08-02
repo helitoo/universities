@@ -6,16 +6,17 @@
     <title>Trang chủ</title>
     <!-- Bootstrap -->
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
       crossorigin="anonymous"
     />
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
     ></script>
+    <!-- Favicon -->
     <link
       rel="shortcut icon"
       href="../assets/logo/favicon.png"
@@ -28,6 +29,7 @@
     />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+
     <!-- Other style -->
     <link rel="stylesheet" href="/styles/additional_style.css" />
     <!-- MathJax -->
@@ -166,13 +168,10 @@
           </li>
         </ol>
       </div>
-      <div
-        class="row fw-bold fs-4 mt-5 mb-3"
-        style="background-color: #042b92; color: white"
-        id="hdkttw"
-      >
-        <div class="col m-1">HƯỚNG DẪN KHAI THÁC TRANG WEB</div>
+      <div class="row fs-1 fw-bold mt-5" style="color: #042b92" id="hdkttw">
+        Hướng dẫn khai thác trang web
       </div>
+      <hr class="row" />
       <p>
         <a href="./index.html">Cổng Đại học</a> là trang web có chức năng
         <span class="fst-italic fw-bold" style="color: #042b92">
@@ -228,13 +227,10 @@
           </div>
         </div>
       </div>
-      <div
-        class="row fw-bold fs-4 mt-5 mb-3"
-        style="background-color: #042b92; color: white"
-        id="hdsd"
-      >
-        <div class="col m-1">HƯỚNG DẪN SỬ DỤNG</div>
+      <div class="row fs-1 fw-bold mt-5" style="color: #042b92" id="hdsd">
+        Hướng dẫn sử dụng
       </div>
+      <hr class="row" />
       <div class="container my-4 rounded">
         <div class="row justify-content-center">
           <div class="col-md-10 rounded-3 p-3 border border-success border-2">
@@ -284,806 +280,985 @@
           </div>
         </div>
       </div>
-      <div
-        class="row fw-bold fs-4 mt-5 mb-3"
-        style="background-color: #042b92; color: white"
-        id="gtmsccctw"
-      >
-        <div class="col m-1">GIẢI THÍCH MỘT SỐ CƠ CHẾ CỦA TRANG WEB</div>
-      </div>
-      <div class="row fs-1 fw-bold mt-5" style="color: #042b92">
-        Quy trình tính điểm để tìm ngành
+      <div class="row fs-1 fw-bold mt-5" style="color: #042b92" id="gtmsccctw">
+        Giải thích một số cơ chế của trang web
       </div>
       <hr class="row" />
-      <div class="container my-4 rounded">
-        <div class="row justify-content-center">
-          <div class="col-md-10 rounded-3 p-3 border border-danger border-2">
-            <p class="mb-0">
-              <img
-                src="../assets/icons/triangle-warning.png"
-                alt="references"
-                style="height: 1.3rem; margin-right: 0.2rem"
-                draggable="false"
-              />
-              <strong class="text-danger">Chú ý:</strong> Trang web sẽ liệt kê
-              điểm ở toàn bộ phương thức cho thí sinh xem xét, điểm sau đây chỉ
-              để tìm các ngành trong cơ sở dữ liệu.
-            </p>
+      <p class="fw-bold fs-4 mt-3" style="color: #042b92">
+        Quy trình tính điểm để tìm ngành
+      </p>
+      <!-- Accordion -->
+      <div class="accordion" id="exam-calc-explain">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#thhb-thpt-collapse"
+            >
+              <strong>Đối với phương thức Học bạ & TN THPT</strong>
+            </button>
+          </h2>
+          <div
+            id="thhb-thpt-collapse"
+            class="accordion-collapse collapse"
+            data-bs-parent="#exam-calc-explain"
+          >
+            <div class="accordion-body">
+              <ul>
+                <li>
+                  Đối với HB, sử dụng điểm
+                  <i>Trung bình 3 năm của 3 môn cao nhất</i> đối với từng tổ hợp
+                  để xét.
+                </li>
+                <li>
+                  Nếu thí sinh không có đầy đủ điểm HB hay TN thì suy luận như
+                  sau:
+                </li>
+                <ul>
+                  <li class="mt-2">
+                    <i>Điểm HK1 lớp 10</i>: Dựa vào
+                    <a
+                      href="#thhb-thpt-convertion"
+                      style="text-decoration: underline; font-style: italic"
+                      >Bảng quy đổi HB và TN</a
+                    >.
+                  </li>
+                  <li class="mt-2">
+                    <i>Điểm của HK1</i>: Quy đổi theo công thức: Điểm của HK $j
+                    = 1$ năm học $i$: $$s_{i,j} = a \times s_{i - 1} + b \quad ;
+                    \quad s_i = \frac{s_{i,j = 1} + 2 \times s_{i,j = 2}}{3} $$
+                    Với $a$ và $b$ tham khảo
+                    <a
+                      href="#thhb-thpt-convertion"
+                      style="text-decoration: underline; font-style: italic"
+                      >Bảng quy đổi HB và TN</a
+                    >.
+                  </li>
+                  <li class="mt-2">
+                    <i>Điểm của HK2</i>: Bằng điểm của HK1 cùng năm.
+                  </li>
+                  <li class="mt-2">
+                    <i>Điểm TN</i>: Quy đổi theo công thức: Điểm TN $s_{tn}$:
+                    $$s_{tn} = a \times \frac{(s_{i = 10} + s_{i = 11} + s_{i =
+                    12})}{3} + b $$ Với $a$ và $b$ tham khảo
+                    <a
+                      href="#thhb-thpt-convertion"
+                      style="text-decoration: underline; font-style: italic"
+                      >Bảng quy đổi HB và TN</a
+                    >.
+                  </li>
+                  <li class="mt-2">
+                    <i>Bảng quy đổi HB và TN</i>: Dựa trên công bố của Bộ về
+                    tương quan giữa điểm các môn thi TN THPT với điểm trung bình
+                    các môn học bậc THPT năm 2025.
+                  </li>
+                  <table class="table table-bordered" id="thhb-thpt-convertion">
+                    <thead>
+                      <tr>
+                        <th>Môn</th>
+                        <th>HK1 lớp 10</th>
+                        <th>HK1 lớp 11<br />[a, b]</th>
+                        <th>HK1 lớp 12<br />[a, b]</th>
+                        <th>TN<br />[a, b]</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">Toán</td>
+                        <td class="text-center">6.7</td>
+                        <td class="text-center">[1.028, -0.99]</td>
+                        <td class="text-center">[1.090, -1.00]</td>
+                        <td class="text-center">[4.20, -24.78]</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">Văn</td>
+                        <td class="text-center">6.93</td>
+                        <td class="text-center">[1.017, -0.83]</td>
+                        <td class="text-center">[1.018, -0.74]</td>
+                        <td class="text-center">[2.50, -10.50]</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">Lý</td>
+                        <td class="text-center">7.05</td>
+                        <td class="text-center">[1.026, -0.64]</td>
+                        <td class="text-center">[1.106, -0.67]</td>
+                        <td class="text-center">[5.24, -30.87]</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">Hóa</td>
+                        <td class="text-center">7.08</td>
+                        <td class="text-center">[1.025, -0.56]</td>
+                        <td class="text-center">[1.070, -0.99]</td>
+                        <td class="text-center">[5.48, -27.45]</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">Sinh</td>
+                        <td class="text-center">7.28</td>
+                        <td class="text-center">[1.064, -0.39]</td>
+                        <td class="text-center">[1.053, -0.37]</td>
+                        <td class="text-center">[4.69, -24.23]</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">Sử</td>
+                        <td class="text-center">7.37</td>
+                        <td class="text-center">[1.038, -0.41]</td>
+                        <td class="text-center">[1.039, -0.45]</td>
+                        <td class="text-center">[4.41, -26.04]</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">Địa</td>
+                        <td class="text-center">7.12</td>
+                        <td class="text-center">[1.036, -0.39]</td>
+                        <td class="text-center">[1.050, -0.57]</td>
+                        <td class="text-center">[4.47, -25.96]</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">GDKT-PL</td>
+                        <td class="text-center">7.45</td>
+                        <td class="text-center">[1.078, -1.29]</td>
+                        <td class="text-center">[1.026, -0.01]</td>
+                        <td class="text-center">[2.97, -15.20]</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">Tin</td>
+                        <td class="text-center">7.62</td>
+                        <td class="text-center">[1.038, -1.09]</td>
+                        <td class="text-center" d>[1.063, -0.92]</td>
+                        <td class="text-center">[3.89, -19.66]</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">Công nghệ CN</td>
+                        <td class="text-center">7.8</td>
+                        <td class="text-center">[1.026, -0.42]</td>
+                        <td class="text-center">[1.045, -1.06]</td>
+                        <td class="text-center">[3.61, -18.58]</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">Công nghệ NN</td>
+                        <td class="text-center">7.74</td>
+                        <td class="text-center">[1.033, -0.55]</td>
+                        <td class="text-center">[1.026, -0.56]</td>
+                        <td class="text-center">[2.97, -13.17]</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">Anh</td>
+                        <td class="text-center">6.55</td>
+                        <td class="text-center">[1.058, -1.26]</td>
+                        <td class="text-center">[1.065, -1.23]</td>
+                        <td class="text-center">[3.63, -18.15]</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </ul>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#dghn-dgsg-collapse"
+            >
+              <strong>Kỳ thi Đánh giá năng lực - ĐHQG-HN - ĐHQG-HCM</strong>
+            </button>
+          </h2>
+          <div
+            id="dghn-dgsg-collapse"
+            class="accordion-collapse collapse"
+            data-bs-parent="#exam-calc-explain"
+          >
+            <div class="accordion-body">
+              Quy đổi điểm tổng bài thi sang các khối:
+              <ol>
+                <li>Toán-Lý-Hóa.</li>
+                <li>Lý-Hóa-Sinh.</li>
+                <li>Văn-Sử-Địa.</li>
+                <li>Toán-Văn-Anh.</li>
+                <li>Toán-Lý-Anh.</li>
+              </ol>
+              Quy đổi tự do sang các khối khác 👉 Vào trang
+              <strong><a href="./pages/convert.html">Quy đổi điểm</a></strong
+              >.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#k00-collapse"
+            >
+              <strong>Kỳ thi Đánh giá tư duy - HUST</strong>
+            </button>
+          </h2>
+          <div
+            id="k00-collapse"
+            class="accordion-collapse collapse"
+            data-bs-parent="#exam-calc-explain"
+          >
+            <div class="accordion-body">
+              Quy đổi điểm tổng bài thi sang các khối:
+              <ol>
+                <li>Toán-Lý-Hóa.</li>
+              </ol>
+              Quy đổi tự do sang các khối khác 👉 Vào trang
+              <strong><a href="./pages/convert.html">Quy đổi điểm</a></strong
+              >.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#vsat-collapse"
+            >
+              <strong>Kỳ thi Đánh giá đầu vào Đại học - V-SAT</strong>
+            </button>
+          </h2>
+          <div
+            id="vsat-collapse"
+            class="accordion-collapse collapse"
+            data-bs-parent="#exam-calc-explain"
+          >
+            <div class="accordion-body">
+              Quy đổi điểm từng môn theo phổ điểm từng môn TN tương ứng. Nếu
+              không tìm thấy dữ liệu phổ điểm các môn của V-SAT để quy đổi thì
+              dùng phổ điểm [0, 1, 5, 0] (phạm vi từ 0 đến 150 điểm)
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#dgca-collapse"
+            >
+              <strong
+                >Kỳ thi Đánh giá đầu tuyển sinh Đại học Công an nhân dân</strong
+              >
+            </button>
+          </h2>
+          <div
+            id="dgca-collapse"
+            class="accordion-collapse collapse"
+            data-bs-parent="#exam-calc-explain"
+          >
+            <div class="accordion-body">
+              Sử dụng kết hợp điểm TN và điểm ĐGTSĐH CAND:
+              <div class="rounded fw-bold bg-body-secondary mx-5 p-2">
+                [Điểm TN 3 môn] x 40% + [Điểm bài thi ĐGTSĐH CAND] x 30% x 60% +
+                <span style="color: #bfb41b"> [Điểm ưu tiên] </span>
+              </div>
+              <p class="mt-2 mb-0">
+                Nguồn:
+                <a
+                  href="https://xaydungchinhsach.chinhphu.vn/huong-dan-tuyen-sinh-cong-an-nhan-dan-nam-2025-119250402094229222.htm"
+                  target="_blank"
+                  >Hướng dẫn tuyển sinh Công an nhân dân năm 2025 - Báo điện tử
+                  chính phủ</a
+                >.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#dgsp-collapse"
+            >
+              <strong>Đánh giá năng lực - HNUE</strong>
+            </button>
+          </h2>
+          <div
+            id="dgsp-collapse"
+            class="accordion-collapse collapse"
+            data-bs-parent="#exam-calc-explain"
+          >
+            <div class="accordion-body">
+              <div class="rounded fw-bold bg-body-secondary mx-5 p-2">
+                0.5 x [Điểm môn thi] + 0.25 x [Điểm HB môn 2] + 0.25 x [Điểm HB
+                môn 3] +
+                <span style="color: #bfb41b"> [Điểm ưu tiên] </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#dgcb-collapse"
+            >
+              <strong>Đánh giá năng lực chuyên biệt - HCMUE</strong>
+            </button>
+          </h2>
+          <div
+            id="dgcb-collapse"
+            class="accordion-collapse collapse"
+            data-bs-parent="#exam-calc-explain"
+          >
+            <div class="accordion-body">
+              <div class="rounded fw-bold bg-body-secondary mx-5 p-2">
+                [Tổng điểm 3 môn; trong đó môn Toán, Văn hoặc Anh có thể x2] +
+                <span style="color: #bfb41b"> [Điểm ưu tiên] </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#k01-collapse"
+            >
+              <strong>TN Đại học Bách khoa Hà Nội</strong>
+            </button>
+          </h2>
+          <div
+            id="k01-collapse"
+            class="accordion-collapse collapse"
+            data-bs-parent="#exam-calc-explain"
+          >
+            <div class="accordion-body">
+              <div class="rounded fw-bold bg-body-secondary mx-5 p-2">
+                [[Điểm TN Toán] x3 + [Điểm TN Văn] + [Điểm TN Lý/Hóa/Sinh/Tin]
+                x2 quy đổi về A00] +
+                <span style="color: #bfb41b"> [Điểm ưu tiên] </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#hcmut-collapse"
+            >
+              <strong>Trường Đại học Bách khoa - ĐHQG-HCM</strong>
+            </button>
+          </h2>
+          <div
+            id="hcmut-collapse"
+            class="accordion-collapse collapse"
+            data-bs-parent="#exam-calc-explain"
+          >
+            <div class="accordion-body">
+              <div class="rounded fw-bold bg-body-secondary mx-5 p-2">
+                <span style="color: #881bbf">[Điểm NL] x 70%</span> +
+                <span style="color: #1ba6bf">
+                  [Tổng điểm 3 môn TN THPT / 3 x 10] x 20%
+                </span>
+                +
+                <span style="color: #1bbf8b"
+                  >[Trung bình điểm TB 3 môn trong 3 năm x10] x 10%</span
+                >
+                + <span style="color: #34bf1b">[Điểm khuyến khích]</span> +
+                <span style="color: #bfb41b"> [Điểm ưu tiên] </span>
+              </div>
+              <ul>
+                <li class="fw-bold fst-italic mt-2">
+                  Hướng dẫn tính [Điểm NL]:
+                </li>
+                <ul>
+                  <li>Đối với thí sinh có thi V-ACT:</li>
+                  <strong style="color: #881bbf"
+                    >[Điểm NL] = [Điểm thi V-ACT có môn Toán x2] / 15</strong
+                  >
+                  <li>Đối với thí sinh không thi V-ACT:</li>
+                  <strong style="color: #881bbf"
+                    >[Điểm NL] = [Tổng điểm 3 môn TN THPT / 3 x 10 x
+                    0.75]</strong
+                  >
+                  <li>
+                    Đối với thí sinh tốt nghiệp THPT tại Việt Nam và có chứng
+                    chỉ tuyển sinh quốc tế:
+                  </li>
+                  <strong style="color: #881bbf"
+                    >[Điểm NL] = [Điểm chứng chỉ quy về thang 100]</strong
+                  >
+                </ul>
+                <li class="mt-2">
+                  <span class="fw-bold fst-italic"
+                    >Hướng dẫn tính [Điểm khuyến khích]:</span
+                  >
+                  Sau đây gọi phần điểm trước khi cộng [Điểm khuyến khích] và
+                  [Điểm ưu tiên] là [Điểm học lực]:
+                </li>
+                <div class="fst-italic">
+                  [Điểm cộng thành tích] được xét từ các thành tích khác,
+                  văn-thể-mỹ, hoạt động xã hội: tối đa 10 điểm, thang 100 (do
+                  Hội đồng tuyển sinh quyết định tùy theo lượng hồ sơ xét tuyển
+                  và thành tích của thí sinh).
+                </div>
+                <ul>
+                  <li>
+                    Đối với thí sinh có [Điểm học lực] + [Điểm cộng thành tích]
+                    < 100 điểm:
+                  </li>
+                  <strong style="color: #34bf1b"
+                    >[Điểm khuyến khích] = [Điểm cộng thành tích]</strong
+                  >
+                  <li>
+                    Đối với thí sinh có [Điểm học lực] + [Điểm cộng thành tích]
+                    ≥ 100 điểm:
+                  </li>
+                </ul>
+                <strong style="color: #34bf1b"
+                  >[Điểm khuyến khích] = 100 - [Điểm học lực]</strong
+                >
+                <li class="fw-bold fst-italic mt-2">
+                  Hướng dẫn tính [Điểm ưu tiên]
+                </li>
+                <div class="fst-italic">
+                  Điểm ưu tiên quy đổi: tối đa 9.17 điểm / thang 100 (quy đổi từ
+                  mức tối đa 2.75 điểm/thang điểm 30 theo quy chế của Bộ GD&ĐT),
+                  được làm tròn đến 2 chữ số phần thập phân.
+                </div>
+                <ul>
+                  <li>
+                    Đối với thí sinh có [Điểm học lực] + [Điểm cộng] < 75 điểm:
+                  </li>
+                  <strong style="color: #bfb41b"
+                    >[Điểm ưu tiên] = [Điểm ưu tiên quy đổi]</strong
+                  >
+                  <li>
+                    Đối với thí sinh có [Điểm học lực] + [Điểm cộng] ≥ 75 điểm:
+                  </li>
+                  <strong style="color: #bfb41b"
+                    >[Điểm ưu tiên] = (100 - [Điểm học lực] - [Điểm cộng]) / 25
+                    x [Điểm ưu tiên quy đổi]</strong
+                  >
+                </ul>
+                <li class="mt-2">
+                  Đối với điểm HB và TN, sử dụng tổ hợp có điểm TN cao nhất
+                  trong số các tổ hợp A00, A01, U30, U31, D07, U32, U33, D08
+                  <i>(Toán, Lý, Hóa, Sinh, Anh, Tin, CN)</i>
+                  <i
+                    >(Các tổ hợp có tiền tố U là tên gọi riêng của trang web.
+                    Tra cứu tại mục Kết quả tìm kiếm để biết các tổ hợp đó là
+                    gì.)</i
+                  >.
+                </li>
+              </ul>
+              <p class="mt-2 mb-0">
+                Nguồn:
+                <a
+                  href="https://hcmut.edu.vn/tuyen-sinh/dai-hoc-chinh-quy/phuong-thuc-tuyen-sinh/xet-tuyen-tong-hop-2025"
+                  target="_blank"
+                  >Xét tuyển Tổng hợp - ĐHBK HCM</a
+                >.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#add-score-collapse"
+            >
+              <strong>Điểm cộng & Quy đổi tiếng Anh</strong>
+            </button>
+          </h2>
+          <div
+            id="add-score-collapse"
+            class="accordion-collapse collapse"
+            data-bs-parent="#exam-calc-explain"
+          >
+            <div class="accordion-body">
+              <ul>
+                <li>
+                  Cách quy đổi điểm IELTS thành điểm thi TN THPT / học bạ tiếng
+                  Anh:
+                </li>
+                <ul>
+                  <table class="table table-bordered">
+                    <tr>
+                      <th>IELTS</th>
+                      <th>HB & TN</th>
+                    </tr>
+                    <tr>
+                      <td class="text-center">5.0</td>
+                      <td class="text-center">8.5</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">5.5</td>
+                      <td class="text-center">9.0</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">6.0</td>
+                      <td class="text-center">9.5</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">≥ 6.5</td>
+                      <td class="text-center">10.0</td>
+                    </tr>
+                  </table>
+                  <li>
+                    Riêng đối với phương thức ĐGTSĐH CAND thì dùng
+                    <a
+                      href="https://hvannd.edu.vn/bv/ct/16481/thong-bao-ve-nguong-bao-dam-chat-luong-dau-vao-quy-doi-diem-xet-tuyen-doi-voi-thi-sinh-du-tuyen-trinh-do-dai-hoc-chinh-quy-tuyen-moi-cong-dan-tot-nghiep-thpt-nam-2025-"
+                      target="_blank"
+                      class="fst-italic"
+                      >Bảng quy đổi này</a
+                    >.
+                  </li>
+                  <li>
+                    Riêng đối với HCMUT thì dùng
+                    <a
+                      href="https://hcmut.edu.vn/news/item/11141"
+                      target="_blank"
+                      class="fst-italic"
+                      >Bảng quy đổi này</a
+                    >.
+                  </li>
+                </ul>
+                Nếu điểm thi TN / học bạ của thí sinh cao hơn điểm quy đổi nêu
+                trên thì giữ nguyên điểm cũ, không quy đổi.
+                <li class="mt-2">
+                  Bảng điểm cộng khuyến khích cho mỗi thành tích:
+                </li>
+                <table class="table table-bordered mt-3">
+                  <thead>
+                    <th></th>
+                    <th>Giải Tư / KK</th>
+                    <th>Giải Ba</th>
+                    <th>Giải Nhì</th>
+                    <th>Giải Nhất</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="fw-bold text-center">Cấp Tỉnh</td>
+                      <td class="text-center">0.03</td>
+                      <td class="text-center">0.24</td>
+                      <td class="text-center">0.3</td>
+                      <td class="text-center">0.9</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-bold text-center">Cấp Quốc gia</td>
+                      <td class="text-center">1.53</td>
+                      <td class="text-center" colspan="3">Tuyển thẳng</td>
+                    </tr>
+                    <tr>
+                      <td class="fw-bold text-center">Cấp Quốc tế / khu vực</td>
+                      <td class="text-center" colspan="4">Tuyển thẳng</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <li>
+                  Đối với điểm cộng khuyến khích cho mỗi chứng chỉ tuyển sinh,
+                  thực hiện quy đổi tuyến tính về thang 3 điểm / chứng chỉ.
+                </li>
+                <li class="mt-2">
+                  Chú ý:
+                  <ul>
+                    <li>
+                      Tổng điểm khuyến khích đã nói trên và điểm ưu tiên phải ≤
+                      3.
+                    </li>
+                    <li>
+                      Trang web không kiểm tra thời hạn sử dụng chứng chỉ hoặc
+                      thời hạn công nhận thành tích.
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#extra-calc-collapse"
+            >
+              <strong>Quy tắc làm tròn</strong>
+            </button>
+          </h2>
+          <div
+            id="extra-calc-collapse"
+            class="accordion-collapse collapse"
+            data-bs-parent="#exam-calc-explain"
+          >
+            <div class="accordion-body">
+              <ol>
+                <li>
+                  <i>Làm tròn lần 1:</i> Làm tròn 2 chữ số điểm các môn theo học
+                  kỳ / theo bài thi.
+                </li>
+                <li class="mt-2">
+                  <i>Làm tròn lần 2:</i> Làm tròn 2 chữ số sau khi cộng điểm 3
+                  môn lại (nếu có) và cộng điểm ưu tiên.
+                </li>
+              </ol>
+              Chú ý:
+              <ul>
+                <li>
+                  Không làm tròn điểm cộng. Khi hiển thị thì làm tròn 4 chữ số.
+                </li>
+                <li class="mt-2">
+                  Đối với HCMUT, làm tròn 2 chữ số điểm ưu tiên.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- End accordion -->
+      </div>
+      <p class="fw-bold fs-4 mt-3" style="color: #042b92">
+        Quy trình tính điểm tính cách và gợi ý ngành
+      </p>
+      <div class="accordion" id="exam-calc-explain">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#signle-q-collapse"
+            >
+              <strong>Đối với các câu hỏi từ 1 - 42</strong>
+            </button>
+          </h2>
+          <div
+            id="signle-q-collapse"
+            class="accordion-collapse collapse"
+            data-bs-parent="#exam-calc-explain"
+          >
+            <div class="accordion-body">
+              <ul>
+                Mỗi câu trả lời sẽ ứng với một mốc điểm như sau:
+                <ol>
+                  <li>Ghét / Không bao giờ làm : -3 điểm.</li>
+                  <li>Bình thường / Thi thoảng / Chưa từng làm : 0 điểm.</li>
+                  <li>Thích / Muốn làm : 1 điểm.</li>
+                  <li>Yêu thích / Thường xuyên làm : 3 điểm.</li>
+                </ol>
+                <li class="mt-2">
+                  Đối với mỗi câu hỏi sẽ cộng điểm cho các nhóm tính cách sau:
+                </li>
+                <ol>
+                  <li>Các câu 1, 3, 5, 7, 9, 11, 13: R.</li>
+                  <li>Các câu 2, 4, 6, 8, 10, 12, 14: I.</li>
+                  <li>Các câu 15, 17, 19, 21, 23, 25, 27: A.</li>
+                  <li>Các câu 16, 18, 20, 22, 24, 26, 28: S.</li>
+                  <li>Các câu 29, 31, 33, 35, 37, 39, 41: E.</li>
+                  <li>Các câu 30, 32, 34, 36, 38, 40, 42: C.</li>
+                </ol>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#multi-q-collapse"
+            >
+              <strong>Đối với các câu hỏi từ 43 - 49</strong>
+            </button>
+          </h2>
+          <div
+            id="multi-q-collapse"
+            class="accordion-collapse collapse"
+            data-bs-parent="#exam-calc-explain"
+          >
+            <div class="accordion-body">
+              Mỗi câu trả lời sẽ ứng với một mốc điểm như sau:
+              <ol>
+                <li>Hoàn toàn sai : -3 điểm.</li>
+                <li>Sai nhiều hơn đúng : -1 điểm.</li>
+                <li>Chưa rõ đúng sai, chưa hiểu : 0 điểm.</li>
+                <li>Đúng nhiều hơn sai : 1 điểm.</li>
+                <li>Hoàn toàn đúng : 3 điểm.</li>
+              </ol>
+              <li class="mt-2">
+                Đối với mỗi nhận định của mỗi câu hỏi sẽ cộng điểm cho các nhóm
+                tính cách sau:
+              </li>
+              <ol>
+                <li>Nhận định 1 : R.</li>
+                <li>Nhận định 2 : I.</li>
+                <li>Nhận định 3 : A.</li>
+                <li>Nhận định 4 : S.</li>
+                <li>Nhận định 5 : E.</li>
+                <li>Nhận định 6 : C.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#holland-ans-collapse"
+            >
+              <strong>Tra cứu kết quả trắc nghệm</strong>
+            </button>
+          </h2>
+          <div
+            id="holland-ans-collapse"
+            class="accordion-collapse collapse"
+            data-bs-parent="#exam-calc-explain"
+          >
+            <div class="accordion-body">
+              Dựa vào (các) nhóm tính cách có điểm cao nhất và (các) nhóm tính
+              cách thấp hơn nhóm tính cách có điểm cao nhất ít nhất
+              <i>3 điểm</i> để chọn ra những nhóm ngành phù hợp theo bảng sau:
+              <table class="table table-bordered">
+                <tr>
+                  <th>Mã tính cách</th>
+                  <th>Mã nhóm ngành (cấp 1)</th>
+                  <th>Tên nhóm ngành (cấp 1)</th>
+                </tr>
+                <tr>
+                  <td rowspan="11">R</td>
+                  <td>748</td>
+                  <td>Máy tính và công nghệ thông tin</td>
+                </tr>
+                <tr>
+                  <td>751</td>
+                  <td>Công nghệ kỹ thuật</td>
+                </tr>
+                <tr>
+                  <td>752</td>
+                  <td>Kỹ thuật</td>
+                </tr>
+                <tr>
+                  <td>754</td>
+                  <td>Sản xuất và chế biến</td>
+                </tr>
+                <tr>
+                  <td>758</td>
+                  <td>Kiến trúc và xây dựng</td>
+                </tr>
+                <tr>
+                  <td>762</td>
+                  <td>Nông lâm nghiệp và thủy sản</td>
+                </tr>
+                <tr>
+                  <td>764</td>
+                  <td>Thú y</td>
+                </tr>
+                <tr>
+                  <td>772</td>
+                  <td>Sức khỏe</td>
+                </tr>
+                <tr>
+                  <td>784</td>
+                  <td>Dịch vụ vận tải</td>
+                </tr>
+                <tr>
+                  <td>785</td>
+                  <td>Môi trường và bảo vệ môi trường</td>
+                </tr>
+                <tr>
+                  <td>786</td>
+                  <td>An ninh Quốc phòng</td>
+                </tr>
+                <tr>
+                  <td rowspan="12">I</td>
+                  <td>714</td>
+                  <td>Khoa học giáo dục và đào tạo giáo viên</td>
+                </tr>
+                <tr>
+                  <td>731</td>
+                  <td>Khoa học xã hội và hành vi</td>
+                </tr>
+                <tr>
+                  <td>732</td>
+                  <td>Báo chí và thông tin</td>
+                </tr>
+                <tr>
+                  <td>744</td>
+                  <td>Khoa học tự nhiên</td>
+                </tr>
+                <tr>
+                  <td>746</td>
+                  <td>Toán và thống kê</td>
+                </tr>
+                <tr>
+                  <td>748</td>
+                  <td>Máy tính và công nghệ thông tin</td>
+                </tr>
+                <tr>
+                  <td>751</td>
+                  <td>Công nghệ kỹ thuật</td>
+                </tr>
+                <tr>
+                  <td>752</td>
+                  <td>Kỹ thuật</td>
+                </tr>
+                <tr>
+                  <td>742</td>
+                  <td>Khoa học sự sống</td>
+                </tr>
+                <tr>
+                  <td>772</td>
+                  <td>Sức khỏe</td>
+                </tr>
+                <tr>
+                  <td>785</td>
+                  <td>Môi trường và bảo vệ môi trường</td>
+                </tr>
+                <tr>
+                  <td>738</td>
+                  <td>Pháp luật</td>
+                </tr>
+                <tr>
+                  <td rowspan="5">A</td>
+                  <td>721</td>
+                  <td>Nghệ thuật</td>
+                </tr>
+                <tr>
+                  <td>722</td>
+                  <td>Nhân văn</td>
+                </tr>
+                <tr>
+                  <td>732</td>
+                  <td>Báo chí và thông tin</td>
+                </tr>
+                <tr>
+                  <td>758</td>
+                  <td>Kiến trúc và xây dựng</td>
+                </tr>
+                <tr>
+                  <td>776</td>
+                  <td>Dịch vụ xã hội</td>
+                </tr>
+                <tr>
+                  <td rowspan="7">S</td>
+                  <td>714</td>
+                  <td>Khoa học giáo dục và đào tạo giáo viên</td>
+                </tr>
+                <tr>
+                  <td>731</td>
+                  <td>Khoa học xã hội và hành vi</td>
+                </tr>
+                <tr>
+                  <td>732</td>
+                  <td>Báo chí và thông tin</td>
+                </tr>
+                <tr>
+                  <td>772</td>
+                  <td>Sức khỏe</td>
+                </tr>
+                <tr>
+                  <td>776</td>
+                  <td>Dịch vụ xã hội</td>
+                </tr>
+                <tr>
+                  <td>781</td>
+                  <td>Du lịch khách sạn - thể thao và dịch vụ cá nhân</td>
+                </tr>
+                <tr>
+                  <td>786</td>
+                  <td>An ninh Quốc phòng</td>
+                </tr>
+                <tr>
+                  <td rowspan="7">E</td>
+                  <td>734</td>
+                  <td>Kinh doanh và quản lý</td>
+                </tr>
+                <tr>
+                  <td>738</td>
+                  <td>Pháp luật</td>
+                </tr>
+                <tr>
+                  <td>751</td>
+                  <td>Công nghệ kỹ thuật</td>
+                </tr>
+                <tr>
+                  <td>758</td>
+                  <td>Kiến trúc và xây dựng</td>
+                </tr>
+                <tr>
+                  <td>772</td>
+                  <td>Sức khỏe</td>
+                </tr>
+                <tr>
+                  <td>781</td>
+                  <td>Du lịch khách sạn - thể thao và dịch vụ cá nhân</td>
+                </tr>
+                <tr>
+                  <td>785</td>
+                  <td>Môi trường và bảo vệ môi trường</td>
+                </tr>
+                <tr>
+                  <td rowspan="9">C</td>
+                  <td>714</td>
+                  <td>Khoa học giáo dục và đào tạo giáo viên</td>
+                </tr>
+                <tr>
+                  <td>732</td>
+                  <td>Báo chí và thông tin</td>
+                </tr>
+                <tr>
+                  <td>734</td>
+                  <td>Kinh doanh và quản lý</td>
+                </tr>
+                <tr>
+                  <td>746</td>
+                  <td>Toán và thống kê</td>
+                </tr>
+                <tr>
+                  <td>751</td>
+                  <td>Công nghệ kỹ thuật</td>
+                </tr>
+                <tr>
+                  <td>754</td>
+                  <td>Sản xuất và chế biến</td>
+                </tr>
+                <tr>
+                  <td>781</td>
+                  <td>Du lịch khách sạn - thể thao và dịch vụ cá nhân</td>
+                </tr>
+                <tr>
+                  <td>784</td>
+                  <td>Dịch vụ vận tải</td>
+                </tr>
+                <tr>
+                  <td>786</td>
+                  <td>An ninh Quốc phòng</td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-      <ol>
-        <li class="fw-bold mt-3" style="color: #042b92">
-          Đối với phương thức dùng Học bạ THPT và TN THPT:
-        </li>
-        <ul>
-          <li>
-            Đối với HB, sử dụng điểm
-            <i>Trung bình 3 năm của 3 môn cao nhất</i> đối với từng tổ hợp để
-            xét.
-          </li>
-          <li>
-            Nếu thí sinh không có đầy đủ điểm HB hay TN thì suy luận như sau:
-          </li>
-          <ul>
-            <li class="mt-2">
-              <i>Điểm HK1 lớp 10</i>: Dựa vào
-              <a
-                href="#thhb-thpt-convertion"
-                style="text-decoration: underline; font-style: italic"
-                >Bảng quy đổi HB và TN</a
-              >.
-            </li>
-            <li class="mt-2">
-              <i>Điểm của HK1</i>: Quy đổi theo công thức: Điểm của HK $j = 1$
-              năm học $i$: $$s_{i,j} = a \times s_{i - 1} + b \quad ; \quad s_i
-              = \frac{s_{i,j = 1} + 2 \times s_{i,j = 2}}{3} $$ Với $a$ và $b$
-              tham khảo
-              <a
-                href="#thhb-thpt-convertion"
-                style="text-decoration: underline; font-style: italic"
-                >Bảng quy đổi HB và TN</a
-              >.
-            </li>
-            <li class="mt-2">
-              <i>Điểm của HK2</i>: Bằng điểm của HK1 cùng năm.
-            </li>
-            <li class="mt-2">
-              <i>Điểm TN</i>: Quy đổi theo công thức: Điểm TN $s_{tn}$: $$s_{tn}
-              = a \times \frac{(s_{i = 10} + s_{i = 11} + s_{i = 12})}{3} + b $$
-              Với $a$ và $b$ tham khảo
-              <a
-                href="#thhb-thpt-convertion"
-                style="text-decoration: underline; font-style: italic"
-                >Bảng quy đổi HB và TN</a
-              >.
-            </li>
-            <li class="mt-2">
-              <i>Bảng quy đổi HB và TN</i>: Dựa trên công bố của Bộ về tương
-              quan giữa điểm các môn thi TN THPT với điểm trung bình các môn học
-              bậc THPT năm 2025.
-            </li>
-            <table class="table table-bordered" id="thhb-thpt-convertion">
-              <thead>
-                <tr>
-                  <th>Môn</th>
-                  <th>HK1 lớp 10</th>
-                  <th>HK1 lớp 11<br />[a, b]</th>
-                  <th>HK1 lớp 12<br />[a, b]</th>
-                  <th>TN<br />[a, b]</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="text-center">Toán</td>
-                  <td class="text-center">6.7</td>
-                  <td class="text-center">[1.028, -0.99]</td>
-                  <td class="text-center">[1.090, -1.00]</td>
-                  <td class="text-center">[4.20, -24.78]</td>
-                </tr>
-                <tr>
-                  <td class="text-center">Văn</td>
-                  <td class="text-center">6.93</td>
-                  <td class="text-center">[1.017, -0.83]</td>
-                  <td class="text-center">[1.018, -0.74]</td>
-                  <td class="text-center">[2.50, -10.50]</td>
-                </tr>
-                <tr>
-                  <td class="text-center">Lý</td>
-                  <td class="text-center">7.05</td>
-                  <td class="text-center">[1.026, -0.64]</td>
-                  <td class="text-center">[1.106, -0.67]</td>
-                  <td class="text-center">[5.24, -30.87]</td>
-                </tr>
-                <tr>
-                  <td class="text-center">Hóa</td>
-                  <td class="text-center">7.08</td>
-                  <td class="text-center">[1.025, -0.56]</td>
-                  <td class="text-center">[1.070, -0.99]</td>
-                  <td class="text-center">[5.48, -27.45]</td>
-                </tr>
-                <tr>
-                  <td class="text-center">Sinh</td>
-                  <td class="text-center">7.28</td>
-                  <td class="text-center">[1.064, -0.39]</td>
-                  <td class="text-center">[1.053, -0.37]</td>
-                  <td class="text-center">[4.69, -24.23]</td>
-                </tr>
-                <tr>
-                  <td class="text-center">Sử</td>
-                  <td class="text-center">7.37</td>
-                  <td class="text-center">[1.038, -0.41]</td>
-                  <td class="text-center">[1.039, -0.45]</td>
-                  <td class="text-center">[4.41, -26.04]</td>
-                </tr>
-                <tr>
-                  <td class="text-center">Địa</td>
-                  <td class="text-center">7.12</td>
-                  <td class="text-center">[1.036, -0.39]</td>
-                  <td class="text-center">[1.050, -0.57]</td>
-                  <td class="text-center">[4.47, -25.96]</td>
-                </tr>
-                <tr>
-                  <td class="text-center">GDKT-PL</td>
-                  <td class="text-center">7.45</td>
-                  <td class="text-center">[1.078, -1.29]</td>
-                  <td class="text-center">[1.026, -0.01]</td>
-                  <td class="text-center">[2.97, -15.20]</td>
-                </tr>
-                <tr>
-                  <td class="text-center">Tin</td>
-                  <td class="text-center">7.62</td>
-                  <td class="text-center">[1.038, -1.09]</td>
-                  <td class="text-center" d>[1.063, -0.92]</td>
-                  <td class="text-center">[3.89, -19.66]</td>
-                </tr>
-                <tr>
-                  <td class="text-center">Công nghệ CN</td>
-                  <td class="text-center">7.8</td>
-                  <td class="text-center">[1.026, -0.42]</td>
-                  <td class="text-center">[1.045, -1.06]</td>
-                  <td class="text-center">[3.61, -18.58]</td>
-                </tr>
-                <tr>
-                  <td class="text-center">Công nghệ NN</td>
-                  <td class="text-center">7.74</td>
-                  <td class="text-center">[1.033, -0.55]</td>
-                  <td class="text-center">[1.026, -0.56]</td>
-                  <td class="text-center">[2.97, -13.17]</td>
-                </tr>
-                <tr>
-                  <td class="text-center">Anh</td>
-                  <td class="text-center">6.55</td>
-                  <td class="text-center">[1.058, -1.26]</td>
-                  <td class="text-center">[1.065, -1.23]</td>
-                  <td class="text-center">[3.63, -18.15]</td>
-                </tr>
-              </tbody>
-            </table>
-          </ul>
-        </ul>
-        <li class="fw-bold mt-3" style="color: #042b92">
-          Đối với phương thức dùng kết quả các kỳ thi khác:
-        </li>
-        <ul>
-          <li>
-            <span class="fw-bold mt-2">Các kỳ thi TSA, HSA, V-ACT:</span> Quy
-            đổi điểm theo phổ điểm THPT khối A00 theo phân vị.
-          </li>
-          <li>
-            <span class="fw-bold mt-2">Kỳ thi V-SAT:</span> Quy đổi điểm theo
-            phổ điểm các môn THPT tương ứng theo phân vị. Nếu không tìm thấy dữ
-            liệu phổ điểm các môn của V-SAT để quy đổi thì dùng phổ điểm [0, 1,
-            5, 0] (phạm vi từ 0 đến 150 điểm).
-          </li>
-          <li>
-            <span class="fw-bold mt-2">Các kỳ thi khác:</span> Không quy đổi.
-          </li>
-        </ul>
-        <li class="fw-bold mt-3" style="color: #042b92">
-          Đối với các phương thức dùng chứng chỉ tuyển sinh quốc tế:
-        </li>
-        <ul>
-          <li>Giữ nguyên.</li>
-        </ul>
-        <li class="fw-bold mt-3" style="color: #042b92">
-          Điểm khuyến khích và điểm quy đổi cho các thí sinh có thành tích cá
-          nhân và chứng chỉ quốc tế:
-        </li>
-        <ul>
-          <li>
-            Cách quy đổi điểm IELTS thành điểm thi TN THPT / học bạ tiếng Anh:
-          </li>
-          <ul>
-            <li>IELTS = 5.0 → 8.5.</li>
-            <li>IELTS = 5.5 → 9.0.</li>
-            <li>IELTS = 6.0 → 9.5.</li>
-            <li>IELTS ≥ 6.5 → 10.0.</li>
-          </ul>
-          Nếu điểm thi TN / học bạ của thí sinh cao hơn điểm quy đổi nêu trên
-          thì giữ nguyên điểm cũ, không quy đổi.
-          <li>Bảng điểm cộng khuyến khích cho mỗi thành tích:</li>
-          <table class="table table-bordered mt-3">
-            <thead>
-              <th></th>
-              <th>Giải Tư / KK</th>
-              <th>Giải Ba</th>
-              <th>Giải Nhì</th>
-              <th>Giải Nhất</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="fw-bold text-center">Cấp Tỉnh</td>
-                <td class="text-center">0.25</td>
-                <td class="text-center">0.5</td>
-                <td class="text-center">0.75</td>
-                <td class="text-center">1.0</td>
-              </tr>
-              <tr>
-                <td class="fw-bold text-center">Cấp Quốc gia</td>
-                <td class="text-center">1.25</td>
-                <td class="text-center" colspan="3">Tuyển thẳng</td>
-              </tr>
-              <tr>
-                <td class="fw-bold text-center">Cấp Quốc tế / khu vực</td>
-                <td class="text-center" colspan="4">Tuyển thẳng</td>
-              </tr>
-            </tbody>
-          </table>
-          <li>
-            Đối với điểm cộng khuyến khích cho mỗi chứng chỉ tuyển sinh, thực
-            hiện quy đổi tuyến tính về thang 1 điểm / chứng chỉ.
-          </li>
-          <li>
-            Chú ý:
-            <ul>
-              <li>
-                Tổng điểm khuyến khích đã nói trên và điểm ưu tiên phải ≤ 3.
-              </li>
-              <li>
-                Trang web không kiểm tra thời hạn sử dụng chứng chỉ hoặc thời
-                hạn công nhận thành tích.
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <li class="fw-bold mt-3" style="color: #042b92">
-          Đối với các phương thức khác do các trường Đại học quy định:
-        </li>
-        <ul>
-          <li>
-            Giữ nguyên công thức tính điểm xét tuyển theo quy định của các
-            trường Đại học.
-          </li>
-          <li class="mt-3">
-            <strong
-              ><a
-                href="https://hcmut.edu.vn/tuyen-sinh/dai-hoc-chinh-quy/phuong-thuc-tuyen-sinh/xet-tuyen-tong-hop-2025"
-                target="_blank"
-                >Trường Đại học Bách khoa - ĐHQG-HCM</a
-              ></strong
-            >:
-          </li>
-          <div class="rounded fw-bold bg-body-secondary mx-5">
-            <div class="mx-3">
-              <span style="color: #881bbf">[Điểm NL] x 70%</span> +
-              <span style="color: #1ba6bf">
-                [Tổng điểm 3 môn TN THPT / 3 x 10] x 20%
-              </span>
-              +
-              <span style="color: #1bbf8b"
-                >[Trung bình điểm TB 3 môn trong 3 năm x10] x 10%</span
-              >
-              + <span style="color: #34bf1b">[Điểm khuyến khích]</span> +
-              <span style="color: #bfb41b"> [Điểm ưu tiên] </span>
-            </div>
-          </div>
-          <ul>
-            <li class="fw-bold fst-italic mt-2">Hướng dẫn tính [Điểm NL]:</li>
-            <ul>
-              <li>Đối với thí sinh có thi V-ACT:</li>
-              <strong style="color: #881bbf"
-                >[Điểm NL] = [Điểm thi V-ACT có môn Toán x2] / 15</strong
-              >
-              <li>Đối với thí sinh không thi V-ACT:</li>
-              <strong style="color: #881bbf"
-                >[Điểm NL] = [Tổng điểm 3 môn TN THPT / 3 x 10 x 0.75]</strong
-              >
-              <li>
-                Đối với thí sinh tốt nghiệp THPT tại Việt Nam và có chứng chỉ
-                tuyển sinh quốc tế:
-              </li>
-              <strong style="color: #881bbf"
-                >[Điểm NL] = [Điểm chứng chỉ quy về thang 100]</strong
-              >
-            </ul>
-            <li class="mt-2">
-              <span class="fw-bold fst-italic"
-                >Hướng dẫn tính [Điểm khuyến khích]:</span
-              >
-              Sau đây gọi phần điểm trước khi cộng [Điểm khuyến khích] và [Điểm
-              ưu tiên] là [Điểm học lực]:
-            </li>
-            <div class="fst-italic">
-              [Điểm cộng thành tích] được xét từ các thành tích khác,
-              văn-thể-mỹ, hoạt động xã hội: tối đa 10 điểm, thang 100 (do Hội
-              đồng tuyển sinh quyết định tùy theo lượng hồ sơ xét tuyển và thành
-              tích của thí sinh).
-            </div>
-            <ul>
-              <li>
-                Đối với thí sinh có [Điểm học lực] + [Điểm cộng thành tích] <
-                100 điểm:
-              </li>
-              <strong style="color: #34bf1b"
-                >[Điểm khuyến khích] = [Điểm cộng thành tích]</strong
-              >
-              <li>
-                Đối với thí sinh có [Điểm học lực] + [Điểm cộng thành tích] ≥
-                100 điểm:
-              </li>
-            </ul>
-            <strong style="color: #34bf1b"
-              >[Điểm khuyến khích] = 100 - [Điểm học lực]</strong
-            >
-            <li class="fw-bold fst-italic mt-2">
-              Hướng dẫn tính [Điểm ưu tiên]
-            </li>
-            <div class="fst-italic">
-              Điểm ưu tiên quy đổi: tối đa 9.17 điểm / thang 100 (quy đổi từ mức
-              tối đa 2.75 điểm/thang điểm 30 theo quy chế của Bộ GD&ĐT), được
-              làm tròn đến 2 chữ số phần thập phân.
-            </div>
-            <ul>
-              <li>
-                Đối với thí sinh có [Điểm học lực] + [Điểm cộng] < 75 điểm:
-              </li>
-              <strong style="color: #bfb41b"
-                >[Điểm ưu tiên] = [Điểm ưu tiên quy đổi]</strong
-              >
-              <li>
-                Đối với thí sinh có [Điểm học lực] + [Điểm cộng] ≥ 75 điểm:
-              </li>
-              <strong style="color: #bfb41b"
-                >[Điểm ưu tiên] = (100 - [Điểm học lực] - [Điểm cộng]) / 25 x
-                [Điểm ưu tiên quy đổi]</strong
-              >
-            </ul>
-            <li class="mt-2">
-              Đối với điểm HB và TN, sử dụng tổ hợp có điểm TN cao nhất trong số
-              các tổ hợp A00, A01, U30, U31, D07, U32, U33, D08
-              <i>(Toán, Lý, Hóa, Sinh, Anh, Tin, CN)</i>
-              <i
-                >(Các tổ hợp có tiền tố U là tên gọi riêng của trang web. Tra
-                cứu tại mục Kết quả tìm kiếm để biết các tổ hợp đó là gì.)</i
-              >.
-            </li>
-          </ul>
-          <li class="mt-3">
-            <strong
-              ><a
-                href="https://ts.hust.edu.vn/tin-tuc/dhbk-ha-noi-cong-bo-phuong-an-tuyen-sinh-dai-hoc-chinh-quy-nam-2025"
-                target="_blank"
-                >Đại học Bách khoa Hà Nội</a
-              ></strong
-            >: Đối với phương thức xét tuyển bằng kết quả thi TN THPT, ngoài các
-            tổ hợp A00, A01, A02, B00, D01, D04, D07, D26, D28, D29, HUST còn bổ
-            sung tổ hợp K01 như sau:
-          </li>
-          <div class="rounded fw-bold bg-body-secondary mx-5">
-            <div class="mx-3">
-              [[Điểm TN Toán] x3 + [Điểm TN Văn] + [Điểm TN Lý/Hóa/Sinh/Tin] x2
-              quy đổi về A00] +
-              <span style="color: #bfb41b"> [Điểm ưu tiên] </span>
-            </div>
-          </div>
-          <li class="mt-3">
-            <strong
-              ><a href="https://hnue.edu.vn/tin-tuc/10732" target="_blank"
-                >Trường Đại học Sư phạm Hà Nội</a
-              ></strong
-            >: Tính điểm đặc biệt đối với phương thức dùng kết quả thi TN THPT
-            hoặc kỳ thi SPT:
-          </li>
-          <div class="rounded fw-bold bg-body-secondary mx-5">
-            <div class="mx-3">
-              [Tổng điểm 3 môn; trong đó môn Toán, Văn hoặc Anh có thể x2] +
-              <span style="color: #bfb41b"> [Điểm ưu tiên] </span>
-            </div>
-          </div>
-          <li class="mt-3">
-            <strong
-              ><a
-                href="https://tuyensinh.hcmue.edu.vn/index.php?option=com_content&view=article&id=27736&lang=vi&site=183"
-                target="_blank"
-                >Trường Đại học Sư phạm - TP.HCM</a
-              ></strong
-            >: Tính điểm đặc biệt đối với phương thức dùng kết hợp điểm học bạ
-            trung bình 6 học kỳ của 2 môn và điểm thi ĐGNL CB.
-          </li>
-          <div class="rounded fw-bold bg-body-secondary mx-5">
-            <div class="mx-3">
-              0.5 x [Điểm môn thi] + 0.25 x [Điểm HB môn 2] + 0.25 x [Điểm HB
-              môn 3] +
-              <span style="color: #bfb41b"> [Điểm ưu tiên] </span>
-            </div>
-          </div>
-          <li class="mt-3">
-            <strong
-              ><a
-                href="https://xaydungchinhsach.chinhphu.vn/huong-dan-tuyen-sinh-cong-an-nhan-dan-nam-2025-119250402094229222.htm"
-                target="_blank"
-                >Các trường Công an nhân dân</a
-              ></strong
-            >: Sử dụng kết hợp kết quả bài thi ĐGTSĐH CAND và TN THPT:
-          </li>
-          <div class="rounded fw-bold bg-body-secondary mx-5">
-            <div class="mx-3">
-              [Điểm TN 3 môn] x 40% + [Điểm bài thi ĐGTSĐH CAND] x 30% x 60% +
-              <span style="color: #bfb41b"> [Điểm ưu tiên] </span>
-            </div>
-          </div>
-          <li class="mt-3">
-            <strong
-              ><a
-                href="https://www.is.vnu.edu.vn/truong-quoc-te-thong-bao-du-kien-thong-tin-tuyen-sinh-dai-hoc-chinh-quy-nam-2025/"
-                target="_blank"
-                >Trường Quốc tế - ĐHQG-HN</a
-              ></strong
-            >: Tính điểm đặc biệt đối với các ngành sau:
-          </li>
-          <ul>
-            <li>
-              Đối với các ngành
-              <i
-                >Hệ thống thông tin quản lý (QHQ03), Tin học và Kỹ thuật máy
-                tính (QHQ04), Phân tích dữ liệu kinh doanh (QHQ05), Tự động hóa
-                và Tin học (QHQ08), Công nghệ thông tin và ứng dụng (QHQ10),
-                Công nghệ tài chính và kinh doanh số (QHQ11), Kỹ thuật hệ thống
-                công nghiệp và Logicstics (QHQ12)</i
-              >:
-            </li>
-            <div class="rounded fw-bold bg-body-secondary mx-5">
-              <div class="mx-3">
-                ([Điểm TN Toán x2] + [Điểm TN môn 2] + [Điểm TN môn 3]) / 4 x 3
-                +
-                <span style="color: #34bf1b">[Điểm khuyến khích]</span> +
-                <span style="color: #bfb41b"> [Điểm ưu tiên] </span>
-              </div>
-            </div>
-            <li class="mt-3">
-              Đối với ngành
-              <i>Ngôn ngữ Anh (QHQ09)</i>:
-            </li>
-            <div class="rounded fw-bold bg-body-secondary mx-5">
-              <div class="mx-3">
-                ([Điểm TN Anh x2] + [Điểm TN môn 2] + [Điểm TN môn 3]) / 4 x 3 +
-                <span style="color: #34bf1b">[Điểm khuyến khích]</span> +
-                <span style="color: #bfb41b"> [Điểm ưu tiên] </span>
-              </div>
-            </div>
-            <li class="mt-2">
-              Điểm cộng được tính theo quy định riêng của Trường.
-            </li>
-          </ul>
-          <li class="mt-3">
-            <strong
-              ><a
-                href="https://ulis.vnu.edu.vn/thongtin-tuyensinh-daihoc-chinhquy-2025/"
-                target="_blank"
-                >Trường Đại học Ngoại ngữ - ĐHQG-HN</a
-              ></strong
-            >:
-          </li>
-          <div class="rounded fw-bold bg-body-secondary mx-5">
-            <div class="mx-3">
-              ([Điểm TN Anh x2] + [Điểm TN môn 2] + [Điểm TN môn 3]) / 4 x 3 +
-              <span style="color: #34bf1b">[Điểm khuyến khích]</span> +
-              <span style="color: #bfb41b"> [Điểm ưu tiên] </span>
-            </div>
-          </div>
-          <ul>
-            <li class="mt-2">
-              Điểm cộng được tính theo quy định riêng của Trường.
-            </li>
-          </ul>
-        </ul>
-        <li class="fw-bold mt-3" style="color: #042b92">Quy tắc làm tròn:</li>
-        <ol>
-          <li>
-            <i>Làm tròn lần 1:</i> Làm tròn 2 chữ số điểm các môn theo học kỳ /
-            theo bài thi.
-          </li>
-          <li>
-            <i>Làm tròn lần 2:</i> Làm tròn 2 chữ số sau khi cộng điểm 3 môn lại
-            (nếu có) và cộng điểm ưu tiên.
-          </li>
-        </ol>
-      </ol>
-      <div class="row fs-1 fw-bold mt-5" style="color: #042b92">
-        Quy trình tính điểm tính cách và gợi ý ngành
+      <div class="row fs-1 fw-bold mt-5" style="color: #042b92" id="bmbcdg">
+        Biểu mẫu đóng góp / báo cáo
       </div>
       <hr class="row" />
-      <ol>
-        <li class="mt-3 fw-bold">Đối với các câu hỏi từ 1 - 42:</li>
-        <ul>
-          <li>Mỗi câu trả lời sẽ ứng với một mốc điểm như sau:</li>
-          <ol>
-            <li>Ghét / Không bao giờ làm : -3 điểm.</li>
-            <li>Bình thường / Thi thoảng / Chưa từng làm : 0 điểm.</li>
-            <li>Thích / Muốn làm : 1 điểm.</li>
-            <li>Yêu thích / Thường xuyên làm : 3 điểm.</li>
-          </ol>
-          <li class="mt-2">
-            Đối với mỗi câu hỏi sẽ cộng điểm cho các nhóm tính cách sau:
-          </li>
-          <ol>
-            <li>Các câu 1, 3, 5, 7, 9, 11, 13: R.</li>
-            <li>Các câu 2, 4, 6, 8, 10, 12, 14: I.</li>
-            <li>Các câu 15, 17, 19, 21, 23, 25, 27: A.</li>
-            <li>Các câu 16, 18, 20, 22, 24, 26, 28: S.</li>
-            <li>Các câu 29, 31, 33, 35, 37, 39, 41: E.</li>
-            <li>Các câu 30, 32, 34, 36, 38, 40, 42: C.</li>
-          </ol>
-        </ul>
-        <li class="mt-3 fw-bold">Đối với các câu hỏi từ 43 - 49:</li>
-        <ul>
-          <li>Mỗi câu trả lời sẽ ứng với một mốc điểm như sau:</li>
-          <ol>
-            <li>Hoàn toàn sai : -3 điểm.</li>
-            <li>Sai nhiều hơn đúng : -1 điểm.</li>
-            <li>Chưa rõ đúng sai, chưa hiểu : 0 điểm.</li>
-            <li>Đúng nhiều hơn sai : 1 điểm.</li>
-            <li>Hoàn toàn đúng : 3 điểm.</li>
-          </ol>
-          <li class="mt-2">
-            Đối với mỗi nhận định của mỗi câu hỏi sẽ cộng điểm cho các nhóm tính
-            cách sau:
-          </li>
-          <ol>
-            <li>Nhận định 1 : R.</li>
-            <li>Nhận định 2 : I.</li>
-            <li>Nhận định 3 : A.</li>
-            <li>Nhận định 4 : S.</li>
-            <li>Nhận định 5 : E.</li>
-            <li>Nhận định 6 : C.</li>
-          </ol>
-        </ul>
-        <li class="mt-3">
-          Dựa vào (các) nhóm tính cách có điểm cao nhất và (các) nhóm tính cách
-          thấp hơn nhóm tính cách có điểm cao nhất ít nhất <i>3 điểm</i> để chọn
-          ra những nhóm ngành phù hợp theo bảng sau:
-        </li>
-      </ol>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Mã tính cách</th>
-            <th>Mã nhóm ngành (cấp 1)</th>
-            <th>Tên nhóm ngành (cấp 1)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td rowspan="11">R</td>
-            <td>748</td>
-            <td>Máy tính và công nghệ thông tin</td>
-          </tr>
-          <tr>
-            <td>751</td>
-            <td>Công nghệ kỹ thuật</td>
-          </tr>
-          <tr>
-            <td>752</td>
-            <td>Kỹ thuật</td>
-          </tr>
-          <tr>
-            <td>754</td>
-            <td>Sản xuất và chế biến</td>
-          </tr>
-          <tr>
-            <td>758</td>
-            <td>Kiến trúc và xây dựng</td>
-          </tr>
-          <tr>
-            <td>762</td>
-            <td>Nông lâm nghiệp và thủy sản</td>
-          </tr>
-          <tr>
-            <td>764</td>
-            <td>Thú y</td>
-          </tr>
-          <tr>
-            <td>772</td>
-            <td>Sức khỏe</td>
-          </tr>
-          <tr>
-            <td>784</td>
-            <td>Dịch vụ vận tải</td>
-          </tr>
-          <tr>
-            <td>785</td>
-            <td>Môi trường và bảo vệ môi trường</td>
-          </tr>
-          <tr>
-            <td>786</td>
-            <td>An ninh Quốc phòng</td>
-          </tr>
-          <tr>
-            <td rowspan="12">I</td>
-            <td>714</td>
-            <td>Khoa học giáo dục và đào tạo giáo viên</td>
-          </tr>
-          <tr>
-            <td>731</td>
-            <td>Khoa học xã hội và hành vi</td>
-          </tr>
-          <tr>
-            <td>732</td>
-            <td>Báo chí và thông tin</td>
-          </tr>
-          <tr>
-            <td>744</td>
-            <td>Khoa học tự nhiên</td>
-          </tr>
-          <tr>
-            <td>746</td>
-            <td>Toán và thống kê</td>
-          </tr>
-          <tr>
-            <td>748</td>
-            <td>Máy tính và công nghệ thông tin</td>
-          </tr>
-          <tr>
-            <td>751</td>
-            <td>Công nghệ kỹ thuật</td>
-          </tr>
-          <tr>
-            <td>752</td>
-            <td>Kỹ thuật</td>
-          </tr>
-          <tr>
-            <td>742</td>
-            <td>Khoa học sự sống</td>
-          </tr>
-          <tr>
-            <td>772</td>
-            <td>Sức khỏe</td>
-          </tr>
-          <tr>
-            <td>785</td>
-            <td>Môi trường và bảo vệ môi trường</td>
-          </tr>
-          <tr>
-            <td>738</td>
-            <td>Pháp luật</td>
-          </tr>
-          <tr>
-            <td rowspan="5">A</td>
-            <td>721</td>
-            <td>Nghệ thuật</td>
-          </tr>
-          <tr>
-            <td>722</td>
-            <td>Nhân văn</td>
-          </tr>
-          <tr>
-            <td>732</td>
-            <td>Báo chí và thông tin</td>
-          </tr>
-          <tr>
-            <td>758</td>
-            <td>Kiến trúc và xây dựng</td>
-          </tr>
-          <tr>
-            <td>776</td>
-            <td>Dịch vụ xã hội</td>
-          </tr>
-          <tr>
-            <td rowspan="7">S</td>
-            <td>714</td>
-            <td>Khoa học giáo dục và đào tạo giáo viên</td>
-          </tr>
-          <tr>
-            <td>731</td>
-            <td>Khoa học xã hội và hành vi</td>
-          </tr>
-          <tr>
-            <td>732</td>
-            <td>Báo chí và thông tin</td>
-          </tr>
-          <tr>
-            <td>772</td>
-            <td>Sức khỏe</td>
-          </tr>
-          <tr>
-            <td>776</td>
-            <td>Dịch vụ xã hội</td>
-          </tr>
-          <tr>
-            <td>781</td>
-            <td>Du lịch khách sạn - thể thao và dịch vụ cá nhân</td>
-          </tr>
-          <tr>
-            <td>786</td>
-            <td>An ninh Quốc phòng</td>
-          </tr>
-          <tr>
-            <td rowspan="7">E</td>
-            <td>734</td>
-            <td>Kinh doanh và quản lý</td>
-          </tr>
-          <tr>
-            <td>738</td>
-            <td>Pháp luật</td>
-          </tr>
-          <tr>
-            <td>751</td>
-            <td>Công nghệ kỹ thuật</td>
-          </tr>
-          <tr>
-            <td>758</td>
-            <td>Kiến trúc và xây dựng</td>
-          </tr>
-          <tr>
-            <td>772</td>
-            <td>Sức khỏe</td>
-          </tr>
-          <tr>
-            <td>781</td>
-            <td>Du lịch khách sạn - thể thao và dịch vụ cá nhân</td>
-          </tr>
-          <tr>
-            <td>785</td>
-            <td>Môi trường và bảo vệ môi trường</td>
-          </tr>
-          <tr>
-            <td rowspan="9">C</td>
-            <td>714</td>
-            <td>Khoa học giáo dục và đào tạo giáo viên</td>
-          </tr>
-          <tr>
-            <td>732</td>
-            <td>Báo chí và thông tin</td>
-          </tr>
-          <tr>
-            <td>734</td>
-            <td>Kinh doanh và quản lý</td>
-          </tr>
-          <tr>
-            <td>746</td>
-            <td>Toán và thống kê</td>
-          </tr>
-          <tr>
-            <td>751</td>
-            <td>Công nghệ kỹ thuật</td>
-          </tr>
-          <tr>
-            <td>754</td>
-            <td>Sản xuất và chế biến</td>
-          </tr>
-          <tr>
-            <td>781</td>
-            <td>Du lịch khách sạn - thể thao và dịch vụ cá nhân</td>
-          </tr>
-          <tr>
-            <td>784</td>
-            <td>Dịch vụ vận tải</td>
-          </tr>
-          <tr>
-            <td>786</td>
-            <td>An ninh Quốc phòng</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div
-        class="row fw-bold fs-4 mt-5 mb-3"
-        style="background-color: #042b92; color: white"
-        id="bmbcdg"
-      >
-        <div class="col m-1">BIỂU MẪU ĐÓNG GÓP / BÁO CÁO</div>
-      </div>
       <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLScoL8hq59x5eyy8FhEDbhJTSnchfV4vTFzYmtVRLFGYRv1QFA/viewform?embedded=true"
         width="100%"
