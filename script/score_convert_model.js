@@ -581,6 +581,10 @@ export function getGroupName(groupId) {
       return "K00";
     case "k01":
       return "K01";
+    case "A000":
+      return "Phương thức riêng không có tổ hợp";
+    case "A001":
+      return "Thi năng khiếu";
     default:
       let subjects = subjectGroups.get(groupId);
       return `${getSubjectName(subjects[0])}-${getSubjectName(

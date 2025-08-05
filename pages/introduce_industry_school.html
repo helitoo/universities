@@ -45,6 +45,8 @@
     <!-- Chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- Script -->
     <script type="module" src="../script/introduce.js"></script>
   </head>
@@ -137,32 +139,32 @@
         <div class="col-md-5 col-12 mt-1">
           <label for="major-1-id" class="form-label fw-bold">Nhóm ngành:</label>
           <select id="major-1-id" class="form-control">
-            <option value="0">Khoa học giáo dục và đào tạo giáo viên</option>
-            <option value="1">Nghệ thuật</option>
-            <option value="2">Nhân văn</option>
-            <option value="3">Khoa học xã hội và hành vi</option>
-            <option value="4">Báo chí và thông tin</option>
-            <option value="5">Kinh doanh và quản lý</option>
-            <option value="6">Pháp luật</option>
-            <option value="7">Khoa học sự sống</option>
-            <option value="8">Khoa học tự nhiên</option>
-            <option value="9">Toán và thống kê</option>
-            <option value="10">Máy tính và công nghệ thông tin</option>
-            <option value="11">Công nghệ kỹ thuật</option>
-            <option value="12">Kỹ thuật</option>
-            <option value="13">Sản xuất và chế biến</option>
-            <option value="14">Kiến trúc và xây dựng</option>
-            <option value="15">Nông lâm nghiệp và thủy sản</option>
-            <option value="16">Thú y</option>
-            <option value="17">Sức khỏe</option>
-            <option value="18">Dịch vụ xã hội</option>
-            <option value="19">
+            <option value="714">Khoa học giáo dục và đào tạo giáo viên</option>
+            <option value="721">Nghệ thuật</option>
+            <option value="722">Nhân văn</option>
+            <option value="731">Khoa học xã hội và hành vi</option>
+            <option value="732">Báo chí và thông tin</option>
+            <option value="734">Kinh doanh và quản lý</option>
+            <option value="738">Pháp luật</option>
+            <option value="742">Khoa học sự sống</option>
+            <option value="744">Khoa học tự nhiên</option>
+            <option value="746">Toán và thống kê</option>
+            <option value="748">Máy tính và công nghệ thông tin</option>
+            <option value="751">Công nghệ kỹ thuật</option>
+            <option value="752">Kỹ thuật</option>
+            <option value="754">Sản xuất và chế biến</option>
+            <option value="758">Kiến trúc và xây dựng</option>
+            <option value="762">Nông lâm nghiệp và thủy sản</option>
+            <option value="764">Thú y</option>
+            <option value="772">Sức khỏe</option>
+            <option value="776">Dịch vụ xã hội</option>
+            <option value="781">
               Du lịch khách sạn, thể thao và dịch vụ cá nhân
             </option>
-            <option value="20">Dịch vụ vận tải</option>
-            <option value="21">Môi trường và bảo vệ môi trường</option>
-            <option value="22">An ninh Quốc phòng</option>
-            <option value="23">Khác</option>
+            <option value="784">Dịch vụ vận tải</option>
+            <option value="785">Môi trường và bảo vệ môi trường</option>
+            <option value="786">An ninh Quốc phòng</option>
+            <option value="790">Khác</option>
           </select>
         </div>
         <div class="col-md-5 col-12 mt-1">
@@ -170,7 +172,7 @@
           <select id="major-3-id" class="form-control"></select>
         </div>
         <div class="col-md-2 col-12 mt-1">
-          <button type="button" class="btn" id="search">
+          <button type="button" class="btn" id="search-btn">
             <img
               src="../assets/icons/search.png"
               alt="search icon"
@@ -179,12 +181,38 @@
           </button>
         </div>
       </div>
-      <div class="row mx-auto" style="width: 85%">
+      <div class="row mx-auto" style="width: 90%">
         <div class="col">
-          <canvas id="groupChart" class="mt-5"></canvas>
+          <canvas id="group-chart" class="mt-5"></canvas>
         </div>
         <div class="col">
-          <canvas id="methodChart" class="mt-5"></canvas>
+          <canvas id="method-chart" class="mt-5"></canvas>
+        </div>
+      </div>
+      <div class="row mx-auto" style="width: 90%">
+        <div class="col">
+          <canvas id="school-chart" class="mt-5"></canvas>
+        </div>
+        <div class="col">
+          <div class="container my-4 rounded mt-5">
+            <div class="row justify-content-center">
+              <div
+                class="col-md-10 rounded-3 p-3 border border-danger border-2"
+              >
+                <p class="mb-0">
+                  <img
+                    src="../assets/icons/triangle-warning.png"
+                    alt="references"
+                    style="height: 1.3rem; margin-right: 0.2rem"
+                    draggable="false"
+                  />
+                  <strong class="text-danger">Chú ý:</strong> Mỗi tổ hợp
+                  <strong>{Mã ngành, Phương thức, Tổ hợp, Năm}</strong> được xem
+                  là một đơn vị quy mô tuyển sinh.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="container my-4 rounded">
