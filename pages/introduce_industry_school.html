@@ -181,16 +181,39 @@
           </button>
         </div>
       </div>
-      <div class="row mx-auto" style="width: 50%">
+      <style>
+        .chart-wrapper-50 {
+          width: 70%;
+          margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+          .chart-wrapper-50 {
+            width: 50%;
+          }
+        }
+
+        .chart-wrapper-70 {
+          width: 100%;
+          margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+          .chart-wrapper-70 {
+            width: 70%;
+          }
+        }
+      </style>
+      <div class="row mx-auto chart-wrapper-50">
         <canvas id="group-chart" class="mt-5"></canvas>
       </div>
-      <div class="row mx-auto" style="width: 50%">
+      <div class="row mx-auto chart-wrapper-50">
         <canvas id="method-chart" class="mt-5"></canvas>
       </div>
-      <div class="row mx-auto" style="width: 70%">
+      <div class="row mx-auto chart-wrapper-70">
         <canvas id="school-chart" class="mt-5"></canvas>
       </div>
-      <div class="row mx-auto" style="width: 70%">
+      <div class="row mx-auto chart-wrapper-70">
         <canvas id="focus-chart" class="mt-5"></canvas>
       </div>
       <div class="container my-4 rounded">
