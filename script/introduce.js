@@ -855,7 +855,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   // First render chart
 
-  function getChart(canvasId, title) {
+  function getDonut(canvasId, title) {
     return new Chart(canvasId, {
       type: "doughnut",
       data: {
@@ -882,38 +882,73 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   }
 
-  let methodChart = getChart(
+  function getBar(canvasId, title) {
+    return new Chart(canvasId, {
+      type: "bar",
+      data: {
+        labels: [],
+        datasets: [
+          {
+            data: [],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        indexAxis: "y",
+        plugins: {
+          title: {
+            display: true,
+            text: title,
+          },
+          legend: {
+            display: false,
+          },
+        },
+        scales: {
+          x: {
+            type: "logarithmic",
+            beginAtZero: false,
+            ticks: {
+              callback: function (value) {
+                return Number(value.toString());
+              },
+            },
+          },
+        },
+      },
+    });
+  }
+
+  let methodChart = getDonut(
     "method-chart",
     "Những phương thức được dùng nhiều nhất"
   );
 
-  let groupChart = getChart("group-chart", "Những tổ hợp được dùng nhiều nhất");
+  let groupChart = getDonut("group-chart", "Những tổ hợp được dùng nhiều nhất");
 
-  let schoolChart = getChart(
+  let schoolChart = getBar(
     "school-chart",
     "Những trường có quy mô tuyển sinh lớn nhất"
+  );
+
+  let focusChart = getBar(
+    "focus-chart",
+    "Những trường có độ tập trung đào tạo lớn nhất (thang 1)"
   );
 
   // Query data
 
   document.getElementById("search-btn").addEventListener("click", async () => {
-    async function query(targetField, major1Id, major3Id) {
-      let query = querier.supabase
-        .from("score")
-        .select(
-          `${targetField},score_industry!inner(industry_l1_id,industry_l2_id,industry_l3_id)`
-        );
-      // .eq("year", new Date().getFullYear() - 1);
+    async function query(table, fields, major1Id, major3Id) {
+      let query = querier.supabase.from(table).select(fields.join(","));
 
-      query = query.eq("score_industry.industry_l1_id", major1Id);
+      query = query.eq("industry_l1_id", major1Id);
 
       if (major3Id != "al")
         query = query
-          .eq("score_industry.industry_l2_id", major3Id.slice(3, 5))
-          .eq("score_industry.industry_l3_id", major3Id.slice(5, 7));
-
-      if (targetField == "school_id")
-        query = query.gte("score", 15).neq("method_id", "thhb");
+          .eq("industry_l2_id", major3Id.slice(3, 5))
+          .eq("industry_l3_id", major3Id.slice(5, 7));
 
       const { data, error } = await query;
 
@@ -924,8 +959,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
       const countMap = new Map();
 
       for (let row of data) {
-        const id = row[Object.keys(row)[0]];
-        countMap.set(id, (countMap.get(id) || 0) + 1);
+        const values = Object.values(row);
+        const id = values[0];
+
+        const extra = values[1] ?? 1;
+        countMap.set(id, (countMap.get(id) || 0) + extra);
       }
 
       const sorted = Array.from(countMap.entries())
@@ -935,15 +973,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
       return sorted;
     }
 
-    async function getTopRecords(data) {
+    async function getTopRecords(data, cutoff = 10, addOthers = true) {
       const counted = getCountMap(data);
 
-      const topRecords = counted.slice(0, 10);
-      const others = counted.slice(10);
+      const topRecords = counted.slice(0, cutoff);
 
-      if (others.length > 0) {
-        const othersQuan = others.reduce((sum, item) => sum + item.quan, 0);
-        topRecords.push({ id: "Khác", quan: othersQuan });
+      if (addOthers) {
+        const others = counted.slice(cutoff);
+
+        if (others.length > 0) {
+          const othersQuan = others.reduce((sum, item) => sum + item.quan, 0);
+          topRecords.push({ id: "Khác", quan: othersQuan });
+        }
       }
 
       return topRecords;
@@ -952,15 +993,47 @@ document.addEventListener("DOMContentLoaded", (event) => {
     showLoading();
 
     let methods = await getTopRecords(
-      await query("method_id", major1.value, major3.value)
+      await query(
+        "view_admission_unit",
+        ["method_id"],
+        major1.value,
+        major3.value
+      ),
+      10,
+      true
     );
 
     let groups = await getTopRecords(
-      await query("subject_group_id", major1.value, major3.value)
+      await query(
+        "view_admission_unit",
+        ["subject_group_id"],
+        major1.value,
+        major3.value
+      ),
+      10,
+      true
     );
 
     let schools = await getTopRecords(
-      await query("school_id", major1.value, major3.value)
+      await query(
+        "view_admission_unit",
+        ["school_id"],
+        major1.value,
+        major3.value
+      ),
+      10,
+      false
+    );
+
+    let focuses = await getTopRecords(
+      await query(
+        "view_specific_ratio",
+        ["school_id", "ratio"],
+        major1.value,
+        major3.value
+      ),
+      10,
+      false
     );
 
     hideLoading();
@@ -1031,6 +1104,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
         item.id == "Khác" ? "Khác" : schoolNames.get(item.id)
       ),
       schools.map((item) => item.quan)
+    );
+
+    updateChart(
+      focusChart,
+      focuses.map((item) =>
+        item.id == "Khác" ? "Khác" : schoolNames.get(item.id)
+      ),
+      focuses.map((item) => item.quan)
     );
   });
 });

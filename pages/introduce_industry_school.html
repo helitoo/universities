@@ -181,61 +181,17 @@
           </button>
         </div>
       </div>
-      <div class="row mx-auto" style="width: 90%">
-        <div class="col">
-          <canvas id="group-chart" class="mt-5"></canvas>
-        </div>
-        <div class="col">
-          <canvas id="method-chart" class="mt-5"></canvas>
-        </div>
+      <div class="row mx-auto" style="width: 50%">
+        <canvas id="group-chart" class="mt-5"></canvas>
       </div>
-      <div class="row mx-auto" style="width: 90%">
-        <div class="col">
-          <canvas id="school-chart" class="mt-5"></canvas>
-        </div>
-        <div class="col">
-          <div class="container my-4 rounded mt-5">
-            <div class="row justify-content-center">
-              <div
-                class="col-md-10 rounded-3 p-3 border border-danger border-2"
-              >
-                <p class="mb-0">
-                  <img
-                    src="../assets/icons/triangle-warning.png"
-                    alt="references"
-                    style="height: 1.3rem; margin-right: 0.2rem"
-                    draggable="false"
-                  />
-                  <strong class="text-danger">Chú ý:</strong> Mỗi tổ hợp
-                  <strong>{Mã ngành, Phương thức, Tổ hợp, Năm}</strong> được xem
-                  là một đơn vị quy mô tuyển sinh.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="row mx-auto" style="width: 50%">
+        <canvas id="method-chart" class="mt-5"></canvas>
       </div>
-      <div class="container my-4 rounded">
-        <div class="row justify-content-center">
-          <div class="col-md-10 rounded-3 p-3 border border-success border-2">
-            <p class="mb-2">
-              <img
-                src="../assets/icons/comment-question.png"
-                alt="references"
-                style="height: 1.3rem; margin-right: 0.2rem"
-                draggable="false"
-              />
-              <strong class="text-success">Trang web này để làm gì?</strong>
-            </p>
-            <ul class="mb-0">
-              <li>
-                Tìm hiểu xem các ngành hiện nay có trường nào đào tạo, dùng các
-                phương thức gì để xét tuyển?
-                <i>(Ngược lại với trang Bộ lọc tìm kiếm)</i>.
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div class="row mx-auto" style="width: 70%">
+        <canvas id="school-chart" class="mt-5"></canvas>
+      </div>
+      <div class="row mx-auto" style="width: 70%">
+        <canvas id="focus-chart" class="mt-5"></canvas>
       </div>
       <div class="container my-4 rounded">
         <div class="row justify-content-center">
@@ -249,10 +205,16 @@
               />
               <strong class="text-danger">Chú ý:</strong>
             </p>
-            <ul class="mb-0">
+            <ul>
               <li>
-                Việc chọn <i>Nhóm ngành</i> và <i>Ngành</i> ở trên là phụ thuộc
-                nhau 👉 Chọn <i>Nhóm ngành</i> trước rồi mới chọn <i>Ngành</i>.
+                Mỗi tổ hợp
+                <strong>{Mã ngành, Phương thức, Tổ hợp, Năm}</strong> được xem
+                là một đơn vị quy mô tuyển sinh.
+              </li>
+              <li class="mt-2">
+                <strong>Độ tập trung đào tạo</strong> của 1 nhóm ngành / ngành A
+                là tỷ lệ số đơn vị quy mô tuyển sinh ngành (thuộc nhóm ngành A)
+                với tổng số đơn vị quy mô tuyển sinh của trường đó.
               </li>
             </ul>
           </div>
