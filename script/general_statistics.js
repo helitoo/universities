@@ -149,96 +149,189 @@ const topIndustry3 = [
   },
 ];
 
-const topSchoolAvg = [
+const topSchoolAvgThpt = [
   {
     id: "FTU2",
-    quan: 27.5,
+    quan: "27.70",
+  },
+  {
+    id: "UED - VNU-HN",
+    quan: "27.43",
   },
   {
     id: "FTU",
-    quan: 27.3,
+    quan: "27.39",
   },
   {
-    id: "UIT",
-    quan: 26.5,
+    id: "FPE - HUEUNI",
+    quan: "27.10",
   },
   {
-    id: "UED",
-    quan: 26.4,
+    id: "NEU",
+    quan: "27.07",
   },
   {
-    id: "HV Khoa học Quân sự",
-    quan: 26.09,
+    id: "DAV",
+    quan: "26.89",
   },
   {
-    id: "ULIS",
-    quan: 26.07,
-  },
-  {
-    id: "HV Kỹ thuật Quân sự",
-    quan: 26.04,
+    id: "HNUE",
+    quan: "26.82",
   },
 ];
 
-const topIndustry1Avg = [
+const topSchoolMaxThpt = [
   {
-    id: "Sư phạm",
-    quan: 21.4,
+    id: "HNUE",
+    quan: 29.3,
+  },
+  {
+    id: "DAV",
+    quan: 29.2,
+  },
+  {
+    id: "USH VNU-HN",
+    quan: 29.1,
+  },
+  {
+    id: "UED VNU-HN",
+    quan: 28.89,
+  },
+  {
+    id: "ULIS VNU-HN",
+    quan: 28.8375,
+  },
+  {
+    id: "HDU",
+    quan: 28.83,
+  },
+  {
+    id: "HPU2",
+    quan: 28.83,
+  },
+];
+
+const topIndustry1AvgThpt = [
+  {
+    id: "KH giáo dục & đào tạo giáo viên",
+    quan: "24.83",
   },
   {
     id: "An ninh Quốc phòng",
-    quan: 21.2,
-  },
-  {
-    id: "Sức khỏe",
-    quan: 18.6,
+    quan: "22.28",
   },
   {
     id: "Khác",
-    quan: 18.2,
+    quan: "22.24",
   },
   {
-    id: "Dịch vụ xã hội",
-    quan: 17.9,
-  },
-  {
-    id: "Toán & thống kê",
-    quan: 17.8,
+    id: "Dịch vụ vận tải",
+    quan: "21.38",
   },
   {
     id: "KHXH & hành vi",
-    quan: 17.7,
+    quan: "21.17",
+  },
+  {
+    id: "Sức khỏe",
+    quan: "20.88",
+  },
+  {
+    id: "Pháp luật",
+    quan: "20.63",
   },
 ];
 
-const topIndustry3Avg = [
+const topIndustry3AvgThpt = [
   {
-    id: "Sư phạm Tiếng Đức",
-    quan: 27.7,
+    id: "SP Lịch sử",
+    quan: "27.92",
   },
   {
-    id: "Điều tra hình sự",
-    quan: 26.9,
+    id: "SP Lịch sử - Địa lý",
+    quan: "27.87",
   },
   {
-    id: "Quảng cáo",
-    quan: 26.8,
+    id: "SP Tiếng Đức",
+    quan: "27.71",
   },
   {
-    id: "Văn hóa & truyền thông xuyên quốc gia",
-    quan: 26.7,
+    id: "VH & TT xuyên QG",
+    quan: "27.38",
   },
   {
-    id: "Biên kịch điện ảnh truyền hình",
-    quan: 26.4,
+    id: "SP Ngữ văn",
+    quan: "27.35",
   },
   {
-    id: "Giáo dục Quốc phòng - An ninh",
-    quan: 25.7,
+    id: "GDCD",
+    quan: "27.33",
   },
   {
-    id: "Giáo dục Đặc biệt",
-    quan: 25.6,
+    id: "GDQP-AN",
+    quan: "27.25",
+  },
+];
+
+const topIndustry1MaxThpt = [
+  {
+    id: "KH giáo dục & đào tạo giáo viên",
+    quan: "29.30",
+  },
+  {
+    id: "KH XH & hành vi",
+    quan: "29.20",
+  },
+  {
+    id: "Báo chí và thông tin",
+    quan: "29.10",
+  },
+  {
+    id: "Nhân văn",
+    quan: "29.05",
+  },
+  {
+    id: "Kinh doanh & quản lý",
+    quan: "28.60",
+  },
+  {
+    id: "Pháp luật",
+    quan: "28.55",
+  },
+  {
+    id: "Máy tính và công nghệ thông tin",
+    quan: "28.53",
+  },
+];
+
+const topIndustry3MaxThpt = [
+  {
+    id: "SP Lịch sử",
+    quan: "29.30",
+  },
+  {
+    id: "SP Ngữ văn",
+    quan: "29.30",
+  },
+  {
+    id: "Trung Quốc học",
+    quan: "29.20",
+  },
+  {
+    id: "Quan hệ công chúng",
+    quan: "29.10",
+  },
+  {
+    id: "Hàn Quốc học",
+    quan: "29.05",
+  },
+  {
+    id: "SP Tiếng Hàn Quốc",
+    quan: "29.05",
+  },
+  {
+    id: "Ngôn ngữ Hàn Quốc",
+    quan: "29.05",
   },
 ];
 
@@ -326,19 +419,37 @@ addDonut(
 addDonut("top-industry3", topIndustry3, "Các ngành được tuyển sinh nhiều nhất");
 
 addBar(
-  "top-school-avg",
-  topSchoolAvg,
+  "top-school-avg-thpt",
+  topSchoolAvgThpt,
   "Các trường có điểm chuẩn trung bình TN THPT (thang 30) cao nhất"
 );
 
 addBar(
-  "top-industry1-avg",
-  topIndustry1Avg,
+  "top-school-max-thpt",
+  topSchoolMaxThpt,
+  "Các trường có điểm chuẩn TN THPT (thang 30) cao nhất"
+);
+
+addBar(
+  "top-industry1-avg-thpt",
+  topIndustry1AvgThpt,
   "Các nhóm ngành có điểm chuẩn trung bình TN THPT (thang 30) cao nhất"
 );
 
 addBar(
-  "top-industry3-avg",
-  topIndustry3Avg,
+  "top-industry3-avg-thpt",
+  topIndustry3AvgThpt,
   "Các ngành có điểm chuẩn trung bình TN THPT (thang 30) cao nhất"
+);
+
+addBar(
+  "top-industry1-max-thpt",
+  topIndustry1MaxThpt,
+  "Các nhóm ngành có điểm chuẩn TN THPT (thang 30) cao nhất"
+);
+
+addBar(
+  "top-industry3-max-thpt",
+  topIndustry3MaxThpt,
+  "Các ngành có điểm chuẩn TN THPT (thang 30) cao nhất"
 );
