@@ -468,7 +468,7 @@ export async function getGroupDist(
   }
 
   // Power-scaling để nhấn mạnh vùng điểm cao
-  function emphasizeUpperTail(dist, gamma = 0.3) {
+  function emphasizeUpperTail(dist, gamma) {
     const scaled = dist.map((val) => Math.pow(val, gamma));
     const totalBefore = dist.reduce((a, b) => a + b, 0);
     const totalAfter = scaled.reduce((a, b) => a + b, 0);
@@ -481,7 +481,7 @@ export async function getGroupDist(
   const scaledDist = finalDist.map((x) => x * scale);
 
   // Hiệu chỉnh độ phân giải vùng trên bằng power-scaling
-  const emphasizedDist = emphasizeUpperTail(scaledDist, 0.3); // gamma ∈ (0.1, 0.5)
+  const emphasizedDist = emphasizeUpperTail(scaledDist, 0.35);
   const finalRoundedDist = emphasizedDist.map((x) => Math.round(x));
 
   return {
