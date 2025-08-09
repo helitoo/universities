@@ -292,8 +292,8 @@ export function getPercentile(value, distData) {
 }
 
 export function getScoreAtPercentile(per, distData) {
-  if (per <= 0) return distData.min;
-  else if (per >= 1) return distData.max;
+  if (per < 0) return distData.min;
+  else if (per > 1) return distData.max;
 
   let cumdist = getCumlative(distData.dist);
 
@@ -435,7 +435,8 @@ export async function getGroupDist(
   const scoreMaxActual = min + (lastNonZero / (bins - 1)) * (max - min);
 
   // Tính deltaShift = chênh lệch giữa max lý thuyết và thực tế
-  const deltaShift = maxTheoretical - scoreMaxActual;
+  // const deltaShift = maxTheoretical - scoreMaxActual;
+  const deltaShift = 0;
 
   // Tạo lại dist mới, có thêm dịch chuyển
   const finalDist = new Array(bins).fill(0);
@@ -481,7 +482,7 @@ export async function getGroupDist(
   const scaledDist = finalDist.map((x) => x * scale);
 
   // Hiệu chỉnh độ phân giải vùng trên bằng power-scaling
-  const emphasizedDist = emphasizeUpperTail(scaledDist, 0.35);
+  const emphasizedDist = emphasizeUpperTail(scaledDist, 0.365); // 0.365
   const finalRoundedDist = emphasizedDist.map((x) => Math.round(x));
 
   return {
