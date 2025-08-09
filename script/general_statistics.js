@@ -97,7 +97,7 @@ const topIndustry1 = [
     quan: "10505",
   },
   {
-    id: "Máy tính và CNTT",
+    id: "Máy tính & CNTT",
     quan: "6339",
   },
   {
@@ -206,7 +206,7 @@ const topSchoolAvg = [
 
 const topIndustry1Avg = [
   {
-    id: "Khoa học giáo dục và đào tạo giáo viên",
+    id: "KH giáo dục & đào tạo giáo viên",
     quan: "25.3",
   },
   {
@@ -214,11 +214,11 @@ const topIndustry1Avg = [
     quan: "23.3",
   },
   {
-    id: "Khoa học xã hội và hành vi",
+    id: "KH xã hội & hành vi",
     quan: "22.2",
   },
   {
-    id: "Toán và thống kê",
+    id: "Toán & thống kê",
     quan: "21.8",
   },
   {
@@ -242,7 +242,7 @@ const topIndustry1Avg = [
     quan: "20.9",
   },
   {
-    id: "Kinh doanh và quản lý",
+    id: "Kinh doanh & quản lý",
     quan: "20.6",
   },
   {
@@ -254,19 +254,19 @@ const topIndustry1Avg = [
     quan: "20.3",
   },
   {
-    id: "Máy tính và công nghệ thông tin",
+    id: "Máy tính & CNTT",
     quan: "20.0",
   },
   {
-    id: "Báo chí và thông tin",
+    id: "Báo chí & thông tin",
     quan: "19.9",
   },
   {
-    id: "Khoa học tự nhiên",
+    id: "KH tự nhiên",
     quan: "18.7",
   },
   {
-    id: "Du lịch khách sạn, thể thao và dịch vụ cá nhân",
+    id: "Du lịch khách sạn, thể thao & dịch vụ cá nhân",
     quan: "18.4",
   },
   {
@@ -274,7 +274,7 @@ const topIndustry1Avg = [
     quan: "18.4",
   },
   {
-    id: "Kiến trúc và xây dựng",
+    id: "Kiến trúc & xây dựng",
     quan: "18.1",
   },
   {
@@ -285,15 +285,15 @@ const topIndustry1Avg = [
 
 const topIndustry3Avg = [
   {
-    id: "Sư phạm Tiếng Đức",
+    id: "SP Tiếng Đức",
     quan: "28.1",
   },
   {
-    id: "Sư phạm Lịch sử",
+    id: "SP Lịch sử",
     quan: "27.8",
   },
   {
-    id: "Sư phạm Địa lý",
+    id: "SP Địa lý",
     quan: "27.7",
   },
   {
@@ -301,7 +301,7 @@ const topIndustry3Avg = [
     quan: "27.4",
   },
   {
-    id: "Văn hóa và truyền thông xuyên quốc gia",
+    id: "Văn hóa & truyền thông xuyên quốc gia",
     quan: "27.4",
   },
   {
@@ -313,7 +313,7 @@ const topIndustry3Avg = [
     quan: "27.1",
   },
   {
-    id: "Marketing và Truyền thông",
+    id: "Marketing & Truyền thông",
     quan: "27.1",
   },
   {
@@ -325,7 +325,7 @@ const topIndustry3Avg = [
     quan: "27.0",
   },
   {
-    id: "Sư phạm Lịch sử - Địa lý",
+    id: "SP Lịch sử - Địa lý",
     quan: "27.0",
   },
   {
@@ -337,7 +337,7 @@ const topIndustry3Avg = [
     quan: "26.7",
   },
   {
-    id: "Sư phạm Ngữ văn",
+    id: "SP Ngữ văn",
     quan: "26.6",
   },
   {
@@ -357,11 +357,11 @@ const topIndustry3Avg = [
     quan: "26.5",
   },
   {
-    id: "Giáo dục Quốc phòng - An ninh",
+    id: "Giáo dục QP-AN",
     quan: "26.5",
   },
   {
-    id: "Khoa học chế biến món ăn",
+    id: "KH chế biến món ăn",
     quan: "26.4",
   },
   {

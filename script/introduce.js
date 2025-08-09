@@ -934,7 +934,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   let focusChart = getBar(
     "focus-chart",
-    "Những trường có độ tập trung đào tạo lớn nhất (thang 1)"
+    "Những trường có độ tập trung đào tạo lớn nhất (thang 1) (cộng dồn)"
+  );
+
+  let meanChart = getBar(
+    "mean-chart",
+    "Những trường có trung vị điểm chuẩn cao nhất (thang 30)"
   );
 
   // Query data
@@ -951,6 +956,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
           .eq("industry_l3_id", major3Id.slice(5, 7));
 
       const { data, error } = await query;
+
+      console.log(error);
 
       return data;
     }
@@ -974,6 +981,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     async function getTopRecords(data, cutoff = 10, addOthers = true) {
+      if (!data) return [];
+
       const counted = getCountMap(data);
 
       const topRecords = counted.slice(0, cutoff);
@@ -999,7 +1008,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         major1.value,
         major3.value
       ),
-      10,
+      6,
       true
     );
 
@@ -1010,7 +1019,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         major1.value,
         major3.value
       ),
-      10,
+      6,
       true
     );
 
@@ -1035,6 +1044,39 @@ document.addEventListener("DOMContentLoaded", (event) => {
       10,
       false
     );
+
+    let means =
+      major3.value == "al"
+        ? await getTopRecords(
+            await query(
+              "view_top_mean_by_industry1",
+              ["school_id", "quan"],
+              major1.value,
+              major3.value
+            ),
+            10,
+            false
+          )
+        : await getTopRecords(
+            await query(
+              "view_top_mean_by_industry3",
+              ["school_id", "quan"],
+              major1.value,
+              major3.value
+            ),
+            10,
+            false
+          );
+
+    if (
+      [methods, groups, schools, focuses, means].some(
+        (data) => data.length == 0
+      )
+    ) {
+      alert("Không có dữ liệu");
+      hideLoading();
+      return;
+    }
 
     hideLoading();
 
@@ -1112,6 +1154,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
         item.id == "Khác" ? "Khác" : schoolNames.get(item.id)
       ),
       focuses.map((item) => item.quan)
+    );
+
+    updateChart(
+      meanChart,
+      means.map((item) =>
+        item.id == "Khác" ? "Khác" : schoolNames.get(item.id)
+      ),
+      means.map((item) => item.quan)
     );
   });
 });
