@@ -1081,13 +1081,14 @@ export default class queryModel {
         "school_name,major_name,major_id,score,method_id,subject_group_id"
       )
       .limit(111);
+
     // queryExtraInfo;
+
     for (let [field, value] of queryExtraInfo.entries()) {
       if (Array.isArray(value) && value.length > 0) {
         const uniqueVals = [...new Set(value)];
 
         if (uniqueVals.length > 0) {
-          // Xây dựng filter expression đúng cách
           const filterExpression = uniqueVals
             .map(
               (val) =>
@@ -1095,7 +1096,6 @@ export default class queryModel {
             )
             .join(",");
 
-          // Sử dụng .or() đúng cách
           query = query.or(filterExpression);
         }
       } else {
@@ -1135,7 +1135,8 @@ export default class queryModel {
 
     let { data, error } = await query;
 
-    console.log(error);
+    // console.log(query);
+    // console.log(error);
 
     return error || data.length == 0 ? null : data;
   }
