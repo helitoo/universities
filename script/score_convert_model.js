@@ -579,11 +579,12 @@ export function getGroupName(groupId) {
     case "root":
       return "Gốc";
     case "k00":
-      return "K00";
+    case "dgtd":
+      return "Đánh giá tư duy";
     case "k01":
       return "K01";
     case "A000":
-      return "Phương thức riêng không có tổ hợp";
+      return "Không có Tổ hợp";
     case "A001":
       return "Thi năng khiếu";
     default:
@@ -614,7 +615,10 @@ export function getMethodeName(methodId) {
       return "H-SCA";
     case "dgtd":
       return "TSA";
+    case "ccqt":
+      return "Chứng chỉ quốc tế";
     case "hcmut":
+    case "QSB":
       return "HCMUT";
     default:
       return getGroupName(methodId);
@@ -623,51 +627,51 @@ export function getMethodeName(methodId) {
 
 export function getIndustry1Name(id) {
   switch (id) {
-    case 714:
+    case "714":
       return "KH giáo dục & đào tạo giáo viên";
-    case 721:
+    case "721":
       return "Nghệ thuật";
-    case 722:
+    case "722":
       return "Nhân văn";
-    case 731:
+    case "731":
       return "KH XH & hành vi";
-    case 732:
+    case "732":
       return "Báo chí & thông tin";
-    case 734:
+    case "734":
       return "Kinh doanh & quản lý";
-    case 738:
+    case "738":
       return "Pháp luật";
-    case 742:
+    case "742":
       return "KH sự sống";
-    case 744:
+    case "744":
       return "KH tự nhiên";
-    case 746:
+    case "746":
       return "Toán & thống kê";
-    case 748:
+    case "748":
       return "Máy tính & công nghệ thông tin";
-    case 751:
+    case "751":
       return "Công nghệ kỹ thuật";
-    case 752:
+    case "752":
       return "Kỹ thuật";
-    case 754:
+    case "754":
       return "Sản xuất & chế biến";
-    case 758:
+    case "758":
       return "Kiến trúc & xây dựng";
-    case 762:
+    case "762":
       return "Nông lâm nghiệp & thủy sản";
-    case 764:
+    case "764":
       return "Thú y";
-    case 772:
+    case "772":
       return "Sức khỏe";
-    case 776:
+    case "776":
       return "Dịch vụ xã hội";
-    case 781:
+    case "781":
       return "Du lịch khách sạn, thể thao & dịch vụ cá nhân";
-    case 784:
+    case "784":
       return "Dịch vụ vận tải";
-    case 785:
+    case "785":
       return "Môi trường & bảo vệ môi trường";
-    case 786:
+    case "786":
       return "An ninh Quốc phòng";
     default:
       return "Khác";

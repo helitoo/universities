@@ -23,9 +23,9 @@ export default class queryModel {
     ["dgsp", new Map()],
     ["dgcb", new Map()],
     ["dgca", new Map()],
-    ["k00", new Map()],
+    ["dgtd", new Map()],
     ["k01", new Map()],
-    ["hcmut", new Map()],
+    ["QSB", new Map()],
   ]);
 
   extra = new Map([
@@ -615,7 +615,7 @@ export default class queryModel {
         2
       );
 
-      this.main.get("k00").set("G001", [completeScore, addScore]);
+      this.main.get("dgtd").set("G001", [completeScore, addScore]);
     }
   }
 
@@ -704,15 +704,15 @@ export default class queryModel {
         utScore = ((100 - rawScore - ttScore - utScore) / 25) * utScore;
 
       this.main
-        .get("hcmut")
+        .get("QSB")
         .set(group, [
           round2(rawScore + ttScore + utScore, 2),
           round2(ttScore + utScore, 2),
         ]);
     }
 
-    if (this.main.get("hcmut").size > 1)
-      this.main.set("hcmut", getSort(this.main.get("hcmut"), 0, false));
+    if (this.main.get("QSB").size > 1)
+      this.main.set("QSB", getSort(this.main.get("QSB"), 0, false));
   }
 
   /////////////////////////////////////////////////////////////////////
@@ -731,39 +731,70 @@ export default class queryModel {
   ]);
 
   majorFreqs = new Map([
-    [714, 0],
-    [721, 0],
-    [722, 0],
-    [731, 0],
-    [732, 0],
-    [734, 0],
-    [738, 0],
-    [742, 0],
-    [744, 0],
-    [746, 0],
-    [748, 0],
-    [751, 0],
-    [752, 0],
-    [754, 0],
-    [758, 0],
-    [762, 0],
-    [764, 0],
-    [772, 0],
-    [776, 0],
-    [781, 0],
-    [784, 0],
-    [785, 0],
-    [786, 0],
+    ["714", 0],
+    ["721", 0],
+    ["722", 0],
+    ["731", 0],
+    ["732", 0],
+    ["734", 0],
+    ["738", 0],
+    ["742", 0],
+    ["744", 0],
+    ["746", 0],
+    ["748", 0],
+    ["751", 0],
+    ["752", 0],
+    ["754", 0],
+    ["758", 0],
+    ["762", 0],
+    ["764", 0],
+    ["772", 0],
+    ["776", 0],
+    ["781", 0],
+    ["784", 0],
+    ["785", 0],
+    ["786", 0],
   ]);
 
   calcHolland(hollandData) {
     const holland2major = new Map([
-      ["r", [748, 751, 752, 754, 758, 762, 764, 772, 784, 785, 786]],
-      ["i", [714, 731, 732, 744, 746, 748, 751, 752, 742, 772, 785, 738]],
-      ["a", [721, 722, 732, 758, 776]],
-      ["s", [714, 731, 732, 772, 776, 781, 786]],
-      ["e", [734, 738, 751, 758, 772, 781, 785]],
-      ["c", [714, 732, 734, 746, 751, 754, 781, 784, 786]],
+      [
+        "r",
+        [
+          "748",
+          "751",
+          "752",
+          "754",
+          "758",
+          "762",
+          "764",
+          "772",
+          "784",
+          "785",
+          "786",
+        ],
+      ],
+      [
+        "i",
+        [
+          "714",
+          "731",
+          "732",
+          "744",
+          "746",
+          "748",
+          "751",
+          "752",
+          "742",
+          "772",
+          "785",
+          "738",
+        ],
+      ],
+      ["a", ["721", "722", "732", "758", "776"]],
+      ["s", ["714", "731", "732", "772", "776", "781", "786"]],
+      ["e", ["734", "738", "751", "758", "772", "781", "785"]],
+      ["c", ["714", "732", "734", "746", "751", "754", "781", "784", "786"]],
     ]);
 
     // Calc single questions
@@ -822,7 +853,7 @@ export default class queryModel {
     this.hollandAns = [...getSort(this.hollandAns, null, false).entries()];
 
     for (let i = 0; i < this.hollandAns.length; i++)
-      if (this.hollandAns[0][1] - this.hollandAns[i][1] <= 2)
+      if (this.hollandAns[0][1] - this.hollandAns[i][1] <= 1)
         this.majorFromHolland.push(...holland2major.get(this.hollandAns[i][0]));
       else break;
 
@@ -845,9 +876,9 @@ export default class queryModel {
       ["dgsp", []],
       ["dgcb", []],
       ["dgca", []],
-      ["k00", []],
+      ["dgtd", []],
       ["k01", []],
-      ["hcmut", []],
+      ["QSB", []],
     ]);
 
     let groupScores = new Map();
@@ -872,20 +903,9 @@ export default class queryModel {
             }
           }
 
-    // for (let [method, groups] of this.main.entries())
-    //   for (let [group, scores] of groups.entries())
-    //     if (
-    //       scores.length > 0 &&
-    //       this.applyGroups.includes(group) &&
-    //       typeof scores[0] == "number"
-    //     ) {
-    //       methodScores.get(method).push(scores[0]);
-    //       groupScores.get(group).push(scores[0]);
-    //     }
-
-    for (let i = 0; i < methodScores.get("hcmut").length; i++)
-      methodScores.get("hcmut")[i] = round2(
-        (methodScores.get("hcmut")[i] / 100) * 30,
+    for (let i = 0; i < methodScores.get("QSB").length; i++)
+      methodScores.get("QSB")[i] = round2(
+        (methodScores.get("QSB")[i] / 100) * 30,
         2
       );
 
@@ -904,5 +924,219 @@ export default class queryModel {
     groupAvg = getSort(groupAvg, null, false);
 
     return { methodAvg, groupAvg };
+  }
+
+  /////////////////////////////////////////////////////////////////////
+  // Get recommended majors
+  /////////////////////////////////////////////////////////////////////
+
+  async getRcmdMajor(schoolData, majorData, cerfData, pointRangeData) {
+    let queryExtraInfo = new Map();
+
+    // school
+
+    if (schoolData.get("id").length > 0)
+      queryExtraInfo.set("school_id", schoolData.get("id"));
+
+    if (schoolData.get("type").some((type) => type == false)) {
+      if (schoolData.get("type")[0] == true)
+        queryExtraInfo.set("school_public", 1);
+      else queryExtraInfo.set("school_public", 0);
+    }
+
+    // queryExtraInfo.set("school_region", schoolData.get("region"));
+
+    if (schoolData.get("region").some((region) => region == true)) {
+      queryExtraInfo.set("school_region", []);
+
+      if (schoolData.get("region")[0])
+        queryExtraInfo.get("school_region").push("HNC");
+
+      if (schoolData.get("region")[1])
+        queryExtraInfo.get("school_region").push("HCMC");
+
+      if (schoolData.get("region")[2])
+        queryExtraInfo.get("school_region").push("NR");
+
+      if (schoolData.get("region")[3])
+        queryExtraInfo.get("school_region").push("CR");
+
+      if (schoolData.get("region")[4])
+        queryExtraInfo.get("school_region").push("SR");
+    }
+
+    // industry1
+
+    if (this.majorFromHolland.length + majorData.get("1").length > 0)
+      queryExtraInfo.set("industry_l1_id", [
+        ...this.majorFromHolland,
+        ...majorData.get("1"),
+      ]);
+
+    if (majorData.get("3").length > 0)
+      queryExtraInfo.set("major_id", majorData.get("3"));
+
+    // score
+
+    let queryScoreInfo = new Map();
+
+    // ccqt
+
+    if (cerfData.get("id").length > 0) {
+      queryScoreInfo.set("ccqt", 0);
+
+      for (let i = 0; i < cerfData.get("id").length; i++) {
+        let base = 0;
+        let score = cerfData.get("p")[i];
+
+        switch (cerfData.get("id")[i]) {
+          case "SAT":
+            base = 1600;
+            break;
+          case "ACT":
+            base = 36;
+            break;
+          case "IB":
+            base = 45;
+            break;
+          default: // A-level
+            base = 48;
+
+            switch (score) {
+              case "A":
+                score = 48;
+                break;
+              case "B":
+                score = 40;
+                break;
+              case "C":
+                score = 32;
+                break;
+              case "D":
+                score = 24;
+                break;
+              case "E":
+                score = 16;
+                break;
+              default:
+                score = 0;
+            }
+        }
+
+        queryScoreInfo.set("ccqt", new Map());
+
+        queryScoreInfo
+          .get("ccqt")
+          .set(
+            "A000",
+            Math.max(
+              queryScoreInfo.get("ccqt"),
+              round2((score / base) * 30, 2) + pointRangeData.get("max")
+            )
+          );
+      }
+    }
+
+    // other scores
+
+    for (let [method, groupScores] of this.main.entries())
+      if (method != "root" && groupScores.size > 0) {
+        // groupScores = map  [method, [realScore, addScore]] or [method, [ [realScore, addScore] , [realScore, addScore] , ...]]
+        queryScoreInfo.set(method, new Map());
+
+        for (let [group, scores] of groupScores.entries()) {
+          if (method == "dgtd" || method == "dghn" || method == "dgsg")
+            group = "A000";
+
+          if (typeof scores[0] == "number")
+            // groupScores = [realScore, addScore] -> scores = realScore
+            queryScoreInfo
+              .get(method)
+              .set(group, scores[0] + pointRangeData.get("max"));
+          else {
+            // groupScores = [ [realScore, addScore] , [realScore, addScore] , ...] -> scores = [realScore, addScore] -> need get avg
+            let realScores = scores.map((elm) => elm[0]);
+
+            queryScoreInfo
+              .get(method)
+              .set(
+                group,
+                round2(
+                  realScores.reduce((a, b) => a + b, 0) / realScores.length,
+                  2
+                ) + pointRangeData.get("max")
+              );
+          }
+        }
+      }
+
+    if (queryScoreInfo.has("k01")) queryScoreInfo.delete("k01");
+    if (queryScoreInfo.has("QSB")) queryScoreInfo.delete("QSB");
+
+    // query
+
+    let query = this.supabase
+      .from("view_score")
+      .select(
+        "school_name,major_name,major_id,score,method_id,subject_group_id"
+      )
+      .limit(111);
+    // queryExtraInfo;
+    for (let [field, value] of queryExtraInfo.entries()) {
+      if (Array.isArray(value) && value.length > 0) {
+        const uniqueVals = [...new Set(value)];
+
+        if (uniqueVals.length > 0) {
+          // Xây dựng filter expression đúng cách
+          const filterExpression = uniqueVals
+            .map(
+              (val) =>
+                `${field}.eq.${typeof val === "string" ? `"${val}"` : val}`
+            )
+            .join(",");
+
+          // Sử dụng .or() đúng cách
+          query = query.or(filterExpression);
+        }
+      } else {
+        query = query.eq(field, typeof val === "string" ? `"${value}"` : value);
+      }
+    }
+
+    // Lọc converted_score >= min
+    query = query.gte("converted_score", pointRangeData.get("min"));
+
+    // queryScoreInfo
+    let filterGroups = [];
+
+    for (let [method, groupScores] of queryScoreInfo.entries()) {
+      for (let [group, score] of groupScores.entries()) {
+        filterGroups.push({
+          method_id: `eq.${method}`,
+          subject_group_id: `eq.${group}`,
+          converted_score: `lte.${score}`,
+        });
+      }
+    }
+
+    if (filterGroups.length > 0)
+      query = query.or(
+        filterGroups
+          .map(
+            (group) =>
+              `and(${Object.entries(group)
+                .map(([k, v]) => `${k}.${v}`)
+                .join(",")})`
+          )
+          .join(",")
+      );
+
+    // console.log(query);
+
+    let { data, error } = await query;
+
+    console.log(error);
+
+    return error || data.length == 0 ? null : data;
   }
 }

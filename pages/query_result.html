@@ -47,7 +47,7 @@
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- Script -->
-    <!-- <script type="module" src="../script/query_result.js"></script> -->
+    <script type="module" src="../script/query_result.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary mb-5 sticky-top">
@@ -133,7 +133,7 @@
         </div>
       </div>
     </nav>
-    <button
+    <!-- <button
       class="btn btn-primary"
       id="capture-dom"
       onclick="capture('[CĐH] Kết quả truy vấn')"
@@ -151,7 +151,7 @@
           clip-rule="evenodd"
         />
       </svg>
-    </button>
+    </button> -->
     <div class="container" id="main-container">
       <div class="container my-4 rounded">
         <div class="row justify-content-center">
@@ -215,9 +215,9 @@
       <div id="dgca-res"></div>
       <div id="dgsp-res"></div>
       <div id="dgcb-res"></div>
-      <div id="k00-res"></div>
+      <div id="dgtd-res"></div>
       <div id="k01-res"></div>
-      <div id="hcmut-res"></div>
+      <div id="QSB-res"></div>
       <div class="container my-4 rounded">
         <div class="row justify-content-center">
           <div
@@ -268,25 +268,32 @@
               </svg>
               <strong class="text-primary">Một số ngành đề xuất:</strong>
             </p>
-            <!--  -->
             <div class="container my-4 rounded">
               <div class="row justify-content-center">
                 <div
-                  class="rounded-3 p-3 border border-2 border-light-subtle bg-body-tertiary"
+                  class="col-md-10 rounded-3 p-3 border border-danger border-2"
                 >
-                  <p class="mb-2 fw-bold">
-                    Trường Đại học Công nghệ thông tin - ĐHQG-HCM
+                  <p class="mb-2">
+                    <img
+                      src="../assets/icons/triangle-warning.png"
+                      alt="references"
+                      style="height: 1.3rem; margin-right: 0.2rem"
+                      draggable="false"
+                    />
+                    <strong class="text-danger">Chú ý:</strong>
                   </p>
-                  <ul>
-                    <li>
-                      <strong>Công nghệ thông tin</strong> - 24520145 -
-                      <span class="fw-bold fs-4">24.5đ</span> - TN THPT - G001,
-                      G002.
+                  <ul class="mb-0">
+                    <li>Dữ liệu dựa trên năm <strong>2024</strong>.</li>
+                    <li class="mt-2">
+                      Chỉ hiển thị <strong>111</strong> ngành có điểm chuẩn cao
+                      nhất.
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
+            <!--  -->
+            <div id="rcm-major-replacement"></div>
             <!--  -->
           </div>
         </div>

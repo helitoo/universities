@@ -264,7 +264,7 @@ const htmlBoxTemplate = new Map([
         </div>`,
   ],
   [
-    "k00",
+    "dgtd",
     `<div class="container my-4 rounded">
           <div class="row justify-content-center">
             <div class="col-md-10 rounded-3 p-3 border border-2 border-danger">
@@ -281,7 +281,7 @@ const htmlBoxTemplate = new Map([
                   <th>Tổ hợp</th>
                   <th>Điểm xét tuyển</th>
                 </thead>
-                <tbody>k00-res</tbody>
+                <tbody>dgtd-res</tbody>
               </table>
             </div>
           </div>
@@ -312,7 +312,7 @@ const htmlBoxTemplate = new Map([
         </div>`,
   ],
   [
-    "hcmut",
+    "QSB",
     `<div class="container my-4 rounded">
           <div class="row justify-content-center">
             <div
@@ -334,7 +334,7 @@ const htmlBoxTemplate = new Map([
                   <th>Tổ hợp</th>
                   <th>Điểm xét tuyển</th>
                 </thead>
-                <tbody>hcmut-res</tbody>
+                <tbody>QSB-res</tbody>
               </table>
             </div>
           </div>
@@ -373,12 +373,52 @@ function getHtmlTableBody(data) {
   return ans;
 }
 
-function renderHtmlBox(data, replacement, template) {
+function addScoreBox(data, replacement, template) {
   if (data.size > 0)
     document.getElementById(replacement).innerHTML = template.replace(
       replacement,
       getHtmlTableBody(data)
     );
+}
+
+function addRcmMajorBox(replacement, schoolName, majors) {
+  document.getElementById(replacement).innerHTML += `
+    <div class="container my-4 rounded">
+      <div class="row justify-content-center">
+        <div
+          class="rounded-4 p-3 border border-2 border-light-subtle bg-body-tertiary"
+        >
+          <div class="fw-bold fs-4 my-0">
+            ${schoolName}
+          </div>
+          <ul class="mt-4 mb-0">
+          ${majors
+            .map(
+              (major) =>
+                `
+                <li class="mt-4"><strong>${major.major_name}</strong></li>
+                  <i>${major.major_id}</i>
+                  <div class="mt-1">
+                    <span
+                      class="p-1 rounded border border-success text-success bg-white"
+                      >${getMethodeName(major.method_id)}</span
+                    >
+                    <span
+                      class="p-1 rounded border border-warning text-warning bg-white"
+                      >${getGroupName(major.subject_group_id)}</span
+                    >
+                    <span
+                      class="p-1 rounded border border-primary text-primary bg-white fw-bold"
+                      >${major.score}đ</span
+                    >
+                  </div>`
+            )
+            .join("")}
+          </ul>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -408,67 +448,65 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   await querier.calcMain(filterData, new Date().getFullYear() - 1);
 
-  console.log(querier);
-
   // Render data box
 
-  renderHtmlBox(
+  addScoreBox(
     querier.main.get("thhb"),
     "thhb-res",
     htmlBoxTemplate.get("thhb")
   );
 
-  renderHtmlBox(
+  addScoreBox(
     querier.main.get("thpt"),
     "thpt-res",
     htmlBoxTemplate.get("thpt")
   );
 
-  renderHtmlBox(
+  addScoreBox(
     querier.main.get("dghn"),
     "dghn-res",
     htmlBoxTemplate.get("dghn")
   );
 
-  renderHtmlBox(
+  addScoreBox(
     querier.main.get("dgsg"),
     "dgsg-res",
     htmlBoxTemplate.get("dgsg")
   );
 
-  renderHtmlBox(
+  addScoreBox(
     querier.main.get("vsat"),
     "vsat-res",
     htmlBoxTemplate.get("vsat")
   );
 
-  renderHtmlBox(
+  addScoreBox(
     querier.main.get("dgca"),
     "dgca-res",
     htmlBoxTemplate.get("dgca")
   );
 
-  renderHtmlBox(
+  addScoreBox(
     querier.main.get("dgsp"),
     "dgsp-res",
     htmlBoxTemplate.get("dgsp")
   );
 
-  renderHtmlBox(
+  addScoreBox(
     querier.main.get("dgcb"),
     "dgcb-res",
     htmlBoxTemplate.get("dgcb")
   );
 
-  renderHtmlBox(querier.main.get("k00"), "k00-res", htmlBoxTemplate.get("k00"));
-
-  renderHtmlBox(querier.main.get("k01"), "k01-res", htmlBoxTemplate.get("k01"));
-
-  renderHtmlBox(
-    querier.main.get("hcmut"),
-    "hcmut-res",
-    htmlBoxTemplate.get("hcmut")
+  addScoreBox(
+    querier.main.get("dgtd"),
+    "dgtd-res",
+    htmlBoxTemplate.get("dgtd")
   );
+
+  addScoreBox(querier.main.get("k01"), "k01-res", htmlBoxTemplate.get("k01"));
+
+  addScoreBox(querier.main.get("QSB"), "QSB-res", htmlBoxTemplate.get("QSB"));
 
   // Render extra data
 
@@ -519,11 +557,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                 return "#183885";
               case "dgcb":
                 return "#0053a6";
-              case "k00":
+              case "dgtd":
                 return "#db3545";
               case "k01":
                 return "#b82d3bff";
-              case "hcmut":
+              case "QSB":
                 return "#042b94";
             }
           }),
@@ -720,6 +758,38 @@ document.addEventListener("DOMContentLoaded", async () => {
         },
       },
     });
+  }
+
+  // Get recommeded majors
+
+  let rcmMajors = await querier.getRcmdMajor(
+    filterData.school,
+    filterData.major,
+    filterData.cerf,
+    filterData.point_range
+  );
+
+  if (rcmMajors == null) {
+    document.getElementById("rcm-major-replacement").innerHTML = `
+      <div class="alert alert-danger" role="alert">
+        Không tìm thấy ngành!
+      </div>
+    `;
+  } else {
+    let rcmMajorGroupBySchool = new Map();
+
+    for (let rcmMajor of rcmMajors) {
+      if (!rcmMajorGroupBySchool.has(rcmMajor.school_name))
+        rcmMajorGroupBySchool.set(rcmMajor.school_name, []);
+      rcmMajorGroupBySchool.get(rcmMajor.school_name).push(rcmMajor);
+    }
+
+    for (let schoolName of rcmMajorGroupBySchool.keys())
+      addRcmMajorBox(
+        "rcm-major-replacement",
+        schoolName,
+        rcmMajorGroupBySchool.get(schoolName)
+      );
   }
 
   hideLoading();
