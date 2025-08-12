@@ -930,54 +930,13 @@ export default class queryModel {
   // Get recommended majors
   /////////////////////////////////////////////////////////////////////
 
-  async getRcmdMajor(schoolData, majorData, cerfData, pointRangeData) {
-    let queryExtraInfo = new Map();
-
-    // school
-
-    if (schoolData.get("id").length > 0)
-      queryExtraInfo.set("school_id", schoolData.get("id"));
-
-    if (schoolData.get("type").some((type) => type == false)) {
-      if (schoolData.get("type")[0] == true)
-        queryExtraInfo.set("school_public", 1);
-      else queryExtraInfo.set("school_public", 0);
-    }
-
-    // queryExtraInfo.set("school_region", schoolData.get("region"));
-
-    if (schoolData.get("region").some((region) => region == true)) {
-      queryExtraInfo.set("school_region", []);
-
-      if (schoolData.get("region")[0])
-        queryExtraInfo.get("school_region").push("HNC");
-
-      if (schoolData.get("region")[1])
-        queryExtraInfo.get("school_region").push("HCMC");
-
-      if (schoolData.get("region")[2])
-        queryExtraInfo.get("school_region").push("NR");
-
-      if (schoolData.get("region")[3])
-        queryExtraInfo.get("school_region").push("CR");
-
-      if (schoolData.get("region")[4])
-        queryExtraInfo.get("school_region").push("SR");
-    }
-
-    // industry1
-
-    if (this.majorFromHolland.length + majorData.get("1").length > 0)
-      queryExtraInfo.set("industry_l1_id", [
-        ...this.majorFromHolland,
-        ...majorData.get("1"),
-      ]);
-
-    if (majorData.get("3").length > 0)
-      queryExtraInfo.set("major_id", majorData.get("3"));
-
-    // score
-
+  async getRcmdMajor(
+    queryExtraInfo,
+    cerfData,
+    pointRangeData,
+    appliedMethods,
+    numRcmMajor
+  ) {
     let queryScoreInfo = new Map();
 
     // ccqt
@@ -1078,9 +1037,9 @@ export default class queryModel {
     let query = this.supabase
       .from("view_score")
       .select(
-        "school_name,major_name,major_id,score,method_id,subject_group_id"
+        "school_name,major_name,major_id,score,method_id,subject_group_id,note"
       )
-      .limit(111);
+      .limit(numRcmMajor);
 
     // queryExtraInfo;
 
@@ -1109,15 +1068,16 @@ export default class queryModel {
     // queryScoreInfo
     let filterGroups = [];
 
-    for (let [method, groupScores] of queryScoreInfo.entries()) {
-      for (let [group, score] of groupScores.entries()) {
-        filterGroups.push({
-          method_id: `eq.${method}`,
-          subject_group_id: `eq.${group}`,
-          converted_score: `lte.${score}`,
-        });
+    for (let [method, groupScores] of queryScoreInfo.entries())
+      if (appliedMethods.includes(method)) {
+        for (let [group, score] of groupScores.entries()) {
+          filterGroups.push({
+            method_id: `eq.${method}`,
+            subject_group_id: `eq.${group}`,
+            converted_score: `lte.${score}`,
+          });
+        }
       }
-    }
 
     if (filterGroups.length > 0)
       query = query.or(

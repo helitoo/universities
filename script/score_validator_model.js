@@ -15,7 +15,7 @@ export function getValidValue(value, isInt, min, max, appreciate) {
   if (max != 10) value = Math.min(value, max);
   else if (!isInt) while (value > 10) value /= 10;
 
-  if (!isInt) value = round2(value, 2);
+  if (!isInt) value = round2(value, appreciate);
 
   return value;
 }

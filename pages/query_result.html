@@ -72,7 +72,7 @@
               <a class="nav-link" href="/index.html">Trang chủ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./filter.html">Bộ lọc tìm kiếm</a>
+              <a class="nav-link" href="./filter.html">Nhập điểm</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./holland.html"
@@ -266,34 +266,312 @@
                   d="M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z"
                 />
               </svg>
-              <strong class="text-primary">Một số ngành đề xuất:</strong>
+              <strong class="text-primary">Tìm kiếm ngành phù hợp:</strong>
             </p>
-            <div class="container my-4 rounded">
-              <div class="row justify-content-center">
-                <div
-                  class="col-md-10 rounded-3 p-3 border border-danger border-2"
+            <strong>Hãy nhập thêm 1 số thông tin tìm kiếm:</strong>
+            <div class="row mt-4">
+              <div class="col col-md-6 col-12">
+                <span class="fw-bold"
+                  >Nhập tên trường / tên viết tắt / mã tuyển sinh:</span
                 >
-                  <p class="mb-2">
-                    <img
-                      src="../assets/icons/triangle-warning.png"
-                      alt="references"
-                      style="height: 1.3rem; margin-right: 0.2rem"
-                      draggable="false"
+                <div
+                  id="school-id-replacement"
+                  class="selectpicker-replacement"
+                ></div>
+                <button type="button" class="btn" id="show-school-id">
+                  <img
+                    src="../assets/icons/add.png"
+                    alt="add icon"
+                    style="height: 1.5rem"
+                  />
+                </button>
+              </div>
+              <div class="col">
+                <span class="fw-bold">Loại hình:</span>
+                <div>
+                  <div class="form-check">
+                    <label class="form-check-label" for="check-type-cl">
+                      Công lập
+                    </label>
+                    <input
+                      class="form-check-input school-type"
+                      type="checkbox"
+                      checked
+                      id="check-type-cl"
+                      value="1"
                     />
-                    <strong class="text-danger">Chú ý:</strong>
-                  </p>
-                  <ul class="mb-0">
-                    <li>Dữ liệu dựa trên năm <strong>2024</strong>.</li>
-                    <li class="mt-2">
-                      Chỉ hiển thị <strong>111</strong> ngành có điểm chuẩn cao
-                      nhất.
-                    </li>
-                  </ul>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label" for="check-type-tt">
+                      Tư thục / Dân lập
+                    </label>
+                    <input
+                      class="form-check-input school-type"
+                      type="checkbox"
+                      id="check-type-tt"
+                      value="0"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <span class="fw-bold">Khu vực:</span>
+                <div>
+                  <div class="form-check">
+                    <label class="form-check-label" for="check-region-hnc">
+                      Hà Nội
+                    </label>
+                    <input
+                      class="form-check-input school-region"
+                      type="checkbox"
+                      checked
+                      id="check-region-hn"
+                      value="HNC"
+                    />
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label" for="check-region-hcmc">
+                      TP. HCM
+                    </label>
+                    <input
+                      class="form-check-input school-region"
+                      type="checkbox"
+                      checked
+                      id="check-region-hcmc"
+                      value="HCMC"
+                    />
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label" for="check-region-nr">
+                      Miền Bắc
+                    </label>
+                    <input
+                      class="form-check-input school-region"
+                      type="checkbox"
+                      id="check-region-nr"
+                      value="NR"
+                    />
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label" for="check-region-cr">
+                      Miền Trung
+                    </label>
+                    <input
+                      class="form-check-input school-region"
+                      type="checkbox"
+                      id="check-region-cr"
+                      value="CR"
+                    />
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label" for="check-region-sr">
+                      Miền Nam
+                    </label>
+                    <input
+                      class="form-check-input school-region"
+                      type="checkbox"
+                      id="check-region-sr"
+                      value="SR"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="row mt-3">
+              <div class="col-md-6 col-12 fw-bold">
+                Nhóm ngành:
+                <div
+                  id="major-1-replacement"
+                  class="selectpicker-replacement"
+                ></div>
+                <div class="col">
+                  <button type="button" class="btn" id="show-major-1">
+                    <img
+                      src="../assets/icons/add.png"
+                      alt="add icon"
+                      style="height: 1.5rem"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-6 col-12 fw-bold">
+                Ngành:
+                <div
+                  id="major-3-replacement"
+                  class="selectpicker-replacement"
+                ></div>
+                <button type="button" class="btn" id="show-major-3">
+                  <img
+                    src="../assets/icons/add.png"
+                    alt="add icon"
+                    style="height: 1.5rem"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <strong>Chọn phương thức tìm kiếm:</strong>
+              <div class="col">
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="show-tn">TN</label>
+                  <input
+                    class="form-check-input applied-method"
+                    type="checkbox"
+                    id="show-tn"
+                    checked
+                    value="thpt"
+                  />
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="show-hb">HB</label>
+                  <input
+                    class="form-check-input applied-method"
+                    type="checkbox"
+                    id="show-hb"
+                    checked
+                    value="thhb"
+                  />
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="show-dgtd">TSA</label>
+                  <input
+                    class="form-check-input applied-method"
+                    type="checkbox"
+                    id="show-dgtd"
+                    checked
+                    value="dgtd"
+                  />
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="show-dghn">HSA</label>
+                  <input
+                    class="form-check-input applied-method"
+                    type="checkbox"
+                    id="show-dghn"
+                    checked
+                    value="dghn"
+                  />
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="show-dgsg">V-ACT</label>
+                  <input
+                    class="form-check-input applied-method"
+                    type="checkbox"
+                    id="show-dgsg"
+                    checked
+                    value="dgsg"
+                  />
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="show-dgsp">SPT</label>
+                  <input
+                    class="form-check-input applied-method"
+                    type="checkbox"
+                    id="show-dgsp"
+                    checked
+                    value="dgsp"
+                  />
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="show-dgcb">H-SCA</label>
+                  <input
+                    class="form-check-input applied-method"
+                    type="checkbox"
+                    id="show-dgcb"
+                    checked
+                    value="dgcb"
+                  />
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="show-vsat">V-SAT</label>
+                  <input
+                    class="form-check-input applied-method"
+                    type="checkbox"
+                    id="show-vsat"
+                    checked
+                    value="vsat"
+                  />
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="show-dgca">CAND</label>
+                  <input
+                    class="form-check-input applied-method"
+                    type="checkbox"
+                    id="show-dgca"
+                    checked
+                    value="dgca"
+                  />
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label" for="show-ccqt">CCQT</label>
+                  <input
+                    class="form-check-input applied-method"
+                    type="checkbox"
+                    id="show-ccqt"
+                    checked
+                    value="ccqt"
+                  />
+                </div>
+              </div>
+            </div>
+            <p class="mt-3">
+              Ở chế độ mặc định, trang web sẽ tìm kiếm các ngành có điểm
+              <strong>≥ 21 và ≤ điểm của bạn + 1</strong>. Bạn có thể điều chỉnh
+              phạm vi tìm kiếm tại đây <i>(trên thang 30)</i>.
+            </p>
+            <div class="row mt-3">
+              <div class="col">
+                <label for="min-score" class="form-label fw-bold"
+                  >Điểm nhỏ nhất:</label
+                >
+                <input
+                  type="text"
+                  autocomplete="off"
+                  id="min-score"
+                  class="form-control"
+                  value="21"
+                />
+              </div>
+              <div class="col">
+                <label for="max-score" class="form-label fw-bold"
+                  >Độ lệch điểm lớn nhất:</label
+                >
+                <input
+                  type="text"
+                  autocomplete="off"
+                  id="max-score"
+                  class="form-control"
+                  value="1"
+                />
+              </div>
+              <div class="col">
+                <label for="num-rcm-major" class="form-label fw-bold"
+                  >Số lượng kết quả trả về:</label
+                >
+                <input
+                  type="text"
+                  autocomplete="off"
+                  id="num-rcm-major"
+                  class="form-control"
+                  value="111"
+                />
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">Chú ý: Dữ liệu <strong>2024</strong>.</div>
+            </div>
+            <div class="row mt-3">
+              <button type="button" class="btn" id="search-rcm-major">
+                <img
+                  src="../assets/icons/search.png"
+                  alt="search icon"
+                  style="height: 1.5rem"
+                />
+              </button>
+            </div>
+
             <!--  -->
-            <div id="rcm-major-replacement"></div>
+            <div id="rcm-major-replacement" class="mt-3"></div>
             <!--  -->
           </div>
         </div>

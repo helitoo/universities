@@ -1,683 +1,683 @@
 const schoolId_selectpicker = `<select class="selectpicker school-id" data-live-search="true" data-size="5">
     <option data-tokens="QHL UL" value="QHL">
-    Trường Đại học Luật, Đại học Quốc gia Hà Nội
+    TĐH Luật, ĐHQG HN
     </option>
     <option data-tokens="QHQ IS QT" value="QHQ">
-    Trường Quốc tế, Đại học Quốc gia Hà Nội
+    T Quốc tế, ĐHQG HN
     </option>
     <option data-tokens="QHY UMP YD" value="QHY">
-    Trường Đại học Y Dược, Đại học Quốc gia Hà Nội
+    TĐH Y Dược, ĐHQG HN
     </option>
     <option data-tokens="QHI UET CN" value="QHI">
-    Trường Đại học Công nghệ, Đại học Quốc gia Hà Nội
+    TĐH Công nghệ, ĐHQG HN
     </option>
     <option data-tokens="QHE UEB KT" value="QHE">
-    Trường Đại học Kinh tế, Đại học Quốc gia Hà Nội
+    TĐH Kinh tế, ĐHQG HN
     </option>
     <option data-tokens="QHS UED GD" value="QHS">
-    Trường Đại học Giáo dục, Đại học Quốc gia Hà Nội
+    TĐH Giáo dục, ĐHQG HN
     </option>
     <option data-tokens="QHT HUS KHTN" value="QHT">
-    Trường Đại học Khoa học tự nhiên, Đại học Quốc gia Hà Nội
+    TĐH Khoa học tự nhiên, ĐHQG HN
     </option>
     <option data-tokens="QHX HUSSH KHXH" value="QHX">
-    Trường Đại học Khoa học Xã hội và Nhân văn, Đại học Quốc gia Hà Nội
+    TĐH Khoa học Xã hội và Nhân văn, ĐHQG HN
     </option>
     <option data-tokens="QHD HSB QTKD" value="QHD">
-    Trường Quản trị và kinh doanh, Đại học Quốc gia Hà Nội
+    T Quản trị và kinh doanh, ĐHQG HN
     </option>
     <option data-tokens="QHF ULIS NN" value="QHF">
-    Trường Đại học Ngoại ngữ, Đại học Quốc gia Hà Nội
+    TĐH Ngoại ngữ, ĐHQG HN
     </option>
     <option data-tokens="VJU VJU" value="VJU">
-    Trường Đại học Việt Nhật, Đại học Quốc gia Hà Nội
+    TĐH Việt Nhật, ĐHQG HN
     </option>
     <option data-tokens="NVH VNAM" value="NVH">
-    Học viện Âm nhạc Quốc gia Việt Nam
+    HV Âm nhạc Quốc gia VN
     </option>
     <option data-tokens="HBT AJC" value="HBT">
-    Học viện Báo chí Tuyên truyền
+    HV Báo chí Tuyên truyền
     </option>
     <option data-tokens="HCP APD" value="HCP">
-    Học viện Chính sách và Phát triển
+    HV Chính sách và Phát triển
     </option>
     <option data-tokens="BVH PTIT" value="BVH">
-    Học viện Công nghệ Bưu chính Viễn thông
+    HV Công nghệ Bưu chính Viễn thông
     </option>
     <option data-tokens="HCH NAPA" value="HCH">
-    Học viện Hành chính Quốc gia
+    HV Hành chính Quốc gia
     </option>
     <option data-tokens="KMA KMA" value="KMA">
-    Học viện Kỹ thuật Mật mã
+    HV Kỹ thuật Mật mã
     </option>
-    <option data-tokens="NHH BAV" value="NHH">Học viện Ngân hàng</option>
-    <option data-tokens="HQT DAV" value="HQT">Học viện Ngoại giao</option>
+    <option data-tokens="NHH BAV" value="NHH">HV Ngân hàng</option>
+    <option data-tokens="HQT DAV" value="HQT">HV Ngoại giao</option>
     <option data-tokens="HVN VNUA" value="HVN">
-    Học viện Nông nghiệp Việt Nam
+    HV Nông nghiệp VN
     </option>
     <option data-tokens="HPN VWA" value="HPN">
-    Học viện Phụ nữ Việt Nam
+    HV Phụ nữ VN
     </option>
     <option data-tokens="HVQ NAEM" value="HVQ">
-    Học viện Quản lý Giáo dục
+    HV Quản lý Giáo dục
     </option>
-    <option data-tokens="HTC AOF" value="HTC">Học viện Tài chính</option>
+    <option data-tokens="HTC AOF" value="HTC">HV Tài chính</option>
     <option data-tokens="HTN VYA" value="HTN">
-    Học viện Thanh Thiếu niên Việt Nam
+    HV Thanh Thiếu niên VN
     </option>
-    <option data-tokens="HTA" value="HTA">Học viện Tòa án</option>
+    <option data-tokens="HTA" value="HTA">HV Tòa án</option>
     <option data-tokens="HYD VUTM" value="HYD">
-    Học viện Y - Dược học cổ truyền Việt Nam
+    HV Y - Dược học cổ truyền VN
     </option>
     <option data-tokens="BKA HUST, BKU" value="BKA">
-    Đại học Bách khoa Hà Nội
+    ĐH Bách khoa HN
     </option>
     <option data-tokens="LDA TUU" value="LDA">
-    Trường Đại học Công đoàn
+    TĐH Công đoàn
     </option>
     <option data-tokens="GTA UTT" value="GTA">
-    Trường Đại học Công nghệ Giao thông vận tải
+    TĐH Công nghệ Giao thông vận tải
     </option>
     <option data-tokens="CCM HICT" value="CCM">
-    Trường Đại học Công nghiệp Dệt may Hà Nội
+    TĐH Công nghiệp Dệt may HN
     </option>
     <option data-tokens="DCN HaUI" value="DCN">
-    Trường Đại học Công nghiệp Hà Nội
+    TĐH Công nghiệp HN
     </option>
     <option data-tokens="VHD VIU" value="VHD">
-    Trường Đại học Công nghiệp Việt Hung
+    TĐH Công nghiệp Việt Hung
     </option>
-    <option data-tokens="DDN DNU" value="DDN">Trường Đại học Đại Nam</option>
-    <option data-tokens="DDL EPU" value="DDL">Trường Đại học Điện lực</option>
+    <option data-tokens="DDN DNU" value="DDN">TĐH Đại Nam</option>
+    <option data-tokens="DDL EPU" value="DDL">TĐH Điện lực</option>
     <option data-tokens="DKH HUP" value="DKH">
-    Trường Đại học Dược Hà Nội
+    TĐH Dược HN
     </option>
-    <option data-tokens="FPT FPTU" value="FPT">Trường Đại học FPT</option>
+    <option data-tokens="FPT FPTU" value="FPT">TĐH FPT</option>
     <option data-tokens="GHA UTC" value="GHA">
-    Trường Đại học Giao thông vận tải
+    TĐH Giao thông vận tải
     </option>
-    <option data-tokens="NHF HANU" value="NHF">Trường Đại học Hà Nội</option>
-    <option data-tokens="ETU" value="ETU">Trường Đại học Hòa Bình</option>
+    <option data-tokens="NHF HANU" value="NHF">TĐH HN</option>
+    <option data-tokens="ETU" value="ETU">TĐH Hòa Bình</option>
     <option data-tokens="KCN USTH" value="KCN">
-    Trường Đại học Khoa học và Công nghệ Hà Nội
+    TĐH Khoa học và Công nghệ HN
     </option>
     <option data-tokens="DKS HPU" value="DKS">
-    Trường Đại học Kiểm sát Hà Nội
+    TĐH Kiểm sát HN
     </option>
     <option data-tokens="KTA HAU" value="KTA">
-    Trường Đại học Kiến trúc Hà Nội
+    TĐH Kiến trúc HN
     </option>
     <option data-tokens="DKK UNETI" value="DKK">
-    Trường Đại học Kinh tế Kỹ thuật Công nghiệp
+    TĐH Kinh tế Kỹ thuật Công nghiệp
     </option>
     <option data-tokens="KHA NEU" value="KHA">
-    Trường Đại học Kinh tế Quốc dân
+    TĐH Kinh tế Quốc dân
     </option>
     <option data-tokens="LNH VNUF" value="LNH">
-    Trường Đại học Lâm nghiệp
+    TĐH Lâm nghiệp
     </option>
     <option data-tokens="DLX ULSA" value="DLX">
-    Trường Đại học Lao động Xã hội
+    TĐH Lao động Xã hội
     </option>
     <option data-tokens="LPH HLU" value="LPH">
-    Trường Đại học Luật Hà Nội
+    TĐH Luật HN
     </option>
     <option data-tokens="MDA HUMG" value="MDA">
-    Trường Đại học Mỏ Địa chất Hà Nội
+    TĐH Mỏ Địa chất HN
     </option>
     <option data-tokens="MTC UAD" value="MTC">
-    Trường Đại học Mỹ thuật Công nghiệp
+    TĐH Mỹ thuật Công nghiệp
     </option>
     <option data-tokens="MTH VUFA" value="MTH">
-    Trường Đại học Mỹ thuật Việt Nam
+    TĐH Mỹ thuật VN
     </option>
     <option data-tokens="NTH FTU" value="NTH">
-    Trường Đại học Ngoại thương
+    TĐH Ngoại thương
     </option>
-    <option data-tokens="NTU" value="NTU">Trường Đại học Nguyễn Trãi</option>
+    <option data-tokens="NTU" value="NTU">TĐH Nguyễn Trãi</option>
     <option data-tokens="SKD" value="SKD">
-    Trường Đại học Sân khấu Điện ảnh
+    TĐH Sân khấu Điện ảnh
     </option>
     <option data-tokens="SPH HNUE" value="SPH">
-    Trường Đại học Sư phạm Hà Nội
+    TĐH Sư phạm HN
     </option>
     <option data-tokens="GNT" value="GNT">
-    Trường Đại học Sư phạm Nghệ thuật Trung ương Hà Nội
+    TĐH Sư phạm Nghệ thuật Trung ương HN
     </option>
     <option data-tokens="TDH HUPES" value="TDH">
-    Trường Đại học Sư phạm Thể dục thể thao Hà nội
+    TĐH Sư phạm Thể dục thể thao HN
     </option>
     <option data-tokens="FBU FPU" value="FBU">
-    Trường Đại học Tài chính Ngân hàng Hà Nội
+    TĐH Tài chính Ngân hàng HN
     </option>
     <option data-tokens="DMT HUNRE" value="DMT">
-    Trường Đại học Tài nguyên và Môi trường Hà Nội
+    TĐH Tài nguyên và Môi T HN
     </option>
-    <option data-tokens="DTL" value="DTL">Trường Đại học Thăng Long</option>
-    <option data-tokens="TDD" value="TDD">Trường Đại học Thành Đô</option>
+    <option data-tokens="DTL" value="DTL">TĐH Thăng Long</option>
+    <option data-tokens="TDD" value="TDD">TĐH Thành Đô</option>
     <option data-tokens="HNM HNMU" value="HNM">
-    Trường Đại học Thủ đô Hà Nội
+    TĐH Thủ đô HN
     </option>
     <option data-tokens="TMU TMU" value="TMU">
-    Trường Đại học Thương mại
+    TĐH Thương mại
     </option>
-    <option data-tokens="TLA TLU" value="TLA">Trường Đại học Thủy lợi</option>
+    <option data-tokens="TLA TLU" value="TLA">TĐH Thủy lợi</option>
     <option data-tokens="VHH HUC" value="VHH">
-    Trường Đại học Văn hóa Hà Nội
+    TĐH Văn hóa HN
     </option>
     <option data-tokens="XDA HUCE" value="XDA">
-    Trường Đại học Xây dựng Hà Nội
+    TĐH Xây dựng HN
     </option>
-    <option data-tokens="YHB HMU" value="YHB">Trường Đại học Y Hà Nội</option>
+    <option data-tokens="YHB HMU" value="YHB">TĐH Y HN</option>
     <option data-tokens="YTC" value="YTC">
-    Trường Đại học Y tế Công cộng
+    TĐH Y tế Công cộng
     </option>
     <option data-tokens="DCQ" value="DCQ">
-    Trường Đại học Công nghệ và Quản lý Hữu nghị
+    TĐH Công nghệ và Quản lý Hữu nghị
     </option>
-    <option data-tokens="DDU" value="DDU">Trường Đại học Đông Đô</option>
+    <option data-tokens="DDU" value="DDU">TĐH Đông Đô</option>
     <option data-tokens="DQK" value="DQK">
-    Trường Đại học Kinh doanh và Công nghệ Hà Nội
+    TĐH Kinh doanh và Công nghệ HN
     </option>
-    <option data-tokens="DPD" value="DPD">Trường Đại học Phương Đông</option>
+    <option data-tokens="DPD" value="DPD">TĐH Phương Đông</option>
     <option data-tokens="MHN HOU" value="MHN">
-    Trường Đại học Mở Hà Nội
+    TĐH Mở HN
     </option>
-    <option data-tokens="PKA" value="PKA">Trường Đại học Phenikaa</option>
-    <option data-tokens="CMC CMCU" value="CMC">Trường Đại học CMC</option>
+    <option data-tokens="PKA" value="PKA">TĐH Phenikaa</option>
+    <option data-tokens="CMC CMCU" value="CMC">TĐH CMC</option>
     <option data-tokens="QSY UHS" value="QSY">
-    Trường Đại học Khoa học sức khỏe, Đại học Quốc gia TP.HCM
+    TĐH Khoa học sức khỏe, ĐHQG TP.HCM
     </option>
     <option data-tokens="QSB HCMUT, BKU" value="QSB">
-    Trường Đại học Bách Khoa, Đại học Quốc gia TP.HCM
+    TĐH Bách Khoa, ĐHQG TP.HCM
     </option>
     <option data-tokens="QSC UIT" value="QSC">
-    Trường Đại học Công nghệ thông tin, Đại học Quốc gia TP.HCM
+    TĐH Công nghệ thông tin, ĐHQG TP.HCM
     </option>
     <option data-tokens="QST US HCMUS" value="QST">
-    Trường Đại học Khoa học tự nhiên, Đại học Quốc gia TP.HCM
+    TĐH Khoa học tự nhiên, ĐHQG TP.HCM
     </option>
     <option data-tokens="QSX HCMUSSH" value="QSX">
-    Trường Đại học Khoa học xã hội và Nhân văn, Đại học Quốc gia TP.HCM
+    TĐH Khoa học xã hội và Nhân văn, ĐHQG TP.HCM
     </option>
     <option data-tokens="QSQ HCMIU" value="QSQ">
-    Trường Đại học Quốc tế, Đại học Quốc gia TP.HCM
+    TĐH Quốc tế, ĐHQG TP.HCM
     </option>
     <option data-tokens="QSK UEL" value="QSK">
-    Trường Đại học Kinh tế - Luật, Đại học Quốc gia TP.HCM
+    TĐH Kinh tế - Luật, ĐHQG TP.HCM
     </option>
-    <option data-tokens="HVC HCA" value="HVC">Học viện Cán bộ TP.HCM</option>
+    <option data-tokens="HVC HCA" value="HVC">HV Cán bộ TP.HCM</option>
     <option data-tokens="BVS PTIT" value="BVS">
-    Học viện Công nghệ Bưu chính Viễn thông - Cơ sở TP.HCM
+    HV Công nghệ Bưu chính Viễn thông - Cơ sở TP.HCM
     </option>
     <option data-tokens="HHK VAA" value="HHK">
-    Học viện Hàng không Việt Nam
+    HV Hàng không VN
     </option>
     <option data-tokens="NVS" value="NVS">Nhạc viện TP.HCM</option>
     <option data-tokens="DCT HUIT" value="DCT">
-    Trường Đại học Công thương TP.HCM
+    TĐH Công thương TP.HCM
     </option>
     <option data-tokens="IUH UIH" value="IUH">
-    Trường Đại học Công nghiệp TP.HCM
+    TĐH Công nghiệp TP.HCM
     </option>
     <option data-tokens="GSA UTC2" value="GSA">
-    Trường Đại học Giao thông vận tải - Cơ sở 2
+    TĐH Giao thông vận tải - Cơ sở 2
     </option>
     <option data-tokens="GTS UTH" value="GTS">
-    Trường Đại học Giao thông vận tải TP.HCM
+    TĐH Giao thông vận tải TP.HCM
     </option>
-    <option data-tokens="HSU HSU" value="HSU">Trường Đại học Hoa Sen</option>
+    <option data-tokens="HSU HSU" value="HSU">TĐH Hoa Sen</option>
     <option data-tokens="KTS UAH" value="KTS">
-    Trường Đại học Kiến trúc TP.HCM
+    TĐH Kiến trúc TP.HCM
     </option>
     <option data-tokens="UEF UEF" value="UEF">
-    Trường Đại học Kinh tế - Tài chính TP.HCM
+    TĐH Kinh tế - Tài chính TP.HCM
     </option>
     <option data-tokens="KSA UEH" value="KSA">
-    Trường Đại học Kinh tế TP.HCM
+    TĐH Kinh tế TP.HCM
     </option>
     <option data-tokens="DLS ULSA" value="DLS">
-    Trường Đại học Lao động Xã hội - Cơ sở TP.HCM
+    TĐH Lao động Xã hội - Cơ sở TP.HCM
     </option>
     <option data-tokens="LPS UL" value="LPS">
-    Trường Đại học Luật TP.HCM
+    TĐH Luật TP.HCM
     </option>
     <option data-tokens="MBS HCMOU" value="MBS">
-    Trường Đại học Mở TP.HCM
+    TĐH Mở TP.HCM
     </option>
     <option data-tokens="MTS UFA" value="MTS">
-    Trường Đại học Mỹ thuật TP.HCM
+    TĐH Mỹ thuật TP.HCM
     </option>
     <option data-tokens="NHS HUB" value="NHS">
-    Trường Đại học Ngân hàng TP.HCM
+    TĐH Ngân hàng TP.HCM
     </option>
     <option data-tokens="NTS FTU2" value="NTS">
-    Trường Đại học Ngoại thương - Cơ sở phía Nam
+    TĐH Ngoại thương - Cơ sở phía Nam
     </option>
     <option data-tokens="NTT NTTU" value="NTT">
-    Trường Đại học Nguyễn Tất Thành
+    TĐH Nguyễn Tất Thành
     </option>
     <option data-tokens="NLS NLU" value="NLS">
-    Trường Đại học Nông Lâm TP.HCM
+    TĐH Nông Lâm TP.HCM
     </option>
     <option data-tokens="HIU HBU" value="HIU">
-    Trường Đại học Quốc tế Hồng Bàng
+    TĐH Quốc tế Hồng Bàng
     </option>
-    <option data-tokens="SGD SGU" value="SGD">Trường Đại học Sài Gòn</option>
+    <option data-tokens="SGD SGU" value="SGD">TĐH Sài Gòn</option>
     <option data-tokens="DSD" value="DSD">
-    Trường Đại học Sân khấu Điện ảnh TP.HCM
+    TĐH Sân khấu Điện ảnh TP.HCM
     </option>
     <option data-tokens="SPK HCMUTE" value="SPK">
-    Trường Đại học Sư phạm Kỹ thuật TP.HCM
+    TĐH Sư phạm Kỹ thuật TP.HCM
     </option>
     <option data-tokens="SPS HCMUE" value="SPS">
-    Trường Đại học Sư phạm TP.HCM
+    TĐH Sư phạm TP.HCM
     </option>
     <option data-tokens="DMS UEF" value="DMS">
-    Trường Đại học Tài chính - Marketing
+    TĐH Tài chính - Marketing
     </option>
     <option data-tokens="DTM HCMUNRE" value="DTM">
-    Trường Đại học Tài nguyên và Môi trường TP.HCM
+    TĐH Tài nguyên và Môi T TP.HCM
     </option>
     <option data-tokens="TDS USH" value="TDS">
-    Trường Đại học Thể dục Thể thao TP.HCM
+    TĐH Thể dục Thể thao TP.HCM
     </option>
     <option data-tokens="TLS" value="TLS">
-    Trường Đại học Thủy lợi - Cơ sở 2
+    TĐH Thủy lợi - Cơ sở 2
     </option>
     <option data-tokens="DTT TDTU" value="DTT">
-    Trường Đại học Tôn Đức Thắng
+    TĐH Tôn Đức Thắng
     </option>
     <option data-tokens="VHS HCMUC" value="VHS">
-    Trường Đại học Văn hóa TP.HCM
+    TĐH Văn hóa TP.HCM
     </option>
-    <option data-tokens="VGU" value="VGU">Trường Đại học Việt - Đức</option>
+    <option data-tokens="VGU" value="VGU">TĐH Việt - Đức</option>
     <option data-tokens="YDS UMP" value="YDS">
-    Trường Đại học Y Dược TP.HCM
+    TĐH Y Dược TP.HCM
     </option>
     <option data-tokens="TYS PNTU" value="TYS">
-    Trường Đại học Y khoa Phạm Ngọc Thạch
+    TĐH Y khoa Phạm Ngọc Thạch
     </option>
     <option data-tokens="DSG STU" value="DSG">
-    Trường Đại học Công nghệ Sài Gòn
+    TĐH Công nghệ Sài Gòn
     </option>
-    <option data-tokens="GDU GDU" value="GDU">Trường Đại học Gia Định</option>
+    <option data-tokens="GDU GDU" value="GDU">TĐH Gia Định</option>
     <option data-tokens="DKC HUTECH" value="DKC">
-    Trường Đại học Công nghệ TP.HCM
+    TĐH Công nghệ TP.HCM
     </option>
     <option data-tokens="DHV HVU" value="DHV">
-    Trường Đại học Hùng Vương TPHCM
+    TĐH Hùng Vương TPHCM
     </option>
     <option data-tokens="SIU SIU" value="SIU">
-    Trường Đại học Quốc tế Sài Gòn
+    TĐH Quốc tế Sài Gòn
     </option>
-    <option data-tokens="DVH VHU" value="DVH">Trường Đại học Văn Hiến</option>
-    <option data-tokens="DVL VLU" value="DVL">Trường Đại học Văn Lang</option>
+    <option data-tokens="DVH VHU" value="DVH">TĐH Văn Hiến</option>
+    <option data-tokens="DVL VLU" value="DVL">TĐH Văn Lang</option>
     <option data-tokens="STS UPES" value="STS">
-    Trường Đại học Sư phạm Thể dục thể thao TP. HCM
+    TĐH Sư phạm Thể dục thể thao TP. HCM
     </option>
     <option data-tokens="DNT HUFLIT" value="DNT">
-    Trường Đại học Ngoại ngữ - Tin học TP.HCM
+    TĐH Ngoại ngữ - Tin học TP.HCM
     </option>
     <option data-tokens="UMT UMT" value="UMT">
-    Trường Đại học Quản lý và công nghệ TPHCM
+    TĐH Quản lý và công nghệ TPHCM
     </option>
     <option data-tokens="DTF SFL" value="DTF">
-    Trường Ngoại ngữ, Đại học Thái Nguyên
+    T Ngoại ngữ, ĐH Thái Nguyên
     </option>
     <option data-tokens="DTQ IS" value="DTQ">
-    Khoa Quốc tế, Đại học Thái Nguyên
+    Khoa Quốc tế, ĐH Thái Nguyên
     </option>
     <option data-tokens="DTP" value="DTP">
-    Phân hiệu Đại học Thái Nguyên tại Lào Cai
+    Phân hiệu ĐH Thái Nguyên tại Lào Cai
     </option>
     <option data-tokens="DTC ICTU" value="DTC">
-    Trường Đại học Công nghệ thông tin và Truyền thông, Đại học Thái Nguyên
+    TĐH Công nghệ thông tin và Truyền thông, ĐH Thái Nguyên
     </option>
     <option data-tokens="DTZ TNUS" value="DTZ">
-    Trường Đại học Khoa học, Đại học Thái Nguyên
+    TĐH Khoa học, ĐH Thái Nguyên
     </option>
     <option data-tokens="DTE TUEBA" value="DTE">
-    Trường Đại học Kinh tế - Quản trị kinh doanh, Đại học Thái Nguyên
+    TĐH Kinh tế - Quản trị kinh doanh, ĐH Thái Nguyên
     </option>
     <option data-tokens="DTK TNUT" value="DTK">
-    Trường Đại học Kỹ thuật Công nghiệp, Đại học Thái Nguyên
+    TĐH Kỹ thuật Công nghiệp, ĐH Thái Nguyên
     </option>
     <option data-tokens="DTN TUAF" value="DTN">
-    Trường Đại học Nông lâm, Đại học Thái Nguyên
+    TĐH Nông lâm, ĐH Thái Nguyên
     </option>
     <option data-tokens="DTS TNUE" value="DTS">
-    Trường Đại học Sư phạm, Đại học Thái Nguyên
+    TĐH Sư phạm, ĐH Thái Nguyên
     </option>
     <option data-tokens="DTY TUMP" value="DTY">
-    Trường Đại học Y Dược, Đại học Thái Nguyên
+    TĐH Y Dược, ĐH Thái Nguyên
     </option>
-    <option data-tokens="DCA" value="DCA">Trường Đại học Chu Văn An</option>
+    <option data-tokens="DCA" value="DCA">TĐH Chu Văn An</option>
     <option data-tokens="DDA" value="DDA">
-    Trường Đại học Công nghệ Đông Á
+    TĐH Công nghệ Đông Á
     </option>
     <option data-tokens="DDM" value="DDM">
-    Trường Đại học Công nghiệp Quảng Ninh
+    TĐH Công nghiệp Quảng Ninh
     </option>
     <option data-tokens="VUI" value="VUI">
-    Trường Đại học Công nghiệp Việt Trì
+    TĐH Công nghiệp Việt Trì
     </option>
     <option data-tokens="DHP" value="DHP">
-    Trường Đại học Quản lý và công nghệ Hải Phòng
+    TĐH Quản lý và công nghệ Hải Phòng
     </option>
     <option data-tokens="DTV" value="DTV">
-    Trường Đại học Lương Thế Vinh
+    TĐH Lương Thế Vinh
     </option>
     <option data-tokens="YDD" value="YDD">
-    Trường Đại học Điều dưỡng Nam Định
+    TĐH Điều dưỡng Nam Định
     </option>
-    <option data-tokens="HLU" value="HLU">Trường Đại học Hạ Long</option>
-    <option data-tokens="DKT" value="DKT">Trường Đại học Hải Dương</option>
-    <option data-tokens="THP" value="THP">Trường Đại học Hải Phòng</option>
-    <option data-tokens="HHA" value="HHA">Trường Đại học Hàng hải</option>
-    <option data-tokens="DNB" value="DNB">Trường Đại học Hoa Lư</option>
-    <option data-tokens="HDT" value="HDT">Trường Đại học Hồng Đức</option>
-    <option data-tokens="THV" value="THV">Trường Đại học Hùng Vương</option>
-    <option data-tokens="UKB" value="UKB">Trường Đại học Kinh Bắc</option>
+    <option data-tokens="HLU" value="HLU">TĐH Hạ Long</option>
+    <option data-tokens="DKT" value="DKT">TĐH Hải Dương</option>
+    <option data-tokens="THP" value="THP">TĐH Hải Phòng</option>
+    <option data-tokens="HHA" value="HHA">TĐH Hàng hải</option>
+    <option data-tokens="DNB" value="DNB">TĐH Hoa Lư</option>
+    <option data-tokens="HDT" value="HDT">TĐH Hồng Đức</option>
+    <option data-tokens="THV" value="THV">TĐH Hùng Vương</option>
+    <option data-tokens="UKB" value="UKB">TĐH Kinh Bắc</option>
     <option data-tokens="DKY" value="DKY">
-    Trường Đại học Kỹ thuật Y tế Hải Dương
+    TĐH Kỹ thuật Y tế Hải Dương
     </option>
     <option data-tokens="DBG" value="DBG">
-    Trường Đại học Nông Lâm Bắc Giang
+    TĐH Nông Lâm Bắc Giang
     </option>
     <option data-tokens="DBH" value="DBH">
-    Trường Đại học Quốc tế Bắc Hà
+    TĐH Quốc tế Bắc Hà
     </option>
-    <option data-tokens="SDU" value="SDU">Trường Đại học Sao Đỏ</option>
+    <option data-tokens="SDU" value="SDU">TĐH Sao Đỏ</option>
     <option data-tokens="SP2" value="SP2">
-    Trường Đại học Sư phạm Hà Nội 2
+    TĐH Sư phạm HN 2
     </option>
     <option data-tokens="SKH" value="SKH">
-    Trường Đại học Sư phạm Kỹ thuật Hưng Yên
+    TĐH Sư phạm Kỹ thuật Hưng Yên
     </option>
     <option data-tokens="SKN" value="SKN">
-    Trường Đại học Sư phạm Kỹ thuật Nam Định
+    TĐH Sư phạm Kỹ thuật Nam Định
     </option>
     <option data-tokens="DFA" value="DFA">
-    Trường Đại học Tài chính - Quản trị kinh doanh
+    TĐH Tài chính - Quản trị kinh doanh
     </option>
-    <option data-tokens="TQU" value="TQU">Trường Đại học Tân Trào</option>
-    <option data-tokens="TTB" value="TTB">Trường Đại học Tây Bắc</option>
-    <option data-tokens="DTB" value="DTB">Trường Đại học Thái Bình</option>
-    <option data-tokens="DDB" value="DDB">Trường Đại học Thành Đông</option>
+    <option data-tokens="TQU" value="TQU">TĐH Tân Trào</option>
+    <option data-tokens="TTB" value="TTB">TĐH Tây Bắc</option>
+    <option data-tokens="DTB" value="DTB">TĐH Thái Bình</option>
+    <option data-tokens="DDB" value="DDB">TĐH Thành Đông</option>
     <option data-tokens="TDB" value="TDB">
-    Trường Đại học Thể dục Thể thao Bắc Ninh
+    TĐH Thể dục Thể thao Bắc Ninh
     </option>
-    <option data-tokens="DVP" value="DVP">Trường Đại học Trưng Vương</option>
+    <option data-tokens="DVP" value="DVP">TĐH Trưng Vương</option>
     <option data-tokens="DVD" value="DVD">
-    Trường Đại học Văn hóa Thể thao và Du lịch Thanh Hóa
+    TĐH Văn hóa Thể thao và Du lịch Thanh Hóa
     </option>
-    <option data-tokens="DVB" value="DVB">Trường Đại học Việt Bắc</option>
+    <option data-tokens="DVB" value="DVB">TĐH Việt Bắc</option>
     <option data-tokens="YPB" value="YPB">
-    Trường Đại học Y Dược Hải Phòng
+    TĐH Y Dược Hải Phòng
     </option>
     <option data-tokens="YTB" value="YTB">
-    Trường Đại học Y Dược Thái Bình
+    TĐH Y Dược Thái Bình
     </option>
     <option data-tokens="THU" value="THU">
-    Trường Đại học Y khoa Tokyo Việt Nam
+    TĐH Y khoa Tokyo VN
     </option>
     <option data-tokens="TAG AGU" value="TAG">
-    Trường Đại học An Giang, Đại học Quốc gia TP.HCM
+    TĐH An Giang, ĐHQG TP.HCM
     </option>
     <option data-tokens="BVU BRVTU" value="BVU">
-    Trường Đại học Bà Rịa - Vũng Tàu
+    TĐH Bà Rịa - Vũng Tàu
     </option>
-    <option data-tokens="DBL BLU" value="DBL">Trường Đại học Bạc Liêu</option>
+    <option data-tokens="DBL BLU" value="DBL">TĐH Bạc Liêu</option>
     <option data-tokens="DBD BDU" value="DBD">
-    Trường Đại học Bình Dương
+    TĐH Bình Dương
     </option>
-    <option data-tokens="TCT CTU" value="TCT">Đại học Cần Thơ</option>
+    <option data-tokens="TCT CTU" value="TCT">ĐH Cần Thơ</option>
     <option data-tokens="DCD" value="DCD">
-    Trường Đại học Công nghệ Đồng Nai
+    TĐH Công nghệ Đồng Nai
     </option>
     <option data-tokens="MIT" value="MIT">
-    Trường Đại học Công nghệ Miền Đông
+    TĐH Công nghệ Miền Đông
     </option>
-    <option data-tokens="DCL" value="DCL">Trường Đại học Cửu Long</option>
-    <option data-tokens="DLH" value="DLH">Trường Đại học Lạc Hồng</option>
+    <option data-tokens="DCL" value="DCL">TĐH Cửu Long</option>
+    <option data-tokens="DLH" value="DLH">TĐH Lạc Hồng</option>
     <option data-tokens="PVU" value="PVU">
-    Trường Đại học Dầu khí Việt Nam
+    TĐH Dầu khí VN
     </option>
-    <option data-tokens="DNU DNU" value="DNU">Trường Đại học Đồng Nai</option>
+    <option data-tokens="DNU DNU" value="DNU">TĐH Đồng Nai</option>
     <option data-tokens="SPD DThU" value="SPD">
-    Trường Đại học Đồng Tháp
+    TĐH Đồng Tháp
     </option>
     <option data-tokens="TKG KGU" value="TKG">
-    Trường Đại học Kiên Giang
+    TĐH Kiên Giang
     </option>
     <option data-tokens="DLA" value="DLA">
-    Trường Đại học Kinh tế - Công nghiệp Long An
+    TĐH Kinh tế - Công nghiệp Long An
     </option>
     <option data-tokens="DKB" value="DKB">
-    Trường Đại học Kinh tế Kỹ thuật Bình Dương
+    TĐH Kinh tế Kỹ thuật Bình Dương
     </option>
     <option data-tokens="KCC CTUET" value="KCC">
-    Trường Đại học Kỹ thuật Công nghệ Cần Thơ
+    TĐH Kỹ thuật Công nghệ Cần Thơ
     </option>
     <option data-tokens="LNS VNUF2" value="LNS">
-    Trường Đại học Lâm nghiệp - Cơ sở 2
+    TĐH Lâm nghiệp - Cơ sở 2
     </option>
     <option data-tokens="DNC DNC" value="DNC">
-    Trường Đại học Nam Cần Thơ
+    TĐH Nam Cần Thơ
     </option>
     <option data-tokens="EIU EIU" value="EIU">
-    Trường Đại học Quốc tế Miền Đông
+    TĐH Quốc tế Miền Đông
     </option>
     <option data-tokens="VLU VLUTE" value="VLU">
-    Trường Đại học Sư phạm Kỹ thuật Vĩnh Long
+    TĐH Sư phạm Kỹ thuật Vĩnh Long
     </option>
-    <option data-tokens="TTU TTU" value="TTU">Trường Đại học Tân Tạo</option>
-    <option data-tokens="DTD TDU" value="DTD">Trường Đại học Tây Đô</option>
+    <option data-tokens="TTU TTU" value="TTU">TĐH Tân Tạo</option>
+    <option data-tokens="DTD TDU" value="DTD">TĐH Tây Đô</option>
     <option data-tokens="TDM TDMU" value="TDM">
-    Trường Đại học Thủ Dầu Một
+    TĐH Thủ Dầu Một
     </option>
     <option data-tokens="TTG TGU" value="TTG">
-    Trường Đại học Tiền Giang
+    TĐH Tiền Giang
     </option>
-    <option data-tokens="DVT TVU" value="DVT">Trường Đại học Trà Vinh</option>
+    <option data-tokens="DVT TVU" value="DVT">TĐH Trà Vinh</option>
     <option data-tokens="VGU VGU" value="VGU">
-    Trường Đại học Việt - Đức
+    TĐH Việt - Đức
     </option>
     <option data-tokens="VTT VTTU" value="VTT">
-    Trường Đại học Võ Trường Toản
+    TĐH Võ T Toản
     </option>
     <option data-tokens="MTU MTU" value="MTU">
-    Trường Đại học Xây dựng Miền Tây
+    TĐH Xây dựng Miền Tây
     </option>
     <option data-tokens="YCT CTUMP" value="YCT">
-    Trường Đại học Y Dược Cần Thơ
+    TĐH Y Dược Cần Thơ
     </option>
     <option data-tokens="DHD HUHT" value="DHD">
-    Trường Du lịch, Đại học Huế
+    T Du lịch, ĐH Huế
     </option>
     <option data-tokens="DHC FPU" value="DHC">
-    Khoa Giáo dục Thể chất, Đại học Huế
+    Khoa Giáo dục Thể chất, ĐH Huế
     </option>
     <option data-tokens="DHT HUSC" value="DHT">
-    Trường Đại học Khoa học, Đại học Huế
+    TĐH Khoa học, ĐH Huế
     </option>
     <option data-tokens="DHK HCE" value="DHK">
-    Trường Đại học Kinh tế, Đại học Huế
+    TĐH Kinh tế, ĐH Huế
     </option>
     <option data-tokens="DHL HUAF" value="DHL">
-    Trường Đại học Nông Lâm, Đại học Huế
+    TĐH Nông Lâm, ĐH Huế
     </option>
     <option data-tokens="DHN HUA" value="DHN">
-    Trường Đại học Nghệ thuật, Đại học Huế
+    TĐH Nghệ thuật, ĐH Huế
     </option>
     <option data-tokens="DHA HUL" value="DHA">
-    Trường Đại học Luật, Đại học Huế
+    TĐH Luật, ĐH Huế
     </option>
     <option data-tokens="DHF HUFLIS" value="DHF">
-    Trường Đại học Ngoại ngữ, Đại học Huế
+    TĐH Ngoại ngữ, ĐH Huế
     </option>
     <option data-tokens="DHS HUCE" value="DHS">
-    Trường Đại học Sư phạm, Đại học Huế
+    TĐH Sư phạm, ĐH Huế
     </option>
     <option data-tokens="DHY HUMP" value="DHY">
-    Trường Đại học Y Dược, Đại học Huế
+    TĐH Y Dược, ĐH Huế
     </option>
     <option data-tokens="DHE HUET" value="DHE">
-    Khoa Kỹ thuật và công nghệ, Đại học Huế
+    Khoa Kỹ thuật và công nghệ, ĐH Huế
     </option>
     <option data-tokens="DHI HUIS" value="DHI">
-    Khoa Quốc tế, Đại học Huế
+    Khoa Quốc tế, ĐH Huế
     </option>
     <option data-tokens="DHQ" value="DHQ">
-    Phân hiệu Đại học Huế tại quảng Trị
+    Phân hiệu ĐH Huế tại quảng Trị
     </option>
     <option data-tokens="DDG FPE" value="DDG">
-    Khoa Giáo dục Thể chất, Đại học Đà Nẵng
+    Khoa Giáo dục Thể chất, ĐH Đà Nẵng
     </option>
     <option data-tokens="DDY SMP" value="DDY">
-    Khoa Y Dược, Đại học Đà Nẵng
+    Khoa Y Dược, ĐH Đà Nẵng
     </option>
     <option data-tokens="DDP" value="DDP">
-    Phân hiệu Đại học Đà Nẵng tại Kon Tum
+    Phân hiệu ĐH Đà Nẵng tại Kon Tum
     </option>
     <option data-tokens="DDK DUT, BKU" value="DDK">
-    Trường Đại học Bách Khoa, Đại học Đà Nẵng
+    TĐH Bách Khoa, ĐH Đà Nẵng
     </option>
     <option data-tokens="DDQ DUE" value="DDQ">
-    Trường Đại học Kinh tế, Đại học Đà Nẵng
+    TĐH Kinh tế, ĐH Đà Nẵng
     </option>
     <option data-tokens="DDF UFL" value="DDF">
-    Trường Đại học Ngoại ngữ, Đại học Đà Nẵng
+    TĐH Ngoại ngữ, ĐH Đà Nẵng
     </option>
     <option data-tokens="DDS UED" value="DDS">
-    Trường Đại học Sư phạm, Đại học Đà Nẵng
+    TĐH Sư phạm, ĐH Đà Nẵng
     </option>
     <option data-tokens="DSK UTE" value="DSK">
-    Trường Đại học Sư phạm Kỹ thuật, Đại học Đà Nẵng
+    TĐH Sư phạm Kỹ thuật, ĐH Đà Nẵng
     </option>
     <option data-tokens="DDV VNUK" value="DDV">
-    Viện nghiên cứu đào tạo Việt - Anh, Đại học Đà Nẵng
+    Viện nghiên cứu đào tạo Việt - Anh, ĐH Đà Nẵng
     </option>
     <option data-tokens="VKU VKU" value="VKU">
-    Khoa Công nghệ thông tin và Truyền thông, Đại học Đà Nẵng
+    Khoa Công nghệ thông tin và Truyền thông, ĐH Đà Nẵng
     </option>
     <option data-tokens="KTD DAU" value="KTD">
-    Trường Đại học Kiến trúc Đà Nẵng
+    TĐH Kiến trúc Đà Nẵng
     </option>
     <option data-tokens="BMU BMTU" value="BMU">
-    Trường Đại học Y dược Buôn Ma Thuột
+    TĐH Y dược Buôn Ma Thuột
     </option>
     <option data-tokens="DVX" value="DVX">
-    Trường Đại học Công nghệ Vạn Xuân
+    TĐH Công nghệ Vạn Xuân
     </option>
     <option data-tokens="DCV" value="DCV">
-    Trường Đại học Công nghiệp Vinh
+    TĐH Công nghiệp Vinh
     </option>
-    <option data-tokens="TDL DLU" value="TDL">Trường Đại học Đà Lạt</option>
-    <option data-tokens="DDT DTU" value="DDT">Trường Đại học Duy Tân</option>
+    <option data-tokens="TDL DLU" value="TDL">TĐH Đà Lạt</option>
+    <option data-tokens="DDT DTU" value="DDT">TĐH Duy Tân</option>
     <option data-tokens="DPX" value="DPX">
-    Trường Đại học Dân lập Phú Xuân
+    TĐH Dân lập Phú Xuân
     </option>
     <option data-tokens="DYD" value="DYD">
-    Trường Đại học Yersin Đà Lạt
+    TĐH Yersin Đà Lạt
     </option>
-    <option data-tokens="DAD" value="DAD">Trường Đại học Đông Á</option>
-    <option data-tokens="HHT" value="HHT">Trường Đại học Hà Tĩnh</option>
-    <option data-tokens="UKH" value="UKH">Trường Đại học Khánh Hòa</option>
+    <option data-tokens="DAD" value="DAD">TĐH Đông Á</option>
+    <option data-tokens="HHT" value="HHT">TĐH Hà Tĩnh</option>
+    <option data-tokens="UKH" value="UKH">TĐH Khánh Hòa</option>
     <option data-tokens="CEA" value="CEA">
-    Trường Đại học Kinh tế Nghệ An
+    TĐH Kinh tế Nghệ An
     </option>
     <option data-tokens="YDN" value="YDN">
-    Trường Đại học Kỹ thuật Y Dược Đà Nẵng
+    TĐH Kỹ thuật Y Dược Đà Nẵng
     </option>
-    <option data-tokens="HVA" value="HVA">Học viện Âm nhạc Huế</option>
-    <option data-tokens="TSN" value="TSN">Trường Đại học Nha Trang</option>
+    <option data-tokens="HVA" value="HVA">HV Âm nhạc Huế</option>
+    <option data-tokens="TSN" value="TSN">TĐH Nha Trang</option>
     <option data-tokens="DPQ" value="DPQ">
-    Trường Đại học Phạm Văn Đồng
+    TĐH Phạm Văn Đồng
     </option>
     <option data-tokens="DPC" value="DPC">
-    Trường Đại học Phan Châu Trinh
+    TĐH Phan Châu Trinh
     </option>
-    <option data-tokens="DPT" value="DPT">Trường Đại học Phan Thiết</option>
-    <option data-tokens="DPY" value="DPY">Trường Đại học Phú Yên</option>
-    <option data-tokens="DQB" value="DQB">Trường Đại học Quảng Bình</option>
-    <option data-tokens="DQU" value="DQU">Trường Đại học Quảng Nam</option>
-    <option data-tokens="DQT" value="DQT">Trường Đại học Quang Trung</option>
-    <option data-tokens="DQN" value="DQN">Trường Đại học Quy Nhơn</option>
+    <option data-tokens="DPT" value="DPT">TĐH Phan Thiết</option>
+    <option data-tokens="DPY" value="DPY">TĐH Phú Yên</option>
+    <option data-tokens="DQB" value="DQB">TĐH Quảng Bình</option>
+    <option data-tokens="DQU" value="DQU">TĐH Quảng Nam</option>
+    <option data-tokens="DQT" value="DQT">TĐH Quang Trung</option>
+    <option data-tokens="DQN" value="DQN">TĐH Quy Nhơn</option>
     <option data-tokens="SKV" value="SKV">
-    Trường Đại học Sư phạm Kỹ thuật Vinh
+    TĐH Sư phạm Kỹ thuật Vinh
     </option>
     <option data-tokens="UFA" value="UFA">
-    Trường Đại học Tài chính Kế toán
+    TĐH Tài chính Kế toán
     </option>
-    <option data-tokens="TTN" value="TTN">Trường Đại học Tây Nguyên</option>
+    <option data-tokens="TTN" value="TTN">TĐH Tây Nguyên</option>
     <option data-tokens="TBD" value="TBD">
-    Trường Đại học Thái Bình Dương
+    TĐH Thái Bình Dương
     </option>
     <option data-tokens="TTD" value="TTD">
-    Trường Đại học Thể dục Thể thao Đà Nẵng
+    TĐH Thể dục Thể thao Đà Nẵng
     </option>
-    <option data-tokens="TDV" value="TDV">Trường Đại học Vinh</option>
+    <option data-tokens="TDV" value="TDV">TĐH Vinh</option>
     <option data-tokens="XDT" value="XDT">
-    Trường Đại học Xây dựng Miền Trung
+    TĐH Xây dựng Miền Trung
     </option>
-    <option data-tokens="YKV" value="YKV">Trường Đại học Y khoa Vinh</option>
-    <option data-tokens="BPH" value="BPH">Học viện Biên phòng</option>
-    <option data-tokens="HQH" value="HQH">Học viện Hải Quân</option>
-    <option data-tokens="HEH" value="HEH">Học viện Hậu cần</option>
-    <option data-tokens="NQH" value="NQH">Học viện Khoa học Quân sự</option>
-    <option data-tokens="KQH" value="KQH">Học viện Kỹ thuật Quân sự</option>
+    <option data-tokens="YKV" value="YKV">TĐH Y khoa Vinh</option>
+    <option data-tokens="BPH" value="BPH">HV Biên phòng</option>
+    <option data-tokens="HQH" value="HQH">HV Hải Quân</option>
+    <option data-tokens="HEH" value="HEH">HV Hậu cần</option>
+    <option data-tokens="NQH" value="NQH">HV Khoa học Quân sự</option>
+    <option data-tokens="KQH" value="KQH">HV Kỹ thuật Quân sự</option>
     <option data-tokens="PKH" value="PKH">
-    Học viện Phòng không - Không quân
+    HV Phòng không - Không quân
     </option>
-    <option data-tokens="YQH" value="YQH">Học viện Quân Y</option>
+    <option data-tokens="YQH" value="YQH">HV Quân Y</option>
     <option data-tokens="LCH" value="LCH">
-    Trường Đại học Chính trị (Trường Sĩ quan Chính trị)
+    TĐH Chính trị (T Sĩ quan Chính trị)
     </option>
     <option data-tokens="ZNH" value="ZNH">
-    Trường Đại học Văn hóa - Nghệ thuật Quân đội
+    TĐH Văn hóa - Nghệ thuật Quân đội
     </option>
-    <option data-tokens="SNH" value="SNH">Trường Sĩ quan Công binh</option>
-    <option data-tokens="DCH" value="DCH">Trường Sĩ quan Đặc công</option>
-    <option data-tokens="KGH" value="KGH">Trường Sĩ quan không quân</option>
+    <option data-tokens="SNH" value="SNH">T Sĩ quan Công binh</option>
+    <option data-tokens="DCH" value="DCH">T Sĩ quan Đặc công</option>
+    <option data-tokens="KGH" value="KGH">T Sĩ quan không quân</option>
     <option data-tokens="VPH" value="VPH">
-    Trường Sĩ quan Kỹ thuật Quân sự Vinhempich (Đại học Trần Đại Nghĩa)
+    T Sĩ quan Kỹ thuật Quân sự Vinhempich (ĐH Trần Đại Nghĩa)
     </option>
     <option data-tokens="LAH" value="LAH">
-    Trường Sĩ quan Lục quân 1 (Đại học Trần Quốc Tuấn)
+    T Sĩ quan Lục quân 1 (ĐH Trần Quốc Tuấn)
     </option>
     <option data-tokens="LBH" value="LBH">
-    Trường Sĩ quan Lục quân 2 (Đại học Nguyễn Huệ)
+    T Sĩ quan Lục quân 2 (ĐH Nguyễn Huệ)
     </option>
-    <option data-tokens="PBH" value="PBH">Trường Sĩ quan Pháo binh</option>
-    <option data-tokens="HGH" value="HGH">Trường Sĩ quan Phòng Hóa</option>
+    <option data-tokens="PBH" value="PBH">T Sĩ quan Pháo binh</option>
+    <option data-tokens="HGH" value="HGH">T Sĩ quan Phòng Hóa</option>
     <option data-tokens="TGH" value="TGH">
-    Trường Sĩ quan Tăng - Thiết giáp
+    T Sĩ quan Tăng - Thiết giáp
     </option>
-    <option data-tokens="TTH" value="TTH">Trường Sĩ quan Thông tin</option>
-    <option data-tokens="ANH" value="ANH">Học viện An ninh Nhân dân</option>
-    <option data-tokens="CSH" value="CSH">Học viện Cảnh sát Nhân dân</option>
+    <option data-tokens="TTH" value="TTH">T Sĩ quan Thông tin</option>
+    <option data-tokens="ANH" value="ANH">HV An ninh Nhân dân</option>
+    <option data-tokens="CSH" value="CSH">HV Cảnh sát Nhân dân</option>
     <option data-tokens="HCA" value="HCA">
-    Học viện Chính trị Công an Nhân dân
+    HV Chính trị Công an Nhân dân
     </option>
     <option data-tokens="ANS" value="ANS">
-    Trường Đại học An ninh nhân dân
+    TĐH An ninh nhân dân
     </option>
     <option data-tokens="CSS" value="CSS">
-    Trường Đại học Cảnh sát nhân dân
+    TĐH Cảnh sát nhân dân
     </option>
     <option data-tokens="HCB" value="HCB">
-    Trường Đại học Kỹ thuật - Hậu cần Công an nhân dân phía Bắc
+    TĐH Kỹ thuật - Hậu cần Công an nhân dân phía Bắc
     </option>
     <option data-tokens="HCN" value="HCN">
-    Trường Đại học Kỹ thuật - Hậu cần Công an nhân dân phía Nam
+    TĐH Kỹ thuật - Hậu cần Công an nhân dân phía Nam
     </option>
     <option data-tokens="PCH" value="PCH">
-    Trường Đại học Phòng cháy chữa cháy phía Bắc
+    TĐH Phòng cháy chữa cháy phía Bắc
     </option>
     <option data-tokens="PCS" value="PCS">
-    Trường Đại học Phòng cháy chữa cháy phía Nam
+    TĐH Phòng cháy chữa cháy phía Nam
     </option>
     </select>
 
@@ -713,7 +713,7 @@ const major1Id_selectpicker = `<select class="selectpicker major-1-id" data-live
         Du lịch khách sạn, thể thao và dịch vụ cá nhân
     </option>
     <option value="784">Dịch vụ vận tải</option>
-    <option value="785">Môi trường và bảo vệ môi trường</option>
+    <option value="785">Môi T và bảo vệ môi T</option>
     <option value="786">An ninh Quốc phòng</option>
     <option value="790">Khác</option>
     </select>
@@ -806,15 +806,15 @@ const major3Id_selectpicker = `<select class="selectpicker major-3-id" data-live
     <option value="7210406">Thiết kế mỹ thuật sân khấu điện ảnh</option>
     <option value="7210408">Nghệ thuật số</option>
     <option value="7210409">Thiết kế mỹ thuật số</option>
-    <option value="7220101">Tiếng Việt và văn hóa Việt Nam</option>
+    <option value="7220101">Tiếng Việt và văn hóa VN</option>
     <option value="7220104">Hán Nôm</option>
     <option value="7220105">Ngôn ngữ Jrai</option>
     <option value="7220106">Ngôn ngữ Khmer</option>
     <option value="7220107">Ngôn ngữ H'mong</option>
     <option value="7220108">Ngôn ngữ Chăm</option>
     <option value="7220110">Sáng tác văn học</option>
-    <option value="7220112">Văn hóa các dân tộc thiểu số Việt Nam</option>
-    <option value="7220113">Ngôn ngữ và Văn hóa các dân tộc thiểu số Việt Nam</option>
+    <option value="7220112">Văn hóa các dân tộc thiểu số VN</option>
+    <option value="7220113">Ngôn ngữ và Văn hóa các dân tộc thiểu số VN</option>
     <option value="7220201">Ngôn ngữ Anh</option>
     <option value="7220202">Ngôn ngữ Nga</option>
     <option value="7220203">Ngôn ngữ Pháp</option>
@@ -865,7 +865,7 @@ const major3Id_selectpicker = `<select class="selectpicker major-3-id" data-live
     <option value="7310613">Nhật Bản học</option>
     <option value="7310614">Hàn Quốc học</option>
     <option value="7310620">Đông Nam Á học</option>
-    <option value="7310630">Việt Nam học</option>
+    <option value="7310630">VN học</option>
     <option value="7310690">Hoa kỳ học</option>
     <option value="7310699">Kinh doanh thương mại Hàn Quốc</option>
     <option value="7320101">Báo chí</option>
@@ -941,7 +941,7 @@ const major3Id_selectpicker = `<select class="selectpicker major-3-id" data-live
     <option value="7440228">Hải dương học</option>
     <option value="7440229">Quản lý phân tích dữ liệu khoa học trái đất</option>
     <option value="7440298">Biến đổi khí hậu và Phát triển bền vững</option>
-    <option value="7440301">Khoa học môi trường</option>
+    <option value="7440301">Khoa học môi T</option>
     <option value="7460101">Toán học</option>
     <option value="7460107">Khoa học tính toán</option>
     <option value="7460108">Khoa học dữ liệu</option>
@@ -986,7 +986,7 @@ const major3Id_selectpicker = `<select class="selectpicker major-3-id" data-live
     <option value="7510401">Công nghệ kỹ thuật hóa học</option>
     <option value="7510402">Công nghệ vật liệu</option>
     <option value="7510403">Công nghệ kỹ thuật năng lượng</option>
-    <option value="7510406">Công nghệ kỹ thuật môi trường</option>
+    <option value="7510406">Công nghệ kỹ thuật môi T</option>
     <option value="7510407">Công nghệ kỹ thuật hạt nhân</option>
     <option value="7510601">Quản lý công nghiệp</option>
     <option value="7510602">Quản lý năng lượng</option>
@@ -1026,7 +1026,7 @@ const major3Id_selectpicker = `<select class="selectpicker major-3-id" data-live
     <option value="7520309">Kỹ thuật vật liệu</option>
     <option value="7520310">Kỹ thuật vật liệu kim loại</option>
     <option value="7520312">Kỹ thuật dệt</option>
-    <option value="7520320">Kỹ thuật môi trường</option>
+    <option value="7520320">Kỹ thuật môi T</option>
     <option value="7520401">Vật lý kỹ thuật</option>
     <option value="7520402">Kỹ thuật hạt nhân</option>
     <option value="7520403">Vật lý y khoa</option>
@@ -1134,10 +1134,10 @@ const major3Id_selectpicker = `<select class="selectpicker major-3-id" data-live
     <option value="7840104">Kinh tế vận tải</option>
     <option value="7840106">Khoa học hàng hải</option>
     <option value="7840110">Quản lý và vận hành hạ tầng</option>
-    <option value="7850101">Quản lý tài nguyên và môi trường</option>
+    <option value="7850101">Quản lý tài nguyên và môi T</option>
     <option value="7850102">Kinh tế tài nguyên thiên nhiên</option>
     <option value="7850103">Quản lý đất đai</option>
-    <option value="7850105">Quản lý an toàn, sức khỏe và môi trường</option>
+    <option value="7850105">Quản lý an toàn, sức khỏe và môi T</option>
     <option value="7850198">Quản lý tài nguyên nước</option>
     <option value="7850199">Quản lý biển</option>
     <option value="7850201">Bảo hộ lao động</option>

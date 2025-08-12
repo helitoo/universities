@@ -179,20 +179,20 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   );
 
-  document.querySelectorAll(".point-range-p").forEach((input) => {
-    input.addEventListener("blur", (event) => {
-      let value = parseFloat(
-        event.target.value.replace(",", ".").replace(/[^0-9\.]/g, "")
-      );
+  // document.querySelectorAll(".point-range-p").forEach((input) => {
+  //   input.addEventListener("blur", (event) => {
+  //     let value = parseFloat(
+  //       event.target.value.replace(",", ".").replace(/[^0-9\.]/g, "")
+  //     );
 
-      if (isNaN(value)) {
-        if (event.target.dataset.subject == "min") value = 15;
-        else value = 1;
-      }
+  //     if (isNaN(value)) {
+  //       if (event.target.dataset.subject == "min") value = 15;
+  //       else value = 1;
+  //     }
 
-      event.target.value = value;
-    });
-  });
+  //     event.target.value = value;
+  //   });
+  // });
 
   document.getElementById("ielts-p").addEventListener("blur", (event) => {
     let value = parseFloat(
@@ -216,41 +216,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // SELECTPICKER
 
-  document
-    .getElementById("show-school-id")
-    .addEventListener("click", (event) =>
-      user.addSlpk(
-        schoolId_selectpicker,
-        [],
-        "#hide-school-id",
-        "school-id-replacement",
-        "school_id"
-      )
-    );
+  // document
+  //   .getElementById("show-school-id")
+  //   .addEventListener("click", (event) =>
+  //     user.addSlpk(
+  //       schoolId_selectpicker,
+  //       [],
+  //       "#hide-school-id",
+  //       "school-id-replacement",
+  //       "school_id"
+  //     )
+  //   );
 
-  document
-    .getElementById("show-major-1")
-    .addEventListener("click", (event) =>
-      user.addSlpk(
-        major1Id_selectpicker,
-        [],
-        "#hide-major-1",
-        "major-1-replacement",
-        "major_1"
-      )
-    );
+  // document
+  //   .getElementById("show-major-1")
+  //   .addEventListener("click", (event) =>
+  //     user.addSlpk(
+  //       major1Id_selectpicker,
+  //       [],
+  //       "#hide-major-1",
+  //       "major-1-replacement",
+  //       "major_1"
+  //     )
+  //   );
 
-  document
-    .getElementById("show-major-3")
-    .addEventListener("click", (event) =>
-      user.addSlpk(
-        major3Id_selectpicker,
-        [],
-        "#hide-major-3",
-        "major-3-replacement",
-        "major_3"
-      )
-    );
+  // document
+  //   .getElementById("show-major-3")
+  //   .addEventListener("click", (event) =>
+  //     user.addSlpk(
+  //       major3Id_selectpicker,
+  //       [],
+  //       "#hide-major-3",
+  //       "major-3-replacement",
+  //       "major_3"
+  //     )
+  //   );
 
   document
     .getElementById("show-ttcn")

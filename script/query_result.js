@@ -11,6 +11,12 @@ import {
 import { showLoading, hideLoading } from "./loading.js";
 import { getData } from "./code_model.js";
 
+import {
+  schoolId_selectpicker,
+  major1Id_selectpicker,
+  major3Id_selectpicker,
+} from "./html_code_consts.js";
+
 const htmlBoxTemplate = new Map([
   [
     "thhb",
@@ -398,6 +404,7 @@ function addRcmMajorBox(replacement, schoolName, majors) {
                 `
                 <li class="mt-4"><strong>${major.major_name}</strong></li>
                   <i>${major.major_id}</i>
+                  ${major.note ? `<div class="mt-1">${major.note}</div>` : ""}
                   <div class="mt-1">
                     <span
                       class="p-1 rounded border border-success text-success bg-white"
@@ -422,17 +429,6 @@ function addRcmMajorBox(replacement, schoolName, majors) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const deltaTime = 5000;
-
-  const lastRun = localStorage.getItem("query-res-lastRun");
-  const currDeltaTime = Date.now() - parseInt(lastRun);
-
-  if (lastRun && currDeltaTime < deltaTime) {
-    showLoading();
-    await new Promise((resolve) => setTimeout(resolve, currDeltaTime));
-    hideLoading();
-  }
-
   showLoading();
 
   localStorage.setItem("query-res-lastRun", Date.now().toString());
@@ -760,37 +756,128 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  // Get recommeded majors
+  document
+    .getElementById("show-school-id")
+    .addEventListener("click", (event) =>
+      filterData.addSlpk(
+        schoolId_selectpicker,
+        [],
+        "#hide-school-id",
+        "school-id-replacement",
+        "school_id"
+      )
+    );
 
-  let rcmMajors = await querier.getRcmdMajor(
-    filterData.school,
-    filterData.major,
-    filterData.cerf,
-    filterData.point_range
-  );
+  document
+    .getElementById("show-major-1")
+    .addEventListener("click", (event) =>
+      filterData.addSlpk(
+        major1Id_selectpicker,
+        [],
+        "#hide-major-1",
+        "major-1-replacement",
+        "major_1"
+      )
+    );
 
-  if (rcmMajors == null) {
-    document.getElementById("rcm-major-replacement").innerHTML = `
-      <div class="alert alert-danger" role="alert">
-        Không tìm thấy ngành!
-      </div>
-    `;
-  } else {
-    let rcmMajorGroupBySchool = new Map();
+  document
+    .getElementById("show-major-3")
+    .addEventListener("click", (event) =>
+      filterData.addSlpk(
+        major3Id_selectpicker,
+        [],
+        "#hide-major-3",
+        "major-3-replacement",
+        "major_3"
+      )
+    );
 
-    for (let rcmMajor of rcmMajors) {
-      if (!rcmMajorGroupBySchool.has(rcmMajor.school_name))
-        rcmMajorGroupBySchool.set(rcmMajor.school_name, []);
-      rcmMajorGroupBySchool.get(rcmMajor.school_name).push(rcmMajor);
+  document.getElementById("num-rcm-major").addEventListener("blur", (event) => {
+    let value = parseInt(event.target.value);
+
+    if (!isNaN(value)) {
+      value = Math.max(1, value);
+      value = Math.min(444, value);
     }
 
-    for (let schoolName of rcmMajorGroupBySchool.keys())
-      addRcmMajorBox(
-        "rcm-major-replacement",
-        schoolName,
-        rcmMajorGroupBySchool.get(schoolName)
-      );
-  }
+    event.target.value = value;
+  });
+
+  document.querySelectorAll("input[type='text']").forEach((input) => {
+    input.addEventListener("focus", (event) => {
+      event.target.select();
+    });
+  });
 
   hideLoading();
+
+  document
+    .getElementById("search-rcm-major")
+    .addEventListener("click", async () => {
+      showLoading();
+
+      let queryExtraInfo = new Map();
+
+      function getExtraInfo(key, inputSlt, isNumber, isCheckbox) {
+        let values = [];
+
+        document.querySelectorAll(inputSlt).forEach((elm) => {
+          if ((isCheckbox && elm.checked) || !isCheckbox)
+            values.push(isNumber ? parseFloat(elm.value) : elm.value);
+        });
+
+        if (values.length > 0) queryExtraInfo.set(key, values);
+      }
+
+      getExtraInfo("school_id", ".school-id", false, false);
+      getExtraInfo("industry_l1_id", ".major-1-id", false, false);
+      getExtraInfo("major_id", ".major-3-id", false, false);
+      getExtraInfo("school_public", ".school-type", true, true);
+      getExtraInfo("school_region", ".school-region", false, true);
+
+      let appliedMethods = [];
+      document.querySelectorAll(".applied-method").forEach((elm) => {
+        if (elm.checked) appliedMethods.push(elm.value);
+      });
+
+      let pointRangeData = new Map([
+        ["min", document.getElementById("min-score").value],
+        ["max", document.getElementById("max-score").value],
+      ]);
+
+      let numRcmMajor = parseInt(
+        document.getElementById("num-rcm-major").value
+      );
+
+      let rcmMajors = await querier.getRcmdMajor(
+        queryExtraInfo,
+        filterData.cerf,
+        pointRangeData,
+        appliedMethods,
+        numRcmMajor
+      );
+
+      if (rcmMajors == null) {
+        alert("Không tìm thấy ngành!");
+      } else {
+        let rcmMajorGroupBySchool = new Map();
+
+        for (let rcmMajor of rcmMajors) {
+          if (!rcmMajorGroupBySchool.has(rcmMajor.school_name))
+            rcmMajorGroupBySchool.set(rcmMajor.school_name, []);
+          rcmMajorGroupBySchool.get(rcmMajor.school_name).push(rcmMajor);
+        }
+
+        document.getElementById("rcm-major-replacement").innerHTML = "";
+
+        for (let schoolName of rcmMajorGroupBySchool.keys())
+          addRcmMajorBox(
+            "rcm-major-replacement",
+            schoolName,
+            rcmMajorGroupBySchool.get(schoolName)
+          );
+      }
+
+      hideLoading();
+    });
 });

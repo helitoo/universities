@@ -107,23 +107,23 @@ export default class filterModel {
 
   thnk_P = new Array(3);
 
-  point_range = new Map([
-    ["min", 15],
-    ["max", 1],
-  ]);
+  // point_range = new Map([
+  //   ["min", 15],
+  //   ["max", 1],
+  // ]);
 
   ielts_P = 0;
 
-  school = new Map([
-    ["id", []],
-    ["type", [true, true]],
-    ["region", [true, true, false, false, false]],
-  ]);
+  // school = new Map([
+  //   ["id", []],
+  //   ["type", [true, true]],
+  //   ["region", [true, true, false, false, false]],
+  // ]);
 
-  major = new Map([
-    ["1", []],
-    ["3", []],
-  ]);
+  // major = new Map([
+  //   ["1", []],
+  //   ["3", []],
+  // ]);
 
   ttcn = new Map([
     ["level", []],
@@ -145,8 +145,8 @@ export default class filterModel {
     ["school_id", [0, 8]],
     ["school_type", [0, 8]],
     ["school_region", [0, 8]],
-    ["major_1", [0, 8]],
-    ["major_3", [0, 8]],
+    ["major_1", [0, 10]],
+    ["major_3", [0, 10]],
     ["ttcn", [0, 8]],
     ["cerf", [0, 8]],
   ]);
@@ -249,23 +249,23 @@ export default class filterModel {
 
     this.thnk_P = new Array(3);
 
-    this.point_range = new Map([
-      ["min", 15],
-      ["max", 1],
-    ]);
+    // this.point_range = new Map([
+    //   ["min", 15],
+    //   ["max", 1],
+    // ]);
 
     this.ielts_P = 0;
 
-    this.school = new Map([
-      ["id", []],
-      ["type", [true, true]],
-      ["region", [true, true, false, false, false]],
-    ]);
+    // this.school = new Map([
+    //   ["id", []],
+    //   ["type", [true, true]],
+    //   ["region", [true, true, false, false, false]],
+    // ]);
 
-    this.major = new Map([
-      ["1", []],
-      ["3", []],
-    ]);
+    // this.major = new Map([
+    //   ["1", []],
+    //   ["3", []],
+    // ]);
 
     this.ttcn = new Map([
       ["level", []],
@@ -417,22 +417,22 @@ export default class filterModel {
     updateSttField(".apply-subject", "applySubject");
     updateSttField(".thnk-p", "thnk_P");
     updateSttField(".thhb-p", "thhb_P");
-    updateSttField(".school-type", "school");
-    updateSttField(".school-region", "school");
+    // updateSttField(".school-type", "school");
+    // updateSttField(".school-region", "school");
     updateSttField(".thpt-p", "thpt_P");
     updateSttField(".dgsg-p", "dgsg_P");
     updateSttField(".dgsp-p", "dgsp_P");
     updateSttField(".dgcb-p", "dgcb_P");
     updateSttField(".vsat-p", "vsat_P");
     updateSttField(".dgca-p", "dgca_P");
-    updateSttField(".point-range-p", "point_range");
+    // updateSttField(".point-range-p", "point_range");
     updateSttField("#dgtd-p", "dgtd_P");
     updateSttField("#dghn-p", "dghn_P");
     updateSttField("#ielts-p", "ielts_P");
 
-    updateDnmField("select.school-id", "school", "id");
-    updateDnmField("select.major-1-id", "major", "1");
-    updateDnmField("select.major-3-id", "major", "3");
+    // updateDnmField("select.school-id", "school", "id");
+    // updateDnmField("select.major-1-id", "major", "1");
+    // updateDnmField("select.major-3-id", "major", "3");
     updateDnmField('[data-subject="ttcn-level"]', "ttcn", "level");
     updateDnmField('[data-subject="ttcn-type"]', "ttcn", "type");
     updateDnmField("select.cerf-id", "cerf", "id");
@@ -468,15 +468,15 @@ export default class filterModel {
     updateSttField(".apply-subject", "applySubject");
     updateSttField(".thnk-p", "thnk_P");
     updateSttField(".thhb-p", "thhb_P");
-    updateSttField(".school-type", "school");
-    updateSttField(".school-region", "school");
+    // updateSttField(".school-type", "school");
+    // updateSttField(".school-region", "school");
     updateSttField(".thpt-p", "thpt_P");
     updateSttField(".dgsg-p", "dgsg_P");
     updateSttField(".dgsp-p", "dgsp_P");
     updateSttField(".dgcb-p", "dgcb_P");
     updateSttField(".vsat-p", "vsat_P");
     updateSttField(".dgca-p", "dgca_P");
-    updateSttField(".point-range-p", "point_range");
+    // updateSttField(".point-range-p", "point_range");
     updateSttField("#dgtd-p", "dgtd_P");
     updateSttField("#dghn-p", "dghn_P");
     updateSttField("#ielts-p", "ielts_P");
@@ -514,35 +514,35 @@ export default class filterModel {
       }
     };
 
-    updateSglDnmField(
-      "school-id-replacement",
-      "school",
-      "id",
-      "school_id",
-      schoolId_selectpicker,
-      "#hide-school-id",
-      /[^A-Z]/g
-    );
+    // updateSglDnmField(
+    //   "school-id-replacement",
+    //   "school",
+    //   "id",
+    //   "school_id",
+    //   schoolId_selectpicker,
+    //   "#hide-school-id",
+    //   /[^A-Z]/g
+    // );
 
-    updateSglDnmField(
-      "major-1-replacement",
-      "major",
-      "1",
-      "major_1",
-      major1Id_selectpicker,
-      "#hide-major-1",
-      /[^0-9]/g
-    );
+    // updateSglDnmField(
+    //   "major-1-replacement",
+    //   "major",
+    //   "1",
+    //   "major_1",
+    //   major1Id_selectpicker,
+    //   "#hide-major-1",
+    //   /[^0-9]/g
+    // );
 
-    updateSglDnmField(
-      "major-3-replacement",
-      "major",
-      "3",
-      "major_3",
-      major3Id_selectpicker,
-      "#hide-major-3",
-      /[^0-9]/g
-    );
+    // updateSglDnmField(
+    //   "major-3-replacement",
+    //   "major",
+    //   "3",
+    //   "major_3",
+    //   major3Id_selectpicker,
+    //   "#hide-major-3",
+    //   /[^0-9]/g
+    // );
 
     const updateTplDnmField = (
       replacementId,
@@ -639,10 +639,10 @@ export default class filterModel {
       vsat_P: convertField(this.vsat_P),
       dgca_P: convertField(this.dgca_P),
       thnk_P: convertField(this.thnk_P),
-      point_range: convertField(this.point_range),
+      // point_range: convertField(this.point_range),
       ielts_P: convertField(this.ielts_P),
-      school: convertField(this.school),
-      major: convertField(this.major),
+      // school: convertField(this.school),
+      // major: convertField(this.major),
       ttcn: convertField(this.ttcn),
       cerf: convertField(this.cerf),
       priority: convertField(this.priority),
