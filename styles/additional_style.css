@@ -62,16 +62,20 @@
   display: none;
 }
 
-p,
-li,
-td,
-label {
+* {
   text-align: justify;
 }
 
 th {
   text-align: center;
   background-color: #f2f2f2 !important;
+}
+
+ul,
+ol {
+  margin: 0 0 0 1.5em;
+  padding: 0;
+  list-style-position: outside;
 }
 
 footer {
@@ -160,4 +164,8 @@ button:active:not(.accordion-button) {
   height: 100%;
   padding: 15%;
   box-sizing: border-box;
+}
+
+li {
+  margin-top: 0.25rem;
 }
