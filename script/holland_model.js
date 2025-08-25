@@ -1,6 +1,4 @@
 export default class hollandModel {
-  apply = true;
-
   single_p = new Array(42);
 
   multi_p = new Map([
@@ -13,8 +11,6 @@ export default class hollandModel {
   ]);
 
   resetValue() {
-    this.apply = true;
-
     this.single_p = new Array(42);
 
     this.multi_p = new Map([
@@ -28,8 +24,6 @@ export default class hollandModel {
   }
 
   updateAtt() {
-    this.apply = document.getElementById("apply-holland").checked;
-
     document.querySelectorAll(".holland-p").forEach((input) => {
       this.single_p[input.dataset.index] = Number(input.value);
     });
@@ -52,8 +46,6 @@ export default class hollandModel {
       else return 0;
     };
 
-    document.getElementById("apply-holland").checked = this.apply;
-
     document.querySelectorAll("select.holland-p").forEach((input) => {
       input.value = validate(this.single_p[input.dataset.index], input);
     });
@@ -74,7 +66,6 @@ export default class hollandModel {
     };
 
     return {
-      apply: this.apply,
       single_p: convertField(this.single_p),
       multi_p: convertField(this.multi_p),
     };

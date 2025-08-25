@@ -4,6 +4,8 @@ import queryModel from "./query_model.js";
 
 import { showLoading, hideLoading } from "./loading.js";
 
+import { showToast } from "./toast.js";
+
 const slpkContent = `
 <label for="subject" class="form-label fw-bold">Môn thi</label>
 <select id="subject" class="form-select form-control">
@@ -123,7 +125,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       let infoId = `${info.exam}-${info.subject}-${info.year.slice(2, 4)}`;
 
       if (distInfoIds.includes(infoId)) {
-        alert("Phổ điểm đã được thêm rồi.");
+        showToast("Phổ điểm đã được thêm rồi!", "danger");
         return;
       }
 
@@ -143,7 +145,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       hideLoading();
 
       if (error || data.length == 0) {
-        alert("Hiện không có phổ điểm này. Hãy quay lại sau.");
+        showToast("Hiện chưa có phổ điểm này!", "danger");
         return;
       }
 

@@ -30,6 +30,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
     <!-- Other style -->
     <link rel="stylesheet" href="../styles/additional_style.css" />
+    <link rel="stylesheet" href="../styles/loading.css" />
     <!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script
@@ -37,11 +38,18 @@
       async
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
     ></script>
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- Script -->
     <script type="module" src="../script/holland.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary mb-5 sticky-top">
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary mb-5 sticky-top shadow-sm"
+    >
       <div class="container-fluid">
         <a class="navbar-brand" href="/index.html"
           ><img src="../assets/logo/logo.png" alt="logo" style="height: 8vh"
@@ -58,31 +66,103 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-md-4">
             <li class="nav-item">
-              <a class="nav-link" href="/index.html">Trang chủ</a>
+              <a class="nav-link d-flex align-items-center" href="/index.html"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6"
+                  style="height: 1.5rem; margin-right: 0.2rem"
+                >
+                  <path
+                    d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z"
+                  />
+                  <path
+                    d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z"
+                  />
+                </svg>
+                Trang chủ
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./filter.html">Nhập điểm</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./holland.html"
-                >Trắc nghiệm hướng nghiệp</a
+              <a class="nav-link d-flex align-items-center" href="./filter.html"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6"
+                  style="height: 1.5rem; margin-right: 0.2rem"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6.32 1.827a49.255 49.255 0 0 1 11.36 0c1.497.174 2.57 1.46 2.57 2.93V19.5a3 3 0 0 1-3 3H6.75a3 3 0 0 1-3-3V4.757c0-1.47 1.073-2.756 2.57-2.93ZM7.5 11.25a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H8.25a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H8.25Zm-.75 3a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H8.25a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V18a.75.75 0 0 0-.75-.75H8.25Zm1.748-6a.75.75 0 0 1 .75-.75h.007a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.007a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.335.75.75.75h.007a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75h-.007Zm-.75 3a.75.75 0 0 1 .75-.75h.007a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.007a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.335.75.75.75h.007a.75.75 0 0 0 .75-.75V18a.75.75 0 0 0-.75-.75h-.007Zm1.754-6a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75h-.008Zm-.75 3a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V18a.75.75 0 0 0-.75-.75h-.008Zm1.748-6a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75h-.008Zm-8.25-6A.75.75 0 0 1 8.25 6h7.5a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-7.5a.75.75 0 0 1-.75-.75v-.75Zm9 9a.75.75 0 0 0-1.5 0V18a.75.75 0 0 0 1.5 0v-2.25Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Tính điểm</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./query_result.html"
-                >Kết quả tìm kiếm</a
+              <a
+                class="nav-link d-flex align-items-center"
+                href="./holland.html"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6"
+                  style="height: 1.5rem; margin-right: 0.2rem"
+                >
+                  <path
+                    d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z"
+                  />
+                </svg>
+                Trắc nghiệm tính cách</a
               >
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item">
+              <a
+                class="nav-link d-flex align-items-center"
+                href="./query_result.html"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6"
+                  style="height: 1.5rem; margin-right: 0.2rem"
+                >
+                  <path
+                    d="M8.25 10.875a2.625 2.625 0 1 1 5.25 0 2.625 2.625 0 0 1-5.25 0Z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.125 4.5a4.125 4.125 0 1 0 2.338 7.524l2.007 2.006a.75.75 0 1 0 1.06-1.06l-2.006-2.007a4.125 4.125 0 0 0-3.399-6.463Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Tìm ngành</a
+              >
+            </li>
+            <li class="nav-item align-items-center dropdown">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-              >
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6"
+                  style="height: 1.5rem; margin-right: 0.2rem"
+                >
+                  <path
+                    d="M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z"
+                  />
+                </svg>
                 Tra cứu thông tin
               </a>
               <ul class="dropdown-menu">
@@ -125,57 +205,44 @@
       </div>
     </nav>
     <div class="container">
-      <div class="row fs-1 fw-bold mt-3 text-center" style="color: #042b92">
-        TRẮC NGHIỆM HƯỚNG NGHIỆP
+      <div class="card shadow-sm my-2">
+        <div class="card-body">
+          <h5 class="card-title">Giới thiệu bài trắc nghiệm tính cách</h5>
+          <div class="container">
+            <div class="row">
+              <p>
+                Bài test dựa trên lý thuyết <strong>"Holland codes"</strong>.
+                Theo tiến sĩ Tâm lý học <i>John L.Holland</i> (1919 - 2008), con
+                người được chia ra thành 6 loại cá tính (<i>
+                  RIASEC - Holland codes </i
+                >). Mỗi loại cá tính sẽ phù hợp với một số lĩnh vực nghề nghiệp.
+                Cụ thể như sau:
+              </p>
+            </div>
+            <div class="row">
+              <img
+                src="../assets/holland.png"
+                alt="Holland's code"
+                class="d-block mx-auto w-100"
+              />
+            </div>
+            <div class="row">
+              <p>
+                Cho đến hiện đại, Holland codes vẫn là bộ công cụ phổ biến được
+                dùng để khảo sát tính cách và hướng nghiệp trên thế giới và được
+                tin dùng bởi nhiều trường Đại học.
+              </p>
+            </div>
+            <div class="row">
+              <p>
+                Xem cách trang web tính toán kết quả trắc nghiệm
+                <a href="/index.html#qttdtcvgyn" target="_blank">tại đây</a>.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <hr class="row" />
-      Bài kiểm tra này gồm có 2 phần:
-      <ul>
-        <li>
-          <strong>Phần 1: Khảo sát tính cách:</strong> Hoàn thành tại trang web
-          này.
-        </li>
-        <li>
-          <strong>Phần 2: Khảo sát năng lực:</strong> Điền dữ liệu vào trang
-          <i>Nhập điểm</i>.
-        </li>
-      </ul>
-      <p style="text-align: justify">
-        Riêng đối với <i>Phần 1</i>, trang web đưa ra bài test dựa trên lý
-        thuyết "Holland codes". Theo tiến sĩ Tâm lý học
-        <i>John L.Holland</i> (1919 - 2008), con người được chia ra thành 6 loại
-        cá tính (<i> RIASEC - Holland codes </i>). Mỗi loại cá tính sẽ phù hợp
-        với một số lĩnh vực nghề nghiệp. Cụ thể như sau:
-      </p>
-      <img
-        src="../assets/holland.png"
-        alt="Holland's code"
-        width="90%"
-        class="d-block mx-auto"
-      />
-      <p style="text-align: justify">
-        Cho đến hiện đại, Holland codes vẫn là bộ công cụ phổ biến được dùng để
-        khảo sát tính cách và hướng nghiệp trên thế giới và được tin dùng bởi
-        nhiều trường Đại học.
-      </p>
-      <p style="text-align: justify">
-        Trang web Cổng Đại học kết hợp sử dụng Holland codes (để khảo sát tính
-        cách) và dữ liệu về điểm, ngành, trường để góp ý một số ngành - trường
-        phù hợp nhất cho các bạn. Các bạn có thể làm bài Holland codes trực tiếp
-        ở trang này:
-      </p>
-      <div class="form-check">
-        <label class="form-check-label fw-bold" for="apply-holland">
-          Áp dụng kết quả tính cách ở trang này để tìm ngành.
-        </label>
-        <input
-          class="form-check-input"
-          data-subject="type"
-          type="checkbox"
-          checked
-          id="apply-holland"
-        />
-      </div>
+
       <div class="row mt-4 mb-2">
         <div
           class="col col-2 text-white d-flex justify-content-center align-items-center fw-bold"
@@ -183,14 +250,14 @@
         >
           Câu 1 - 42
         </div>
-        <div class="col bg-body-secondary fst-italic fw-bold">
+        <div class="col bg-body-secondary fst-italic fw-bold p-2">
           Mỗi câu hỏi dưới đây là 1 công việc. Hãy đánh giá
           <span style="color: #042b92"> mức độ yêu thích HOẶC tần suất </span>
           bạn hay làm những việc đó.
         </div>
       </div>
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-0" class="form-label fw-bold mt-4"
             >Câu 1: Làm việc với máy móc, linh kiện.</label
           >
@@ -206,7 +273,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-1" class="form-label fw-bold mt-4"
             >Câu 2: Giải những câu đố / trò chơi (Rupik, Sudocu...)</label
           >
@@ -241,7 +308,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-3" class="form-label fw-bold mt-4"
             >Câu 4: Làm thí nghiệm để minh chứng một điều gì đó</label
           >
@@ -260,7 +327,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-4" class="form-label fw-bold mt-4"
             >Câu 5: Chăm sóc / Quan tâm tới động vật.</label
           >
@@ -276,7 +343,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-5" class="form-label fw-bold mt-4"
             >Câu 6: Khám phá khoa học.</label
           >
@@ -295,7 +362,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-6" class="form-label fw-bold mt-4"
             >Câu 7: Láp ráp các thành phần lại với nhau.</label
           >
@@ -311,7 +378,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-7" class="form-label fw-bold mt-4"
             >Câu 8: Vẽ biểu đồ, sơ đồ,…</label
           >
@@ -330,7 +397,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-8" class="form-label fw-bold mt-4"
             >Câu 9: Nấu ăn.</label
           >
@@ -346,7 +413,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-9" class="form-label fw-bold mt-4"
             >Câu 10: Phân tích nguồn gốc vấn đề.</label
           >
@@ -365,7 +432,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-10" class="form-label fw-bold mt-4"
             >Câu 11: Làm những việc có ý nghĩa rõ ràng, thực tế.</label
           >
@@ -381,7 +448,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-11" class="form-label fw-bold mt-4"
             >Câu 12: Làm việc với những con số.</label
           >
@@ -400,7 +467,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-12" class="form-label fw-bold mt-4"
             >Câu 13: Làm việc ngoài trời.</label
           >
@@ -416,7 +483,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-13" class="form-label fw-bold mt-4"
             >Câu 14: Khảo sát, thu thập dữ liệu.</label
           >
@@ -435,7 +502,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-14" class="form-label fw-bold mt-4"
             >Câu 15: Làm việc độc lập.</label
           >
@@ -451,7 +518,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-15" class="form-label fw-bold mt-4"
             >Câu 16: Làm việc nhóm.</label
           >
@@ -470,7 +537,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-16" class="form-label fw-bold mt-4"
             >Câu 17: Xem tranh, nghe nhạc.</label
           >
@@ -486,7 +553,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-17" class="form-label fw-bold mt-4"
             >Câu 18: Chỉ dẫn người khác.</label
           >
@@ -505,7 +572,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-18" class="form-label fw-bold mt-4"
             >Câu 19: Viết lách.</label
           >
@@ -521,7 +588,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-19" class="form-label fw-bold mt-4"
             >Câu 20: Giúp người khác giải quyết vấn đề của họ.</label
           >
@@ -540,7 +607,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-20" class="form-label fw-bold mt-4"
             >Câu 21: Sáng tạo, phá cách.</label
           >
@@ -556,7 +623,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-21" class="form-label fw-bold mt-4"
             >Câu 22: Giúp người khác khi họ gặp sự cố khẩn cấp.</label
           >
@@ -575,7 +642,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-22" class="form-label fw-bold mt-4"
             >Câu 23: Hát.</label
           >
@@ -591,7 +658,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-23" class="form-label fw-bold mt-4"
             >Câu 24: Tìm hiểu văn hóa.</label
           >
@@ -610,7 +677,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-24" class="form-label fw-bold mt-4"
             >Câu 25: Biểu diễn.</label
           >
@@ -626,7 +693,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-25" class="form-label fw-bold mt-4"
             >Câu 26: Cùng nhau trao đổi về một vấn đề nào đó.</label
           >
@@ -645,7 +712,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-26" class="form-label fw-bold mt-4"
             >Câu 27: Vẽ.</label
           >
@@ -661,7 +728,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-27" class="form-label fw-bold mt-4"
             >Câu 28: Lắng nghe người khác chia sẻ.</label
           >
@@ -680,7 +747,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-28" class="form-label fw-bold mt-4"
             >Câu 29: Có nhiều tham vọng, hoài bão.</label
           >
@@ -696,7 +763,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-29" class="form-label fw-bold mt-4"
             >Câu 30: Sắp xếp mọi thứ ngăn nắp, có thứ tự.</label
           >
@@ -715,7 +782,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-30" class="form-label fw-bold mt-4"
             >Câu 31: Gây ảnh hưởng / thuyết phục người khác.</label
           >
@@ -731,7 +798,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-31" class="form-label fw-bold mt-4"
             >Câu 32: Vạch ra lộ trình và làm theo lộ trình.</label
           >
@@ -750,7 +817,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-32" class="form-label fw-bold mt-4"
             >Câu 33: Kiếm tiền.</label
           >
@@ -766,7 +833,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-33" class="form-label fw-bold mt-4"
             >Câu 34: Làm việc với sự tập trung cao độ và lâu dài.</label
           >
@@ -785,7 +852,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-34" class="form-label fw-bold mt-4"
             >Câu 35: Đảm nhận nhiều nhiệm vụ liên tiếp.</label
           >
@@ -801,7 +868,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-35" class="form-label fw-bold mt-4"
             >Câu 36: Chú ý vào sự tỷ mỷ, tinh tế, khéo léo.</label
           >
@@ -820,7 +887,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-36" class="form-label fw-bold mt-4"
             >Câu 37: Khởi nghiệp, tự tạo sự nghiệp riêng.</label
           >
@@ -836,7 +903,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-37" class="form-label fw-bold mt-4"
             >Câu 38: Làm việc văn phòng.</label
           >
@@ -855,7 +922,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-38" class="form-label fw-bold mt-4"
             >Câu 39: Làm lãnh đạo, người dẫn đầu.</label
           >
@@ -871,7 +938,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-39" class="form-label fw-bold mt-4"
             >Câu 40: Phân chia công việc theo trình tự, quy củ.</label
           >
@@ -890,7 +957,7 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-40" class="form-label fw-bold mt-4"
             >Câu 41: Phát biểu trước đám đông.</label
           >
@@ -906,7 +973,7 @@
             <option value="3">Yêu thích / Thường xuyên làm</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col-md-6 col-12">
           <label for="holland-41" class="form-label fw-bold mt-4"
             >Câu 42: Quản lý tài liệu.</label
           >
@@ -932,7 +999,7 @@
         >
           Câu 43 - 49
         </div>
-        <div class="col bg-body-secondary">
+        <div class="col bg-body-secondary p-2">
           <div class="fst-italic fw-bold mt-2">
             Mỗi câu hỏi dưới đây là 1 câu chuyện. Hãy đánh giá
             <span style="color: #042b92">mức độ tán thành</span>
@@ -1062,13 +1129,16 @@
         <div class="col">
           <p>
             Tòa nhà Capital Gate ở Abu Dhabi (Các tiểu vương quốc Ả Rập thống
-            nhất, UAE) là tòa nhà <i>nghiêng nhất thế giới</i> với
-            <i>
-              chiều cao 160 m, nghiêng 18 độ, xây trên nền cát và thường xuyên
-              chịu những cơn bão cát khổng lồ </i
-            >.
+            nhất, UAE) là tòa nhà <i>nghiêng nhất thế giới</i> với chiều cao 160
+            m, nghiêng 18 độ, xây trên nền cát và thường xuyên chịu những cơn
+            bão cát khổng lồ.
           </p>
           <p>Tại sao người Ả Rập có thể làm được điều đó?</p>
+          <img
+            src="https://media.cnn.com/api/v1/images/stellar/prod/181017163538-untitled-1.jpg?q=w_1600,h_900,x_0,y_0,c_fill"
+            alt="Capital gate"
+            class="d-block w-md-75 w-100 mx-auto"
+          />
           <label for="holland-r44" class="form-label fw-bold mt-4"
             >Vì công nghệ kỹ thuật xây dựng của họ (và các nước tham gia xây
             dựng) rất tiên tiến.</label
@@ -1435,6 +1505,10 @@
             uống mới này, họ thích Classic Coke hơn. Vậy là, Coca-Cola phải quay
             về Classic Coke cũ.
           </p>
+          <img
+            src="https://cdn.thebrandingjournal.com/wp-content/uploads/2025/02/New-Coke-branding-2.png"
+            class="d-block w-md-50 w-100 mx-auto"
+          />
           <label for="holland-r47" class="form-label fw-bold mt-4"
             >New Coke có thể đã ngon hơn. Nhưng cách tiếp thị sai lầm (bỏ qua
             yếu tố truyền thống) đã làm sản phẩm này thất bại.</label
@@ -1455,7 +1529,7 @@
           </select>
           <label for="holland-i47" class="form-label fw-bold mt-4"
             >Việc không thu thập phản hồi về yếu tố tinh thần, tức lý do người
-            dùng chọn Classic Coke (kỷ niệm, thói quen, giá trị thương hiệu) –
+            dùng chọn Classic Coke (kỷ niệm, thói quen, giá trị thương hiệu) -
             dẫn đến sai lầm trong phân tích khi cho rằng ngon hơn về hương vị là
             yếu tố quyết định duy nhất.</label
           >
@@ -1496,7 +1570,7 @@
           <label for="holland-s47" class="form-label fw-bold mt-4"
             >Phản ứng của cộng đồng người hâm mộ Classic Coke cho thấy sự gắn bó
             về mặt xã hội với thương hiệu: họ không chỉ uống Coke vì vị ngon mà
-            còn vì cảm giác thân thuộc – điều New Coke chưa đáp ứng được.</label
+            còn vì cảm giác thân thuộc - điều New Coke chưa đáp ứng được.</label
           >
           <select
             name="holland-s47"
@@ -1566,7 +1640,7 @@
             <li>Armando Mei, Tiến sĩ Lịch sử và nhà Ai Cập học.</li>
             <li>Filippo Biondi, chuyên gia công nghệ SAR (nói rõ sau).</li>
           </ul>
-          <p style="text-align: justify">
+          <p class="mt-3">
             Tại buổi hội thảo, nhóm đã phát hiện tám giếng thẳng đứng sâu 648 m
             và 2 không gian khổng lồ nằm sâu 700 m dưới nền 3 kim tự tháp, mở ra
             nhiều nghi vấn về nguồn gốc và mục đích của các cấu trúc này, có thể
@@ -1593,17 +1667,20 @@
             thấy độ chính xác của công nghệ này không cao. Trên thực tế, Filippo
             Biondi được cho là chỉ từng sử dụng SAR để quét các công trình nhỏ
             lẻ thay vì một cấu trúc đồ sộ và vĩ đại như các kim tự tháp ở Giza.
-            Khi được chất vấn, nhóm lại nói bâng quơ để né tránh; buổi hội thảo
-            được tổ chức bằng tiếng Ý thay vì tiếng Anh; cùng với một số lỗi
-            khác cho thấy sự thiếu chuyên nghiệp của những “nhà khoa học” này.
-            Thậm chí, có người dùng Internet đã đưa ra một số bằng chứng để bác
-            bỏ học vị của những nhân vật trên.
+            Buổi hội thảo được tổ chức bằng tiếng Ý thay vì tiếng Anh; cùng với
+            một số lỗi khác cho thấy sự thiếu chuyên nghiệp của những “nhà khoa
+            học” này. Thậm chí, có người dùng Internet đã đưa ra một số bằng
+            chứng để bác bỏ học vị của những nhân vật trên.
           </p>
           <p style="text-align: justify">
             Sau đó, nhóm đã đề nghị Chính phủ Ai Cập cho phép thực hiện các cuộc
             khảo sát quy mô hơn. Tuy nhiên, cho đến nay, đề nghị này vẫn chưa
             được hồi đáp.
           </p>
+          <img
+            src="https://photo2.tinhte.vn/data/attachment-files/2025/03/8684195_cover-cau-truc-ngam-ben-duoi-kim-tu-thap-khafre.jpg"
+            class="d-block mx-auto w-md-50 w-100"
+          />
           <p class="text-end fst-italic">(Thế giới cổ đại)</p>
           <label for="holland-r48" class="form-label fw-bold mt-4"
             >Cần có một nghiên cứu chuyên sâu hơn về công nghệ SAR để kiểm định
@@ -1737,9 +1814,9 @@
             nhiệt độ tăng cao khiến các thanh nhiên liệu nóng chảy, tạo ra khí
             hydro tích tụ và gây ra hàng loạt vụ nổ tại các lò phản ứng số 1, 2
             và 3. Trong cơn hỗn loạn ấy, 800 nhân viên được lệnh sơ tán, nhưng
-            khoảng 50 người – gồm kỹ sư, công nhân và quản lý – đã tình nguyện ở
+            khoảng 50 người - gồm kỹ sư, công nhân và quản lý - đã tình nguyện ở
             lại chiến đấu với thảm họa. Họ được cả thế giới biết đến với cái tên
-            “Fukushima 50” – những người hùng thầm lặng, chấp nhận nguy hiểm
+            “Fukushima 50” - những người hùng thầm lặng, chấp nhận nguy hiểm
             tính mạng để ngăn chặn thảm họa phóng xạ lan rộng.
           </p>
           <p style="text-align: justify">
@@ -1754,12 +1831,16 @@
             Sau thảm họa, nhiều người đã chỉ trích Chính phủ. Nhiều chuyên gia,
             cả trong và ngoài nước, đã từng cảnh báo rằng nhà máy Fukushima
             Daiichi không đủ khả năng chống chịu động đất hoặc sóng thần. Tuy
-            nhiên, Chính phủ lại bỏ qua những cảnh báo này. Họ để mặc TEPCO –
-            công ty điều hành nhà máy – tự đánh giá rủi ro. Nhà máy thiếu nguồn
+            nhiên, Chính phủ lại bỏ qua những cảnh báo này. Họ để mặc TEPCO -
+            công ty điều hành nhà máy - tự đánh giá rủi ro. Nhà máy thiếu nguồn
             cấp điện dự phòng có khả năng chống chịu sóng thần, và các thiết bị,
             xe cứu hộ hay robot không thể tiếp cận kịp thời do địa hình và mức
             độ nhiễm xạ cao.
           </p>
+          <img
+            src="https://haophuong.com/wp-content/uploads/2019/06/anh-bia-2.jpg"
+            class="d-block mx-auto w-md-50 w-100"
+          />
           <p class="text-end fst-italic">(Trạm cuối)</p>
           <label for="holland-r49" class="form-label fw-bold mt-4"
             >Nhà máy này chưa thật sự được trang bị đầy đủ các thiết bị và
@@ -1878,56 +1959,193 @@
           </select>
         </div>
       </div>
-      <div class="row mt-5">
-        <div class="col">
-          Để thuận tiện lưu trữ dữ liệu, trang web còn cung cấp tính năng
-          <i>"Tạo code"</i>. Code là một dãy ký tự là mã hóa dữ liệu mà bạn nhập
-          vào web. Bạn có thể lưu code này cho các lần dùng sau hoặc chia sẻ cho
-          bạn bè để khỏi nhập lại thông tin. Mặc định, code này sẽ được tự động
-          lưu tại trình duyệt web của bạn (LocalStorage).
-        </div>
+
+      <div class="row my-5">
+        <button
+          class="btn mx-auto bg-primary p-2 fw-bold text-white w-auto"
+          id="show-res"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+            style="height: 2rem"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"
+            />
+          </svg>
+          Xem kết quả Trắc nghiệm tính cách
+        </button>
       </div>
-      <div class="row mt-2">
-        <div class="col col-8">
-          <textarea
-            id="code-replacement"
-            class="form-control"
-            style="width: 100%; height: 100%; resize: none"
-          ></textarea>
-        </div>
-        <div class="col d-flex flex-column mx-auto">
-          <button
-            type="button"
-            class="btn mb-2 w-100"
-            id="export-code"
-            style="background-color: #042b92; color: white; border: none"
-          >
-            Sao chép code vào clipboard
-          </button>
-          <button
-            type="button"
-            class="btn mb-2 w-100"
-            id="import-code"
-            style="background-color: #042b92; color: white; border: none"
-          >
-            Nạp code từ clipboard
-          </button>
-          <button
-            type="button"
-            class="btn mb-2 w-100"
-            id="import-code-raw"
-            style="background-color: #042b92; color: white; border: none"
-          >
-            Nạp code thô
-          </button>
-          <button
-            type="button"
-            class="btn w-100"
-            id="remove-code"
-            style="background-color: #042b92; color: white; border: none"
-          >
-            Xóa code khỏi trình duyệt
-          </button>
+
+      <div id="holland-res"></div>
+
+      <div class="container my-4 rounded">
+        <div class="row justify-content-center">
+          <div class="col-md-10 rounded-3 p-3 border border-primary border-2">
+            <p class="mb-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6 text-primary"
+                style="height: 1.3rem; margin-right: 0.2rem"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z"
+                />
+              </svg>
+              <strong class="text-primary">Trình quản lý code</strong>
+            </p>
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  Để thuận tiện lưu trữ dữ liệu, trang web còn cung cấp tính
+                  năng
+                  <i>"Tạo code"</i>. Code là một dãy ký tự mã hóa dữ liệu mà cậu
+                  nhập vào web. cậu có thể lưu code này cho các lần dùng sau
+                  hoặc chia sẻ cho cậu bè để khỏi nhập lại thông tin. Mặc định,
+                  code này sẽ được tự động lưu tại trình duyệt web của cậu.
+                </div>
+              </div>
+              <div class="row my-4">
+                <div class="col">
+                  <div class="card">
+                    <div class="card-header">
+                      <div class="fw-bold mb-0">Quản lý code trên trang</div>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <textarea
+                            id="code-replacement"
+                            class="form-control"
+                            rows="6"
+                            placeholder="Nhập code của bạn tại đây... (hoặc sinh code bằng nút bên phải)"
+                            style="resize: none"
+                          ></textarea>
+                        </div>
+                        <div class="col-md-2 mt-3 mt-md-0">
+                          <div class="row">
+                            <button
+                              type="button"
+                              class="btn col-md-12 col-4"
+                              id="export-code"
+                              data-bs-toggle="tooltip"
+                              title="Sinh & Copy code vào Clipboard"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="size-6 text-primary"
+                                style="height: 2rem"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M7.502 6h7.128A3.375 3.375 0 0 1 18 9.375v9.375a3 3 0 0 0 3-3V6.108c0-1.505-1.125-2.811-2.664-2.94a48.972 48.972 0 0 0-.673-.05A3 3 0 0 0 15 1.5h-1.5a3 3 0 0 0-2.663 1.618c-.225.015-.45.032-.673.05C8.662 3.295 7.554 4.542 7.502 6ZM13.5 3A1.5 1.5 0 0 0 12 4.5h4.5A1.5 1.5 0 0 0 15 3h-1.5Z"
+                                  clip-rule="evenodd"
+                                />
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M3 9.375C3 8.339 3.84 7.5 4.875 7.5h9.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 0 1 3 20.625V9.375ZM6 12a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H6.75a.75.75 0 0 1-.75-.75V12Zm2.25 0a.75.75 0 0 1 .75-.75h3.75a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75ZM6 15a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H6.75a.75.75 0 0 1-.75-.75V15Zm2.25 0a.75.75 0 0 1 .75-.75h3.75a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75ZM6 18a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H6.75a.75.75 0 0 1-.75-.75V18Zm2.25 0a.75.75 0 0 1 .75-.75h3.75a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75Z"
+                                  clip-rule="evenodd"
+                                />
+                              </svg>
+                            </button>
+                            <button
+                              type="button"
+                              class="btn col-md-12 col-4"
+                              id="import-code"
+                              data-bs-toggle="tooltip"
+                              title="Nạp code từ Clipboard"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="size-6 text-primary"
+                                style="height: 2rem"
+                              >
+                                <path
+                                  d="M9.97.97a.75.75 0 0 1 1.06 0l3 3a.75.75 0 0 1-1.06 1.06l-1.72-1.72v3.44h-1.5V3.31L8.03 5.03a.75.75 0 0 1-1.06-1.06l3-3ZM9.75 6.75v6a.75.75 0 0 0 1.5 0v-6h3a3 3 0 0 1 3 3v7.5a3 3 0 0 1-3 3h-7.5a3 3 0 0 1-3-3v-7.5a3 3 0 0 1 3-3h3Z"
+                                />
+                                <path
+                                  d="M7.151 21.75a2.999 2.999 0 0 0 2.599 1.5h7.5a3 3 0 0 0 3-3v-7.5c0-1.11-.603-2.08-1.5-2.599v7.099a4.5 4.5 0 0 1-4.5 4.5H7.151Z"
+                                />
+                              </svg>
+                            </button>
+                            <button
+                              type="button"
+                              class="btn col-md-12 col-4"
+                              id="import-code-raw"
+                              data-bs-toggle="tooltip"
+                              title="Nạp code từ khung văn bản bên cạnh"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="size-6 text-primary"
+                                style="height: 2rem"
+                              >
+                                <path
+                                  d="M11.47 1.72a.75.75 0 0 1 1.06 0l3 3a.75.75 0 0 1-1.06 1.06l-1.72-1.72V7.5h-1.5V4.06L9.53 5.78a.75.75 0 0 1-1.06-1.06l3-3ZM11.25 7.5V15a.75.75 0 0 0 1.5 0V7.5h3.75a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h3.75Z"
+                                />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="card">
+                    <div class="card-header">
+                      <div class="fw-bold mb-0">
+                        Quản lý code trên trình duyệt
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <button
+                            type="button"
+                            class="btn btn-primary w-100 py-2"
+                            id="remove-code"
+                          >
+                            Xóa code khỏi trình duyệt
+                          </button>
+                        </div>
+                        <div class="col-md-6">
+                          <button
+                            type="button"
+                            class="btn btn-primary w-100 py-2"
+                            id="refresh-code"
+                          >
+                            Reset dữ liệu trên trang
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

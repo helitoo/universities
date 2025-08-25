@@ -1,4 +1,456 @@
-const schoolId_selectpicker = `<select class="selectpicker school-id" data-live-search="true" data-size="5">
+export const resBox = new Map([
+  [
+    "dxt-res",
+    `
+        <div class="card shadow-sm my-2">
+        <div class="card-body">
+          <h5 class="card-title">Điểm xét tuyển</h5>
+          <div class="container my-4 rounded">
+            <div class="row justify-content-center">
+              <div
+                class="col-md-10 rounded-3 p-3 border border-2 border-success"
+              >
+                <p class="mb-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="size-6 text-success"
+                    style="height: 1.3rem; margin-right: 0.2rem"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <strong class="text-success"
+                    >Thông tin Ưu tiên xét tuyển & Tuyển thẳng:</strong
+                  >
+                </p>
+                <ul class="mb-0">
+                  <li class="mt-1">
+                    Diện tuyển thẳng:
+                    <span id="tt-res"></span>.
+                  </li>
+                  <li class="mt-1">
+                    Diện ưu tiên xét tuyển:
+                    <span id="ut-res"></span>.
+                  </li>
+                  <li class="mt-1">
+                    Mức điểm cộng ưu tiên :
+                    <span id="ut-p-res"></span>.
+                  </li>
+                  <li class="mt-1">
+                    Mức điểm cộng khuyến khích <i>(tham khảo)</i>:
+                    <span id="kk-p-res"></span>.
+                  </li>
+                </ul>
+                <p class="mt-3 text-success fw-bold">Chú ý:</p>
+                <ul>
+                  <li>
+                    <i>Mức điểm cộng</i> là điểm cộng tối đa mà bạn có thể nhận
+                    được để xét tuyển
+                    <i>(bao gồm điểm ưu tiên và điểm khuyến khích)</i>. Điểm thi
+                    / HB của bạn càng cao thì điểm cộng thực tế càng giảm so với
+                    mức điểm cộng.
+                  </li>
+                  <li class="mt-2">
+                    Ký hiệu điểm <strong>"Điểm xét tuyển - Điểm cộng"</strong>.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div id="thhb-res"></div>
+          <div id="thpt-res"></div>
+          <div id="dghn-res"></div>
+          <div id="dgsg-res"></div>
+          <div id="vsat-res"></div>
+          <div id="dgca-res"></div>
+          <div id="dgsp-res"></div>
+          <div id="dgcb-res"></div>
+          <div id="dgtd-res"></div>
+          <div id="k01-res"></div>
+          <div id="QSB-res"></div>
+          <div class="container my-4 rounded">
+            <div class="row justify-content-center">
+              <div
+                id="chart-box"
+                class="col-md-10 rounded-3 p-3 border border-2 border-info"
+              >
+                <p class="mb-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-6 text-info"
+                    style="height: 1.3rem; margin-right: 0.2rem"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"
+                    />
+                  </svg>
+                  <strong class="text-info">Thông tin thống kê:</strong>
+                </p>
+                <canvas id="method-avg-chart" style="width: 100%"></canvas>
+                <canvas
+                  id="group-avg-chart"
+                  style="width: 100%"
+                  class="mt-5"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `,
+  ],
+  [
+    "holland-res",
+    `<div class="card shadow-sm my-2">
+        <div class="card-body">
+          <h5 class="card-title">Kết quả Trắc nghiệm tính cách</h5>
+          <canvas class="mt-5 w-100" id="riasec-chart"></canvas>
+          <canvas class="mt-5 w-100" id="major-chart"></canvas>
+        </div>
+      </div>`
+  ],
+  [
+    "thhb",
+    `<div class="container my-4 rounded">
+          <div class="row justify-content-center">
+            <div class="col-md-10 rounded-3 p-3 border border-2 border-primary">
+              <p class="mb-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6 text-primary"
+                  style="height: 1.3rem; margin-right: 0.2rem"
+                >
+                  <path
+                    d="M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z"
+                  />
+                </svg>
+                <strong class="text-primary">Học bạ:</strong>
+              </p>
+              <table class="table table-bordered">
+                <thead>
+                  <th>Tổ hợp</th>
+                  <th>6 HK</th>
+                  <th>5 HK</th>
+                  <th>3 HK</th>
+                  <th>3 năm</th>
+                  <th>2 năm 1 HK</th>
+                  <th>1 năm</th>
+                </thead>
+                <tbody>thhb-res</tbody>
+              </table>
+            </div>
+          </div>
+        </div>`,
+  ],
+  [
+    "thpt",
+    `<div class="container my-4 rounded">
+          <div class="row justify-content-center">
+            <div class="col-md-10 rounded-3 p-3 border border-2 border-primary">
+              <p class="mb-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6 text-primary"
+                  style="height: 1.3rem; margin-right: 0.2rem"
+                >
+                  <path
+                    d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z"
+                  />
+                  <path
+                    d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z"
+                  />
+                  <path
+                    d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z"
+                  />
+                </svg>
+                <strong class="text-primary">Kỳ thi TN THPT:</strong>
+              </p>
+              <table class="table table-bordered">
+                <thead>
+                  <th>Tổ hợp \\ Môn chính</th>
+                  <th>Không</th>
+                  <th>Môn 1</th>
+                  <th>Môn 2</th>
+                  <th>Môn 3</th>
+                </thead>
+                <tbody>thpt-res</tbody>
+              </table>
+            </div>
+          </div>
+        </div>`,
+  ],
+  [
+    "dghn",
+    `<div class="container my-4 rounded">
+          <div class="row justify-content-center">
+            <div class="col-md-10 rounded-3 p-3 border border-2 border-success">
+              <p class="mb-2">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Vietnam_National_University_Logo.svg"
+                  style="height: 1.3rem; margin-right: 0.2rem"
+                  draggable="false"
+                />
+                <strong class="text-success">Kỳ thi ĐGNL ĐHQG-HN:</strong>
+              </p>
+              <table class="table table-bordered">
+                <thead>
+                  <th>Tổ hợp</th>
+                  <th>Điểm xét tuyển</th>
+                </thead>
+                <tbody>dghn-res</tbody>
+              </table>
+            </div>
+          </div>
+        </div>`,
+  ],
+  [
+    "dgsg",
+    `<div class="container my-4 rounded">
+          <div class="row justify-content-center">
+            <div
+              class="col-md-10 rounded-3 p-3"
+              style="border: 2px solid #292f69"
+            >
+              <p class="mb-2">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/vi/f/fb/VNUHCM_logo.svg"
+                  style="height: 1.3rem; margin-right: 0.2rem"
+                  draggable="false"
+                />
+                <strong style="color: #292f69">Kỳ thi ĐGNL ĐHQG-HCM:</strong>
+              </p>
+              <table class="table table-bordered">
+                <thead>
+                  <th>Tổ hợp</th>
+                  <th>Điểm xét tuyển</th>
+                </thead>
+                <tbody>dgsg-res</tbody>
+              </table>
+            </div>
+          </div>
+        </div>`,
+  ],
+  [
+    "vsat",
+    `<div class="container my-4 rounded">
+          <div class="row justify-content-center">
+            <div class="col-md-10 rounded-3 p-3 border border-2 border-primary">
+              <p class="mb-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6 text-primary"
+                  style="height: 1.3rem; margin-right: 0.2rem"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2.25 5.25a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3V15a3 3 0 0 1-3 3h-3v.257c0 .597.237 1.17.659 1.591l.621.622a.75.75 0 0 1-.53 1.28h-9a.75.75 0 0 1-.53-1.28l.621-.622a2.25 2.25 0 0 0 .659-1.59V18h-3a3 3 0 0 1-3-3V5.25Zm1.5 0v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <strong class="text-primary"
+                  >Kỳ thi Đánh giá đầu vào Đại học - V-SAT:</strong
+                >
+              </p>
+              <table class="table table-bordered">
+                <thead>
+                  <th>Tổ hợp</th>
+                  <th>Điểm xét tuyển</th>
+                </thead>
+                <tbody>vsat-res</tbody>
+              </table>
+            </div>
+          </div>
+        </div>`,
+  ],
+  [
+    "dgca",
+    `<div class="container my-4 rounded">
+          <div class="row justify-content-center">
+            <div
+              class="col-md-10 rounded-3 p-3"
+              style="border: 2px solid #006635"
+            >
+              <p class="mb-2">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Vietnam_People%27s_Public_Security_Emblem.png"
+                  style="height: 1.3rem; margin-right: 0.2rem"
+                  draggable="false"
+                />
+                <strong style="color: #006635"
+                  >Kỳ thi Đánh giá tuyển sinh Đại học CAND:</strong
+                >
+              </p>
+              <table class="table table-bordered">
+                <thead>
+                  <th>Tổ hợp</th>
+                  <th>Điểm xét tuyển</th>
+                </thead>
+                <tbody>dgca-res</tbody>
+              </table>
+            </div>
+          </div>
+        </div>`,
+  ],
+  [
+    "dgsp",
+    `<div class="container my-4 rounded">
+          <div class="row justify-content-center">
+            <div
+              class="col-md-10 rounded-3 p-3"
+              style="border: 2px solid #183885"
+            >
+              <p class="mb-2">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/vi/1/1e/Logo_Tr%C6%B0%E1%BB%9Dng_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_S%C6%B0_ph%E1%BA%A1m_H%C3%A0_N%E1%BB%99i.png"
+                  style="height: 1.3rem; margin-right: 0.2rem"
+                  draggable="false"
+                />
+                <strong style="color: #183885"
+                  >Kỳ thi Đánh giá năng lực - HNUE:</strong
+                >
+              </p>
+              <table class="table table-bordered">
+                <thead>
+                  <th>Tổ hợp \\ Môn chính</th>
+                  <th>Không có</th>
+                  <th>Môn 1</th>
+                  <th>Môn 2</th>
+                  <th>Môn 3</th>
+                </thead>
+                <tbody>dgsp-res</tbody>
+              </table>
+            </div>
+          </div>
+        </div>`,
+  ],
+  [
+    "dgcb",
+    `<div class="container my-4 rounded">
+          <div class="row justify-content-center">
+            <div
+              class="col-md-10 rounded-3 p-3"
+              style="border: 2px solid #0053a6"
+            >
+              <p class="mb-2">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/vi/9/9e/Logo_Tr%C6%B0%E1%BB%9Dng_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_S%C6%B0_ph%E1%BA%A1m_Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh.svg"
+                  style="height: 1.3rem; margin-right: 0.2rem"
+                  draggable="false"
+                />
+                <strong style="color: #0053a6"
+                  >Kỳ thi Đánh giá năng lực chuyên biệt - HCMUE:</strong
+                >
+              </p>
+              <table class="table table-bordered">
+                <thead>
+                  <th>Tổ hợp \\ Môn thi</th>
+                  <th>Môn 1</th>
+                  <th>Môn 2</th>
+                  <th>Môn 3</th>
+                </thead>
+                <tbody>dgcb-res</tbody>
+              </table>
+            </div>
+          </div>
+        </div>`,
+  ],
+  [
+    "dgtd",
+    `<div class="container my-4 rounded">
+          <div class="row justify-content-center">
+            <div class="col-md-10 rounded-3 p-3 border border-2 border-danger">
+              <p class="mb-2">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/vi/e/ef/Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_B%C3%A1ch_Khoa_H%C3%A0_N%E1%BB%99i.svg"
+                  style="height: 1.3rem; margin-right: 0.2rem"
+                  draggable="false"
+                />
+                <strong class="text-danger">Kỳ thi Đánh giá tư duy (K00) - HUST:</strong>
+              </p>
+              <table class="table table-bordered">
+                <thead>
+                  <th>Tổ hợp</th>
+                  <th>Điểm xét tuyển</th>
+                </thead>
+                <tbody>dgtd-res</tbody>
+              </table>
+            </div>
+          </div>
+        </div>`,
+  ],
+  [
+    "k01",
+    `<div class="container my-4 rounded">
+          <div class="row justify-content-center">
+            <div class="col-md-10 rounded-3 p-3 border border-2 border-danger">
+              <p class="mb-2">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/vi/e/ef/Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_B%C3%A1ch_Khoa_H%C3%A0_N%E1%BB%99i.svg"
+                  style="height: 1.3rem; margin-right: 0.2rem"
+                  draggable="false"
+                />
+                <strong class="text-danger">Đại học Bách khoa Hà Nội - K01:</strong>
+              </p>
+              <table class="table table-bordered">
+                <thead>
+                  <th>Tổ hợp</th>
+                  <th>Điểm xét tuyển</th>
+                </thead>
+                <tbody>k01-res</tbody>
+              </table>
+            </div>
+          </div>
+        </div>`,
+  ],
+  [
+    "QSB",
+    `<div class="container my-4 rounded">
+          <div class="row justify-content-center">
+            <div
+              class="col-md-10 rounded-3 p-3"
+              style="border: 2px solid #042b94"
+            >
+              <p class="mb-2">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/f/f0/HCMCUT.svg"
+                  style="height: 1.3rem; margin-right: 0.2rem"
+                  draggable="false"
+                />
+                <strong style="color: #042b94"
+                  >Trường học Bách khoa - ĐHQG-HCM:</strong
+                >
+              </p>
+              <table class="table table-bordered">
+                <thead>
+                  <th>Tổ hợp</th>
+                  <th>Điểm xét tuyển</th>
+                </thead>
+                <tbody>QSB-res</tbody>
+              </table>
+            </div>
+          </div>
+        </div>`,
+  ],
+]);
+
+export const schoolId_selectpicker = `<select class="selectpicker school-id" data-live-search="true" data-size="5">
     <option data-tokens="QHL UL" value="QHL">
     TĐH Luật, ĐHQG HN
     </option>
@@ -689,7 +1141,7 @@ const schoolId_selectpicker = `<select class="selectpicker school-id" data-live-
     />
     </button>`;
 
-const major1Id_selectpicker = `<select class="selectpicker major-1-id" data-live-search="true" data-size="5">
+export const major1Id_selectpicker = `<select class="selectpicker major-1-id" data-live-search="true" data-size="5">
     <option value="714">Khoa học giáo dục và đào tạo giáo viên</option>
     <option value="721">Nghệ thuật</option>
     <option value="722">Nhân văn</option>
@@ -725,7 +1177,7 @@ const major1Id_selectpicker = `<select class="selectpicker major-1-id" data-live
     />
     </button>`;
 
-const major3Id_selectpicker = `<select class="selectpicker major-3-id" data-live-search="true" data-size="5" style="width=80%">
+export const major3Id_selectpicker = `<select class="selectpicker major-3-id" data-live-search="true" data-size="5" style="width=80%">
     <option value="7140101">Giáo dục học</option>
     <option value="7140103">Công nghệ giáo dục</option>
     <option value="7140114">Quản lý giáo dục</option>
@@ -1192,11 +1644,12 @@ const major3Id_selectpicker = `<select class="selectpicker major-3-id" data-live
     />
   </button>`;
 
-const ttcn_selectpicker = `<div class="row"> <div class="col">
+export const ttcn_selectpicker = `<div class="row mt-2">
+  <div class="col">
     <label for="ttcn-level" class="form-label">Cấp thi:</label>
     <select
       id="ttcn-level"
-      class="selectpicker ttcn"
+      class="form-control form-select ttcn"
       data-subject="ttcn-level"
     >
       <option value="0">Cấp Tỉnh</option>
@@ -1208,7 +1661,7 @@ const ttcn_selectpicker = `<div class="row"> <div class="col">
     <label for="ttcn-type" class="form-label">Giải:</label>
     <select
       id="ttcn-type"
-      class="selectpicker ttcn"
+      class="form-control ttcn"
       data-subject="ttcn-type"
     >
       <option value="0">Giải Tư / Giải khuyến khích</option>
@@ -1217,7 +1670,7 @@ const ttcn_selectpicker = `<div class="row"> <div class="col">
       <option value="3">Giải Nhất / HC Vàng</option>
     </select>
   </div>
-  <div class="col">
+  <div class="col col-md-2 d-flex justify-content-center">
     <button type="button" class="btn" id="hide-ttcn">
       <img
         src="../assets/icons/trash.png"
@@ -1227,12 +1680,12 @@ const ttcn_selectpicker = `<div class="row"> <div class="col">
     </button>
   </div> </div>`;
 
-const cerf_selectpicker = `<div class="row align-items-center g-2 mt-2 cerf">
+export const cerf_selectpicker = `<div class="row align-items-center g-2 mt-2 cerf">
   <div class="col-auto">
     <label for="cerf-id" class="col-form-label">Tên chứng chỉ:</label>
   </div>
   <div class="col-auto">
-    <select id="cerf-id" class="selectpicker cerf-id">
+    <select id="cerf-id" class="form-control cerf-id">
       <option value="SAT">SAT</option>
       <option value="ACT">ACT</option>
       <option value="ALEVEL">A-level</option>
@@ -1257,7 +1710,7 @@ const cerf_selectpicker = `<div class="row align-items-center g-2 mt-2 cerf">
 </div>
 <div class="fst-italic">Đối với A-level, chỉ nhập các điểm A, B, C, D.</div>`;
 
-function getOptionArr(selectpickerContent) {
+export function getOptionArr(selectpickerContent) {
   let tempElm = document.createElement("div");
   tempElm.innerHTML = selectpickerContent;
 
@@ -1267,12 +1720,3 @@ function getOptionArr(selectpickerContent) {
 
   return optionArr;
 }
-
-export {
-  schoolId_selectpicker,
-  major1Id_selectpicker,
-  major3Id_selectpicker,
-  ttcn_selectpicker,
-  cerf_selectpicker,
-  getOptionArr,
-};

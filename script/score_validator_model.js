@@ -1,12 +1,19 @@
 import { round2 } from "./score_convert_model.js";
 
-export function getValidValue(value, isInt, min, max, appreciate) {
+export function getValidValue(
+  value,
+  isInt,
+  min,
+  max,
+  appreciate,
+  defaultValue = null
+) {
   let temp = value.replace(",", ".").replace(/[^0-9\.]/g, "");
 
   if (isInt) temp = parseInt(temp);
   else temp = parseFloat(temp);
 
-  if (Number.isNaN(temp)) return null;
+  if (Number.isNaN(temp)) return defaultValue;
 
   value = temp;
 

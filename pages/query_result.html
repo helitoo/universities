@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kết quả tìm kiếm</title>
+    <title>Tìm ngành</title>
     <!-- Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
@@ -50,7 +50,9 @@
     <script type="module" src="../script/query_result.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary mb-5 sticky-top">
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary mb-5 sticky-top shadow-sm"
+    >
       <div class="container-fluid">
         <a class="navbar-brand" href="/index.html"
           ><img src="../assets/logo/logo.png" alt="logo" style="height: 8vh"
@@ -67,31 +69,103 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-md-4">
             <li class="nav-item">
-              <a class="nav-link" href="/index.html">Trang chủ</a>
+              <a class="nav-link d-flex align-items-center" href="/index.html"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6"
+                  style="height: 1.5rem; margin-right: 0.2rem"
+                >
+                  <path
+                    d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z"
+                  />
+                  <path
+                    d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z"
+                  />
+                </svg>
+                Trang chủ
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./filter.html">Nhập điểm</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./holland.html"
-                >Trắc nghiệm hướng nghiệp</a
+              <a class="nav-link d-flex align-items-center" href="./filter.html"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6"
+                  style="height: 1.5rem; margin-right: 0.2rem"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6.32 1.827a49.255 49.255 0 0 1 11.36 0c1.497.174 2.57 1.46 2.57 2.93V19.5a3 3 0 0 1-3 3H6.75a3 3 0 0 1-3-3V4.757c0-1.47 1.073-2.756 2.57-2.93ZM7.5 11.25a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H8.25a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H8.25Zm-.75 3a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H8.25a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V18a.75.75 0 0 0-.75-.75H8.25Zm1.748-6a.75.75 0 0 1 .75-.75h.007a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.007a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.335.75.75.75h.007a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75h-.007Zm-.75 3a.75.75 0 0 1 .75-.75h.007a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.007a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.335.75.75.75h.007a.75.75 0 0 0 .75-.75V18a.75.75 0 0 0-.75-.75h-.007Zm1.754-6a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75h-.008Zm-.75 3a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V18a.75.75 0 0 0-.75-.75h-.008Zm1.748-6a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Zm.75 1.5a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75h-.008Zm-8.25-6A.75.75 0 0 1 8.25 6h7.5a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-.75.75h-7.5a.75.75 0 0 1-.75-.75v-.75Zm9 9a.75.75 0 0 0-1.5 0V18a.75.75 0 0 0 1.5 0v-2.25Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Tính điểm</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./query_result.html"
-                >Kết quả tìm kiếm</a
+              <a
+                class="nav-link d-flex align-items-center"
+                href="./holland.html"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6"
+                  style="height: 1.5rem; margin-right: 0.2rem"
+                >
+                  <path
+                    d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z"
+                  />
+                </svg>
+                Trắc nghiệm tính cách</a
               >
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item">
+              <a
+                class="nav-link d-flex align-items-center"
+                href="./query_result.html"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6"
+                  style="height: 1.5rem; margin-right: 0.2rem"
+                >
+                  <path
+                    d="M8.25 10.875a2.625 2.625 0 1 1 5.25 0 2.625 2.625 0 0 1-5.25 0Z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.125 4.5a4.125 4.125 0 1 0 2.338 7.524l2.007 2.006a.75.75 0 1 0 1.06-1.06l-2.006-2.007a4.125 4.125 0 0 0-3.399-6.463Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Tìm ngành</a
+              >
+            </li>
+            <li class="nav-item align-items-center dropdown">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-              >
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6"
+                  style="height: 1.5rem; margin-right: 0.2rem"
+                >
+                  <path
+                    d="M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z"
+                  />
+                </svg>
                 Tra cứu thông tin
               </a>
               <ul class="dropdown-menu">
@@ -153,123 +227,14 @@
       </svg>
     </button> -->
     <div class="container" id="main-container">
-      <div class="container my-4 rounded">
-        <div class="row justify-content-center">
-          <div class="col-md-10 rounded-3 p-3 border border-2 border-success">
-            <p class="mb-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-6 text-success"
-                style="height: 1.3rem; margin-right: 0.2rem"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-              <strong class="text-success"
-                >Thông tin Ưu tiên xét tuyển & Tuyển thẳng:</strong
-              >
-            </p>
-            <ul class="mb-0">
-              <li class="mt-1">
-                Diện tuyển thẳng:
-                <span id="tt-res"></span>.
-              </li>
-              <li class="mt-1">
-                Diện ưu tiên xét tuyển:
-                <span id="ut-res"></span>.
-              </li>
-              <li class="mt-1">
-                Mức điểm cộng ưu tiên :
-                <span id="ut-p-res"></span>.
-              </li>
-              <li class="mt-1">
-                Mức điểm cộng khuyến khích <i>(tham khảo)</i>:
-                <span id="kk-p-res"></span>.
-              </li>
-            </ul>
-            <p class="mt-3 text-success fw-bold">Chú ý:</p>
-            <ul>
-              <li>
-                <i>Mức điểm cộng</i> là điểm cộng tối đa mà bạn có thể nhận được
-                để xét tuyển <i>(bao gồm điểm ưu tiên và điểm khuyến khích)</i>.
-                Điểm thi / HB của bạn càng cao thì điểm cộng thực tế càng giảm
-                so với mức điểm cộng.
-              </li>
-              <li class="mt-2">
-                Ký hiệu điểm <strong>"Điểm xét tuyển - Điểm cộng"</strong>.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div id="thhb-res"></div>
-      <div id="thpt-res"></div>
-      <div id="dghn-res"></div>
-      <div id="dgsg-res"></div>
-      <div id="vsat-res"></div>
-      <div id="dgca-res"></div>
-      <div id="dgsp-res"></div>
-      <div id="dgcb-res"></div>
-      <div id="dgtd-res"></div>
-      <div id="k01-res"></div>
-      <div id="QSB-res"></div>
-      <div class="container my-4 rounded">
-        <div class="row justify-content-center">
-          <div
-            id="chart-box"
-            class="col-md-10 rounded-3 p-3 border border-2 border-info"
-          >
-            <p class="mb-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-6 text-info"
-                style="height: 1.3rem; margin-right: 0.2rem"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"
-                />
-              </svg>
-              <strong class="text-info">Thông tin thống kê:</strong>
-            </p>
-            <canvas id="method-avg-chart" style="width: 100%"></canvas>
-            <canvas
-              id="group-avg-chart"
-              style="width: 100%"
-              class="mt-5"
-            ></canvas>
-          </div>
-        </div>
-      </div>
-      <div class="container my-4 rounded">
-        <div class="row justify-content-center">
-          <div class="col-md-10 rounded-3 p-3 border border-2 border-primary">
-            <p class="mb-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-6 text-primary"
-                style="height: 1.3rem; margin-right: 0.2rem"
-              >
-                <path
-                  d="M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z"
-                />
-              </svg>
-              <strong class="text-primary">Tìm kiếm ngành phù hợp:</strong>
-            </p>
-            <strong>Hãy nhập thêm 1 số thông tin tìm kiếm:</strong>
-            <div class="row mt-4">
+      <div class="card shadow-sm my-2">
+        <div class="card-body">
+          <h5 class="card-title">
+            <span class="badge rounded-circle bg-dark me-2">1</span>
+            Nhập thông tin trường
+          </h5>
+          <div class="container">
+            <div class="row">
               <div class="col col-md-6 col-12">
                 <span class="fw-bold"
                   >Nhập tên trường / tên viết tắt / mã tuyển sinh:</span
@@ -377,7 +342,34 @@
                 </div>
               </div>
             </div>
-            <div class="row mt-3">
+          </div>
+        </div>
+      </div>
+
+      <div class="card shadow-sm my-2">
+        <div class="card-body">
+          <h5 class="card-title">
+            <span class="badge rounded-circle bg-dark me-2">2</span>
+            Nhập thông tin ngành / nhóm ngành
+          </h5>
+          <div class="container">
+            <div class="row">
+              <div class="form-check-inline">
+                <label class="form-check-label" for="apply-holland"
+                  >Áp dụng kết quả từ
+                  <a href="./holland.html" target="_blank"
+                    >bài trắc nghiệm tính cách</a
+                  ></label
+                >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="apply-holland"
+                  checked
+                />
+              </div>
+            </div>
+            <div class="row mt-2">
               <div class="col-md-6 col-12 fw-bold">
                 Nhóm ngành:
                 <div
@@ -409,7 +401,18 @@
                 </button>
               </div>
             </div>
-            <div class="row mt-3">
+          </div>
+        </div>
+      </div>
+
+      <div class="card shadow-sm my-2">
+        <div class="card-body">
+          <h5 class="card-title">
+            <span class="badge rounded-circle bg-dark me-2">3</span>
+            Chọn phương thức
+          </h5>
+          <div class="container">
+            <div class="row">
               <strong>Chọn phương thức tìm kiếm:</strong>
               <div class="col">
                 <div class="form-check-inline">
@@ -514,11 +517,40 @@
                 </div>
               </div>
             </div>
-            <p class="mt-3">
-              Ở chế độ mặc định, trang web sẽ tìm kiếm các ngành có điểm
-              <strong>≥ 21 và ≤ điểm của bạn + 1</strong>. Bạn có thể điều chỉnh
-              phạm vi tìm kiếm tại đây <i>(trên thang 30)</i>.
-            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card shadow-sm my-2">
+        <div class="card-body">
+          <h5 class="card-title">
+            <span class="badge rounded-circle bg-dark me-2">4</span>
+            Nhập điểm tìm kiếm
+          </h5>
+          <div class="container">
+            <div class="row">
+              <div class="form-check-inline">
+                <label class="form-check-label"
+                  >Áp dụng
+                  <a href="./filter.html" target="_blank"
+                    >kết quả tính điểm xét tuyển</a
+                  ></label
+                >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  checked
+                  disabled
+                />
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                Ở chế độ mặc định, trang web sẽ tìm kiếm các ngành có điểm
+                <strong>≥ 21 và ≤ điểm của bạn + 1</strong>. Bạn có thể điều
+                chỉnh phạm vi tìm kiếm tại đây <i>(trên thang 30)</i>.
+              </div>
+            </div>
             <div class="row mt-3">
               <div class="col">
                 <label for="min-score" class="form-label fw-bold"
@@ -544,35 +576,68 @@
                   value="1"
                 />
               </div>
-              <div class="col">
-                <label for="num-rcm-major" class="form-label fw-bold"
-                  >Số lượng kết quả trả về:</label
-                >
-                <input
-                  type="text"
-                  autocomplete="off"
-                  id="num-rcm-major"
-                  class="form-control"
-                  value="111"
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-5">
+        <div class="col d-flex justify-content-center align-items-center">
+          <label for="num-rcm-major" class="form-label me-2 fst-italic">
+            Số lượng kết quả trả về:
+          </label>
+
+          <div class="input-group w-auto d-inline-flex align-items-center">
+            <input
+              type="text"
+              autocomplete="off"
+              id="num-rcm-major"
+              class="form-control"
+              value="111"
+              style="max-width: 120px"
+            />
+            <button
+              class="btn btn-primary fw-bold d-flex align-items-center"
+              id="search-rcm-major"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+                style="height: 1.5rem; margin-right: 1rem"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
                 />
+              </svg>
+              Tìm kiếm
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card shadow-sm my-2">
+        <div class="card-body">
+          <h5 class="card-title">Một số ngành đề xuất</h5>
+          <div class="container">
+            <div class="row">
+              <div class="alert alert-primary" role="alert">
+                Chú ý: Dữ liệu <span class="fs-4 fw-bold">2024</span> ! Xem
+                thống kê về dữ liệu của Cổng
+                <a
+                  href="./general_statistics.html"
+                  target="_blank"
+                  class="alert-link"
+                  >tại đây</a
+                >.
               </div>
             </div>
-            <div class="row mt-3">
-              <div class="col">Chú ý: Dữ liệu <strong>2024</strong>.</div>
-            </div>
-            <div class="row mt-3">
-              <button type="button" class="btn" id="search-rcm-major">
-                <img
-                  src="../assets/icons/search.png"
-                  alt="search icon"
-                  style="height: 1.5rem"
-                />
-              </button>
-            </div>
-
-            <!--  -->
-            <div id="rcm-major-replacement" class="mt-3"></div>
-            <!--  -->
+            <div id="rcm-major-replacement" class="row mt-3"></div>
           </div>
         </div>
       </div>

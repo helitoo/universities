@@ -12,6 +12,8 @@ import queryModel from "./query_model.js";
 
 import { showLoading, hideLoading } from "./loading.js";
 
+import { showToast } from "./toast.js";
+
 const slpkContent = `
 <label class="form-label fw-bold">Tổ hợp</label>
 <select
@@ -309,7 +311,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Get data
     let firstScore = document.getElementById("first-score").value;
     if (firstScore == "") {
-      alert("Chưa nhập điểm đầu vào!");
+      showToast("Chưa nhập điểm đầu vào!", "danger");
       return;
     }
 

@@ -62,6 +62,35 @@
   display: none;
 }
 
+/* Hiệu ứng trượt của toast */
+.toast-slide-in {
+  animation: slideInRight 0.1s ease forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Ảnh responsive */
+
+@media (min-width: 768px) {
+  .w-md-50 {
+    width: 50% !important;
+  }
+  .w-md-75 {
+    width: 75% !important;
+  }
+}
+
+/* Các css khác */
+
 * {
   text-align: justify;
 }
@@ -99,7 +128,7 @@ thead {
 }
 
 a {
-  color: black;
+  color: #042b92;
   text-decoration: none;
 }
 

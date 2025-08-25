@@ -105,7 +105,7 @@ export default class filterModel {
     ["ca4", null],
   ]);
 
-  thnk_P = new Array(3);
+  // thnk_P = new Array(3);
 
   // point_range = new Map([
   //   ["min", 15],
@@ -247,7 +247,7 @@ export default class filterModel {
       ["ca4", null],
     ]);
 
-    this.thnk_P = new Array(3);
+    // this.thnk_P = new Array(3);
 
     // this.point_range = new Map([
     //   ["min", 15],
@@ -415,7 +415,7 @@ export default class filterModel {
     };
 
     updateSttField(".apply-subject", "applySubject");
-    updateSttField(".thnk-p", "thnk_P");
+    // updateSttField(".thnk-p", "thnk_P");
     updateSttField(".thhb-p", "thhb_P");
     // updateSttField(".school-type", "school");
     // updateSttField(".school-region", "school");
@@ -466,7 +466,7 @@ export default class filterModel {
     };
 
     updateSttField(".apply-subject", "applySubject");
-    updateSttField(".thnk-p", "thnk_P");
+    // updateSttField(".thnk-p", "thnk_P");
     updateSttField(".thhb-p", "thhb_P");
     // updateSttField(".school-type", "school");
     // updateSttField(".school-region", "school");
@@ -638,7 +638,7 @@ export default class filterModel {
       dgcb_P: convertField(this.dgcb_P),
       vsat_P: convertField(this.vsat_P),
       dgca_P: convertField(this.dgca_P),
-      thnk_P: convertField(this.thnk_P),
+      // thnk_P: convertField(this.thnk_P),
       // point_range: convertField(this.point_range),
       ielts_P: convertField(this.ielts_P),
       // school: convertField(this.school),

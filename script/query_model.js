@@ -824,13 +824,16 @@ export default class queryModel {
     // Normalize
 
     function normalizeMapValuesToPositive(map) {
-      const values = [...map.values()];
-      const min = Math.min(...values);
+      let values = [...map.values()];
+      let min = Math.min(...values);
 
-      if (min < 0) {
-        const offset = Math.abs(min);
+      if (min <= 0) {
+        if (min == 0) min += 1;
+
+        min = Math.abs(min);
+
         for (let [key, val] of map.entries()) {
-          map.set(key, val + offset);
+          map.set(key, val + min);
         }
       }
 

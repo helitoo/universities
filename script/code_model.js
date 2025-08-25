@@ -1,3 +1,5 @@
+import { showToast } from "./toast.js";
+
 export function exportCode(user) {
   document.getElementById("export-code").addEventListener("click", (event) => {
     let code = user.getCode();
@@ -7,38 +9,47 @@ export function exportCode(user) {
     try {
       navigator.clipboard.writeText(code);
     } catch (err) {
-      alert(
-        "Không sử dụng được clipboard. Hãy kiểm tra lại trình duyệt của mình HOẶC copy code ở khung bên cạnh."
+      showToast(
+        "Không sử dụng được clipboard. Hãy kiểm tra lại trình duyệt của mình HOẶC copy code ở khung bên cạnh.",
+        "danger"
       );
     }
   });
 }
 
 export function importCode() {
+  let codeReplacement = document.getElementById("code-replacement");
+
   document
     .getElementById("import-code")
     .addEventListener("click", async (event) => {
       try {
-        document.getElementById("code-replacement").value =
-          await navigator.clipboard.readText();
+        codeReplacement.value = await navigator.clipboard.readText();
 
         document.getElementById("import-code-raw").click();
       } catch (err) {
-        alert(
-          "Không sử dụng được clipboard. Hãy kiểm tra lại trình duyệt của mình HOẶC paste code vào khung bên cạnh và nhấn vào nút 'Nạp code thô'."
+        showToast(
+          "Không sử dụng được clipboard. Hãy kiểm tra lại trình duyệt của mình HOẶC copy code ở khung bên cạnh.",
+          "danger"
         );
+
+        codeReplacement.value = "";
       }
     });
 }
 
 export function importCodeFromRaw(user) {
+  let codeReplacement = document.getElementById("code-replacement");
+
   document
     .getElementById("import-code-raw")
     .addEventListener("click", (event) => {
-      let code = document.getElementById("code-replacement").value;
+      let code = codeReplacement.value;
 
-      if (!user.decode(code)) alert("Code không hợp lệ.");
-      else {
+      if (!user.decode(code)) {
+        showToast("Code không hợp lệ.", "danger");
+        codeReplacement.value = "";
+      } else {
         user.updatePage();
       }
     });
@@ -47,6 +58,7 @@ export function importCodeFromRaw(user) {
 export function removeCode(key) {
   document.getElementById("remove-code").addEventListener("click", (event) => {
     localStorage.setItem(key, "");
+    showToast("Đã xóa code!", "success");
   });
 }
 
@@ -54,6 +66,7 @@ export function refreshCode(user) {
   document.getElementById("refresh-code").addEventListener("click", (event) => {
     user.resetValue();
     user.updatePage();
+    showToast("Đã reset code!", "success");
   });
 }
 
