@@ -1,372 +1,299 @@
 const topMethod = [
   {
     id: "TN",
-    quan: "35237",
+    quan: "23015",
   },
   {
     id: "HB",
-    quan: "32458",
-  },
-  {
-    id: "V-ACT",
-    quan: "4854",
-  },
-  {
-    id: "HSA",
-    quan: "1618",
-  },
-  {
-    id: "TSA",
-    quan: "1163",
+    quan: "16146",
   },
   {
     id: "Khác",
-    quan: "985",
+    quan: "4073",
+  },
+  {
+    id: "V-ACT",
+    quan: "2585",
+  },
+  {
+    id: "V-SAT",
+    quan: "2540",
+  },
+  {
+    id: "Kết hợp",
+    quan: "2449",
+  },
+  {
+    id: "HSA",
+    quan: "1250",
   },
 ];
 
 const topSubjectGroup = [
   {
-    id: "Các pt riêng không có tổ hợp",
-    quan: "12285",
+    id: "Khác",
+    quan: "26303",
+  },
+  {
+    id: "Các kỳ thi riêng",
+    quan: "6023",
   },
   {
     id: "Toán-Văn-Anh",
-    quan: "8391",
+    quan: "5539",
   },
   {
     id: "Toán-Lý-Hóa",
-    quan: "8052",
+    quan: "4921",
   },
   {
     id: "Toán-Lý-Anh",
-    quan: "7656",
+    quan: "4541",
   },
   {
     id: "Toán-Hóa-Anh",
-    quan: "2941",
+    quan: "2804",
   },
   {
-    id: "Khác",
-    quan: "4609",
+    id: "Toán-Lý-Tin",
+    quan: "1927",
   },
 ];
 
 const topSchool = [
   {
     id: "Khác",
-    quan: "38516",
+    quan: "40302",
   },
   {
-    id: "HCMUTE",
-    quan: "2480",
+    id: "SGU",
+    quan: "2532",
   },
   {
-    id: "CTU",
-    quan: "966",
+    id: "HHK",
+    quan: "2444",
   },
   {
-    id: "NEU",
-    quan: "853",
+    id: "VAA",
+    quan: "2280",
   },
   {
-    id: "NTH",
-    quan: "775",
+    id: "UNETI",
+    quan: "1912",
   },
   {
-    id: "FTU",
-    quan: "720",
+    id: "UTT",
+    quan: "1468",
   },
   {
-    id: "TMU",
-    quan: "717",
+    id: "UEF",
+    quan: "1120",
   },
 ];
 
 const topIndustry1 = [
   {
     id: "Khác",
-    quan: "31943",
+    quan: "23773",
   },
   {
-    id: "Kinh doanh & quản lý",
-    quan: "16971",
+    id: "Công nghệ - Kỹ thuật",
+    quan: "16531",
   },
   {
-    id: "Công nghệ kỹ thuật",
-    quan: "10505",
+    id: "Kinh doanh - Quản lý",
+    quan: "11617",
   },
   {
-    id: "Máy tính & CNTT",
-    quan: "6339",
-  },
-  {
-    id: "KHXH & hành vi",
-    quan: "5992",
-  },
-  {
-    id: "Nhân văn",
-    quan: "5783",
-  },
-  {
-    id: "Kỹ thuật",
-    quan: "5682",
+    id: "KHXH - NV",
+    quan: "7237",
   },
 ];
 
 const topIndustry3 = [
   {
     id: "Khác",
-    quan: "67420",
+    quan: "48263",
   },
   {
     id: "Quản trị kinh doanh",
-    quan: "3575",
+    quan: "2418",
   },
   {
-    id: "CNTT",
-    quan: "2975",
+    id: "IT",
+    quan: "2357",
   },
   {
     id: "Kế toán",
-    quan: "2815",
+    quan: "1702",
   },
   {
     id: "Tài chính - Ngân hàng",
-    quan: "2503",
+    quan: "1557",
   },
   {
     id: "Ngôn ngữ Anh",
-    quan: "2289",
+    quan: "1374",
   },
   {
-    id: "Quản trị dịch vụ du lịch & lữ hành",
-    quan: "1638",
+    id: "Quản trị du lịch",
+    quan: "1307",
   },
 ];
 
 const topSchoolAvg = [
   {
-    id: "FTU",
-    quan: "27.55",
-  },
-  {
-    id: "FPE HUEUNI",
-    quan: "27.1",
-  },
-  {
-    id: "UED VNU-HN",
-    quan: "27.0",
-  },
-  {
-    id: "APD",
-    quan: "27.0",
-  },
-  {
     id: "HV Biên phòng",
-    quan: "26.7",
+    quan: 29.07,
   },
   {
-    id: "DAV",
-    quan: "26.6",
+    id: "FTU2",
+    quan: 28,
+  },
+  {
+    id: "TĐH Chính trị",
+    quan: 27.97,
+  },
+  {
+    id: "UIT-VNU",
+    quan: 27.81,
+  },
+  {
+    id: "UED-VNU",
+    quan: 27.8,
+  },
+  {
+    id: "HV Kỹ thuật quân sự",
+    quan: 27.75,
+  },
+  {
+    id: "FTU",
+    quan: 27.5,
+  },
+  {
+    id: "DN UED",
+    quan: 26.52,
+  },
+  {
+    id: "HV Khoa học quân sự",
+    quan: 26.44,
+  },
+  {
+    id: "HUE",
+    quan: 26.31,
+  },
+  {
+    id: "HUC",
+    quan: 26.27,
+  },
+  {
+    id: "AJC",
+    quan: 26.26875,
   },
   {
     id: "NEU",
-    quan: "26.5",
+    quan: 26.25,
   },
   {
-    id: "ULIS VNU-HN",
-    quan: "26.4",
-  },
-  {
-    id: "AOF",
-    quan: "26.4",
-  },
-  {
-    id: "UIT VNU-HCM",
-    quan: "26.3",
+    id: "SP2",
+    quan: 26.22,
   },
   {
     id: "HLU",
-    quan: "26.1",
+    quan: 26.165,
   },
   {
-    id: "UHS VNU-HCM",
-    quan: "26.1",
+    id: "UET-VNU",
+    quan: 26.15,
   },
   {
-    id: "HNMU",
-    quan: "26.1",
+    id: "IUH",
+    quan: 26.12,
   },
   {
-    id: "HNUE",
-    quan: "26.0",
+    id: "USSH-VNUHCM",
+    quan: 26.1,
   },
 ];
-
 const topIndustry1Avg = [
   {
-    id: "KH giáo dục & đào tạo giáo viên",
-    quan: "25.3",
+    id: "Sư phạm",
+    quan: 25.9,
   },
   {
-    id: "Khác",
-    quan: "23.3",
+    id: "Toán",
+    quan: 23.875,
   },
   {
-    id: "KH xã hội & hành vi",
-    quan: "22.2",
+    id: "Báo chí",
+    quan: 23.48,
   },
   {
-    id: "Toán & thống kê",
-    quan: "21.8",
+    id: "An ninh - Quốc phòng",
+    quan: 23.05,
   },
   {
-    id: "An ninh Quốc phòng",
-    quan: "21.7",
-  },
-  {
-    id: "Dịch vụ xã hội",
-    quan: "21.2",
-  },
-  {
-    id: "Dịch vụ vận tải",
-    quan: "21.2",
-  },
-  {
-    id: "Sức khỏe",
-    quan: "21.0",
+    id: "KHXH - NV",
+    quan: 23,
   },
   {
     id: "Pháp luật",
-    quan: "20.9",
+    quan: 22.5,
   },
   {
-    id: "Kinh doanh & quản lý",
-    quan: "20.6",
-  },
-  {
-    id: "Nhân văn",
-    quan: "20.5",
-  },
-  {
-    id: "Kỹ thuật",
-    quan: "20.3",
-  },
-  {
-    id: "Máy tính & CNTT",
-    quan: "20.0",
-  },
-  {
-    id: "Báo chí & thông tin",
-    quan: "19.9",
-  },
-  {
-    id: "KH tự nhiên",
-    quan: "18.7",
-  },
-  {
-    id: "Du lịch khách sạn, thể thao & dịch vụ cá nhân",
-    quan: "18.4",
-  },
-  {
-    id: "Công nghệ kỹ thuật",
-    quan: "18.4",
-  },
-  {
-    id: "Kiến trúc & xây dựng",
-    quan: "18.1",
-  },
-  {
-    id: "Nghệ thuật",
-    quan: "18.0",
+    id: "Khác",
+    quan: 21.5,
   },
 ];
 
 const topIndustry3Avg = [
   {
-    id: "SP Tiếng Đức",
-    quan: "28.1",
+    id: "Biên phòng",
+    quan: 29.07,
   },
   {
-    id: "SP Lịch sử",
-    quan: "27.8",
+    id: "Trinh sát",
+    quan: 28.69,
   },
   {
-    id: "SP Địa lý",
-    quan: "27.7",
+    id: "Tình báo",
+    quan: 28.69,
   },
   {
-    id: "Phân tích dữ liệu kinh doanh",
-    quan: "27.4",
+    id: "SP Sử",
+    quan: 28.175,
   },
   {
-    id: "Văn hóa & truyền thông xuyên quốc gia",
-    quan: "27.4",
+    id: "SP Tiếng Nhật",
+    quan: 28.1,
   },
   {
-    id: "Tài chính quốc tế",
-    quan: "27.2",
-  },
-  {
-    id: "Kinh doanh thương mại Hàn Quốc",
-    quan: "27.1",
-  },
-  {
-    id: "Marketing & Truyền thông",
-    quan: "27.1",
-  },
-  {
-    id: "Giáo dục Công dân",
-    quan: "27.0",
-  },
-  {
-    id: "Chỉ huy tham mưu Phòng không",
-    quan: "27.0",
-  },
-  {
-    id: "SP Lịch sử - Địa lý",
-    quan: "27.0",
-  },
-  {
-    id: "Truyền thông đại chúng",
-    quan: "26.8",
-  },
-  {
-    id: "Kinh tế quốc tế",
-    quan: "26.7",
-  },
-  {
-    id: "SP Ngữ văn",
-    quan: "26.6",
-  },
-  {
-    id: "Kinh tế chính trị",
-    quan: "26.6",
-  },
-  {
-    id: "Luật thương mại quốc tế",
-    quan: "26.6",
-  },
-  {
-    id: "Giáo dục Đặc biệt",
-    quan: "26.5",
+    id: "SP Địa",
+    quan: 28.09,
   },
   {
     id: "Nghệ thuật học",
-    quan: "26.5",
+    quan: 27.895,
   },
   {
-    id: "Giáo dục QP-AN",
-    quan: "26.5",
+    id: "SP Tiếng Hàn",
+    quan: 27.81,
   },
   {
-    id: "KH chế biến món ăn",
-    quan: "26.4",
+    id: "Đồ họa",
+    quan: 27.8,
   },
   {
-    id: "Quảng cáo",
-    quan: "26.3",
+    id: "Tình báo",
+    quan: 27.75,
+  },
+  {
+    id: "Chỉ huy kỹ thuật công binh",
+    quan: 27.75,
+  },
+  {
+    id: "Quân sự cơ sở",
+    quan: 27.75,
   },
 ];
 
