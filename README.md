@@ -137,13 +137,25 @@ Khi người dùng truy vấn dữ liệu thì không truy vấn trực tiếp b
 4. `view_top_mean_by_industry3`: Xếp hạng các ngành theo trung vị điểm chuẩn, không bao gồm phương thức học bạ.
 5. `view_specific_ratio`: Xếp hạng mức độ trọng tâm của các trường theo lĩnh vực đào tạo, tức là trường nào dạy ngành nào là nhiều nhất.
 
-## Quy trình thu thập dữ liệu điểm chuẩn
+## Quy trình thu thập dữ liệu điểm chuẩn và đưa vào cơ sở dữ liệu
 
 1. Lấy dữ liệu thô từ các trang web (`crawling_score.py`).
 2. Quy đổi điểm tuyến tính (`handle_converted.py`).
 3. Quy đổi theo phổ điểm (`get_converted_score.js`).
 4. Tạo bảng mối giữa bảng điểm (`score`) và bảng các ngành (`industry_l3`) (`generate_score_industry.py`).
-5. Đưa lên cơ sở dữ liệu.
+5. Đưa vào cơ sở dữ liệu.
+
+Chú ý:
+
+- File `get_converted_score.js` có ưu điểm tận dụng được các module chức năng của trang web, nhưng vô tình mã hóa sai lệch dữ liệu nên cần phải thông qua Pandas để xử lý sau cùng.
+- **Quy đổi tuyến tính** là nhân chia số điểm đó về thang điểm mong muốn.
+- **Quy đổi theo phổ điểm** là dựa trên phân vị tương ứng giữa 2 phổ điểm giữa 2 kỳ thi mà quy đổi. Độ sai số quy đổi của trang web là **2 (thang 30)**, nhưng không quan trọng vì toàn bộ trang web đều có sai số như nhau nên đều có ý nghĩa tìm kiếm ngành.
+
+Flow quy đổi:
+
+1. Quy đổi các phương thức `uttt` và `xtkh` thành `thpt`, `thhb`, `dgsg`, `dghn`, `dgtd`, tùy theo từng đơn vị tuyển sinh.
+2. Quy đổi **tuyến tính** các phương thức về đúng thang điểm của nó (VD `thpt` -> thang 30, `dgsg` -> thang 1200).
+3. Quy đổi **theo phổ điểm** các kỳ thi riêng về thang 30.
 
 ## Các file xử lý phía client
 
