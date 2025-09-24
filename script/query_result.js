@@ -18,6 +18,8 @@ import {
 
 import { showToast } from "./toast.js";
 
+const CURR_YEAR = 2025;
+
 function addRcmMajorBox(replacement, schoolName, majors) {
   document.getElementById(replacement).innerHTML += `
     <div class="container my-4 rounded">
@@ -67,9 +69,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   let querier = new queryModel();
 
-  await querier.calcExtra(filterData, new Date().getFullYear() - 1);
+  await querier.calcExtra(filterData, CURR_YEAR);
 
-  await querier.calcMain(filterData, new Date().getFullYear() - 1);
+  await querier.calcMain(filterData, CURR_YEAR);
 
   document
     .getElementById("show-school-id")
