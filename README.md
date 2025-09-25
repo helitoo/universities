@@ -2,9 +2,9 @@
 
 ![](https://congdaihoc.netlify.app/assets/logo/logo_with_caption.png)
 
-**Cổng Đại học** là bộ trang web hỗ trợ thí sinh tra cứu thông tin tuyển sinh. Gồm các chức năng:
-
 Link [Cổng Đại học](https://congdaihoc.netlify.app/).
+
+**Cổng Đại học** là bộ trang web hỗ trợ thí sinh tra cứu thông tin tuyển sinh. Gồm các chức năng:
 
 1. Tra cứu tính cách nghề nghiệp dựa vào Trắc nghiệm Holland.
 2. Tính điểm thực tế của thí sinh, gồm có: Điểm học bạ, điểm TN THPT, điểm TSA, HSA, V-ACT, V-SAT, SPT, H-SCA, ĐGTSĐH CAND, có kết hợp điểm IELTS, chứng chỉ tuyển sinh quốc tế và thành tích cá nhân.
@@ -17,7 +17,10 @@ Link [Cổng Đại học](https://congdaihoc.netlify.app/).
 
 - **Front-end**: _Bootstrap_, _Chart.js_.
 - **Cơ sở dữ liệu**: _Supabase_.
-- **Thu thập dữ liệu**: _Selenium_ (cào dữ liệu), _Pandas_ (xử lý dữ liệu), _sentence_transformers_ (nhận diện ngữ nghĩa và phân loại dữ liệu).
+- **Thu thập dữ liệu**:
+  - _Selenium_: Cào dữ liệu.
+  - _Pandas_: Xử lý dữ liệu.
+  - _sentence_transformer_: Nhận diện ngữ nghĩa và phân loại dữ liệu.
 
 # Quy trình xử lý dữ liệu
 
