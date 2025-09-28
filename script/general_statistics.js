@@ -1,34 +1,33 @@
 const topMethod = [
   {
+    id: "TN",
+    quan: "31628",
+  },
+  {
+    id: "HB",
+    quan: "24187",
+  },
+  {
+    id: "V-SAT",
+    quan: "3163",
+  },
+  {
+    id: "V-ACT",
+    quan: "2546",
+  },
+  {
     id: "Khác",
-    quan: "55048",
+    quan: "2248",
   },
   {
-    id: "SGU",
-    quan: "2532",
+    id: "SPT",
+    quan: "1707",
   },
   {
-    id: "VAA",
-    quan: "2444",
-  },
-  {
-    id: "UTC2",
-    quan: "2280",
-  },
-  {
-    id: "T ĐH Kinh tế - Kỹ thuật Công nghiệp",
-    quan: "1912",
-  },
-  {
-    id: "UTT",
-    quan: "1468",
-  },
-  {
-    id: "CTU",
-    quan: "1299",
+    id: "HSA",
+    quan: "1504",
   },
 ];
-
 const topSubjectGroup = [
   {
     id: "Khác",
