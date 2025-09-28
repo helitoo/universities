@@ -1,84 +1,22 @@
 const topMethod = [
   {
-    id: "TN",
-    quan: "23015",
-  },
-  {
-    id: "HB",
-    quan: "16146",
-  },
-  {
     id: "Khác",
-    quan: "4073",
-  },
-  {
-    id: "V-ACT",
-    quan: "2585",
-  },
-  {
-    id: "V-SAT",
-    quan: "2540",
-  },
-  {
-    id: "Kết hợp",
-    quan: "2449",
-  },
-  {
-    id: "HSA",
-    quan: "1250",
-  },
-];
-
-const topSubjectGroup = [
-  {
-    id: "Khác",
-    quan: "26303",
-  },
-  {
-    id: "Các kỳ thi riêng",
-    quan: "6023",
-  },
-  {
-    id: "Toán-Văn-Anh",
-    quan: "5539",
-  },
-  {
-    id: "Toán-Lý-Hóa",
-    quan: "4921",
-  },
-  {
-    id: "Toán-Lý-Anh",
-    quan: "4541",
-  },
-  {
-    id: "Toán-Hóa-Anh",
-    quan: "2804",
-  },
-  {
-    id: "Toán-Lý-Tin",
-    quan: "1927",
-  },
-];
-
-const topSchool = [
-  {
-    id: "Khác",
-    quan: "40302",
+    quan: "55048",
   },
   {
     id: "SGU",
     quan: "2532",
   },
   {
-    id: "HHK",
+    id: "VAA",
     quan: "2444",
   },
   {
-    id: "VAA",
+    id: "UTC2",
     quan: "2280",
   },
   {
-    id: "UNETI",
+    id: "T ĐH Kinh tế - Kỹ thuật Công nghiệp",
     quan: "1912",
   },
   {
@@ -86,8 +24,70 @@ const topSchool = [
     quan: "1468",
   },
   {
-    id: "UEF",
-    quan: "1120",
+    id: "CTU",
+    quan: "1299",
+  },
+];
+
+const topSubjectGroup = [
+  {
+    id: "Khác",
+    quan: "35115",
+  },
+  {
+    id: "Tổng hợp",
+    quan: "7184",
+  },
+  {
+    id: "Toán-Văn-Anh",
+    quan: "6983",
+  },
+  {
+    id: "Toán-Lý-Hóa",
+    quan: "6318",
+  },
+  {
+    id: "Toán-Lý-Anh",
+    quan: "5646",
+  },
+  {
+    id: "Toán-Hóa-Anh",
+    quan: "3322",
+  },
+  {
+    id: "Toán-Lý-Tin",
+    quan: "2415",
+  },
+];
+
+const topSchool = [
+  {
+    id: "Khác",
+    quan: "55048",
+  },
+  {
+    id: "SGU",
+    quan: "2532",
+  },
+  {
+    id: "VAA",
+    quan: "2444",
+  },
+  {
+    id: "UTC2",
+    quan: "2280",
+  },
+  {
+    id: "T ĐH Kinh tế - Kỹ thuật Công nghiệp",
+    quan: "1912",
+  },
+  {
+    id: "UTT",
+    quan: "1468",
+  },
+  {
+    id: "CTU",
+    quan: "1299",
   },
 ];
 
@@ -113,73 +113,81 @@ const topIndustry1 = [
 const topIndustry3 = [
   {
     id: "Khác",
-    quan: "48263",
+    quan: "60549",
   },
   {
     id: "Quản trị kinh doanh",
-    quan: "2418",
+    quan: "3065",
   },
   {
     id: "IT",
-    quan: "2357",
+    quan: "3011",
   },
   {
     id: "Kế toán",
-    quan: "1702",
+    quan: "2028",
   },
   {
     id: "Tài chính - Ngân hàng",
-    quan: "1557",
+    quan: "1825",
   },
   {
     id: "Ngôn ngữ Anh",
-    quan: "1374",
+    quan: "1740",
   },
   {
-    id: "Quản trị du lịch",
-    quan: "1307",
+    id: "Quản trị du lịch & lữ hành",
+    quan: "1572",
   },
 ];
 
 const topSchoolAvg = [
   {
+    id: "VUFA",
+    quan: 30.93,
+  },
+  {
     id: "HV Biên phòng",
     quan: 29.07,
   },
   {
-    id: "FTU2",
-    quan: 28,
-  },
-  {
-    id: "TĐH Chính trị",
+    id: "T ĐH Chính trị",
     quan: 27.97,
   },
   {
-    id: "UIT-VNU",
-    quan: 27.81,
-  },
-  {
-    id: "UED-VNU",
-    quan: 27.8,
-  },
-  {
-    id: "HV Kỹ thuật quân sự",
+    id: "MTA",
     quan: 27.75,
   },
   {
+    id: "UIT - VNU-HCM",
+    quan: 27.75,
+  },
+  {
+    id: "UED - VNU-HN",
+    quan: 27.74,
+  },
+  {
+    id: "FTU2",
+    quan: 27.68,
+  },
+  {
     id: "FTU",
-    quan: 27.5,
+    quan: 27.44,
   },
   {
-    id: "DN UED",
-    quan: 26.52,
+    id: "DAV",
+    quan: 26.97,
   },
   {
-    id: "HV Khoa học quân sự",
+    id: "HBT",
+    quan: 26.85,
+  },
+  {
+    id: "AJC",
     quan: 26.44,
   },
   {
-    id: "HUE",
+    id: "HUCE",
     quan: 26.31,
   },
   {
@@ -187,62 +195,43 @@ const topSchoolAvg = [
     quan: 26.27,
   },
   {
-    id: "AJC",
-    quan: 26.26875,
+    id: "SP2",
+    quan: 26.22,
   },
   {
     id: "NEU",
-    quan: 26.25,
-  },
-  {
-    id: "SP2",
-    quan: 26.22,
+    quan: 26.19,
   },
   {
     id: "HLU",
     quan: 26.165,
   },
   {
-    id: "UET-VNU",
-    quan: 26.15,
-  },
-  {
     id: "IUH",
     quan: 26.12,
   },
-  {
-    id: "USSH-VNUHCM",
-    quan: 26.1,
-  },
 ];
+
 const topIndustry1Avg = [
   {
     id: "Sư phạm",
     quan: 25.9,
   },
   {
-    id: "Toán",
-    quan: 23.875,
-  },
-  {
-    id: "Báo chí",
-    quan: 23.48,
-  },
-  {
     id: "An ninh - Quốc phòng",
-    quan: 23.05,
+    quan: 22.99,
   },
   {
-    id: "KHXH - NV",
-    quan: 23,
+    id: "Toán - Thống kê",
+    quan: 22.05,
   },
   {
-    id: "Pháp luật",
-    quan: 22.5,
+    id: "KHXH & NV",
+    quan: 22,
   },
   {
-    id: "Khác",
-    quan: 21.5,
+    id: "Báo chí & thông tin",
+    quan: 21.8,
   },
 ];
 
@@ -261,39 +250,23 @@ const topIndustry3Avg = [
   },
   {
     id: "SP Sử",
-    quan: 28.175,
-  },
-  {
-    id: "SP Tiếng Nhật",
-    quan: 28.1,
+    quan: 28.25,
   },
   {
     id: "SP Địa",
-    quan: 28.09,
+    quan: 28.08,
+  },
+  {
+    id: "SP T.Êđê",
+    quan: 28,
+  },
+  {
+    id: "SP T.XêĐăng",
+    quan: 28,
   },
   {
     id: "Nghệ thuật học",
     quan: 27.895,
-  },
-  {
-    id: "SP Tiếng Hàn",
-    quan: 27.81,
-  },
-  {
-    id: "Đồ họa",
-    quan: 27.8,
-  },
-  {
-    id: "Tình báo",
-    quan: 27.75,
-  },
-  {
-    id: "Chỉ huy kỹ thuật công binh",
-    quan: 27.75,
-  },
-  {
-    id: "Quân sự cơ sở",
-    quan: 27.75,
   },
 ];
 
