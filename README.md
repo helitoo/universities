@@ -1,30 +1,58 @@
-# Giới thiệu Cổng Đại học
+<h1 align="center">🎓 Cổng Đại học – The Universities' Gateway</h1>
 
-![](https://congdaihoc.netlify.app/assets/logo/logo_with_caption.png)
+<p align="center">
+  <img src="https://congdaihoc.netlify.app/assets/logo/logo_with_caption.png" width="420" alt="Cổng Đại học logo"/>
+</p>
 
-Link [Cổng Đại học](https://congdaihoc.netlify.app/).
+<p align="center">
+  <a href="https://congdaihoc.netlify.app/"><b>🌐 Visit Website</b></a> •
+  <a href="#-tech-stack">💻 Tech Stack</a> •
+  <a href="#-database-architecture">🗂 Database</a> •
+  <a href="#-data-processing-pipeline">📊 Data Pipeline</a> •
+  <a href="#-client-side-architecture">🧠 Client Logic</a> •
+  <a href="#-future-development">🚀 Future</a>
+</p>
 
-**Cổng Đại học** là bộ trang web hỗ trợ thí sinh tra cứu thông tin tuyển sinh. Gồm các chức năng:
+---
 
-1. Tra cứu tính cách nghề nghiệp dựa vào Trắc nghiệm Holland.
-2. Tính điểm thực tế của thí sinh, gồm có: Điểm học bạ, điểm TN THPT, điểm TSA, HSA, V-ACT, V-SAT, SPT, H-SCA, ĐGTSĐH CAND, có kết hợp điểm IELTS, chứng chỉ tuyển sinh quốc tế và thành tích cá nhân.
-3. Tra cứu các Ngành và Trường dựa trên kết quả tính toán mục 1 và 2.
-4. Vẽ biểu đồ so sánh phổ điểm.
-5. Quy đổi điểm giữa các kỳ thi dựa trên phân vị tương đương giữa các kỳ thi.
-6. Tra cứu các thông tin khác (văn bản đơn thuần).
+## 🌍 Overview
 
-**Công nghệ sử dụng:**
+**Cổng Đại học** (_“Universities’ Gate”_) is a web platform that helps Vietnamese students explore **university admissions**, **compare exams**, and **discover suitable majors**.
 
-- **Front-end**: _Bootstrap_, _Chart.js_.
-- **Cơ sở dữ liệu**: _Supabase_.
-- **Thu thập dữ liệu**:
-  - _Selenium_: Cào dữ liệu.
-  - _Pandas_: Xử lý dữ liệu.
-  - _sentence_transformer_: Nhận diện ngữ nghĩa và phân loại dữ liệu.
+It integrates a large-scale admissions dataset, smart score conversions, and a modern interface — making it a one-stop portal for college admission guidance in Vietnam.
 
-# Quy trình xử lý dữ liệu
+### ✨ Key Features
 
-## Cơ sở dữ liệu
+1. 🧭 **Career Personality Assessment** — Take the Holland Test and discover your personality type.
+2. 🧮 **Admission Score Calculation** — Combine GPA, exam results (TSA, HSA, V-ACT, SPT, H-SCA…), and international certificates (IELTS, SAT, etc.).
+3. 🎯 **University & Major Lookup** — Explore suitable universities and majors based on your score.
+4. 📊 **Exam Distribution Visualization** — Compare and analyze exam score distributions.
+5. 🔄 **Cross-Exam Score Conversion** — Convert scores using linear or percentile-based models.
+6. 📚 **Additional Information Lookup** — Access documents and policies from the Ministry of Education and Training.
+
+---
+
+## 💪 Strengths
+
+✅ Simple, user-friendly interface  
+📊 Huge, well-structured data warehouse  
+🧠 Versatile and diverse features supporting many use cases
+
+---
+
+## 🧰 Tech Stack
+
+| Layer               | Technologies                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Frontend**        | ![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?logo=bootstrap&logoColor=white) ![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?logo=chartdotjs&logoColor=white)                                                                                                                                                                                    |
+| **Database**        | ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?logo=supabase&logoColor=white)                                                                                                                                                                                                                                                                                 |
+| **Data Processing** | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white) ![Pandas](https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white) ![Selenium](https://img.shields.io/badge/Selenium-43B02A?logo=selenium&logoColor=white) ![Sentence Transformers](https://img.shields.io/badge/Transformers-FFD43B?logo=huggingface&logoColor=black) |
+
+---
+
+## 🗂 Database Architecture
+
+The system stores admission and exam data in **Supabase**, structured as follows:
 
 ```mermaid
 erDiagram
@@ -102,85 +130,90 @@ erDiagram
 
 industry_l1 ||--|{ industry_l2 : contains
 industry_l2 ||--|{ industry_l3 : contains
-
 score_industry ||--|| industry_l1 : participates
 score_industry ||--|| score : participates
-
 score }|--|| school : participates
 score }|--|| method : participates
 score }|--|| subject_group : participates
-
 subject_group }|--|{ subject : contains
 exam_distribution }|--|| subject : contains
 exam_distribution }|--|| method : contains
 ```
 
-Mỗi record của bảng `score` được gọi là một _đơn vị tuyển sinh_, gồm có 2 field quan trọng:
+📂 Explore database and data samples:
+👉 Google Drive Folder
 
-- `converted_score` là điểm quy đổi về thang 30, được dùng để so sánh với điểm của người dùng.
-- `score` là điểm chuẩn gốc.
+📊 Data Processing Pipeline
 
-Hệ thống ngành, nhóm ngành được chia thành 3 cấp độ:
+crawling_score.py – Crawl raw admission data from educational websites.
 
-1. `industry_l1`: Nhóm ngành.
-2. `industry_l2`: Nhóm ngành con.
-3. `industry_l3`: Ngành cụ thể / chuyên ngành.
+handle_converted.py – Linear score normalization.
 
-Các tổ hợp môn được lưu trong bảng `subject_group`, gồm có:
+get_converted_score.js – Percentile-based score conversion.
 
-1. 220 tổ hợp thông thường, đánh số từ `G001` đến `G220`. Trong `crawling_score.py` có hàm ánh xạ từ tên tổ hợp thông thường sang tổ hợp G-based.
-2. Tổ hợp `A000` tượng trưng cho các môn tổng hợp (V-ACT, HSA, TSA,...)
-3. Tổ hợp `A001` tượng trưng cho các khối có môn năng khiếu. Trong bảng `subject` ghi nhận 7 môn năng khiếu khác nhau nhưng chưa áp dụng vào hệ thống vì các môn năng khiếu được xét riêng biệt theo từng trường tổ chức thi năng khiếu, chưa tìm thấy điểm chung.
+generate_score_industry.py – Build relationships between score and industry_l3.
 
-Khi người dùng truy vấn dữ liệu thì không truy vấn trực tiếp bảng mà thông qua các **view** sau:
+Push to database – Upload cleaned and verified data to Supabase.
 
-1. `view_score`: Chứa các dữ liệu cần khi gợi ý ngành, như tên trường, tên ngành,... (bảng `score` không lưu các thông tin này).
-2. `view_admission_unit`: Chứa thông tin ghép lại từ bảng `score` và các industry.
-3. `view_top_mean`: Xếp hạng các trường theo trung vị điểm chuẩn, không bao gồm phương thức học bạ.
-4. `view_top_mean_by_industry3`: Xếp hạng các ngành theo trung vị điểm chuẩn, không bao gồm phương thức học bạ.
-5. `view_specific_ratio`: Xếp hạng mức độ trọng tâm của các trường theo lĩnh vực đào tạo, tức là trường nào dạy ngành nào là nhiều nhất.
+⚠️ Note
 
-## Quy trình thu thập dữ liệu điểm chuẩn và đưa vào cơ sở dữ liệu
+get_converted_score.js uses web modules for fast conversion but may introduce encoding inconsistencies → all data is finalized using Pandas.
 
-1. Lấy dữ liệu thô từ các trang web (`crawling_score.py`).
-2. Quy đổi điểm tuyến tính (`handle_converted.py`).
-3. Quy đổi theo phổ điểm (`get_converted_score.js`).
-4. Tạo bảng mối giữa bảng điểm (`score`) và bảng các ngành (`industry_l3`) (`generate_score_industry.py`).
-5. Đưa vào cơ sở dữ liệu.
+Percentile-based conversion aligns equivalent percentiles between two exams.
 
-Chú ý:
+The average margin of conversion error is ±2 points (on a 30-point scale) — acceptable for comparison.
 
-- File `get_converted_score.js` có ưu điểm tận dụng được các module chức năng của trang web, nhưng vô tình mã hóa sai lệch dữ liệu nên cần phải thông qua Pandas để xử lý sau cùng.
-- **Quy đổi tuyến tính** là nhân chia số điểm đó về thang điểm mong muốn.
-- **Quy đổi theo phổ điểm** là dựa trên phân vị tương ứng giữa 2 phổ điểm giữa 2 kỳ thi mà quy đổi. Độ sai số quy đổi của trang web là **2 (thang 30)**, nhưng không quan trọng vì toàn bộ trang web đều có sai số như nhau nên đều có ý nghĩa tìm kiếm ngành.
+🧮 Conversion Flow
 
-Flow quy đổi:
+Standardize method names: uttt, xtkh → thpt, thhb, dgsg, dghn, dgtd.
 
-1. Quy đổi các phương thức `uttt` và `xtkh` thành `thpt`, `thhb`, `dgsg`, `dghn`, `dgtd`, tùy theo từng đơn vị tuyển sinh.
-2. Quy đổi **tuyến tính** các phương thức về đúng thang điểm của nó (VD `thpt` -> thang 30, `dgsg` -> thang 1200).
-3. Quy đổi **theo phổ điểm** các kỳ thi riêng về thang 30.
+Apply linear conversion → unify score scales (thpt: 30, dgsg: 1200, etc.).
 
-## Các file xử lý phía client
+Apply percentile conversion → align all results on a 30-point scale.
 
-**Các file nâng cao UX**:
+🧠 Client-Side Architecture
+UX Enhancements
+File Description
+loading.js Displays loading screen
+toast.js Handles notification toasts
+Shared Models
+File Purpose
+code_model.js Stores user data
+html_code_consts.js HTML templates for UI components
+filter_model.js Encodes/decodes admission score results
+holland_model.js Encodes/decodes Holland test results
+query_model.js Stores query state and statistics
+score_convert_model.js Numeric helpers (rounding, conversion, sorting, averaging)
+Page-Specific Scripts
+HTML Page Script File Description
+compare.html compare.js Exam comparison and visualization
+convert.html convert.js Score conversion
+filter.html filter.js Admission filtering & major recommendation
+general_statistics.html general_statistics.js General stats display
+holland.html holland.js Holland personality test
+introduce_industry_school.html introduce.js Industry & school introduction page
+🧾 Data Views
+View Description
+view_score Combines essential data for major recommendation
+view_admission_unit Joins score and industry data
+view_top_mean Ranks universities by median score (excl. GPA-based)
+view_top_mean_by_industry3 Ranks majors by median score
+view_specific_ratio Measures school specialization level
+📚 References
 
-1. `loading.js`: Hiển thị, ẩn màn hình loading.
-2. `toast.js`: Hiển thị, ẩn toast.
+https://diemthi.tuyensinh247.com/
+– Main data source
 
-**Các file sau chứa các thuộc tính và phương thức xử lý chung, được import bởi các file khác:**
+Official publications from the Ministry of Education and Training (Vietnam)
 
-1. `code_model.js`: Lưu trữ thông tin user. Dùng bởi `filter.js` và `holland.js`.
-2. `html_code_consts.js`: Các HTML template selectpicker, box,...
-3. `filter_model.js`: Lưu trữ, encode, decode thông tin điểm số, thành tích,...
-4. `holland_model.js`: Lưu trữ, encode, decode thông tin bài trắc nghiệm tính cách Holland.
-5. `query_model.js`: Lưu trữ thông tin truy vấn, năm hiện tại, tính điểm xét tuyển, kết quả trắc nghiệm tính cách, truy vấn các ngành gợi ý, thống kê trung bình.
-6. `score_convert_model.js`: Xử lý chung về dữ liệu điểm, như làm tròn, quy đổi điểm, sắp xếp, tính trung bình,...
+Personal research and experience
 
-**Các file xử lý cụ thể đối với từng HTML page**:
+🚀 Future Development
 
-1. `compare.js`: `compare.html`.
-2. `convert.js`: `convert.html`.
-3. `filter.js`: `filter.html`.
-4. `general_statistics.js`: `general_statistics.html`.
-5. `holland.js`: `holland.html`.
-6. `introduce.js`: `introduce_industry_school.html`.
+🤖 AI-based major recommendation (using semantic similarity)
+
+📈 Predictive modeling for next-year cutoffs
+
+🌍 English and international version for overseas students
+
+🧩 Public API for education and research data access
